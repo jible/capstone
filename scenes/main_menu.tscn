@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7p3e5u8l5r52"]
+[gd_scene load_steps=3 format=3 uid="uid://b7p3e5u8l5r52"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_q2ruy"]
+[ext_resource type="PackedScene" uid="uid://cxhhke25i6fup" path="res://scenes/limbo.tscn" id="2_bpofg"]
 
-[node name="main-menu" type="Node2D"]
+[node name="Main Menu" type="Node2D"]
 script = ExtResource("1_q2ruy")
+scene_to_change = ExtResource("2_bpofg")
