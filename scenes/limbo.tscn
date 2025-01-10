@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://cxhhke25i6fup"]
+[gd_scene load_steps=2 format=3 uid="uid://cxhhke25i6fup"]
+
+[ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="1_bd2xr"]
 
 [node name="Limbo" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(826, 387)
+texture = ExtResource("1_bd2xr")
