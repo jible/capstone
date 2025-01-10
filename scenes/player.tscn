@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://htmrbxwes0qe"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_7g2iv"]
+[ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="2_7an2t"]
+[ext_resource type="Script" path="res://scripts/player/state_machine.gd" id="3_5ueii"]
+[ext_resource type="Script" path="res://scripts/player/player_idle.gd" id="4_vol82"]
+[ext_resource type="Script" path="res://scripts/player/player_walk.gd" id="5_xarkn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1gp0w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6wcku"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7an2t")
+}],
+"loop": true,
+"name": &"place_holder_anim",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sm")]
+script = ExtResource("1_7g2iv")
+max_speed = 500
+acceleration = 40
+drag_coefficient = 0.1
+sm = NodePath("StateMachine")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1gp0w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6wcku")
+animation = &"place_holder_anim"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_5ueii")
+default_state = "idle"
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_vol82")
+
+[node name="walk" type="Node" parent="StateMachine"]
+script = ExtResource("5_xarkn")
