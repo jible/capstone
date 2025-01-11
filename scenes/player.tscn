@@ -48,7 +48,7 @@ max_speed = 100
 
 [node name="Walk" type="Node" parent="Action State Machine" node_paths=PackedStringArray("player")]
 script = ExtResource("5_xarkn")
-max_speed = 250
+max_speed = 100
 acceleration = 25
 player = NodePath("../..")
 
