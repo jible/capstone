@@ -1,12 +1,8 @@
-extends Node2D
+extends Control
 
-func _ready() -> void:
-	# Prevent process interruption during scene transition.
-	call_deferred("start_game")
+## The scene to transition to when the player hits "Start"
+@export var scene_to_change : PackedScene
 
-## Starts the player in the first level, Limbo.
-func start_game():
-	get_tree().change_scene_to_file("res://scenes/limbo.tscn")
-
-func _process(delta: float) -> void:
-	pass
+func _on_play_button_button_up() -> void:
+	## Switch to the next scene without interuppting a process
+	Globals.change_scene(scene_to_change)
