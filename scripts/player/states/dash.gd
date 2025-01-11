@@ -1,9 +1,7 @@
 extends Node
 
-
-	
-func update_state(delta):
-	pass
+@onready var player = get_parent().player
+# idk yet
 func enter_state():
 	pass
 func exit_state():

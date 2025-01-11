@@ -1,44 +1,79 @@
-[gd_scene load_steps=8 format=3 uid="uid://htmrbxwes0qe"]
+[gd_scene load_steps=14 format=3 uid="uid://htmrbxwes0qe"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_7g2iv"]
-[ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="2_7an2t"]
-[ext_resource type="Script" path="res://scripts/player/state_machine.gd" id="3_5ueii"]
+[ext_resource type="Texture2D" uid="uid://dslr3ip0cnxp0" path="res://assets/sprites/playerV1.png" id="2_disy8"]
+[ext_resource type="Script" path="res://scripts/mobility_state_machine.gd" id="3_g4mpv"]
+[ext_resource type="Script" path="res://scripts/player/states/default.gd" id="4_7vxn0"]
 [ext_resource type="Script" path="res://scripts/player/player_idle.gd" id="4_vol82"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="5_csc8m"]
+[ext_resource type="Script" path="res://scripts/player/states/immobilized.gd" id="5_lshwf"]
 [ext_resource type="Script" path="res://scripts/player/player_walk.gd" id="5_xarkn"]
+[ext_resource type="Script" path="res://scripts/player/states/slowed.gd" id="6_cpvwx"]
+[ext_resource type="Script" path="res://scripts/player/states/dash.gd" id="7_l260a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1gp0w"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6wcku"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp1h0"]
+atlas = ExtResource("2_disy8")
+region = Rect2(0, 0, 20, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7tmq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7an2t")
+"texture": SubResource("AtlasTexture_gp1h0")
 }],
 "loop": true,
-"name": &"place_holder_anim",
+"name": &"player_idle",
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sm")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("action_sm", "mobility_sm")]
 script = ExtResource("1_7g2iv")
-max_speed = 500
-acceleration = 40
-drag_coefficient = 0.1
-sm = NodePath("StateMachine")
+max_speed = 1200
+acceleration = 50
+drag_coefficient = 0.08
+action_sm = NodePath("Action State Machine")
+mobility_sm = NodePath("Mobility State Machine")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1gp0w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_6wcku")
-animation = &"place_holder_anim"
+sprite_frames = SubResource("SpriteFrames_p7tmq")
+animation = &"player_idle"
 
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("3_5ueii")
-default_state = "idle"
+[node name="Mobility State Machine" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_g4mpv")
+player = NodePath("..")
+default_state = "Default"
 
-[node name="idle" type="Node" parent="StateMachine"]
+[node name="Default" type="Node" parent="Mobility State Machine"]
+script = ExtResource("4_7vxn0")
+
+[node name="Immobilized" type="Node" parent="Mobility State Machine"]
+script = ExtResource("5_lshwf")
+
+[node name="Slowed" type="Node" parent="Mobility State Machine"]
+script = ExtResource("6_cpvwx")
+
+[node name="Dash" type="Node" parent="Mobility State Machine"]
+script = ExtResource("7_l260a")
+
+[node name="Action State Machine" type="Node" parent="."]
+script = ExtResource("5_csc8m")
+default_state = "Idle"
+
+[node name="Idle" type="Node" parent="Action State Machine"]
 script = ExtResource("4_vol82")
 
-[node name="walk" type="Node" parent="StateMachine"]
+[node name="Walk" type="Node" parent="Action State Machine"]
 script = ExtResource("5_xarkn")
+
+[node name="Run" type="Node" parent="Action State Machine"]
+
+[node name="Attack" type="Node" parent="Action State Machine"]
+
+[node name="Interact" type="Node" parent="Action State Machine"]
+
+[node name="Hurt" type="Node" parent="Action State Machine"]

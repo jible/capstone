@@ -1,18 +1,28 @@
 extends CharacterBody2D
-## The player's max speed
+
+
 @export var max_speed: int
 @export var acceleration: int
-@onready var input_vector = Vector2.ZERO
 @export var drag_coefficient: float
-@onready var drag:float  = 1.0 - drag_coefficient
-## Reference to the state machine from the scene hierarchy 
-@export var sm: Node
 
+@onready var drag:float  = 1.0 - drag_coefficient
+
+var input_manager = "res://scripts/player/input_manager.gd"
+var speed_mult = 1;
+
+@export var action_sm: Node
+@export var mobility_sm: Node
 
 func _physics_process(delta):
-	print(drag,"and ",  drag_coefficient)
+	var input_vector = get_input_vector()
+	action_sm.update_state(delta)
+	mobility_sm.update_velocity(input_vector)
 	
-	input_vector = Vector2.ZERO
+	move_and_slide()
+
+
+func get_input_vector():
+	var input_vector = Vector2.ZERO
 	if Input.is_action_pressed("up"):
 		input_vector.y -= 1
 	if Input.is_action_pressed("down"):
@@ -21,14 +31,6 @@ func _physics_process(delta):
 		input_vector.x -= 1
 	if Input.is_action_pressed("right"):
 		input_vector.x += 1
-	
 	input_vector = input_vector.normalized()
+	return input_vector
 	
-	velocity += input_vector * acceleration
-	velocity *= drag
-	velocity.limit_length(max_speed)
-	
-	sm.update_state(delta)
-
-	
-	move_and_slide()

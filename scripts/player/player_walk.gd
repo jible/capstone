@@ -3,8 +3,8 @@ extends Node
 
 	
 func update_state(delta):
-	print("update")
+	pass
 func enter_state():
-	print("enter")
+	pass
 func exit_state():
-	print("exit")
+	pass
