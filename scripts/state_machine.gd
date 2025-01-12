@@ -20,6 +20,10 @@ func _ready():
 		state_objects[child.name] = child
 	enter_state(current_state)
 	
+	
+func _physics_process(delta):
+		update_state(delta)
+	
 func change_state(new_state):
 	if (new_state != current_state && new_state in state_names):
 		if (current_state in state_names):
