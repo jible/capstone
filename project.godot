@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-InputManager="*res://scripts/input_manager.gd"
+InputManager="*res://scripts/globals/input_manager.gd"
 
 [display]
 
