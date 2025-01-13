@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://ipa3m42xtps"]
+
+[ext_resource type="Texture2D" uid="uid://dslr3ip0cnxp0" path="res://assets/sprites/playerV1.png" id="1_ekvuy"]
+[ext_resource type="Script" path="res://scripts/jackson_ui_testing.gd" id="1_ndg1h"]
+[ext_resource type="Texture2D" uid="uid://bxevwqt0bicpt" path="res://assets/sprites/sexyIndiDevLogo.png" id="2_cbqub"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sjnk"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="JacksonUiTesting" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ndg1h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.571068, 0.508893, 1)
+
+[node name="PlayerInfo" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_right = 227.0
+offset_bottom = 92.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerInfo"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerInfo/MarginContainer"]
+layout_mode = 2
+
+[node name="player_img" type="TextureRect" parent="PlayerInfo/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_ekvuy")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerInfo/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/fill = SubResource("StyleBoxFlat_8sjnk")
+step = 1.0
+value = 25.0
+
+[node name="player_name" type="Label" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "player name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("2_cbqub")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Coins: ?"
+
+[node name="Minimap" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -145.0
+offset_bottom = 145.0
+grow_horizontal = 0
