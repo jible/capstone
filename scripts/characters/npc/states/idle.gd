@@ -7,7 +7,7 @@ extends Node
 
 
 func update_state(delta):
-	print("I run every frame when this is the current frame")
+	#print("I run every frame when this is the current state")
 	pass
 func enter_state():
 	print ("I run once when the state machine changes to this state")

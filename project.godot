@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 InputManager="*res://scripts/globals/input_manager.gd"
+Globals="*res://scripts/globals/globals.gd"
 
 [display]
 
@@ -27,6 +28,10 @@ window/size/viewport_width=800
 window/size/viewport_height=800
 window/size/initial_position_type=0
 window/stretch/mode="viewport"
+
+[global_group]
+
+Player=""
 
 [input]
 

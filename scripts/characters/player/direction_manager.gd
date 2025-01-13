@@ -22,7 +22,7 @@ func update_direction():
 	
 	if look_vector != new_look_vector:
 		look_vector = new_look_vector
-		print("The player needs to turn!")
+		#print("The player needs to turn!")
 
 	update_visualizer()
 

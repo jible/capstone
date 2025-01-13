@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://htmrbxwes0qe"]
+[gd_scene load_steps=14 format=3 uid="uid://htmrbxwes0qe"]
 
 [ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_jucsl"]
 [ext_resource type="Texture2D" uid="uid://dslr3ip0cnxp0" path="res://assets/sprites/playerV1.png" id="2_wtglj"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://scripts/characters/player/states/run.gd" id="6_jxxwo"]
 [ext_resource type="Script" path="res://scripts/characters/player/mobility_manager.gd" id="7_hmtc4"]
 [ext_resource type="Script" path="res://scripts/characters/player/direction_manager.gd" id="8_7g4l7"]
+[ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/health_manager.tscn" id="9_cl3ic"]
+[ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/hurtbox.tscn" id="10_fcu5q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1gp0w"]
 
@@ -26,7 +28,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_jucsl")
 drag_coefficient = 0.08
 
@@ -74,3 +78,7 @@ player = NodePath("..")
 
 [node name="Line2D" type="Line2D" parent="Direction Manager"]
 default_color = Color(0.815937, 0.0486791, 6.73831e-07, 1)
+
+[node name="Health Manager" parent="." instance=ExtResource("9_cl3ic")]
+
+[node name="Hurtbox" parent="." instance=ExtResource("10_fcu5q")]

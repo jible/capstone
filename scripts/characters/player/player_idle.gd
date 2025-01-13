@@ -3,8 +3,8 @@ extends Node
 
 @export var player:CharacterBody2D
 var mobility = "Default"
-@export var max_speed: int
-@export var acceleration: int
+@export var max_speed: int= -1
+@export var acceleration: int = -1
 @onready var sm = get_parent()
 
 func update_state(delta):

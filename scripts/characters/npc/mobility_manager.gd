@@ -15,10 +15,10 @@ func _physics_process(delta):
 func update_velocity(direction):
 	var current_state = action_state_manager.get_current_state_node()
 	var acceleration = current_state.acceleration
-	if !acceleration:
+	if acceleration < 0:
 		acceleration = default_acceleration 
 	var max_speed = current_state.max_speed
-	if !max_speed:
+	if max_speed < 0:
 		max_speed = default_max_speed 
 	
 	character.velocity += direction * acceleration

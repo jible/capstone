@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cb1xtv32k0tgu"]
+[gd_scene load_steps=9 format=3 uid="uid://cb1xtv32k0tgu"]
 
 [ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="1_ix4a0"]
 [ext_resource type="Script" path="res://scripts/characters/npc/npc.gd" id="1_jcstr"]
 [ext_resource type="Script" path="res://scripts/characters/state_machine.gd" id="3_lctpt"]
 [ext_resource type="Script" path="res://scripts/characters/npc/states/idle.gd" id="4_ron46"]
 [ext_resource type="Script" path="res://scripts/characters/npc/mobility_manager.gd" id="4_vqgsf"]
+[ext_resource type="PackedScene" uid="uid://buwbtxan5ao3v" path="res://scenes/prefabs/hitbox.tscn" id="6_t1esp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0fv0"]
 
@@ -20,6 +21,8 @@ animations = [{
 }]
 
 [node name="NPC Base Class" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_jcstr")
 drag_coefficient = 0.08
 
@@ -38,9 +41,10 @@ default_state = "Idle"
 
 [node name="Idle" type="Node" parent="Action State Machine"]
 script = ExtResource("4_ron46")
-max_speed = 10
-acceleration = 800
+max_speed = 100
 
 [node name="Mobility Manager" type="Node" parent="." node_paths=PackedStringArray("action_state_manager")]
 script = ExtResource("4_vqgsf")
 action_state_manager = NodePath("../Action State Machine")
+
+[node name="Hitbox" parent="." instance=ExtResource("6_t1esp")]
