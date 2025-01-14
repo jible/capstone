@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi8b22rlrb0ho"
-path="res://.godot/imported/limbo-cobble-temp-Sheet.png-f0c656598a8eb421996366df31e0ee54.ctex"
+uid="uid://bjjcihfvhanj5"
+path="res://.godot/imported/sword.png-0795e672da260389e06ed26faa9351bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/environment/tiles/limbo-cobble-temp-Sheet.png"
-dest_files=["res://.godot/imported/limbo-cobble-temp-Sheet.png-f0c656598a8eb421996366df31e0ee54.ctex"]
+source_file="res://assets/sprites/sword.png"
+dest_files=["res://.godot/imported/sword.png-0795e672da260389e06ed26faa9351bc.ctex"]
 
 [params]
 
