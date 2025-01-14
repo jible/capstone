@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://cb1xtv32k0tgu"]
+
+[ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="1_ix4a0"]
+[ext_resource type="Script" path="res://scenes/prefabs/npcs/attributes.gd" id="2_2skck"]
+[ext_resource type="Script" path="res://scripts/characters/state_machine.gd" id="3_lctpt"]
+[ext_resource type="Script" path="res://scripts/characters/npc/states/idle.gd" id="4_ron46"]
+[ext_resource type="Script" path="res://scripts/characters/npc/mobility_manager.gd" id="4_vqgsf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s0fv0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ypm1u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ix4a0")
+}],
+"loop": true,
+"name": &"place_holder",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s0fv0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.13687e-13, 5.96046e-08)
+scale = Vector2(0.148438, 0.148437)
+sprite_frames = SubResource("SpriteFrames_ypm1u")
+animation = &"place_holder"
+
+[node name="Attributes" type="Node" parent="."]
+script = ExtResource("2_2skck")
+
+[node name="Action State Machine" type="Node" parent="."]
+script = ExtResource("3_lctpt")
+
+[node name="Idle" type="Node" parent="Action State Machine"]
+script = ExtResource("4_ron46")
+
+[node name="Mobility Manager" type="Node" parent="."]
+script = ExtResource("4_vqgsf")
