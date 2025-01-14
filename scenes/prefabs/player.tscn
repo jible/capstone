@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=3 uid="uid://htmrbxwes0qe"]
+
+[ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_jucsl"]
+[ext_resource type="Texture2D" uid="uid://dslr3ip0cnxp0" path="res://assets/sprites/playerV1.png" id="2_wtglj"]
+[ext_resource type="Script" path="res://scripts/characters/state_machine.gd" id="3_87vuu"]
+[ext_resource type="Script" path="res://scripts/characters/player/player_idle.gd" id="4_r0sgn"]
+[ext_resource type="Script" path="res://scripts/characters/player/player_walk.gd" id="5_7mdyy"]
+[ext_resource type="Script" path="res://scripts/characters/player/states/run.gd" id="6_jxxwo"]
+[ext_resource type="Script" path="res://scripts/characters/player/mobility_manager.gd" id="7_hmtc4"]
+[ext_resource type="Script" path="res://scripts/characters/player/direction_manager.gd" id="8_7g4l7"]
+[ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/health_manager.tscn" id="9_cl3ic"]
+[ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/hurtbox.tscn" id="10_fcu5q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1gp0w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp1h0"]
+atlas = ExtResource("2_wtglj")
+region = Rect2(0, 0, 20, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7tmq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp1h0")
+}],
+"loop": true,
+"name": &"player_idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_jucsl")
+drag_coefficient = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1gp0w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p7tmq")
+animation = &"player_idle"
+
+[node name="Action State Machine" type="Node" parent="."]
+script = ExtResource("3_87vuu")
+default_state = "Idle"
+
+[node name="Idle" type="Node" parent="Action State Machine" node_paths=PackedStringArray("player")]
+script = ExtResource("4_r0sgn")
+player = NodePath("../..")
+max_speed = 100
+
+[node name="Walk" type="Node" parent="Action State Machine" node_paths=PackedStringArray("player")]
+script = ExtResource("5_7mdyy")
+max_speed = 100
+acceleration = 25
+player = NodePath("../..")
+
+[node name="Run" type="Node" parent="Action State Machine" node_paths=PackedStringArray("player")]
+script = ExtResource("6_jxxwo")
+max_speed = 1000
+acceleration = 100
+player = NodePath("../..")
+
+[node name="Attack" type="Node" parent="Action State Machine"]
+
+[node name="Interact" type="Node" parent="Action State Machine"]
+
+[node name="Hurt" type="Node" parent="Action State Machine"]
+
+[node name="Mobility Manager" type="Node" parent="." node_paths=PackedStringArray("action_state_manager")]
+script = ExtResource("7_hmtc4")
+action_state_manager = NodePath("../Action State Machine")
+
+[node name="Direction Manager" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("8_7g4l7")
+player = NodePath("..")
+
+[node name="Line2D" type="Line2D" parent="Direction Manager"]
+default_color = Color(0.815937, 0.0486791, 6.73831e-07, 1)
+
+[node name="Health Manager" parent="." instance=ExtResource("9_cl3ic")]
+
+[node name="Hurtbox" parent="." instance=ExtResource("10_fcu5q")]
