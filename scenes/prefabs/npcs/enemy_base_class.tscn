@@ -1,46 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://f64x0i4qnpsf"]
+[gd_scene load_steps=2 format=3 uid="uid://7i5gys4wtr4q"]
 
-[ext_resource type="Script" path="res://scripts/characters/npc/npc.gd" id="1_56ial"]
-[ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="2_fusa0"]
-[ext_resource type="Script" path="res://scripts/characters/state_machine.gd" id="3_i47h4"]
-[ext_resource type="Script" path="res://scripts/characters/npc/states/idle.gd" id="4_80trc"]
-[ext_resource type="Script" path="res://scripts/characters/npc/mobility_manager.gd" id="5_uhbnr"]
+[ext_resource type="PackedScene" uid="uid://cb1xtv32k0tgu" path="res://scenes/prefabs/npcs/npc_base_class.tscn" id="1_j0m16"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s0fv0"]
+[node name="Enemy Base Class" type="Node2D"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ypm1u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_fusa0")
-}],
-"loop": true,
-"name": &"place_holder",
-"speed": 5.0
-}]
+[node name="NPC Base Class" parent="." instance=ExtResource("1_j0m16")]
 
-[node name="Enemy Base Class" type="CharacterBody2D"]
-script = ExtResource("1_56ial")
-drag_coefficient = 0.08
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_s0fv0")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.13687e-13, 5.96046e-08)
-scale = Vector2(0.148438, 0.148437)
-sprite_frames = SubResource("SpriteFrames_ypm1u")
-animation = &"place_holder"
-
-[node name="Action State Machine" type="Node" parent="."]
-script = ExtResource("3_i47h4")
-default_state = "Idle"
-
-[node name="Idle" type="Node" parent="Action State Machine"]
-script = ExtResource("4_80trc")
-max_speed = 10
-acceleration = 800
-
-[node name="Mobility Manager" type="Node" parent="." node_paths=PackedStringArray("action_state_manager")]
-script = ExtResource("5_uhbnr")
-action_state_manager = NodePath("../Action State Machine")
+[editable path="NPC Base Class"]

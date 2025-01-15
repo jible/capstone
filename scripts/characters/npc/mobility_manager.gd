@@ -2,18 +2,18 @@ extends Node
 
 
 @onready var character = get_parent()
-@export var action_state_manager: Node
+@export var state_machine: Node
 
-var default_max_speed = 1000
-var default_acceleration = 100 
+@export var default_max_speed = 1000
+@export var default_acceleration = 100 
+var input_direction = Vector2.ZERO
 
 func _physics_process(delta):
-	var direction = InputManager.get_move_vector()
-	update_velocity(direction)
+	update_velocity(input_direction)
 	
 	
 func update_velocity(direction):
-	var current_state = action_state_manager.get_current_state_node()
+	var current_state = state_machine.get_current_state_node()
 	var acceleration = current_state.acceleration
 	if acceleration < 0:
 		acceleration = default_acceleration 

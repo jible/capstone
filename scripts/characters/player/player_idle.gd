@@ -10,7 +10,6 @@ var mobility = "Default"
 func update_state(delta):
 	if player.velocity.length() > 5:
 		sm.change_state("Walk")
-		
 	pass
 func enter_state():
 	pass

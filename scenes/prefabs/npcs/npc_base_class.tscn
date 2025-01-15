@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://cb1xtv32k0tgu"]
+
+[ext_resource type="Script" path="res://scripts/characters/npc/npc.gd" id="1_eese4"]
+[ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="2_c0but"]
+[ext_resource type="Script" path="res://scripts/characters/state_machine.gd" id="3_5mdrl"]
+[ext_resource type="Script" path="res://scripts/characters/npc/states/idle.gd" id="4_fy243"]
+[ext_resource type="PackedScene" uid="uid://c4nga5lkeidv0" path="res://scenes/prefabs/mobility_manager.tscn" id="5_lr221"]
+[ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/hurtbox.tscn" id="6_t1n01"]
+[ext_resource type="PackedScene" uid="uid://buwbtxan5ao3v" path="res://scenes/prefabs/hitbox.tscn" id="7_kcb0k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s0fv0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ypm1u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c0but")
+}],
+"loop": true,
+"name": &"place_holder",
+"speed": 5.0
+}]
+
+[node name="NPC Base Class" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_eese4")
+drag_coefficient = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s0fv0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.13687e-13, 5.96046e-08)
+scale = Vector2(0.148438, 0.148437)
+sprite_frames = SubResource("SpriteFrames_ypm1u")
+animation = &"place_holder"
+
+[node name="Action State Machine" type="Node" parent="."]
+script = ExtResource("3_5mdrl")
+default_state = "Idle"
+
+[node name="Idle" type="Node" parent="Action State Machine"]
+script = ExtResource("4_fy243")
+max_speed = 100
+
+[node name="Mobility Manager" parent="." instance=ExtResource("5_lr221")]
+
+[node name="Hurtbox" parent="." instance=ExtResource("6_t1n01")]
+collision_mask = 0
+
+[node name="Hitbox" parent="." instance=ExtResource("7_kcb0k")]
+collision_layer = 0

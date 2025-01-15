@@ -1,3 +1,4 @@
+class_name StateMachine
 extends Node
 
 # src = https://github.com/jible/BallGame/blob/main/Scripts/PlayerScripts/playerStates.gd
@@ -7,6 +8,7 @@ extends Node
 var state_names = []
 var state_objects = {}
 var current_state: String
+@export var mobility_manager: Node
 
 ## This is the default state for the state machine
 @export var default_state: String = ""
@@ -59,7 +61,7 @@ func exit_state(old_state):
 # copy and paste this code into a script on a new node as a child of this node
 # name the node what you want the state to be changed
 
-#extends Node
+#extends State
 
 #@export var character:CharacterBody2D
 #@export var max_speed: int
