@@ -5,8 +5,11 @@ extends Node
 @export var max_speed: int
 @export var acceleration: int
 @onready var sm = get_parent()
-@onready var player = Globals.player
 @onready var mobility_manager = get_parent().mobility_manager
+var player: CharacterBody2D
+
+func _ready():
+	player = get_tree().get_nodes_in_group("Player")[0].character
 
 func update_state(delta):
 	if (player):

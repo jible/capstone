@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2jpbgwqgoe7f"]
+
+[ext_resource type="PackedScene" uid="uid://cylcc5c22kqcr" path="res://scenes/prefabs/npcs/npc_base_class.tscn" id="1_f6ykt"]
+[ext_resource type="Script" path="res://scripts/characters/npc/enemy/npc.gd" id="1_nat8k"]
+[ext_resource type="Script" path="res://scripts/characters/npc/states/idle.gd" id="2_7mksa"]
+[ext_resource type="Script" path="res://scripts/characters/npc/states/pursuit.gd" id="3_lslmi"]
+[ext_resource type="PackedScene" uid="uid://buwbtxan5ao3v" path="res://scenes/prefabs/hitbox.tscn" id="4_hatxp"]
+
+[node name="Enemy Base Class" type="Node2D"]
+script = ExtResource("1_nat8k")
+
+[node name="NPC Base Class" parent="." instance=ExtResource("1_f6ykt")]
+
+[node name="State Machine" parent="NPC Base Class/Character Base Class" index="3"]
+default_state = "Pursuit"
+
+[node name="Idle" type="Node" parent="NPC Base Class/Character Base Class/State Machine" index="1"]
+script = ExtResource("2_7mksa")
+
+[node name="Pursuit" type="Node" parent="NPC Base Class/Character Base Class/State Machine" index="2" node_paths=PackedStringArray("me")]
+script = ExtResource("3_lslmi")
+me = NodePath("../..")
+max_speed = 100
+acceleration = 10
+
+[node name="Hitbox" parent="NPC Base Class" instance=ExtResource("4_hatxp")]
+
+[editable path="NPC Base Class"]
+[editable path="NPC Base Class/Character Base Class"]
+[editable path="NPC Base Class/Character Base Class/State Machine"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://mlpvk54e66yy"]
+[gd_scene load_steps=9 format=3 uid="uid://mlpvk54e66yy"]
 
 [ext_resource type="Script" path="res://scripts/characters/character_base_class.gd" id="1_bvyyk"]
 [ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="2_c3v3p"]
 [ext_resource type="PackedScene" uid="uid://c4nga5lkeidv0" path="res://scenes/prefabs/mobility_manager.tscn" id="3_4a5vr"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/state_machine.tscn" id="4_54gc8"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/health_manager.tscn" id="5_o5qaf"]
+[ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/hurtbox.tscn" id="6_pvl5o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_01hxs"]
 animations = [{
@@ -20,6 +21,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6gbn"]
 
 [node name="Character Base Class" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_bvyyk")
 drag_coefficient = 0.08
 
@@ -36,5 +39,7 @@ state_machine = NodePath("../State Machine")
 mobility_manager = NodePath("../Mobility Manager")
 
 [node name="Health Manager" parent="." instance=ExtResource("5_o5qaf")]
+
+[node name="Hurtbox" parent="." instance=ExtResource("6_pvl5o")]
 
 [editable path="State Machine"]
