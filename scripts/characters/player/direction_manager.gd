@@ -7,6 +7,7 @@ var look_vector: Vector2
 var visualizer_length = 100
 
 
+
 func _physics_process(delta):
 	update_direction()
 

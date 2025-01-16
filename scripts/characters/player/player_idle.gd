@@ -1,4 +1,4 @@
-extends Node
+extends SMState
 
 
 @export var player:CharacterBody2D

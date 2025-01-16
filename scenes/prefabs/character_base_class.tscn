@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://mlpvk54e66yy"]
+[gd_scene load_steps=8 format=3 uid="uid://mlpvk54e66yy"]
 
 [ext_resource type="Script" path="res://scripts/characters/character_base_class.gd" id="1_bvyyk"]
 [ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="2_c3v3p"]
@@ -7,17 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/health_manager.tscn" id="5_o5qaf"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/hurtbox.tscn" id="6_pvl5o"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_01hxs"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_c3v3p")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6gbn"]
 
 [node name="Character Base Class" type="CharacterBody2D"]
@@ -25,9 +14,6 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_bvyyk")
 drag_coefficient = 0.08
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_01hxs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_d6gbn")
@@ -41,5 +27,8 @@ mobility_manager = NodePath("../Mobility Manager")
 [node name="Health Manager" parent="." instance=ExtResource("5_o5qaf")]
 
 [node name="Hurtbox" parent="." instance=ExtResource("6_pvl5o")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_c3v3p")
 
 [editable path="State Machine"]

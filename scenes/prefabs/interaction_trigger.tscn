@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6f1ccl1pfhcx"]
+
+[ext_resource type="Script" path="res://scripts/characters/interaction_trigger.gd" id="1_1a68u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uf3l"]
+size = Vector2(20, 37)
+
+[node name="Interaction Trigger" type="Area2D"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_1a68u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2uf3l")
