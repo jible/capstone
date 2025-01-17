@@ -1,11 +1,16 @@
 extends SMState
 
-
+# Exports
 @export var max_speed: int
 @export var acceleration: int
-@onready var sm = get_parent()
 @export var lock_direction = false
+@export var animation_name: String
 
+# On readys
+@onready var sm = get_parent()
+
+
+# Main Functions
 func update_state(delta):
 	print("I run every frame when this is the current frame")
 	pass

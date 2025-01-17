@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://x6a7bv3qxp2r"]
 
-[ext_resource type="Script" path="res://scenes/prefabs/player.gd" id="1_2hxqt"]
-[ext_resource type="PackedScene" uid="uid://mlpvk54e66yy" path="res://scenes/prefabs/character_base_class.tscn" id="2_2ut8y"]
-[ext_resource type="Script" path="res://scripts/characters/player/player_idle.gd" id="4_r0sgn"]
-[ext_resource type="Script" path="res://scripts/characters/player/player_walk.gd" id="5_7mdyy"]
-[ext_resource type="PackedScene" uid="uid://buwbtxan5ao3v" path="res://scenes/prefabs/hitbox.tscn" id="6_arj65"]
+[ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_2hxqt"]
+[ext_resource type="PackedScene" uid="uid://mlpvk54e66yy" path="res://scenes/prefabs/character utils/character_base_class.tscn" id="2_2ut8y"]
+[ext_resource type="Script" path="res://scripts/characters/player/states/idle.gd" id="4_r0sgn"]
+[ext_resource type="Script" path="res://scripts/characters/player/states/walk.gd" id="5_7mdyy"]
+[ext_resource type="PackedScene" uid="uid://buwbtxan5ao3v" path="res://scenes/prefabs/character utils/hitbox.tscn" id="6_arj65"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/run.gd" id="6_jxxwo"]
-[ext_resource type="Script" path="res://scripts/characters/player/states/node.gd" id="6_rq4oq"]
+[ext_resource type="Script" path="res://scripts/characters/player/states/attack.gd" id="6_rq4oq"]
 [ext_resource type="Texture2D" uid="uid://bivs6m68fn726" path="res://assets/sprites/playerV2.png" id="7_0quf5"]
 [ext_resource type="Script" path="res://scripts/characters/player/direction_manager.gd" id="8_7g4l7"]
 [ext_resource type="Script" path="res://scripts/characters/player/sprite_manager.gd" id="8_ctai6"]
@@ -51,10 +51,11 @@ lock_direction = true
 collision_mask = 4
 
 [node name="Sprite2D" parent="Character Base Class" index="5" node_paths=PackedStringArray("sm")]
-position = Vector2(-2.38419e-07, -9.53674e-07)
-scale = Vector2(15.5, 15.5)
+position = Vector2(6.5, -3.49999)
+scale = Vector2(4, 4)
 texture = ExtResource("7_0quf5")
 region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
 script = ExtResource("8_ctai6")
 sm = NodePath("../State Machine")
 
@@ -65,9 +66,6 @@ collision_layer = 8
 script = ExtResource("8_7g4l7")
 player = NodePath("..")
 sm = NodePath("../State Machine")
-
-[node name="Line2D" type="Line2D" parent="Character Base Class/Direction Manager"]
-default_color = Color(0.778899, 0.0533393, 0.0764889, 1)
 
 [connection signal="direction_changed" from="Character Base Class/Direction Manager" to="Character Base Class/Sprite2D" method="_on_direction_manager_direction_changed"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cylcc5c22kqcr"]
 
 [ext_resource type="Script" path="res://scripts/characters/npc/npc.gd" id="1_eese4"]
-[ext_resource type="PackedScene" uid="uid://mlpvk54e66yy" path="res://scenes/prefabs/character_base_class.tscn" id="2_akifj"]
+[ext_resource type="PackedScene" uid="uid://mlpvk54e66yy" path="res://scenes/prefabs/character utils/character_base_class.tscn" id="2_akifj"]
 
 [node name="NPC Base Class" type="Node2D"]
 script = ExtResource("1_eese4")

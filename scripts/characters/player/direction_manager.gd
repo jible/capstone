@@ -1,16 +1,18 @@
 extends Node
 
+
+# Exports 
 @export var player: CharacterBody2D
-var look_vector: Vector2
-
-@onready var direction_visualizer: Line2D = $Line2D
-var visualizer_length = 100
-
 @export var sm: StateMachine
 
+# Properties
+var look_vector: Vector2
+var visualizer_length = 100
+
+# Signals
 signal direction_changed
 
-
+# Main Functions
 func _physics_process(delta):
 	update_direction()
 
@@ -27,14 +29,9 @@ func update_direction():
 		look_vector = new_look_vector
 		emit_signal("direction_changed", dir_to_str(look_vector))
 
-	update_visualizer()
-
-func update_visualizer():
-	var start = player.position
-	var end = start + look_vector * visualizer_length
-	direction_visualizer.points = [start, end]
 
 
+# helper functions
 func dir_to_str(dir: Vector2):
 	var dir_dict = {
 		Vector2.UP: "north",
@@ -42,4 +39,13 @@ func dir_to_str(dir: Vector2):
 		Vector2.RIGHT: "east",
 		Vector2.LEFT: "west",
 	}
-	return dir_dict.get(dir, "unknown")
+	return dir_dict.get(dir, "north")
+
+
+
+# Attatch a line 2d to this to use a visualizer 
+#@onready var direction_visualizer: Line2D = $Line2D
+#func update_visualizer():
+	#var start = player.position
+	#var end = start + look_vector * visualizer_length
+	#direction_visualizer.points = [start, end]

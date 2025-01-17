@@ -1,14 +1,9 @@
 extends Sprite2D
 
-
+# Exports
 @export var frame_size : Array[int] = [32,32]
 @export var frame_rate: float = 4
 @export var sm :StateMachine
-var between_frames: float 
-var current_frame_index : int = 0
-var frame_progress : float = 0
-var buffered_direction = null
-
 @export var anims = {
 	"idle": [
 		0,2,
@@ -23,22 +18,32 @@ var buffered_direction = null
 		5,6,7
 	]
 }
-@onready var current_anim = anims["idle"]
+
+#Properties
+var between_frames: float 
+var current_frame_index : int = 0
+var frame_progress : float = 0
+var buffered_direction = null
 var current_direction = 3
+
+# On Readys
+@onready var current_anim = anims["idle"]
+
+# Main Functions
 
 func _ready():
 	between_frames = 1/frame_rate
-	print(between_frames)
 	set_sprite(0)
+	
+func _process(delta):
+	frame_progress +=delta
+
+	if (frame_progress > between_frames):
+		frame_progress = 0
+		advance_frame()
 
 
 
-var dirToColumn = {
-	"south": 0,
-	"north": 3,
-	"east": 2,
-	"west": 1,
-}
 
 func change_dir(dir):
 	current_direction = dir
@@ -55,12 +60,7 @@ func update_sprite():
 
 
 
-func _process(delta):
-	frame_progress +=delta
 
-	if (frame_progress > between_frames):
-		frame_progress = 0
-		advance_frame()
 
 
 
@@ -76,11 +76,19 @@ func set_sprite( col:int):
 
 
 func _on_direction_manager_direction_changed( direction):
-	
-	print( direction )
-	var new_dir = dirToColumn[direction]
+	var new_dir = dir_to_column(direction)
 	if sm.get_current_state_node().lock_direction:
 		buffered_direction = new_dir
 	else: 
 		change_dir(new_dir)
 	pass # Replace with function body.
+
+
+func dir_to_column(dir):
+	var dir_dict = {
+		"south": 0,
+		"north": 3,
+		"east": 2,
+		"west": 1,
+	}
+	return dir_dict.get(dir , "north")
