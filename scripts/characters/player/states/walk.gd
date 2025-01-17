@@ -5,6 +5,7 @@ extends SMState
 @export var acceleration: int
 @export var player:CharacterBody2D
 @export var lock_direction = false
+@export var animation_name: String = "walk"
 
 # On readys
 @onready var sm = get_parent()
@@ -14,9 +15,7 @@ extends SMState
 
 # Main Functions
 func update_state(delta):
-	if Input.is_action_pressed("run"):
-		sm.change_state("Run")
-	elif player.velocity.length() < 5:
+	if player.velocity.length() < 5:
 		sm.change_state("Idle")
 	pass
 func enter_state():

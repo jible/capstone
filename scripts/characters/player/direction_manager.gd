@@ -17,7 +17,7 @@ func _physics_process(delta):
 	update_direction()
 
 func update_direction():
-	var new_look_vector = InputManager.get_look_vector(player.position)
+	var new_look_vector = InputManager.get_look_vector(player.global_position)
 	
 	# Rounds the "look vector" to the x or y axis, so it matches the player sprites
 	if (abs(new_look_vector.x) > abs(new_look_vector.y)):

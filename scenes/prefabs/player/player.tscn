@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://x6a7bv3qxp2r"]
+[gd_scene load_steps=10 format=3 uid="uid://x6a7bv3qxp2r"]
 
 [ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_2hxqt"]
 [ext_resource type="PackedScene" uid="uid://mlpvk54e66yy" path="res://scenes/prefabs/character utils/character_base_class.tscn" id="2_2ut8y"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/idle.gd" id="4_r0sgn"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/walk.gd" id="5_7mdyy"]
 [ext_resource type="PackedScene" uid="uid://buwbtxan5ao3v" path="res://scenes/prefabs/character utils/hitbox.tscn" id="6_arj65"]
-[ext_resource type="Script" path="res://scripts/characters/player/states/run.gd" id="6_jxxwo"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/attack.gd" id="6_rq4oq"]
 [ext_resource type="Texture2D" uid="uid://bivs6m68fn726" path="res://assets/sprites/playerV2.png" id="7_0quf5"]
 [ext_resource type="Script" path="res://scripts/characters/player/direction_manager.gd" id="8_7g4l7"]
@@ -18,18 +17,16 @@ character = NodePath("Character Base Class")
 
 [node name="Character Base Class" parent="." instance=ExtResource("2_2ut8y")]
 
+[node name="Mobility Manager" parent="Character Base Class" index="1"]
+max_speed = 700
+acceleration = 40
+
 [node name="State Machine" parent="Character Base Class" index="2"]
 default_state = "Idle"
-
-[node name="Nil" parent="Character Base Class/State Machine" index="0"]
-max_speed = -1
-acceleration = -1
 
 [node name="Idle" type="Node" parent="Character Base Class/State Machine" index="1" node_paths=PackedStringArray("player")]
 script = ExtResource("4_r0sgn")
 player = NodePath("../..")
-max_speed = 100
-acceleration = 10
 
 [node name="Walk" type="Node" parent="Character Base Class/State Machine" index="2" node_paths=PackedStringArray("player")]
 script = ExtResource("5_7mdyy")
@@ -37,13 +34,7 @@ max_speed = 100
 acceleration = 10
 player = NodePath("../..")
 
-[node name="Run" type="Node" parent="Character Base Class/State Machine" index="3" node_paths=PackedStringArray("player")]
-script = ExtResource("6_jxxwo")
-max_speed = 500
-acceleration = 50
-player = NodePath("../..")
-
-[node name="Attack" type="Node" parent="Character Base Class/State Machine" index="4"]
+[node name="Attack" type="Node" parent="Character Base Class/State Machine" index="3"]
 script = ExtResource("6_rq4oq")
 lock_direction = true
 
@@ -67,6 +58,7 @@ script = ExtResource("8_7g4l7")
 player = NodePath("..")
 sm = NodePath("../State Machine")
 
+[connection signal="state_changed" from="Character Base Class/State Machine" to="Character Base Class/Sprite2D" method="_on_state_machine_state_changed"]
 [connection signal="direction_changed" from="Character Base Class/Direction Manager" to="Character Base Class/Sprite2D" method="_on_direction_manager_direction_changed"]
 
 [editable path="Character Base Class"]

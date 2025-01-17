@@ -3,15 +3,18 @@ extends Node
 
 # src = https://github.com/jible/BallGame/blob/main/Scripts/PlayerScripts/playerStates.gd
 
+# Exports
+@export var mobility_manager: Node
+## This is the default state for the state machine
+@export var default_state: String = "Nil"
 
-
+# Attributes
 var state_names = []
 var state_objects = {}
 var current_state: String
-@export var mobility_manager: Node
 
-## This is the default state for the state machine
-@export var default_state: String = ""
+# Signals
+signal state_changed
 
 func _ready():
 	current_state = default_state
@@ -28,6 +31,7 @@ func _physics_process(delta):
 	
 func change_state(new_state):
 	if (new_state != current_state && new_state in state_names):
+		emit_signal("state_changed" , state_objects[new_state])
 		if (current_state in state_names):
 			exit_state(current_state)
 		current_state = new_state

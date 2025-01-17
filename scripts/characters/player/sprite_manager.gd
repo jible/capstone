@@ -60,7 +60,13 @@ func update_sprite():
 
 
 
-
+func _on_state_machine_state_changed(new_state):
+	var anim = new_state.animation_name
+	if buffered_direction:
+		current_direction = buffered_direction
+		buffered_direction = null
+	if anim:
+		change_anim(anim)
 
 
 

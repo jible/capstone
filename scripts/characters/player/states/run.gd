@@ -2,8 +2,6 @@ extends Node
 
 
 # Exports
-@export var max_speed: int
-@export var acceleration: int
 @export var lock_direction = false
 @export var player:CharacterBody2D
 

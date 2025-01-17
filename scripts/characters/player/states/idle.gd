@@ -2,9 +2,8 @@ extends SMState
 
 # Exports
 @export var player:CharacterBody2D
-@export var max_speed: int= -1
-@export var acceleration: int = -1
 @export var lock_direction = false
+@export var animation_name: String = "idle"
 
 # On Readys
 @onready var sm = get_parent()
