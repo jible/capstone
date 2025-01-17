@@ -4,7 +4,7 @@ extends SMState
 @export var max_speed: int
 @export var acceleration: int
 @onready var sm = get_parent()
-
+@export var lock_direction = false
 
 func update_state(delta):
 	print("I run every frame when this is the current frame")

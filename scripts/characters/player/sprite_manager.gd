@@ -3,9 +3,12 @@ extends Sprite2D
 
 @export var frame_size : Array[int] = [32,32]
 @export var frame_rate: float = 4
+@export var sm :StateMachine
 var between_frames: float 
 var current_frame_index : int = 0
 var frame_progress : float = 0
+var buffered_direction = null
+
 @export var anims = {
 	"idle": [
 		0,2,
@@ -20,7 +23,7 @@ var frame_progress : float = 0
 		5,6,7
 	]
 }
-@onready var current_anim = anims["attack"]
+@onready var current_anim = anims["idle"]
 var current_direction = 3
 
 func _ready():
@@ -38,7 +41,7 @@ var dirToColumn = {
 }
 
 func change_dir(dir):
-	current_direction = dirToColumn[dir]
+	current_direction = dir
 	update_sprite()
 	
 func change_anim(anim):
@@ -69,6 +72,15 @@ func advance_frame():
 
 
 func set_sprite( col:int):
-	# this one line is from chatgpt- i just wanted the syntax!
-	# I typed it in and didn't paste it!
 	region_rect = Rect2(col *frame_size[0], current_direction * frame_size[1], frame_size[0], frame_size[1])
+
+
+func _on_direction_manager_direction_changed( direction):
+	
+	print( direction )
+	var new_dir = dirToColumn[direction]
+	if sm.get_current_state_node().lock_direction:
+		buffered_direction = new_dir
+	else: 
+		change_dir(new_dir)
+	pass # Replace with function body.

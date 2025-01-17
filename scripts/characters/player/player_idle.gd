@@ -6,6 +6,7 @@ var mobility = "Default"
 @export var max_speed: int= -1
 @export var acceleration: int = -1
 @onready var sm = get_parent()
+@export var lock_direction = false
 
 func update_state(delta):
 	if player.velocity.length() > 5:

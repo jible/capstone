@@ -5,7 +5,7 @@ var mobility = "Default"
 @export var max_speed: int
 @export var acceleration: int
 @onready var sm = get_parent()
-
+@export var lock_direction = false
 @export var player:CharacterBody2D
 
 func update_state(delta):

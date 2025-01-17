@@ -6,6 +6,7 @@ var mobility = "Default"
 @export var acceleration: int
 @onready var sm = get_parent()
 @export var player:CharacterBody2D
+@export var lock_direction = false
 
 func update_state(delta):
 	if Input.is_action_pressed("run"):

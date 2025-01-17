@@ -45,22 +45,31 @@ player = NodePath("../..")
 
 [node name="Attack" type="Node" parent="Character Base Class/State Machine" index="4"]
 script = ExtResource("6_rq4oq")
+lock_direction = true
 
-[node name="Sprite2D" parent="Character Base Class" index="5"]
+[node name="Hurtbox" parent="Character Base Class" index="4"]
+collision_mask = 4
+
+[node name="Sprite2D" parent="Character Base Class" index="5" node_paths=PackedStringArray("sm")]
 position = Vector2(-2.38419e-07, -9.53674e-07)
 scale = Vector2(15.5, 15.5)
 texture = ExtResource("7_0quf5")
 region_enabled = true
 script = ExtResource("8_ctai6")
+sm = NodePath("../State Machine")
 
 [node name="Hitbox" parent="Character Base Class" instance=ExtResource("6_arj65")]
+collision_layer = 8
 
-[node name="Direction Manager" type="Node" parent="Character Base Class" node_paths=PackedStringArray("player")]
+[node name="Direction Manager" type="Node" parent="Character Base Class" node_paths=PackedStringArray("player", "sm")]
 script = ExtResource("8_7g4l7")
 player = NodePath("..")
+sm = NodePath("../State Machine")
 
 [node name="Line2D" type="Line2D" parent="Character Base Class/Direction Manager"]
 default_color = Color(0.778899, 0.0533393, 0.0764889, 1)
+
+[connection signal="direction_changed" from="Character Base Class/Direction Manager" to="Character Base Class/Sprite2D" method="_on_direction_manager_direction_changed"]
 
 [editable path="Character Base Class"]
 [editable path="Character Base Class/State Machine"]
