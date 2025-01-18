@@ -36,7 +36,7 @@
 - Ensure the issue to be made is also in the project [timeline spreadsheet](https://docs.google.com/spreadsheets/d/1dZAdF-VlB1Vsa7J4WZNaotAaQ00rfg6UreA8IbdnRlg/edit?gid=891834841#gid=891834841)
 - In the [repo](https://github.com/jible/capstone), create a new issue
   - Include a title and description of what needs to be done to close the issue, using task list format
-    - Task list format: `- [ ] your text here`
+	- Task list format: `- [ ] your text here`
   - Assign people to the issue
   - Assign tags to the issue
 
