@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dra6a0np2j7e6"]
+
+[ext_resource type="Script" path="res://scripts/characters/state_machine.gd" id="1_aj07a"]
+[ext_resource type="Script" path="res://scripts/characters/nil.gd" id="2_h1feh"]
+
+[node name="State Machine" type="Node"]
+script = ExtResource("1_aj07a")
+default_state = "Nil"
+
+[node name="Nil" type="Node" parent="."]
+script = ExtResource("2_h1feh")

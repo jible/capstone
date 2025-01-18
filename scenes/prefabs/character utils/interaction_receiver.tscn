@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://11p58a441xwx"]
+
+[ext_resource type="Script" path="res://scripts/characters/interaction_receiver.gd" id="1_tf1da"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hwk0"]
+
+[node name="Interaction Receiver" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_tf1da")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4hwk0")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
