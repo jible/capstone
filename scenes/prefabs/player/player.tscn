@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://x6a7bv3qxp2r"]
+[gd_scene load_steps=12 format=3 uid="uid://x6a7bv3qxp2r"]
 
 [ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_2hxqt"]
 [ext_resource type="PackedScene" uid="uid://mlpvk54e66yy" path="res://scenes/prefabs/character utils/character_base_class.tscn" id="2_2ut8y"]
@@ -11,12 +11,20 @@
 [ext_resource type="Script" path="res://scripts/characters/player/direction_manager.gd" id="8_7g4l7"]
 [ext_resource type="Script" path="res://scripts/characters/player/sprite_manager.gd" id="8_ctai6"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5f7r0"]
+radius = 53.5093
+
 [node name="Player" type="Node2D" node_paths=PackedStringArray("mobility_manager", "character") groups=["Player"]]
 script = ExtResource("1_2hxqt")
 mobility_manager = NodePath("Character Base Class/Mobility Manager")
 character = NodePath("Character Base Class")
 
 [node name="Character Base Class" parent="." instance=ExtResource("2_2ut8y")]
+collision_mask = 64
+
+[node name="CollisionShape2D" parent="Character Base Class" index="0"]
+position = Vector2(2.5, 1)
+shape = SubResource("CircleShape2D_5f7r0")
 
 [node name="Mobility Manager" parent="Character Base Class" index="1"]
 max_speed = 700

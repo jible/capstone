@@ -24,6 +24,9 @@ extends Camera2D
 }
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	target = target.character
+	
+	
 	if follow_player:
 		target = get_tree().get_nodes_in_group("Player")[0]
 		assert(target !=null, "no player found for camera")

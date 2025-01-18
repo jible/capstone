@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="6_8wxmv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6gbn"]
+size = Vector2(69, 104)
 
 [node name="Character Base Class" type="CharacterBody2D"]
 collision_layer = 0
