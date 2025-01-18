@@ -17,7 +17,8 @@ func update_state(delta):
 		return
 	if Input.is_action_just_pressed("attack"):
 		sm.change_state("Attack")
-	
+	if Input.is_action_just_pressed("debug_hurt_player"):
+		sm.change_state("Hurt")
 	pass
 func enter_state():
 	pass
