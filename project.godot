@@ -24,8 +24,8 @@ Globals="*res://scripts/globals/globals.gd"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=800
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/initial_position_type=0
 window/stretch/mode="viewport"
 
@@ -89,6 +89,7 @@ attack={
 2d_physics/layer_4="enemy_hurtbox"
 2d_physics/layer_5="interactable"
 2d_physics/layer_6="triggers"
+2d_physics/layer_7="wall"
 
 [rendering]
 
