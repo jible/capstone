@@ -3,8 +3,10 @@ extends SMState
 # Exports
 @export var player:CharacterBody2D
 @export var lock_direction = false
-@export var animation_name: String = "idle"
-
+@export var animation = {
+	"frames": [0,2],
+	"framerate": 4
+}
 # On Readys
 @onready var sm = get_parent()
 

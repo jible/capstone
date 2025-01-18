@@ -17,13 +17,12 @@ var current_state: String
 signal state_changed
 
 func _ready():
-	current_state = default_state
 	state_objects = {}
 	state_names = []
 	for child in get_children():
 		state_names.append(child.name)
 		state_objects[child.name] = child
-	enter_state(current_state)
+	change_state(default_state)
 	
 	
 func _physics_process(delta):

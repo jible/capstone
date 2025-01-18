@@ -5,7 +5,10 @@ extends SMState
 @export var acceleration: int
 @export var player:CharacterBody2D
 @export var lock_direction = false
-@export var animation_name: String = "walk"
+@export var animation = {
+	"framerate": 4,
+	"frames": [3,0,4,0],
+}
 
 # On readys
 @onready var sm = get_parent()
