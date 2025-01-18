@@ -12,6 +12,10 @@ extends SMState
 func update_state(delta):
 	if player.velocity.length() > 5:
 		sm.change_state("Walk")
+		return
+	if Input.is_action_just_pressed("attack"):
+		sm.change_state("Attack")
+	
 	pass
 func enter_state():
 	pass

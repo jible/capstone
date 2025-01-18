@@ -1,6 +1,7 @@
 extends Sprite2D
 
 # Exports
+## Index 0 is width, Index 1 is height
 @export var frame_size : Array[int] = [32,32]
 @export var frame_rate: float = 4
 @export var sm :StateMachine
