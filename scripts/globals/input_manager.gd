@@ -21,3 +21,4 @@ func get_look_vector(player_position):
 	# not sure how expensive it is to get viewport ( not sure if i call this everytime or store the viewport ) 
 	var mouse_position = get_viewport().get_mouse_position()
 	return (mouse_position - player_position).normalized() 
+	

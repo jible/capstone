@@ -1,13 +1,17 @@
 extends Node
 
 
-var mobility = "Default"
-@export var max_speed: int
-@export var acceleration: int
-@onready var sm = get_parent()
-
+# Exports
+@export var lock_direction = false
 @export var player:CharacterBody2D
 
+# On Readys
+@onready var sm = get_parent()
+
+# Attributes 
+var mobility = "Default"
+
+# Main Functions 
 func update_state(delta):
 	if !Input.is_action_pressed("run"):
 		sm.change_state("Walk")

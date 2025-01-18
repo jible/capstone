@@ -1,6 +1,6 @@
 extends Node
 
-@export var player:CharacterBody2D
+
 @export var max_speed: int
 @export var acceleration: int
 @onready var sm = get_parent()

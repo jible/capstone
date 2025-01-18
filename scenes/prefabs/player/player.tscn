@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://x6a7bv3qxp2r"]
+
+[ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_2hxqt"]
+[ext_resource type="PackedScene" uid="uid://mlpvk54e66yy" path="res://scenes/prefabs/character utils/character_base_class.tscn" id="2_2ut8y"]
+[ext_resource type="Script" path="res://scripts/characters/player/states/idle.gd" id="4_r0sgn"]
+[ext_resource type="Script" path="res://scripts/characters/player/states/walk.gd" id="5_7mdyy"]
+[ext_resource type="PackedScene" uid="uid://buwbtxan5ao3v" path="res://scenes/prefabs/character utils/hitbox.tscn" id="6_arj65"]
+[ext_resource type="Script" path="res://scripts/characters/player/states/attack.gd" id="6_rq4oq"]
+[ext_resource type="Texture2D" uid="uid://bivs6m68fn726" path="res://assets/sprites/playerV2.png" id="7_0quf5"]
+[ext_resource type="Script" path="res://scripts/characters/player/direction_manager.gd" id="8_7g4l7"]
+[ext_resource type="Script" path="res://scripts/characters/player/sprite_manager.gd" id="8_ctai6"]
+
+[node name="Player" type="Node2D" node_paths=PackedStringArray("mobility_manager", "character") groups=["Player"]]
+script = ExtResource("1_2hxqt")
+mobility_manager = NodePath("Character Base Class/Mobility Manager")
+character = NodePath("Character Base Class")
+
+[node name="Character Base Class" parent="." instance=ExtResource("2_2ut8y")]
+
+[node name="Mobility Manager" parent="Character Base Class" index="1"]
+max_speed = 700
+acceleration = 40
+
+[node name="State Machine" parent="Character Base Class" index="2"]
+default_state = "Idle"
+
+[node name="Idle" type="Node" parent="Character Base Class/State Machine" index="1" node_paths=PackedStringArray("player")]
+script = ExtResource("4_r0sgn")
+player = NodePath("../..")
+
+[node name="Walk" type="Node" parent="Character Base Class/State Machine" index="2" node_paths=PackedStringArray("player")]
+script = ExtResource("5_7mdyy")
+max_speed = 100
+acceleration = 10
+player = NodePath("../..")
+
+[node name="Attack" type="Node" parent="Character Base Class/State Machine" index="3"]
+script = ExtResource("6_rq4oq")
+lock_direction = true
+
+[node name="Hurtbox" parent="Character Base Class" index="4"]
+collision_mask = 4
+
+[node name="Sprite2D" parent="Character Base Class" index="5" node_paths=PackedStringArray("sm")]
+position = Vector2(6.5, -3.49999)
+scale = Vector2(4, 4)
+texture = ExtResource("7_0quf5")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+script = ExtResource("8_ctai6")
+sm = NodePath("../State Machine")
+
+[node name="Hitbox" parent="Character Base Class" instance=ExtResource("6_arj65")]
+collision_layer = 8
+
+[node name="Direction Manager" type="Node" parent="Character Base Class" node_paths=PackedStringArray("player", "sm")]
+script = ExtResource("8_7g4l7")
+player = NodePath("..")
+sm = NodePath("../State Machine")
+
+[connection signal="state_changed" from="Character Base Class/State Machine" to="Character Base Class/Sprite2D" method="_on_state_machine_state_changed"]
+[connection signal="direction_changed" from="Character Base Class/Direction Manager" to="Character Base Class/Sprite2D" method="_on_direction_manager_direction_changed"]
+
+[editable path="Character Base Class"]
+[editable path="Character Base Class/State Machine"]
