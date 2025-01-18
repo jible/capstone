@@ -9,14 +9,14 @@ extends SMState
 	"frames": [5,6,7],
 	"callbacks" :{
 		1: Callable(self, "bal"),
-		"end": Callable(self, "end")
+		"end": Callable(self, "end"),
 	}
 }
 # Onreadys
 @onready var sm = get_parent()
 
-func bal():
-	print("this is the second frame of the attack anim")
+
+
 
 func end():
 	print("hahiai")

@@ -27,16 +27,16 @@ acceleration = 10
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="NPC Base Class/Character Base Class/Hurtbox" index="0"]
-position = Vector2(-1.5, 0.5)
+position = Vector2(3, 1)
 
-[node name="Hitbox" parent="NPC Base Class" instance=ExtResource("4_hatxp")]
+[node name="Hitbox" parent="NPC Base Class/Character Base Class" index="6" instance=ExtResource("4_hatxp")]
 collision_layer = 4
 
-[node name="CollisionShape2D" parent="NPC Base Class/Hitbox" index="0"]
-position = Vector2(-1.5, -0.5)
+[node name="CollisionShape2D" parent="NPC Base Class/Character Base Class/Hitbox" index="0"]
+position = Vector2(1.5, -1)
 
 [editable path="NPC Base Class"]
 [editable path="NPC Base Class/Character Base Class"]
 [editable path="NPC Base Class/Character Base Class/State Machine"]
 [editable path="NPC Base Class/Character Base Class/Hurtbox"]
-[editable path="NPC Base Class/Hitbox"]
+[editable path="NPC Base Class/Character Base Class/Hitbox"]

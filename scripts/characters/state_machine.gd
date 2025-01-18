@@ -64,7 +64,7 @@ func exit_state(old_state):
 # copy and paste this code into a script on a new node as a child of this node
 # name the node what you want the state to be changed
 
-#extends State
+#extends SMState
 
 #@export var character:CharacterBody2D
 #@export var max_speed: int
