@@ -8,7 +8,6 @@ extends SMState
 	"framerate" : 5,
 	"frames": [5,6,7],
 	"callbacks" :{
-		1: Callable(self, "bal"),
 		"end": Callable(self, "end"),
 	}
 }
