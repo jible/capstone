@@ -3,20 +3,24 @@ extends Area2D
 
 signal received_damage(damage:int)
 
-@export var collision: CollisionShape2D
 @export var health: Health
-
+@export var collision: CollisionShape2D
 
 func turn_on():
 	collision.disabled = false
-	
+
+
 func turn_off():
-	collision.disabled = true
+	collision.disabled= true
 
 func _ready():
 	pass
 
 func _on_area_entered(hitbox: HitBox):
+	print("entereted hurtbox")
 	if hitbox != null:
-		received_damage.emit(hitbox.damage)
-		print("Taking Damage!! I am: ", self.name)
+		hitBy(hitbox)
+		hitbox.hit(self)
+
+func hitBy(hitbox :HitBox):
+	received_damage.emit(hitbox.damage)

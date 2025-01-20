@@ -10,7 +10,6 @@ extends Sprite2D
 var time_per_frame: float 
 var current_frame_index : int = 0
 var frame_progress : float = 0.0
-var buffered_direction = null
 var current_direction = 3
 var frame_rate: float = 1.0
 var current_animation 
@@ -40,6 +39,9 @@ func _set_animation(animation: Dictionary):
 	time_per_frame = 1.0/frame_rate
 	frame_progress = 0.0
 	current_frame_index = 0
+	var frame_callback = current_animation["callbacks"].get(current_frame_index, null)
+	if frame_callback:
+		frame_callback.call()
 	_update_sprite()
 	
 	
@@ -76,9 +78,6 @@ func _on_state_machine_state_changed(new_state):
 	""" When the state machine changes states, it fires this signal. it results in reseting the animation
 	and updating to a new animation
 	"""
-	if buffered_direction:
-		current_direction = buffered_direction
-		buffered_direction = null
 	
 	var animation = new_state.animation
 	if animation:
@@ -93,10 +92,7 @@ func _on_direction_manager_direction_changed( direction):
 	"""
 	
 	var new_direction = _direction_to_column(direction)
-	if sm.get_current_state_node().lock_direction:
-		buffered_direction = new_direction
-	else: 
-		_change_direction(new_direction)
+	_change_direction(new_direction)
 
 
 func _change_direction(direction):

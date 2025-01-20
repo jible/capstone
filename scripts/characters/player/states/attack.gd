@@ -4,21 +4,31 @@ extends SMState
 @export var max_speed: int
 @export var acceleration: int
 @export var lock_direction = false
+@export var hitbox: HitBox
 @export var animation = {
 	"framerate" : 5,
 	"frames": [5,6,7],
 	"callbacks" :{
+		0: Callable(self, "turn_on_hitbox"),
+		2: Callable(self, "turn_off_hitbox"),
 		"end": Callable(self, "end"),
 	}
 }
+
 # Onreadys
 @onready var sm = get_parent()
 
 
+func turn_on_hitbox():
+	hitbox.turn_on()
+	pass
 
+func turn_off_hitbox():
+	hitbox.turn_off()
+	pass
 
 func end():
-	print("hahiai")
+	turn_off_hitbox()
 	sm.change_state("Idle")
 
 # Main Functions
@@ -27,4 +37,5 @@ func update_state(delta):
 func enter_state():
 	pass
 func exit_state():
+	turn_off_hitbox()
 	pass

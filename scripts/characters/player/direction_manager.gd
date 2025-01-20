@@ -7,14 +7,20 @@ extends Node
 
 # Properties
 var look_vector: Vector2
-var visualizer_length = 100
 
 # Signals
 signal direction_changed
 
 # Main Functions
 func _physics_process(delta):
+	if !sm.current_state_node.lock_direction:
+		update_direction()
+
+func _on_state_machine_state_changed():
 	update_direction()
+	pass # Replace with function body.
+
+
 
 func update_direction():
 	var new_look_vector = InputManager.get_look_vector(player.global_position)
@@ -45,6 +51,7 @@ func dir_to_str(dir: Vector2):
 
 # Attatch a line 2d to this to use a visualizer 
 #@onready var direction_visualizer: Line2D = $Line2D
+#var visualizer_length = 100
 #func update_visualizer():
 	#var start = player.position
 	#var end = start + look_vector * visualizer_length

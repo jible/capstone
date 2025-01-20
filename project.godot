@@ -24,10 +24,9 @@ Globals="*res://scripts/globals/globals.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=800
+window/size/viewport_height=800
 window/size/initial_position_type=0
-window/stretch/mode="viewport"
 
 [global_group]
 
@@ -91,10 +90,12 @@ debug_hurt_player={
 2d_physics/layer_1="player_collision"
 2d_physics/layer_2="enemy_collision"
 2d_physics/layer_3="player_hurtbox"
-2d_physics/layer_4="enemy_hurtbox"
-2d_physics/layer_5="interactable"
-2d_physics/layer_6="triggers"
+2d_physics/layer_4="player_hitbox"
+2d_physics/layer_5="enemy_hurtbox"
+2d_physics/layer_6="enemy_hitbox"
 2d_physics/layer_7="wall"
+2d_physics/layer_8="interactable"
+2d_physics/layer_9="triggers"
 
 [rendering]
 

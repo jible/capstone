@@ -12,5 +12,6 @@ collision = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kjin1")
+debug_color = Color(0.314127, 0.615648, 0.328112, 0.701961)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

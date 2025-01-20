@@ -10,6 +10,8 @@ extends SMState
 	"frames": [1,0,1],
 	"framerate": 6,
 	"callbacks" :{
+		0: Callable(self, "turn_off_hurtbox"),
+		2: Callable(self, "turn_on_hurtbox"),
 		"end": Callable(self, "end_hurt")
 	}
 }
@@ -31,4 +33,5 @@ func update_state(delta):
 func enter_state():
 	pass
 func exit_state():
+	turn_on_hurtbox()
 	pass
