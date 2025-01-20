@@ -4,23 +4,30 @@ extends Area2D
 
 @export var damage: int = 1
 @export var collision: CollisionShape2D
+@export var detecting:bool = false
 
-func _ready():
+var overlapping_areas = []
+
+func turn_on():
+	for area in overlapping_areas:
+		if area is HurtBox && area.detectable:
+			hit(area)
+	detecting = true
 	pass
 
 
+func turn_off():
+	detecting = false
+
 
 func _on_area_entered(area):
-	print("entered hitbox")
-	pass # Replace with function body.
+	overlapping_areas.append(area)
+	if detecting && area.detectable:
+		hit(area)
 
-
-func turn_on():
-	collision.disabled = false
-
-
-func turn_off():
-	collision.disabled = true
+func _on_area_exited(area):
+	if !detecting:
+		overlapping_areas.erase(area)
 
 
 func set_damage(value: int):
@@ -32,25 +39,6 @@ func get_damage():
 
 
 func hit( hurtbox: HurtBox):
+	hurtbox.hit_by(self)
 	print ("smacked them1")
 	pass
-
-
-#func get_shape_size(shape, axis):
-	#if shape is RectangleShape2D:
-		#return shape.extents
-	#elif shape is CircleShape2D:
-		#return shape.radius
-	#
-
-
-#func rotate_hitbox(direction: Vector2):
-	#
-	#if (dir_vector.x != 0):
-		#dir_vector = dir_vector * (collision.shape.)
-	#pass
-#
-#
-#func move_hitbox(position):
-	#collision.position = position
-	#pass

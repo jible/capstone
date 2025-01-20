@@ -75,10 +75,10 @@ sm = NodePath("../State Machine")
 [node name="Hitbox" parent="Character Base Class" instance=ExtResource("6_arj65")]
 collision_layer = 8
 collision_mask = 16
+detecting = false
 
 [node name="CollisionShape2D" parent="Character Base Class/Hitbox" index="0"]
 position = Vector2(-104.5, -0.5)
-disabled = true
 
 [node name="Direction Manager" type="Node" parent="Character Base Class" node_paths=PackedStringArray("player", "sm")]
 script = ExtResource("8_7g4l7")
