@@ -118,9 +118,9 @@ func _direction_to_column(direction):
 	"""
 	
 	var direction_dict = {
-		"south": 0,
-		"north": 3,
-		"east": 2,
-		"west": 1,
+		Vector2(0,1): 0,
+		Vector2(0,-1): 3,
+		Vector2(1,0): 2,
+		Vector2(-1,0): 1,
 	}
 	return direction_dict.get(direction , 3) # defaults to north

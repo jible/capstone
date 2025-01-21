@@ -12,11 +12,11 @@ var look_vector: Vector2
 signal direction_changed
 
 # Main Functions
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !sm.current_state_node.lock_direction:
 		update_direction()
 
-func _on_state_machine_state_changed():
+func _on_state_machine_state_changed(_state):
 	update_direction()
 	pass # Replace with function body.
 
@@ -33,7 +33,7 @@ func update_direction():
 	
 	if look_vector != new_look_vector:
 		look_vector = new_look_vector
-		emit_signal("direction_changed", dir_to_str(look_vector))
+		emit_signal("direction_changed", look_vector)
 
 
 

@@ -32,7 +32,7 @@ func end():
 	sm.change_state("Idle")
 
 # Main Functions
-func update_state(delta):
+func update_state(_delta):
 	pass
 func enter_state():
 	pass

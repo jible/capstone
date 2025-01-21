@@ -5,6 +5,7 @@ extends Area2D
 @export var damage: int = 1
 @export var collision: CollisionShape2D
 @export var detecting:bool = false
+@export var distance_from_parent: int = 100
 
 var overlapping_areas = []
 
@@ -29,6 +30,10 @@ func _on_area_exited(area):
 	if !detecting:
 		overlapping_areas.erase(area)
 
+func _on_direction_manager_direction_changed(direction: Vector2):
+	move_direction(direction)
+
+
 
 func set_damage(value: int):
 	damage = value
@@ -42,3 +47,12 @@ func hit( hurtbox: HurtBox):
 	hurtbox.hit_by(self)
 	print ("smacked them1")
 	pass
+
+
+
+
+func move_direction(direction):
+	move_to(direction * distance_from_parent)
+
+func move_to(target_position):
+	position = target_position

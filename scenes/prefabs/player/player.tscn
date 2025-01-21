@@ -77,9 +77,6 @@ collision_layer = 8
 collision_mask = 16
 detecting = false
 
-[node name="CollisionShape2D" parent="Character Base Class/Hitbox" index="0"]
-position = Vector2(-104.5, -0.5)
-
 [node name="Direction Manager" type="Node" parent="Character Base Class" node_paths=PackedStringArray("player", "sm")]
 script = ExtResource("8_7g4l7")
 player = NodePath("..")
@@ -89,6 +86,7 @@ sm = NodePath("../State Machine")
 [connection signal="state_changed" from="Character Base Class/State Machine" to="Character Base Class/Direction Manager" method="_on_state_machine_state_changed"]
 [connection signal="received_damage" from="Character Base Class/Hurtbox" to="Character Base Class/Health Manager" method="_on_hurtbox_received_damage"]
 [connection signal="direction_changed" from="Character Base Class/Direction Manager" to="Character Base Class/Sprite2D" method="_on_direction_manager_direction_changed"]
+[connection signal="direction_changed" from="Character Base Class/Direction Manager" to="Character Base Class/Hitbox" method="_on_direction_manager_direction_changed"]
 
 [editable path="Character Base Class"]
 [editable path="Character Base Class/State Machine"]

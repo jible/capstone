@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://b17tkk14cvn2x"]
+[gd_scene load_steps=6 format=4 uid="uid://b17tkk14cvn2x"]
 
 [ext_resource type="Texture2D" uid="uid://37bv6hp14mkn" path="res://assets/sprites/environment/tiles/testing-tileset.png" id="1_6m5bh"]
 [ext_resource type="PackedScene" uid="uid://x6a7bv3qxp2r" path="res://scenes/prefabs/player/player.tscn" id="2_8l773"]
+[ext_resource type="PackedScene" uid="uid://d2jpbgwqgoe7f" path="res://scenes/prefabs/npcs/enemies/enemy_base_class.tscn" id="3_e6f21"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6cemj"]
 texture = ExtResource("1_6m5bh")
@@ -28,6 +29,9 @@ tile_set = SubResource("TileSet_7bnbg")
 position = Vector2(1602, 981)
 
 [node name="Camera2D" type="Camera2D" parent="Player/Character Base Class" index="8"]
+
+[node name="Enemy Base Class" parent="." instance=ExtResource("3_e6f21")]
+position = Vector2(1037, 1481)
 
 [editable path="Player"]
 [editable path="Player/Character Base Class"]
