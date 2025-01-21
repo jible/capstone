@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc658py3h48ts"]
+
+[ext_resource type="PackedScene" uid="uid://cylcc5c22kqcr" path="res://scenes/prefabs/npcs/npc_base_class.tscn" id="1_n7331"]
+
+[node name="Passive NPC Base Class" type="Node2D"]
+
+[node name="NPC Base Class" parent="." instance=ExtResource("1_n7331")]
+
+[editable path="NPC Base Class"]
+[editable path="NPC Base Class/Character Base Class"]
+[editable path="NPC Base Class/Character Base Class/State Machine"]

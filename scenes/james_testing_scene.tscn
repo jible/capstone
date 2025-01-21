@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7syb6hircgps"]
 
-[ext_resource type="PackedScene" uid="uid://htmrbxwes0qe" path="res://scenes/prefabs/player.tscn" id="1_4rrsy"]
-[ext_resource type="PackedScene" uid="uid://cb1xtv32k0tgu" path="res://scenes/prefabs/npcs/npc.tscn" id="2_g6gos"]
+[ext_resource type="PackedScene" uid="uid://x6a7bv3qxp2r" path="res://scenes/prefabs/player/player.tscn" id="1_4rrsy"]
+[ext_resource type="PackedScene" uid="uid://d2jpbgwqgoe7f" path="res://scenes/prefabs/npcs/enemies/enemy_base_class.tscn" id="2_4dcs3"]
 
 [node name="James testing scene" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_4rrsy")]
-position = Vector2(84, 81)
+[node name="Enemy Base Class" parent="." instance=ExtResource("2_4dcs3")]
+position = Vector2(210, 384)
 
-[node name="NPC Base Class" parent="." instance=ExtResource("2_g6gos")]
-position = Vector2(163, 69)
+[node name="Player" parent="." instance=ExtResource("1_4rrsy")]
+position = Vector2(1743, 720)

@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://mlpvk54e66yy"]
+
+[ext_resource type="Script" path="res://scripts/characters/character_base_class.gd" id="1_as70f"]
+[ext_resource type="PackedScene" uid="uid://c4nga5lkeidv0" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="2_ikmff"]
+[ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_40a1x"]
+[ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="4_rmq65"]
+[ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="5_sd61u"]
+[ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="6_8wxmv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6gbn"]
+size = Vector2(69, 104)
+
+[node name="Character Base Class" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_as70f")
+drag_coefficient = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_d6gbn")
+
+[node name="Mobility Manager" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("2_ikmff")]
+state_machine = NodePath("../State Machine")
+
+[node name="State Machine" parent="." node_paths=PackedStringArray("mobility_manager") instance=ExtResource("3_40a1x")]
+mobility_manager = NodePath("../Mobility Manager")
+
+[node name="Health Manager" parent="." instance=ExtResource("4_rmq65")]
+
+[node name="Hurtbox" parent="." instance=ExtResource("5_sd61u")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("6_8wxmv")
+
+[editable path="State Machine"]
