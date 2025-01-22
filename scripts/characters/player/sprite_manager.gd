@@ -3,7 +3,6 @@ extends Sprite2D
 # Exports
 ## Index 0 is width, Index 1 is height
 @export var frame_size : Vector2i = Vector2i(32,32)
-@export var sm :StateMachine
 
 
 #Properties

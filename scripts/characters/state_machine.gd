@@ -3,8 +3,6 @@ extends Node
 
 # src = https://github.com/jible/BallGame/blob/main/Scripts/PlayerScripts/playerStates.gd
 
-# Exports
-@export var mobility_manager: Node
 ## This is the default state for the state machine
 @export var default_state: String = "Nil"
 

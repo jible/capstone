@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4nga5lkeidv0"]
-
-[ext_resource type="Script" path="res://scripts/characters/npc/mobility_manager.gd" id="1_klo0m"]
-
-[node name="Mobility Manager" type="Node" node_paths=PackedStringArray("action_state_manager")]
-script = ExtResource("1_klo0m")
-action_state_manager = NodePath("")

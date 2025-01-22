@@ -5,6 +5,7 @@ extends SMState
 @export var acceleration: int
 @export var lock_direction = false
 @export var hitbox: HitBox
+@export var movement_details =  {}
 @export var animation = {
 	"framerate" : 5,
 	"frames": [5,6,7],

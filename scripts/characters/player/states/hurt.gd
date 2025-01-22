@@ -5,6 +5,7 @@ extends SMState
 @export var character:CharacterBody2D
 @export var lock_direction = false
 @export var invincibility_time: float = 2
+@export var movement_details =  {}
 @onready var sm = get_parent()
 
 @export var animation = {

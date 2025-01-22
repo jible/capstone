@@ -2,8 +2,8 @@ extends Node
 
 
 # Exports 
-@export var player: CharacterBody2D
 @export var sm: StateMachine
+@export var direction_decider:Node2D
 
 # Properties
 var look_vector: Vector2
@@ -23,9 +23,7 @@ func _on_state_machine_state_changed(_state):
 
 
 func update_direction():
-	var new_look_vector = InputManager.get_look_vector(player.global_position)
-	
-	# Rounds the "look vector" to the x or y axis, so it matches the player sprites
+	var new_look_vector = direction_decider.pick_direction()
 	if (abs(new_look_vector.x) > abs(new_look_vector.y)):
 		new_look_vector = Vector2(new_look_vector.x,0).normalized()
 	elif (abs(new_look_vector.x) < abs(new_look_vector.y)): 
@@ -49,10 +47,5 @@ func dir_to_str(dir: Vector2):
 
 
 
-# Attatch a line 2d to this to use a visualizer 
-#@onready var direction_visualizer: Line2D = $Line2D
-#var visualizer_length = 100
-#func update_visualizer():
-	#var start = player.position
 	#var end = start + look_vector * visualizer_length
 	#direction_visualizer.points = [start, end]
