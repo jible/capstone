@@ -23,4 +23,3 @@ func update_velocity(input_vector):
 	
 	if character.velocity.length() < 5:
 		character.velocity = Vector2.ZERO
-	print (character, character.velocity)
