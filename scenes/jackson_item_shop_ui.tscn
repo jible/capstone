@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://pqwosehyrh86"]
+[gd_scene load_steps=4 format=3 uid="uid://oso5y407vcxj"]
 
-[ext_resource type="Texture2D" uid="uid://bjjcihfvhanj5" path="res://assets/sprites/sword.png" id="1_cddje"]
+[ext_resource type="Texture2D" uid="uid://bxevwqt0bicpt" path="res://assets/sprites/sexyIndiDevLogo.png" id="1_bjevj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30byq"]
 bg_color = Color(0.537583, 0.279411, 0.134926, 1)
@@ -52,5 +52,5 @@ theme_override_constants/margin_bottom = 50
 
 [node name="TextureRect" type="TextureRect" parent="FrameBackground/ItemBackground/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_cddje")
+texture = ExtResource("1_bjevj")
 expand_mode = 1

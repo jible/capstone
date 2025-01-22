@@ -14,4 +14,3 @@ func _process(delta: float) -> void:
 ##this function runs when the upgrade button is pressed
 func _on_stat_increased() -> void:
 	print("stat increased")
-	pass # Replace with function body.
