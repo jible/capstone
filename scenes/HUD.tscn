@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dp6sdxgrjma40"]
 
 [ext_resource type="Texture2D" uid="uid://dslr3ip0cnxp0" path="res://assets/sprites/playerV1.png" id="1_ekvuy"]
-[ext_resource type="Script" path="res://scripts/for_scenes/jackson_ui_testing.gd" id="1_ndg1h"]
+[ext_resource type="Script" path="res://scripts/for_scenes/HUD.gd" id="1_ndg1h"]
 [ext_resource type="Texture2D" uid="uid://bxevwqt0bicpt" path="res://assets/sprites/sexyIndiDevLogo.png" id="2_cbqub"]
 [ext_resource type="PackedScene" uid="uid://p161q7glhm18" path="res://scenes/stat_upgrade_ui.tscn" id="4_0nay5"]
 
@@ -12,7 +12,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="JacksonUiTesting" type="Control"]
+[node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
