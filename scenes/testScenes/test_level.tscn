@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://b17tkk14cvn2x"]
+[gd_scene load_steps=6 format=4 uid="uid://b17tkk14cvn2x"]
 
-[ext_resource type="Texture2D" uid="uid://37bv6hp14mkn" path="res://assets/sprites/environment/tiles/testing-tileset.png" id="1_45kkf"]
-[ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="2_8ckqw"]
-[ext_resource type="PackedScene" uid="uid://cfy2mlhpkuxdd" path="res://scenes/prefabs/npcs/enemies/basic_enemy.tscn" id="3_3f4dk"]
-[ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="3_ywjps"]
+[ext_resource type="Texture2D" uid="uid://37bv6hp14mkn" path="res://assets/sprites/environment/tiles/testing-tileset.png" id="1_6m5bh"]
+[ext_resource type="PackedScene" uid="uid://x6a7bv3qxp2r" path="res://scenes/prefabs/player/player.tscn" id="2_8l773"]
+[ext_resource type="PackedScene" uid="uid://dp6sdxgrjma40" path="res://scenes/jackson_ui_testing.tscn" id="3_ibp2n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6cemj"]
 texture = ExtResource("1_45kkf")
@@ -32,5 +31,12 @@ position = Vector2(1191, 1321)
 [node name="Curstom Camera" parent="Player" instance=ExtResource("3_ywjps")]
 zoom = Vector2(0.59, 0.59)
 
-[node name="Basic Enemy" parent="." instance=ExtResource("3_3f4dk")]
-position = Vector2(1759, 1110)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="JacksonUiTesting2" parent="CanvasLayer" instance=ExtResource("3_ibp2n")]
+
+[editable path="Player"]
+[editable path="Player/Character Base Class"]
+[editable path="Player/Character Base Class/State Machine"]
+[editable path="Player/Character Base Class/Hurtbox"]
+[editable path="Player/Character Base Class/Hitbox"]
