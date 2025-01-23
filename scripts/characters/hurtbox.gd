@@ -3,13 +3,14 @@ extends Area2D
 
 signal received_damage(damage:int)
 
-@export var health: Health
+@export var character: CharacterBody2D
 @export var collision: CollisionShape2D
 @export var timer: Timer
 @export var invincibility_time: float = .5
 @export var detectable: bool = false
 
 var overlapping_areas = []
+var latest_hit_direction = Vector2.ZERO
 
 func turn_on():
 	for area in get_overlapping_areas():
@@ -35,7 +36,7 @@ func _on_area_exited(area):
 
 
 func hit_by(hitbox :HitBox):
-	print("i got hit")
+	latest_hit_direction = (character.position - hitbox.global_position ).normalized()
 	received_damage.emit(hitbox.damage)
 	
 func turn_off_for_sec(time = invincibility_time):

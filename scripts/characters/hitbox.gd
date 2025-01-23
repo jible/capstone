@@ -27,8 +27,7 @@ func _on_area_entered(area):
 		hit(area)
 
 func _on_area_exited(area):
-	if !detecting:
-		overlapping_areas.erase(area)
+	overlapping_areas.erase(area)
 
 func _on_direction_manager_direction_changed(direction: Vector2):
 	move_direction(direction)
@@ -45,10 +44,7 @@ func get_damage():
 
 func hit( hurtbox: HurtBox):
 	hurtbox.hit_by(self)
-	print ("smacked them1")
 	pass
-
-
 
 
 func move_direction(direction):

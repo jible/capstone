@@ -6,7 +6,7 @@ extends Node
 @export var lock_direction = false
 @export var movement_details =  {}
 @export var animation = {
-	"frames": [0,2],
+	"frames": [3,4,5],
 	"framerate": 4
 }
 @export var mobility_manager: Node2D

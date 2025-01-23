@@ -38,11 +38,18 @@ func _set_animation(animation: Dictionary):
 	time_per_frame = 1.0/frame_rate
 	frame_progress = 0.0
 	current_frame_index = 0
-	var frame_callback = current_animation["callbacks"].get(current_frame_index, null)
-	if frame_callback:
-		frame_callback.call()
+	do_frame_callbacks()
 	_update_sprite()
 	
+	
+func do_frame_callbacks():
+	var callback = current_animation["callbacks"].get(current_frame_index, null)
+	if callback:
+		if typeof(callback) == TYPE_ARRAY:
+			for i in callback:
+				i.call()
+		else:
+			callback.call()
 	
 func _advance_frame():
 	"""
@@ -53,14 +60,15 @@ func _advance_frame():
 	if current_frame_index >= current_animation["frames"].size():
 		var animation_callback = current_animation["callbacks"].get("end", null)
 		if animation_callback:
-			animation_callback.call()
+			if typeof (animation_callback) == TYPE_ARRAY:
+				for i in animation_callback:
+					i.call()
+			else:
+				animation_callback.call()
 		current_frame_index = 0
 	
 	var new_frame = current_animation["frames"][current_frame_index]
-	var frame_callback = current_animation["callbacks"].get(current_frame_index, null)
-	if frame_callback:
-		frame_callback.call()
-		
+	do_frame_callbacks()
 	_update_sprite()
 
 

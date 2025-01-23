@@ -45,18 +45,21 @@ script = ExtResource("6_rq4oq")
 lock_direction = true
 hitbox = NodePath("../../Hitbox")
 
-[node name="Hurt" type="Node" parent="State Machine" node_paths=PackedStringArray("hurtbox", "character")]
+[node name="Hurt" type="Node" parent="State Machine" node_paths=PackedStringArray("hurtbox", "character", "mobility_manager")]
 script = ExtResource("6_m7eoc")
 hurtbox = NodePath("../../Hurtbox")
 character = NodePath("../..")
+mobility_manager = NodePath("../../Mobility Manager")
 
 [node name="Hitbox" parent="." instance=ExtResource("6_arj65")]
 collision_layer = 8
 collision_mask = 16
+detecting = false
 
-[node name="Hurtbox" parent="." instance=ExtResource("9_po6ig")]
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("character") instance=ExtResource("9_po6ig")]
 collision_layer = 4
 collision_mask = 32
+character = NodePath("..")
 
 [node name="Sprite Manager" parent="." instance=ExtResource("10_wvl2e")]
 scale = Vector2(4, 4)
