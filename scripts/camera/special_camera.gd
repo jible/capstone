@@ -14,21 +14,14 @@ extends Camera2D
 #}
 @export var target: Node = null
 @export var follow_player: bool
-@export var locked_axis = { 
-	'x': false,
-	'y': false
-}
+
 @export var free_axis = { 
-	'x': 20,
-	'y': 50
+	'x': 100,
+	'y': 100,
 }
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	target = target.character
-	
-	
 	if follow_player:
-		target = get_tree().get_nodes_in_group("Player")[0]
 		assert(target !=null, "no player found for camera")
 	pass # Replace with function body.
 
@@ -44,21 +37,14 @@ func pursuit(delta):
 	# just a lil bit of chatgpt
 	if target:
 		# Get the current position of the camera and the target's position
-		var camera_position = position
 		var target_position = target.position 
 		var follow_speed = 5
 		if abs(target_position.x - position.x) < free_axis["x"]:
 			target_position.x = position.x
 		if abs(target_position.y - position.y) < free_axis["y"]:
 			target_position.y = position.y
-		if ( locked_axis["x"]):
-			print("locked x")
-			target_position.x = position.x
-		if ( locked_axis["y"]):
-			print("locked y")
-			target_position.y = position.y
 		# Interpolate between the current position and the target position
-		var new_position = lerp(camera_position, target_position, delta * follow_speed)
+		var new_position = lerp(position, target_position, delta * follow_speed)
 
 		# Update the camera's position
 		position = new_position
