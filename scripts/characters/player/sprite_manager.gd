@@ -3,14 +3,12 @@ extends Sprite2D
 # Exports
 ## Index 0 is width, Index 1 is height
 @export var frame_size : Vector2i = Vector2i(32,32)
-@export var sm :StateMachine
 
 
 #Properties
 var time_per_frame: float 
 var current_frame_index : int = 0
 var frame_progress : float = 0.0
-var buffered_direction = null
 var current_direction = 3
 var frame_rate: float = 1.0
 var current_animation 
@@ -40,8 +38,18 @@ func _set_animation(animation: Dictionary):
 	time_per_frame = 1.0/frame_rate
 	frame_progress = 0.0
 	current_frame_index = 0
+	do_frame_callbacks()
 	_update_sprite()
 	
+	
+func do_frame_callbacks():
+	var callback = current_animation["callbacks"].get(current_frame_index, null)
+	if callback:
+		if typeof(callback) == TYPE_ARRAY:
+			for i in callback:
+				i.call()
+		else:
+			callback.call()
 	
 func _advance_frame():
 	"""
@@ -52,14 +60,15 @@ func _advance_frame():
 	if current_frame_index >= current_animation["frames"].size():
 		var animation_callback = current_animation["callbacks"].get("end", null)
 		if animation_callback:
-			animation_callback.call()
+			if typeof (animation_callback) == TYPE_ARRAY:
+				for i in animation_callback:
+					i.call()
+			else:
+				animation_callback.call()
 		current_frame_index = 0
 	
 	var new_frame = current_animation["frames"][current_frame_index]
-	var frame_callback = current_animation["callbacks"].get(current_frame_index, null)
-	if frame_callback:
-		frame_callback.call()
-		
+	do_frame_callbacks()
 	_update_sprite()
 
 
@@ -76,9 +85,6 @@ func _on_state_machine_state_changed(new_state):
 	""" When the state machine changes states, it fires this signal. it results in reseting the animation
 	and updating to a new animation
 	"""
-	if buffered_direction:
-		current_direction = buffered_direction
-		buffered_direction = null
 	
 	var animation = new_state.animation
 	if animation:
@@ -93,10 +99,7 @@ func _on_direction_manager_direction_changed( direction):
 	"""
 	
 	var new_direction = _direction_to_column(direction)
-	if sm.get_current_state_node().lock_direction:
-		buffered_direction = new_direction
-	else: 
-		_change_direction(new_direction)
+	_change_direction(new_direction)
 
 
 func _change_direction(direction):
@@ -122,9 +125,9 @@ func _direction_to_column(direction):
 	"""
 	
 	var direction_dict = {
-		"south": 0,
-		"north": 3,
-		"east": 2,
-		"west": 1,
+		Vector2(0,1): 0,
+		Vector2(0,-1): 3,
+		Vector2(1,0): 2,
+		Vector2(-1,0): 1,
 	}
 	return direction_dict.get(direction , 3) # defaults to north

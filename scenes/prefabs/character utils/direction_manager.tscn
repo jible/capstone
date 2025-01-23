@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxdsl4tldum0b"]
+
+[ext_resource type="Script" path="res://scripts/characters/direction_manager.gd" id="1_0ynp7"]
+
+[node name="Direction Manager" type="Node2D" node_paths=PackedStringArray("direction_decider")]
+script = ExtResource("1_0ynp7")
+direction_decider = NodePath("Direction Decider")
+
+[node name="Direction Decider" type="Node2D" parent="."]
