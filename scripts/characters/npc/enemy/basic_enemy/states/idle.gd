@@ -11,8 +11,6 @@ extends SMState
 # On readys
 @onready var sm = get_parent()
 
-func frameOneFunc():
-	pass
 
 
 func callback():

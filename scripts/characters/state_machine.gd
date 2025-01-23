@@ -3,8 +3,6 @@ extends Node
 
 # src = https://github.com/jible/BallGame/blob/main/Scripts/PlayerScripts/playerStates.gd
 
-# Exports
-@export var mobility_manager: Node
 ## This is the default state for the state machine
 @export var default_state: String = "Nil"
 
@@ -12,6 +10,7 @@ extends Node
 var state_names = []
 var state_objects = {}
 var current_state: String
+var current_state_node = null
 
 # Signals
 signal state_changed
@@ -34,6 +33,7 @@ func change_state(new_state):
 		if (current_state in state_names):
 			exit_state(current_state)
 		current_state = new_state
+		current_state_node = state_objects[current_state]
 		enter_state(new_state)
 	
 

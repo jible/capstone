@@ -3,6 +3,7 @@ extends SMState
 # Exports
 @export var player:CharacterBody2D
 @export var lock_direction = false
+@export var movement_details =  {}
 @export var animation = {
 	"frames": [0,2],
 	"framerate": 4

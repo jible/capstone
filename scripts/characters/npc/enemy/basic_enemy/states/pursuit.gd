@@ -2,16 +2,20 @@ extends Node
 
 
 @export var me: CharacterBody2D
-@export var max_speed: int
-@export var acceleration: int
 @onready var sm = get_parent()
-@onready var mobility_manager = get_parent().mobility_manager
+@export var lock_direction = false
+@export var movement_details =  {}
+@export var animation = {
+	"frames": [3,4,5],
+	"framerate": 4
+}
+@export var mobility_manager: Node2D
 var player: CharacterBody2D
 
 func _ready():
 	var players = get_tree().get_nodes_in_group("Player")
 	if players:
-		player = players[0].character
+		player = players[0]
 
 func update_state(delta):
 	if (player):

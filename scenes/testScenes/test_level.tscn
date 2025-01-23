@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://b17tkk14cvn2x"]
+[gd_scene load_steps=7 format=4 uid="uid://b17tkk14cvn2x"]
 
 [ext_resource type="Texture2D" uid="uid://37bv6hp14mkn" path="res://assets/sprites/environment/tiles/testing-tileset.png" id="1_6m5bh"]
-[ext_resource type="PackedScene" uid="uid://x6a7bv3qxp2r" path="res://scenes/prefabs/player/player.tscn" id="2_8l773"]
+[ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="2_8l773"]
 [ext_resource type="PackedScene" uid="uid://dp6sdxgrjma40" path="res://scenes/jackson_ui_testing.tscn" id="3_ibp2n"]
+[ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="4_6njjp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6cemj"]
 texture = ExtResource("1_6m5bh")
@@ -28,14 +29,14 @@ tile_set = SubResource("TileSet_7bnbg")
 [node name="Player" parent="." instance=ExtResource("2_8l773")]
 position = Vector2(1602, 981)
 
-[node name="Camera2D" type="Camera2D" parent="Player/Character Base Class" index="8"]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="JacksonUiTesting2" parent="CanvasLayer" instance=ExtResource("3_ibp2n")]
 
+[node name="Custom Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_6njjp")]
+target = NodePath("../Player")
+follow_player = true
+
 [editable path="Player"]
-[editable path="Player/Character Base Class"]
-[editable path="Player/Character Base Class/State Machine"]
-[editable path="Player/Character Base Class/Hurtbox"]
-[editable path="Player/Character Base Class/Hitbox"]
+[editable path="Player/State Machine"]
+[editable path="Player/Direction Manager"]
