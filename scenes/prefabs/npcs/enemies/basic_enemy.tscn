@@ -1,0 +1,80 @@
+[gd_scene load_steps=15 format=3 uid="uid://cfy2mlhpkuxdd"]
+
+[ext_resource type="Script" path="res://scripts/characters/npc/mobility_manager.gd" id="1_eb0ni"]
+[ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/basic_enemy.gd" id="1_s78sa"]
+[ext_resource type="PackedScene" uid="uid://b3wmb7nx7u8ug" path="res://scenes/prefabs/character utils/sprite_manager.tscn" id="2_5s66b"]
+[ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_4kkek"]
+[ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/idle.gd" id="3_f8pux"]
+[ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/pursuit.gd" id="4_nlsgk"]
+[ext_resource type="PackedScene" uid="uid://bxdsl4tldum0b" path="res://scenes/prefabs/character utils/direction_manager.tscn" id="4_yxhsg"]
+[ext_resource type="PackedScene" uid="uid://buwbtxan5ao3v" path="res://scenes/prefabs/character utils/hitbox.tscn" id="5_pk3ql"]
+[ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/basic_enemy_direction_decider.gd" id="5_syr5g"]
+[ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/hurt.gd" id="6_1sls6"]
+[ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="6_025q6"]
+[ext_resource type="Texture2D" uid="uid://c6kbrr4r0yvl1" path="res://assets/sprites/basic_enemy.png" id="8_rxyio"]
+[ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="13_y7ykc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mt6l6"]
+
+[node name="Basic Enemy" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("1_s78sa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mt6l6")
+
+[node name="Mobility Manager" type="Node2D" parent="." node_paths=PackedStringArray("state_machine")]
+script = ExtResource("1_eb0ni")
+state_machine = NodePath("../State Machine")
+default_max_speed = 500
+default_acceleration = 50
+
+[node name="State Machine" parent="." instance=ExtResource("3_4kkek")]
+default_state = "Pursuit"
+
+[node name="Idle" type="Node" parent="State Machine"]
+script = ExtResource("3_f8pux")
+
+[node name="Pursuit" type="Node" parent="State Machine" node_paths=PackedStringArray("me", "mobility_manager")]
+script = ExtResource("4_nlsgk")
+me = NodePath("../..")
+mobility_manager = NodePath("../../Mobility Manager")
+
+[node name="Hurt" type="Node2D" parent="State Machine" node_paths=PackedStringArray("hurtbox", "mobility_manager")]
+script = ExtResource("6_1sls6")
+hurtbox = NodePath("../../Hurtbox")
+mobility_manager = NodePath("../../Mobility Manager")
+
+[node name="Hitbox" parent="." instance=ExtResource("5_pk3ql")]
+collision_layer = 32
+collision_mask = 4
+
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("character") instance=ExtResource("6_025q6")]
+collision_layer = 16
+collision_mask = 8
+character = NodePath("..")
+
+[node name="Sprite Manager" parent="." instance=ExtResource("2_5s66b")]
+texture = ExtResource("8_rxyio")
+region_enabled = true
+region_rect = Rect2(0, 0, 120, 120)
+frame_size = Vector2i(120, 120)
+
+[node name="Direction Manager" parent="." node_paths=PackedStringArray("sm") instance=ExtResource("4_yxhsg")]
+sm = NodePath("../State Machine")
+
+[node name="Direction Decider" parent="Direction Manager" index="0" node_paths=PackedStringArray("char")]
+script = ExtResource("5_syr5g")
+char = NodePath("../..")
+
+[node name="Health Manager" parent="." node_paths=PackedStringArray("sm") instance=ExtResource("13_y7ykc")]
+sm = NodePath("../State Machine")
+
+[connection signal="state_changed" from="State Machine" to="Sprite Manager" method="_on_state_machine_state_changed"]
+[connection signal="state_changed" from="State Machine" to="Direction Manager" method="_on_state_machine_state_changed"]
+[connection signal="received_damage" from="Hurtbox" to="Health Manager" method="_on_hurtbox_received_damage"]
+[connection signal="direction_changed" from="Direction Manager" to="Sprite Manager" method="_on_direction_manager_direction_changed"]
+
+[editable path="State Machine"]
+[editable path="Direction Manager"]

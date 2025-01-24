@@ -3,12 +3,17 @@
 [ext_resource type="Script" path="res://scripts/characters/hitbox.gd" id="1_8dr66"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ma6l2"]
-size = Vector2(234, 237)
+size = Vector2(131, 131)
 
 [node name="Hitbox" type="Area2D" node_paths=PackedStringArray("collision")]
 collision_mask = 0
 script = ExtResource("1_8dr66")
 collision = NodePath("CollisionShape2D")
+detecting = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ma6l2")
+debug_color = Color(0.962846, 0.185622, 0.141733, 0.42)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

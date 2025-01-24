@@ -8,5 +8,5 @@ extends Node2D
 func _ready():
 	Globals.player = $"Character Base Class"
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	mobility_manager.input_direction = InputManager.get_move_vector()
