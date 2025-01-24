@@ -18,4 +18,3 @@ func _on_button_pressed() -> void:
 	
 func toggle_upgrade_menu():
 	upgrade_menu.set_visible(!upgrade_menu.visible)
-	print("toggle upgrade menu")

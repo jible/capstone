@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-var stat_name: String
+@export var stat_name: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 
 ##this function runs when the upgrade button is pressed
 func _on_stat_increased() -> void:
-	print("stat increased")
+	SignalBus.upgrade_stat_button_pressed.emit(stat_name)

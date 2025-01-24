@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://b17tkk14cvn2x"]
+[gd_scene load_steps=8 format=4 uid="uid://b17tkk14cvn2x"]
 
 [ext_resource type="Texture2D" uid="uid://37bv6hp14mkn" path="res://assets/sprites/environment/tiles/testing-tileset.png" id="1_6m5bh"]
 [ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="2_8l773"]
 [ext_resource type="PackedScene" uid="uid://dp6sdxgrjma40" path="res://scenes/HUD.tscn" id="3_ibp2n"]
 [ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="4_6njjp"]
+[ext_resource type="Script" path="res://scripts/globals/upgrade_manager.gd" id="5_cs7ep"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6cemj"]
 texture = ExtResource("1_6m5bh")
@@ -33,10 +34,21 @@ position = Vector2(1602, 981)
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("3_ibp2n")]
 
+[node name="StatUpgrade" parent="CanvasLayer/HUD/StatUpgradeUi/MarginContainer/Panel/MarginContainer/VBoxContainer" index="0"]
+stat_name = "health"
+
+[node name="StatUpgrade2" parent="CanvasLayer/HUD/StatUpgradeUi/MarginContainer/Panel/MarginContainer/VBoxContainer" index="1"]
+stat_name = "dmg"
+
+[node name="StatUpgrade3" parent="CanvasLayer/HUD/StatUpgradeUi/MarginContainer/Panel/MarginContainer/VBoxContainer" index="2"]
+stat_name = "speed"
+
 [node name="Custom Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_6njjp")]
 target = NodePath("../Player")
 follow_player = true
 
-[editable path="Player"]
-[editable path="Player/State Machine"]
-[editable path="Player/Direction Manager"]
+[node name="UpgradeManager" type="Node" parent="."]
+script = ExtResource("5_cs7ep")
+
+[editable path="CanvasLayer/HUD"]
+[editable path="CanvasLayer/HUD/StatUpgradeUi"]

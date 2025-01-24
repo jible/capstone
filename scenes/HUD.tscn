@@ -36,7 +36,7 @@ theme_override_constants/margin_bottom = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="PlayerInfo/MarginContainer"]
 layout_mode = 2
 
-[node name="player_img" type="TextureRect" parent="PlayerInfo/MarginContainer/HBoxContainer"]
+[node name="PlayerImage" type="TextureRect" parent="PlayerInfo/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -49,14 +49,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.6
 
-[node name="ProgressBar" type="ProgressBar" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Healthbar" type="ProgressBar" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/fill = SubResource("StyleBoxFlat_8sjnk")
 step = 1.0
 value = 25.0
 
-[node name="player_name" type="Label" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="PlayerName" type="Label" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "player name"
@@ -65,7 +65,7 @@ text = "player name"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="CurrencyIcon" type="TextureRect" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -73,7 +73,7 @@ size_flags_stretch_ratio = 0.25
 texture = ExtResource("2_cbqub")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="CurrencyCount" type="Label" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
