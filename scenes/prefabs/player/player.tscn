@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6kyubdgubp47"]
+[gd_scene load_steps=15 format=3 uid="uid://c6kyubdgubp47"]
 
-[ext_resource type="Script" path="res://scenes/prefabs/player/player.gd" id="1_u3dna"]
+[ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_u3dna"]
 [ext_resource type="Script" path="res://scripts/characters/player/mobility_manager.gd" id="2_ab5v3"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_igigb"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/idle.gd" id="4_r0sgn"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="9_po6ig"]
 [ext_resource type="PackedScene" uid="uid://b3wmb7nx7u8ug" path="res://scenes/prefabs/character utils/sprite_manager.tscn" id="10_wvl2e"]
 [ext_resource type="PackedScene" uid="uid://bxdsl4tldum0b" path="res://scenes/prefabs/character utils/direction_manager.tscn" id="12_y1q07"]
-[ext_resource type="Script" path="res://scripts/characters/player/direction_decider.gd" id="13_5mji7"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="14_myo2d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
@@ -67,12 +66,9 @@ texture = ExtResource("7_0quf5")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="Direction Manager" parent="." node_paths=PackedStringArray("sm") instance=ExtResource("12_y1q07")]
+[node name="Direction Manager" parent="." node_paths=PackedStringArray("sm", "character") instance=ExtResource("12_y1q07")]
 sm = NodePath("../State Machine")
-
-[node name="Direction Decider" parent="Direction Manager" index="0" node_paths=PackedStringArray("char")]
-script = ExtResource("13_5mji7")
-char = NodePath("../..")
+character = NodePath("..")
 
 [node name="Health Manager" parent="." node_paths=PackedStringArray("sm") instance=ExtResource("14_myo2d")]
 sm = NodePath("../State Machine")
