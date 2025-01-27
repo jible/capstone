@@ -6,7 +6,7 @@ extends HBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var label = $"StatNameLabel"
+	var label: Label = $"StatNameLabel"
 	label.text = "Upgrade: " + stat_name
 	SignalBus.player_stats_updated.connect(update_level_label)
 	pass # Replace with function body.

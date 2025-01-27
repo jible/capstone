@@ -105,12 +105,10 @@ offset_bottom = 145.0
 grow_horizontal = 0
 
 [node name="StatUpgradeUi" parent="." instance=ExtResource("4_0nay5")]
-unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
 [node name="Button" type="Button" parent="."]
-unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
