@@ -6,7 +6,7 @@ var test = 0
 @onready var health_bar: ProgressBar = $"PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Health/HealthBar"
 @onready var health_label: Label = $"PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Health/HealthLabel"
 #Refence for player grabbed from scene tree
-@onready var player = get_tree().get_nodes_in_group("Player")[0]
+@onready var player: Player = get_tree().get_nodes_in_group("Player")[0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
