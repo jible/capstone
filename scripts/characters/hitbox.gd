@@ -9,6 +9,9 @@ extends Area2D
 
 var overlapping_areas = []
 
+func _ready():
+	SignalBus.player_stats_updated.connect(set_upgrade_damage)
+
 func turn_on():
 	for area in overlapping_areas:
 		if area is HurtBox && area.detectable:
@@ -37,6 +40,8 @@ func _on_direction_manager_direction_changed(direction: Vector2):
 func set_damage(value: int):
 	damage = value
 	
+func set_upgrade_damage():
+	damage+= UpgradeManager.get_dmg()
 	
 func get_damage():
 	return damage

@@ -6,6 +6,7 @@ var test = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SignalBus.player_stats_updated.connect(update_player_info)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,3 +19,9 @@ func _on_button_pressed() -> void:
 	
 func toggle_upgrade_menu():
 	upgrade_menu.set_visible(!upgrade_menu.visible)
+	
+func update_player_info():
+	# TODO:
+	# hook up health upgrades to UI w/ signals
+	pass
+	

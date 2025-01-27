@@ -33,13 +33,6 @@ position = Vector2(1602, 981)
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("3_ibp2n")]
 
-[node name="Custom Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_6njjp")]
-target = NodePath("../Player")
-follow_player = true
-
-[editable path="Player"]
-[editable path="Player/State Machine"]
-[editable path="Player/Direction Manager"]
 [node name="StatUpgrade" parent="CanvasLayer/HUD/StatUpgradeUi/MarginContainer/Panel/MarginContainer/VBoxContainer" index="0"]
 stat_name = "health"
 
@@ -49,5 +42,12 @@ stat_name = "dmg"
 [node name="StatUpgrade3" parent="CanvasLayer/HUD/StatUpgradeUi/MarginContainer/Panel/MarginContainer/VBoxContainer" index="2"]
 stat_name = "speed"
 
+[node name="Custom Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_6njjp")]
+target = NodePath("../Player")
+follow_player = true
+
+[editable path="Player"]
+[editable path="Player/State Machine"]
+[editable path="Player/Direction Manager"]
 [editable path="CanvasLayer/HUD"]
 [editable path="CanvasLayer/HUD/StatUpgradeUi"]
