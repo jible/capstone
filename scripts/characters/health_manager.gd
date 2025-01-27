@@ -11,5 +11,9 @@ extends Node
 
 func _on_hurtbox_received_damage(damage):
 	health -= damage
-	sm.change_state("Hurt")
+	print(health)
+	if health >0:
+		sm.change_state("Hurt")
+	else:
+		sm.change_state("Death")
 	pass # Replace with function body.

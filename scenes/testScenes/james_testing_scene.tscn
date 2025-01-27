@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://c7syb6hircgps"]
+[gd_scene load_steps=3 format=3 uid="uid://c7syb6hircgps"]
+
+[ext_resource type="PackedScene" uid="uid://cfy2mlhpkuxdd" path="res://scenes/prefabs/npcs/enemies/basic_enemy.tscn" id="1_v7qk1"]
+[ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="2_ppr5d"]
 
 [node name="James testing scene" type="Node2D"]
+
+[node name="Basic Enemy" parent="." instance=ExtResource("1_v7qk1")]
+position = Vector2(369, 269)
+
+[node name="Player" parent="." instance=ExtResource("2_ppr5d")]
+position = Vector2(580, 587)

@@ -1,7 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://c6kyubdgubp47"]
 
-[ext_resource type="Script" path="res://scenes/prefabs/player/player.gd" id="1_u3dna"]
-[ext_resource type="Script" path="res://scripts/characters/player/mobility_manager.gd" id="2_ab5v3"]
+[ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_u3dna"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_igigb"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/idle.gd" id="4_r0sgn"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/walk.gd" id="5_7mdyy"]
@@ -9,10 +8,11 @@
 [ext_resource type="Script" path="res://scripts/characters/player/states/hurt.gd" id="6_m7eoc"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/attack.gd" id="6_rq4oq"]
 [ext_resource type="Texture2D" uid="uid://bivs6m68fn726" path="res://assets/sprites/playerV2.png" id="7_0quf5"]
+[ext_resource type="Script" path="res://scripts/characters/player/states/death.gd" id="8_vxcvn"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="9_po6ig"]
 [ext_resource type="PackedScene" uid="uid://b3wmb7nx7u8ug" path="res://scenes/prefabs/character utils/sprite_manager.tscn" id="10_wvl2e"]
 [ext_resource type="PackedScene" uid="uid://bxdsl4tldum0b" path="res://scenes/prefabs/character utils/direction_manager.tscn" id="12_y1q07"]
-[ext_resource type="Script" path="res://scripts/characters/player/direction_decider.gd" id="13_5mji7"]
+[ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="14_2dfdq"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="14_myo2d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
@@ -25,8 +25,7 @@ script = ExtResource("1_u3dna")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kqpcb")
 
-[node name="Mobility Manager" type="Node2D" parent="." node_paths=PackedStringArray("state_machine")]
-script = ExtResource("2_ab5v3")
+[node name="Mobility Manager" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("14_2dfdq")]
 state_machine = NodePath("../State Machine")
 
 [node name="State Machine" parent="." instance=ExtResource("3_igigb")]
@@ -51,6 +50,9 @@ hurtbox = NodePath("../../Hurtbox")
 character = NodePath("../..")
 mobility_manager = NodePath("../../Mobility Manager")
 
+[node name="Death" type="Node" parent="State Machine"]
+script = ExtResource("8_vxcvn")
+
 [node name="Hitbox" parent="." instance=ExtResource("6_arj65")]
 collision_layer = 8
 collision_mask = 16
@@ -67,12 +69,9 @@ texture = ExtResource("7_0quf5")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="Direction Manager" parent="." node_paths=PackedStringArray("sm") instance=ExtResource("12_y1q07")]
+[node name="Direction Manager" parent="." node_paths=PackedStringArray("sm", "character") instance=ExtResource("12_y1q07")]
 sm = NodePath("../State Machine")
-
-[node name="Direction Decider" parent="Direction Manager" index="0" node_paths=PackedStringArray("char")]
-script = ExtResource("13_5mji7")
-char = NodePath("../..")
+character = NodePath("..")
 
 [node name="Health Manager" parent="." node_paths=PackedStringArray("sm") instance=ExtResource("14_myo2d")]
 sm = NodePath("../State Machine")

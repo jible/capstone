@@ -3,8 +3,7 @@ extends Node
 
 # Exports 
 @export var sm: StateMachine
-@export var direction_decider:Node2D
-
+@export var character: CharacterBody2D
 # Properties
 var look_vector: Vector2
 
@@ -23,7 +22,7 @@ func _on_state_machine_state_changed(_state):
 
 
 func update_direction():
-	var new_look_vector = direction_decider.pick_direction()
+	var new_look_vector = character.get_direction()
 	if (abs(new_look_vector.x) > abs(new_look_vector.y)):
 		new_look_vector = Vector2(new_look_vector.x,0).normalized()
 	elif (abs(new_look_vector.x) < abs(new_look_vector.y)): 

@@ -1,15 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://cfy2mlhpkuxdd"]
+[gd_scene load_steps=14 format=3 uid="uid://cfy2mlhpkuxdd"]
 
-[ext_resource type="Script" path="res://scripts/characters/npc/mobility_manager.gd" id="1_eb0ni"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/basic_enemy.gd" id="1_s78sa"]
 [ext_resource type="PackedScene" uid="uid://b3wmb7nx7u8ug" path="res://scenes/prefabs/character utils/sprite_manager.tscn" id="2_5s66b"]
+[ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="2_ffnce"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_4kkek"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/idle.gd" id="3_f8pux"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/pursuit.gd" id="4_nlsgk"]
 [ext_resource type="PackedScene" uid="uid://bxdsl4tldum0b" path="res://scenes/prefabs/character utils/direction_manager.tscn" id="4_yxhsg"]
 [ext_resource type="PackedScene" uid="uid://buwbtxan5ao3v" path="res://scenes/prefabs/character utils/hitbox.tscn" id="5_pk3ql"]
-[ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/basic_enemy_direction_decider.gd" id="5_syr5g"]
-[ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/hurt.gd" id="6_1sls6"]
+[ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/hurt.gd" id="6_1sls6"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="6_025q6"]
 [ext_resource type="Texture2D" uid="uid://c6kbrr4r0yvl1" path="res://assets/sprites/basic_enemy.png" id="8_rxyio"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="13_y7ykc"]
@@ -24,11 +23,8 @@ script = ExtResource("1_s78sa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mt6l6")
 
-[node name="Mobility Manager" type="Node2D" parent="." node_paths=PackedStringArray("state_machine")]
-script = ExtResource("1_eb0ni")
+[node name="Mobility Manager" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("2_ffnce")]
 state_machine = NodePath("../State Machine")
-default_max_speed = 500
-default_acceleration = 50
 
 [node name="State Machine" parent="." instance=ExtResource("3_4kkek")]
 default_state = "Pursuit"
@@ -61,12 +57,9 @@ region_enabled = true
 region_rect = Rect2(0, 0, 120, 120)
 frame_size = Vector2i(120, 120)
 
-[node name="Direction Manager" parent="." node_paths=PackedStringArray("sm") instance=ExtResource("4_yxhsg")]
+[node name="Direction Manager" parent="." node_paths=PackedStringArray("sm", "character") instance=ExtResource("4_yxhsg")]
 sm = NodePath("../State Machine")
-
-[node name="Direction Decider" parent="Direction Manager" index="0" node_paths=PackedStringArray("char")]
-script = ExtResource("5_syr5g")
-char = NodePath("../..")
+character = NodePath("..")
 
 [node name="Health Manager" parent="." node_paths=PackedStringArray("sm") instance=ExtResource("13_y7ykc")]
 sm = NodePath("../State Machine")
