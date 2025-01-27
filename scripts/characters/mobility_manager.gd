@@ -16,7 +16,6 @@ func set_velocity(arg):
 	character.velocity = arg
 
 func update_velocity():
-	print(character.velocity)
 	var current_state = state_machine.current_state_node
 	var acceleration = current_state.movement_details.get("acceleration", default_acceleration)
 	var max_speed = current_state.movement_details.get("max_speed", default_max_speed)

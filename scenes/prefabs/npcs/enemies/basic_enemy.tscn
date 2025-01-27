@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/basic_enemy.gd" id="1_s78sa"]
 [ext_resource type="PackedScene" uid="uid://b3wmb7nx7u8ug" path="res://scenes/prefabs/character utils/sprite_manager.tscn" id="2_5s66b"]
-[ext_resource type="Script" path="res://scripts/characters/player/mobility_manager.gd" id="2_v3awo"]
+[ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="2_ffnce"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_4kkek"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/idle.gd" id="3_f8pux"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/pursuit.gd" id="4_nlsgk"]
@@ -23,8 +23,7 @@ script = ExtResource("1_s78sa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mt6l6")
 
-[node name="Mobility Manager" type="Node2D" parent="." node_paths=PackedStringArray("state_machine")]
-script = ExtResource("2_v3awo")
+[node name="Mobility Manager" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("2_ffnce")]
 state_machine = NodePath("../State Machine")
 
 [node name="State Machine" parent="." instance=ExtResource("3_4kkek")]
