@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dp6sdxgrjma40"]
 
 [ext_resource type="Texture2D" uid="uid://dslr3ip0cnxp0" path="res://assets/sprites/playerV1.png" id="1_ekvuy"]
-[ext_resource type="Script" path="res://scripts/for_scenes/jackson_ui_testing.gd" id="1_ndg1h"]
+[ext_resource type="Script" path="res://scripts/for_scenes/HUD.gd" id="1_ndg1h"]
 [ext_resource type="Texture2D" uid="uid://bxevwqt0bicpt" path="res://assets/sprites/sexyIndiDevLogo.png" id="2_cbqub"]
 [ext_resource type="PackedScene" uid="uid://p161q7glhm18" path="res://scenes/stat_upgrade_ui.tscn" id="4_0nay5"]
 
@@ -12,7 +12,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="JacksonUiTesting" type="Control"]
+[node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,7 +36,7 @@ theme_override_constants/margin_bottom = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="PlayerInfo/MarginContainer"]
 layout_mode = 2
 
-[node name="player_img" type="TextureRect" parent="PlayerInfo/MarginContainer/HBoxContainer"]
+[node name="PlayerImage" type="TextureRect" parent="PlayerInfo/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -49,23 +49,39 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.6
 
-[node name="ProgressBar" type="ProgressBar" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Health" type="HBoxContainer" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HealthBar" type="ProgressBar" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Health"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/fill = SubResource("StyleBoxFlat_8sjnk")
 step = 1.0
 value = 25.0
+show_percentage = false
 
-[node name="player_name" type="Label" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HealthLabel" type="Label" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Health"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.25
+text = "25/100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PlayerName" type="Label" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
 text = "player name"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Currency" type="HBoxContainer" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="CurrencyIcon" type="TextureRect" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Currency"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -73,7 +89,7 @@ size_flags_stretch_ratio = 0.25
 texture = ExtResource("2_cbqub")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="CurrencyCount" type="Label" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Currency"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
@@ -89,12 +105,10 @@ offset_bottom = 145.0
 grow_horizontal = 0
 
 [node name="StatUpgradeUi" parent="." instance=ExtResource("4_0nay5")]
-unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
 [node name="Button" type="Button" parent="."]
-unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
