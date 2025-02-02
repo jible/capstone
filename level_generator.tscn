@@ -6,8 +6,6 @@
 
 [node name="Level Generator" type="Node2D"]
 script = ExtResource("1_6k4ie")
-size = null
-world_seed = null
 
 [node name="Environment" type="TileMapLayer" parent="."]
 tile_set = ExtResource("2_cpd1b")

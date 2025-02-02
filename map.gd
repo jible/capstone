@@ -3,19 +3,14 @@ class_name Map
 
 
 @export var size: Vector2 = Vector2.ZERO
-
-@export var name_to_id = {
-	"floor": 0
-}
-@export var name_to_pos = {
-	"floor" : Vector2(0,0)
-}
 var matrix = []
 var seed : int = 0
+var noise_ref = FastNoiseLite.new()
 
 func _init(arg_size, arg_seed):
 	size = arg_size
 	seed = arg_seed
+	noise_ref.seed = seed
 	configure_matrix()
 
 
@@ -43,7 +38,6 @@ func randomWalk(layer, value, steps = (size.x * size.y)/2):
 		Vector2(1,0), 
 	]
 	
-	
 	var start = Vector2(floor(size.x/2), floor(size.y/2) )
 	var pos = start
 	for step in range(steps):
@@ -54,7 +48,14 @@ func randomWalk(layer, value, steps = (size.x * size.y)/2):
 		pos += directions[randi() % 4]
 		if pos.x >= size.x || pos.x < 0 || pos.y >= size.y || pos.y < 0:
 			pos = start
-			
+
+func make_noise():
+	for y in range (size.y):
+		for x in range(size.x):
+			var pos = Vector2i(x,y)
+			var val = noise_ref.get_noise_2dv(pos)
+			get_tile(pos).layers["terrain"] = val
+
 func fill_opposite(look_layer, fill_layer):
 	for y in range (size.y):
 		for x in range(size.x):

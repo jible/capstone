@@ -17,7 +17,7 @@ func _ready():
 		"terrain": $Environment,
 		"objects": $Objects,
 	}
-	generate_level("limbo")
+	generate_level("lust")
 
 
 func generate_level(level_type):
@@ -28,9 +28,10 @@ func generate_level(level_type):
 	
 func make_limbo():
 	# Randomly walk the terrain level and fill it with floors. 
-	
 	map.randomWalk("terrain","floor")
 
+func make_lust():
+	map.make_noise()
 
 func render():
 	render_layer("terrain")
@@ -39,5 +40,5 @@ func render_layer(layer):
 	for y in range (size.y):
 		for x in range(size.x):
 			var pos = Vector2(x,y)
-			if map.get_tile(pos).layers[layer] != null:
+			if map.get_tile(pos).layers[layer] > .3:
 				layers[layer].set_cell(pos, 0, Vector2i(1, 1))
