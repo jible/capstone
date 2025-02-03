@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm7lowyho4lrh"]
+[gd_scene load_steps=4 format=3 uid="uid://b0qchcd21rx5b"]
 
 [ext_resource type="Script" path="res://level_generator.gd" id="1_6k4ie"]
 [ext_resource type="TileSet" uid="uid://dpvgrumxqj7fu" path="res://tilesets/test-tileset.tres" id="2_cpd1b"]
-[ext_resource type="PackedScene" uid="uid://crsb6gfkhncxr" path="res://debug_camera.tscn" id="3_wcw4f"]
+[ext_resource type="PackedScene" path="res://debug_camera.tscn" id="3_wcw4f"]
 
 [node name="Level Generator" type="Node2D"]
 script = ExtResource("1_6k4ie")
