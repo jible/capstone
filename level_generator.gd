@@ -16,7 +16,7 @@ func _ready():
 		"terrain": $Environment,
 		"objects": $Objects,
 	}
-	generate_level("limbo")
+	generate_level("lust")
 
 func generate_level(level_type):
 	'''
@@ -54,5 +54,5 @@ func render_layer(layer):
 	for y in range (size.y):
 		for x in range(size.x):
 			var pos = Vector2(x,y)
-			if map.get_tile(pos).layers[layer] == "floor":
+			if map.get_tile(pos).type == "floor":
 				layers[layer].set_cell(pos, 0, Vector2i(randi()%29, randi()%29))

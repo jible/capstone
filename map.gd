@@ -50,7 +50,7 @@ func random_walk(layer, value, steps = (size.x * size.y)/2):
 	var pos = start
 	for step in range(steps):
 		var current_tile = get_tile(pos)
-		current_tile.layers[layer] = value
+		current_tile.type = value
 		
 		#update seed
 		seed(seed + step)
@@ -71,4 +71,4 @@ func make_noise(layer, value):
 			
 			# if the output is greater than the threshold create 'value' tile
 			if output > threshold:
-				get_tile(pos).layers[layer] = value
+				get_tile(pos).type = value
