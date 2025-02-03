@@ -55,4 +55,4 @@ func render_layer(layer):
 		for x in range(size.x):
 			var pos = Vector2(x,y)
 			if map.get_tile(pos).layers[layer] == "floor":
-				layers[layer].set_cell(pos, 0, Vector2i(1, 1))
+				layers[layer].set_cell(pos, 0, Vector2i(randi()%29, randi()%29))
