@@ -13,8 +13,8 @@ var layers
 
 func _ready():
 	layers = {
-		"terrain": $Environment,
-		"objects": $Objects,
+		"environment": $Environment,
+		"walls": $Walls,
 	}
 	generate_level("lust")
 
@@ -43,7 +43,7 @@ func make_lust():
 	# [ ] call function to find tile for player spawn and exit.
 
 func render():
-	render_layer("terrain")
+	render_layer("environment")
 	
 	# [ ] render walls (aesthetic only, walls are on seperate non-interactable layer).
 
@@ -54,5 +54,9 @@ func render_layer(layer):
 	for y in range (size.y):
 		for x in range(size.x):
 			var pos = Vector2(x,y)
+			var check_wall = Vector2(x,y + 1 )
 			if map.get_tile(pos).type == "floor":
-				layers[layer].set_cell(pos, 0, Vector2i(randi()%29, randi()%29))
+				layers["environment"].set_cell(pos, 0, Vector2i(randi()%29, randi()%29))
+			elif map.get_tile(pos).type == null && check_wall.y < map.size.y && map.get_tile(check_wall).type == "floor":
+				layers["walls"].set_cell(pos, 0, Vector2i(1, randi()%3))
+				layers["walls"].set_cell(Vector2(x,y - 1 ), 0, Vector2i(0, randi()%3))
