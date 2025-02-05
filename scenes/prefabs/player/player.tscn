@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6kyubdgubp47"]
+[gd_scene load_steps=18 format=3 uid="uid://c6kyubdgubp47"]
 
 [ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_u3dna"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_igigb"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://bxdsl4tldum0b" path="res://scenes/prefabs/character utils/direction_manager.tscn" id="12_y1q07"]
 [ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="14_2dfdq"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="14_myo2d"]
+[ext_resource type="PackedScene" uid="uid://c8m53vdgh2gf" path="res://pick_up.tscn" id="15_nqwto"]
+[ext_resource type="PackedScene" uid="uid://cwjaeghgmlbgt" path="res://inventory.tscn" id="16_ycf0q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
 
@@ -75,11 +77,17 @@ character = NodePath("..")
 [node name="Health Manager" parent="." node_paths=PackedStringArray("sm") instance=ExtResource("14_myo2d")]
 sm = NodePath("../State Machine")
 
+[node name="Pick Up" parent="." instance=ExtResource("15_nqwto")]
+
+[node name="Inventory" parent="." instance=ExtResource("16_ycf0q")]
+
 [connection signal="state_changed" from="State Machine" to="Sprite Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Direction Manager" method="_on_state_machine_state_changed"]
 [connection signal="received_damage" from="Hurtbox" to="Health Manager" method="_on_hurtbox_received_damage"]
 [connection signal="direction_changed" from="Direction Manager" to="Hitbox" method="_on_direction_manager_direction_changed"]
 [connection signal="direction_changed" from="Direction Manager" to="Sprite Manager" method="_on_direction_manager_direction_changed"]
+[connection signal="item_collected" from="Pick Up" to="Inventory" method="_on_pick_up_item_collected"]
 
 [editable path="State Machine"]
 [editable path="Direction Manager"]
+[editable path="Pick Up"]

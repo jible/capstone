@@ -114,6 +114,7 @@ debug_zoom_out={
 2d_physics/layer_7="wall"
 2d_physics/layer_8="interactable"
 2d_physics/layer_9="triggers"
+2d_physics/layer_10="pick_up"
 
 [rendering]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfy2mlhpkuxdd"]
+[gd_scene load_steps=16 format=3 uid="uid://cfy2mlhpkuxdd"]
 
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/basic_enemy.gd" id="1_s78sa"]
 [ext_resource type="PackedScene" uid="uid://b3wmb7nx7u8ug" path="res://scenes/prefabs/character utils/sprite_manager.tscn" id="2_5s66b"]
 [ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="2_ffnce"]
+[ext_resource type="PackedScene" uid="uid://y552t2bx22bv" path="res://collectable.tscn" id="2_n2j2n"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_4kkek"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/idle.gd" id="3_f8pux"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/pursuit.gd" id="4_nlsgk"]
@@ -11,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/hurt.gd" id="6_1sls6"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="6_025q6"]
 [ext_resource type="Texture2D" uid="uid://c6kbrr4r0yvl1" path="res://assets/sprites/basic_enemy.png" id="8_rxyio"]
+[ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/death.gd" id="8_vddrh"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="13_y7ykc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt6l6"]
@@ -19,6 +21,7 @@
 collision_layer = 0
 collision_mask = 64
 script = ExtResource("1_s78sa")
+drop = ExtResource("2_n2j2n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mt6l6")
@@ -42,6 +45,9 @@ script = ExtResource("6_1sls6")
 hurtbox = NodePath("../../Hurtbox")
 mobility_manager = NodePath("../../Mobility Manager")
 
+[node name="Death" type="Node" parent="State Machine"]
+script = ExtResource("8_vddrh")
+
 [node name="Hitbox" parent="." instance=ExtResource("5_pk3ql")]
 collision_layer = 32
 collision_mask = 4
@@ -62,10 +68,12 @@ sm = NodePath("../State Machine")
 character = NodePath("..")
 
 [node name="Health Manager" parent="." node_paths=PackedStringArray("sm") instance=ExtResource("13_y7ykc")]
+starting_health = 2
 sm = NodePath("../State Machine")
 
 [connection signal="state_changed" from="State Machine" to="Sprite Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Direction Manager" method="_on_state_machine_state_changed"]
+[connection signal="died" from="State Machine/Death" to="." method="_on_death_died"]
 [connection signal="received_damage" from="Hurtbox" to="Health Manager" method="_on_hurtbox_received_damage"]
 [connection signal="direction_changed" from="Direction Manager" to="Sprite Manager" method="_on_direction_manager_direction_changed"]
 
