@@ -1,11 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7syb6hircgps"]
+[gd_scene load_steps=5 format=3 uid="uid://c7syb6hircgps"]
 
 [ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="1_50k4n"]
-[ext_resource type="PackedScene" uid="uid://cfy2mlhpkuxdd" path="res://scenes/prefabs/npcs/enemies/basic_enemy.tscn" id="2_looau"]
+[ext_resource type="PackedScene" uid="uid://b0qchcd21rx5b" path="res://scenes/level_generator.tscn" id="1_am7ec"]
+[ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="3_8q7io"]
+[ext_resource type="Texture2D" uid="uid://bvbihq4gywhos" path="res://assets/sprites/playerV4.png" id="3_8wpkw"]
 
 [node name="James testing scene" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_50k4n")]
-position = Vector2(104, 119)
+[node name="Level Generator" parent="." instance=ExtResource("1_am7ec")]
 
-[node name="Basic Enemy" parent="." instance=ExtResource("2_looau")]
+[node name="Player" parent="." instance=ExtResource("1_50k4n")]
+position = Vector2(1863, 1651)
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite Manager" parent="Player" index="5"]
+texture = ExtResource("3_8wpkw")
+frame_size = Vector2i(128, 256)
+
+[node name="Custom Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_8q7io")]
+zoom = Vector2(1.22, 1.22)
+target = NodePath("../Player")
+follow_player = true
+
+[editable path="Player"]
+[editable path="Player/State Machine"]
+[editable path="Player/Hitbox"]
+[editable path="Player/Direction Manager"]
+[editable path="Player/Pick Up"]
