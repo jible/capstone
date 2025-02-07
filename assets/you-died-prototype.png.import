@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvpkjan54gt5p"
-path="res://.godot/imported/you-died-prototype.png-9773d44ae22ca89768b7f1059c9dab47.ctex"
+path="res://.godot/imported/you-died-prototype.png-07d6fa844f945661c640e216cdeadcf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/prefabs/npcs/enemies/you-died-prototype.png"
-dest_files=["res://.godot/imported/you-died-prototype.png-9773d44ae22ca89768b7f1059c9dab47.ctex"]
+source_file="res://assets/you-died-prototype.png"
+dest_files=["res://.godot/imported/you-died-prototype.png-07d6fa844f945661c640e216cdeadcf1.ctex"]
 
 [params]
 

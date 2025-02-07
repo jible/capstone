@@ -3,8 +3,8 @@ extends Node
 @onready var character = get_parent()
 @export var state_machine: Node
 
-@export var default_max_speed = 1000
-var default_acceleration = 100 
+@export var max_speed = 1000
+var acceleration = 100 
 var default_drag = .9
 var input_direction = Vector2.ZERO
 
@@ -19,8 +19,8 @@ func update_velocity():
 	var current_state = state_machine.current_state_node
 	# TODO
 	# Set up player speed equation
-	var acceleration = current_state.movement_details.get("acceleration", default_acceleration)*UpgradeManager.get_speed()
-	var max_speed = current_state.movement_details.get("max_speed", default_max_speed)
+	var true_max_speed = max_speed * current_state.movement_details.get("max_speed_mult", 1)
+	var true_acceleration = acceleration * current_state.movement_details.get("acceleration_mult", 1)
 	var drag = current_state.movement_details.get("drag", default_drag)
 	
 	var movement_details = current_state.movement_details
