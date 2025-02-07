@@ -28,6 +28,7 @@ shape = SubResource("CircleShape2D_kqpcb")
 
 [node name="Mobility Manager" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("14_2dfdq")]
 state_machine = NodePath("../State Machine")
+max_speed = 500
 
 [node name="State Machine" parent="." instance=ExtResource("3_igigb")]
 default_state = "Idle"

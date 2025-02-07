@@ -29,6 +29,7 @@ func update_velocity():
 	if movement_details.get("use_drag", true):
 		character.velocity *= drag
 	if movement_details.get("limit_velocity", true):
-		character.velocity.limit_length(max_speed)
+		character.velocity = character.velocity.limit_length(max_speed)
+		print(character.velocity)
 	if character.velocity.length() < 5:
 		character.velocity = Vector2.ZERO

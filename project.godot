@@ -35,6 +35,7 @@ window/size/window_height_override=800
 [global_group]
 
 Player=""
+Enemy_Manager=""
 
 [input]
 
