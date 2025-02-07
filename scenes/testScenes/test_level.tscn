@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://b17tkk14cvn2x"]
+[gd_scene load_steps=6 format=4 uid="uid://b17tkk14cvn2x"]
 
 [ext_resource type="TileSet" uid="uid://dpvgrumxqj7fu" path="res://tilesets/test-tileset.tres" id="1_sowu6"]
 [ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="2_8l773"]
 [ext_resource type="PackedScene" uid="uid://dp6sdxgrjma40" path="res://scenes/HUD.tscn" id="3_ibp2n"]
 [ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="4_6njjp"]
+[ext_resource type="PackedScene" uid="uid://cfy2mlhpkuxdd" path="res://scenes/prefabs/npcs/enemies/basic_enemy.tscn" id="5_o8dxy"]
 
 [node name="Test Level" type="Node2D"]
 
@@ -35,8 +36,12 @@ stat_name = "speed"
 target = NodePath("../Player")
 follow_player = true
 
+[node name="Basic Enemy" parent="." instance=ExtResource("5_o8dxy")]
+
 [editable path="Player"]
 [editable path="Player/State Machine"]
+[editable path="Player/Hitbox"]
 [editable path="Player/Direction Manager"]
+[editable path="Player/Pick Up"]
 [editable path="CanvasLayer/HUD"]
 [editable path="CanvasLayer/HUD/StatUpgradeUi"]

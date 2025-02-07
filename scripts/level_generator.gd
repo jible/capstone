@@ -3,6 +3,7 @@ class_name LevelGenerator
 
 @export var size : Vector2i = Vector2i(150,150) 
 @export var world_seed : int = 0
+var tile_size: Vector2
 var spawn_point = Vector2.ZERO
 var layers = {}
 var map: Map
@@ -17,7 +18,13 @@ func _ready():
 		"environment":$Environment,
 		"walls": $Walls,
 	}
+	tile_size = layers["environment"].tile_set.tile_size
 	
+
+
+# For other nodes to find tiles from map
+func get_tile_type(pos):
+	return map.get_tile(pos).type
 
 
 func generate_level(level_type):

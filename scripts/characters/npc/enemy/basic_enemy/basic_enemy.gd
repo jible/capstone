@@ -6,13 +6,10 @@ extends CharacterBody2D
 
 var enemy_manager:Node = null
 
-func _init(manager):
-	enemy_manager = manager
-
 
 func _ready():
 	if enemy_manager == null:
-		enemy_manager = get_tree().get_nodes_in_group("Enemy_Manager")[0]
+		enemy_manager = get_tree().get_first_node_in_group("Enemy_Manager")
 
 
 func death_drop():
@@ -23,7 +20,8 @@ func death_drop():
 
 func die():
 	death_drop()
-	enemy_manager.enemy_killed(self)
+	if enemy_manager:
+		enemy_manager.enemy_killed(self)
 	self.queue_free()
 
 func _physics_process(_delta):
