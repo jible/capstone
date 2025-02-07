@@ -14,8 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://bxdsl4tldum0b" path="res://scenes/prefabs/character utils/direction_manager.tscn" id="12_y1q07"]
 [ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="14_2dfdq"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="14_myo2d"]
-[ext_resource type="PackedScene" uid="uid://c8m53vdgh2gf" path="res://pick_up.tscn" id="15_nqwto"]
-[ext_resource type="PackedScene" uid="uid://cwjaeghgmlbgt" path="res://inventory.tscn" id="16_ycf0q"]
+[ext_resource type="PackedScene" uid="uid://c8m53vdgh2gf" path="res://scenes/prefabs/player/pick_up.tscn" id="15_nqwto"]
+[ext_resource type="PackedScene" uid="uid://cwjaeghgmlbgt" path="res://scenes/prefabs/character utils/inventory.tscn" id="16_ycf0q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
 

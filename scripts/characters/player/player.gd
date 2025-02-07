@@ -7,7 +7,6 @@ extends CharacterBody2D
 @export var drag_coefficient: float
 @onready var drag:float  = 1.0 - drag_coefficient
 
-
 func _physics_process(_delta):
 	mobility_manager.input_direction = InputManager.get_move_vector()
 	move_and_slide()
