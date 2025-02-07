@@ -57,4 +57,3 @@ func try_spawn():
 		var true_pos = Vector2(tile_size * tile)
 		if (player.position - true_pos).length() > min_dist_from_player:
 			spawn_enemy(true_pos)
-			print (true_pos)

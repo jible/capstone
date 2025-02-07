@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="13_y7ykc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt6l6"]
+radius = 64.47
 
 [node name="Basic Enemy" type="CharacterBody2D"]
 collision_layer = 2
