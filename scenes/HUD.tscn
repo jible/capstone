@@ -58,8 +58,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/fill = SubResource("StyleBoxFlat_8sjnk")
+max_value = 10.0
 step = 1.0
-value = 25.0
+value = 10.0
 show_percentage = false
 
 [node name="HealthLabel" type="Label" parent="PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Health"]
@@ -67,7 +68,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.25
-text = "25/100"
+text = "10/10
+"
 horizontal_alignment = 2
 vertical_alignment = 1
 
