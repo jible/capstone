@@ -37,6 +37,8 @@ follow_player = true
 
 [editable path="Player"]
 [editable path="Player/State Machine"]
+[editable path="Player/Hitbox"]
 [editable path="Player/Direction Manager"]
+[editable path="Player/Pick Up"]
 [editable path="CanvasLayer/HUD"]
 [editable path="CanvasLayer/HUD/StatUpgradeUi"]
