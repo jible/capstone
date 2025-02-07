@@ -1,29 +1,36 @@
 extends Node2D
 class_name LevelGenerator
 
-@export var size : Vector2i = Vector2i(100,100)
+@export var size : Vector2i = Vector2i(150,150) 
 @export var world_seed : int = 0
+var spawn_point = Vector2.ZERO
+var layers = {}
 var map: Map
 
 var gen_methods = {
 	"limbo": Callable(self, "make_limbo"),
 	"lust": Callable(self, "make_lust"),
 }
-var layers 
 
 func _ready():
 	layers = {
-		"environment": $Environment,
+		"environment":$Environment,
 		"walls": $Walls,
 	}
-	generate_level("lust")
+	
+
 
 func generate_level(level_type):
 	'''
 	Generate tilemap level dependent on argument type.
 	'''
+	
 	map = Map.new(size, world_seed)
 	gen_methods[level_type].call()
+	
+	var tile_size = Vector2( layers["environment"].tile_set.tile_size )
+	spawn_point = ( map.player_spawn * tile_size ) + (.5 * tile_size)
+	
 	render()
 
 func make_limbo():

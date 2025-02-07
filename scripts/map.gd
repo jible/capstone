@@ -6,6 +6,7 @@ var matrix = []
 var seed : int = 0
 var noise_ref = FastNoiseLite.new()
 var threshold = .3
+var player_spawn = Vector2i.ZERO
 
 func _init(arg_size, arg_seed):
 	size = arg_size
@@ -47,6 +48,7 @@ func random_walk(layer, value, steps = (size.x * size.y)/2):
 	]
 	
 	var start = Vector2(floor(size.x/2), floor(size.y/2) )
+	player_spawn = start
 	var pos = start
 	for step in range(steps):
 		var current_tile = get_tile(pos)
