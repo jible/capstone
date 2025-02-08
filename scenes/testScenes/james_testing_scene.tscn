@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b0qchcd21rx5b" path="res://scenes/level_generator.tscn" id="1_am7ec"]
 [ext_resource type="Script" path="res://scenes/prefabs/scene_config_package.gd" id="1_qnhdi"]
 [ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="3_8q7io"]
-[ext_resource type="Script" path="res://enemy_manager.gd" id="5_rge60"]
+[ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_rge60"]
 
 [node name="James testing scene" type="Node2D"]
 
