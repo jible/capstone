@@ -19,8 +19,9 @@
 radius = 64.47
 
 [node name="Basic Enemy" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
 collision_layer = 2
-collision_mask = 66
+collision_mask = 67
 script = ExtResource("1_s78sa")
 drop = ExtResource("2_n2j2n")
 
@@ -29,6 +30,8 @@ shape = SubResource("CircleShape2D_mt6l6")
 
 [node name="Mobility Manager" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("2_ffnce")]
 state_machine = NodePath("../State Machine")
+max_speed = 80
+acceleration = 80
 
 [node name="State Machine" parent="." instance=ExtResource("3_4kkek")]
 default_state = "Pursuit"

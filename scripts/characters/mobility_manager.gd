@@ -4,7 +4,7 @@ extends Node
 @export var state_machine: Node
 
 @export var max_speed = 1000
-var acceleration = 100 
+@export var acceleration = 100 
 var default_drag = .9
 var input_direction = Vector2.ZERO
 

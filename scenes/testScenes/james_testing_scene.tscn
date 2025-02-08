@@ -8,9 +8,10 @@
 
 [node name="James testing scene" type="Node2D"]
 
-[node name="Scene Config Package" type="Node2D" parent="." node_paths=PackedStringArray("level_generator", "player")]
+[node name="Scene Config Package" type="Node2D" parent="." node_paths=PackedStringArray("level_generator", "camera", "player")]
 script = ExtResource("1_qnhdi")
 level_generator = NodePath("Level Generator")
+camera = NodePath("Custom Camera")
 player = NodePath("Player")
 
 [node name="Level Generator" parent="Scene Config Package" instance=ExtResource("1_am7ec")]
@@ -19,8 +20,13 @@ world_seed = 2
 [node name="Player" parent="Scene Config Package" instance=ExtResource("1_50k4n")]
 
 [node name="Custom Camera" parent="Scene Config Package" node_paths=PackedStringArray("target") instance=ExtResource("3_8q7io")]
+zoom = Vector2(1.73, 1.73)
 target = NodePath("../Player")
 follow_player = true
+free_axis = {
+"x": 10,
+"y": 10
+}
 
 [node name="Enemy Manager" type="Node" parent="Scene Config Package" node_paths=PackedStringArray("level_generator") groups=["Enemy_Manager"]]
 script = ExtResource("5_rge60")

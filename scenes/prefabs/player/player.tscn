@@ -20,7 +20,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-collision_mask = 65
+scale = Vector2(0.25, 0.25)
+collision_mask = 67
 script = ExtResource("1_u3dna")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -28,7 +29,7 @@ shape = SubResource("CircleShape2D_kqpcb")
 
 [node name="Mobility Manager" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("14_2dfdq")]
 state_machine = NodePath("../State Machine")
-max_speed = 500
+max_speed = 100
 
 [node name="State Machine" parent="." instance=ExtResource("3_igigb")]
 default_state = "Idle"
@@ -66,6 +67,7 @@ collision_mask = 32
 character = NodePath("..")
 
 [node name="Sprite Manager" parent="." instance=ExtResource("10_wvl2e")]
+scale = Vector2(4, 4)
 texture = ExtResource("7_0quf5")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
