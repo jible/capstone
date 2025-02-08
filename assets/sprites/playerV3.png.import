@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca8dj7as87tp2"
-path="res://.godot/imported/limbo-grass-temp.png-6e9c75c0fd73dd5fd0de00ae7586b413.ctex"
+uid="uid://clirkgvhe61n3"
+path="res://.godot/imported/playerV3.png-fdafa2f3a449ef99e81bf0b53a63853b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/environment/tiles/limbo-grass-temp.png"
-dest_files=["res://.godot/imported/limbo-grass-temp.png-6e9c75c0fd73dd5fd0de00ae7586b413.ctex"]
+source_file="res://assets/sprites/playerV3.png"
+dest_files=["res://.godot/imported/playerV3.png-fdafa2f3a449ef99e81bf0b53a63853b.ctex"]
 
 [params]
 

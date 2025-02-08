@@ -1,6 +1,6 @@
 extends SMState
 
-
+@export var health_manager: Health
 @export var hurtbox: HurtBox
 @export var character:CharacterBody2D
 @export var mobility_manager: Node2D
@@ -17,7 +17,7 @@ extends SMState
 	"framerate": 6,
 	"callbacks" : {
 		0: [
-			Callable(self, "temp_invincibility"),
+			#Callable(self, "temp_invincibility"),
 			Callable(self, "knockback"),
 		],
 		"end": Callable(self, "end_hurt"),
@@ -41,7 +41,10 @@ func turn_on_hurtbox():
 	
 
 func end_hurt():
-	sm.change_state("Idle")
+	if health_manager.health <= 0:
+		sm.change_state("Death")
+	else:
+		sm.change_state("Idle")
 
 func update_state(delta):
 	pass

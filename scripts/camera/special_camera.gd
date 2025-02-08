@@ -12,6 +12,7 @@ extends Camera2D
 #var settings = {
 	#"" :,
 #}
+@export var follow_speed: float = 2
 @export var target: Node = null
 @export var follow_player: bool
 
@@ -23,6 +24,7 @@ extends Camera2D
 func _ready():
 	if follow_player:
 		assert(target !=null, "no player found for camera")
+		position = target.position
 	pass # Replace with function body.
 
 
@@ -38,13 +40,13 @@ func pursuit(delta):
 	if target:
 		# Get the current position of the camera and the target's position
 		var target_position = target.position 
-		var follow_speed = 5
 		if abs(target_position.x - position.x) < free_axis["x"]:
 			target_position.x = position.x
 		if abs(target_position.y - position.y) < free_axis["y"]:
 			target_position.y = position.y
 		# Interpolate between the current position and the target position
-		var new_position = lerp(position, target_position, delta * follow_speed)
+		var new_position = lerp(position
+		, target_position, delta * follow_speed)
 
 		# Update the camera's position
 		position = new_position

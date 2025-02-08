@@ -6,18 +6,24 @@ extends Area2D
 @export var collision: CollisionShape2D
 @export var detecting:bool = false
 @export var distance_from_parent: int = 100
+@export var knockback = 50
 
 var overlapping_areas = []
+var successful_hit = []
+
+func _ready():
+	SignalBus.player_stats_updated.connect(set_upgrade_damage)
 
 func turn_on():
 	for area in overlapping_areas:
-		if area is HurtBox && area.detectable:
+		if area is HurtBox && area.detectable && ! (area in successful_hit):
 			hit(area)
 	detecting = true
 	pass
 
 
 func turn_off():
+	successful_hit = []
 	detecting = false
 
 
@@ -37,12 +43,14 @@ func _on_direction_manager_direction_changed(direction: Vector2):
 func set_damage(value: int):
 	damage = value
 	
+func set_upgrade_damage():
+	damage+= UpgradeManager.get_dmg()
 	
 func get_damage():
 	return damage
 
-
 func hit( hurtbox: HurtBox):
+	successful_hit.append(hurtbox)
 	hurtbox.hit_by(self)
 	pass
 
