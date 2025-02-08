@@ -49,9 +49,12 @@ layout_mode = 2
 
 [node name="StatUpgrade" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
+stat_name = "health"
 
 [node name="StatUpgrade2" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
+stat_name = "dmg"
 
 [node name="StatUpgrade3" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
+stat_name = "speed"

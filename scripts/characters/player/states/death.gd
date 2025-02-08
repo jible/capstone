@@ -12,7 +12,7 @@ extends SMState
 func update_state(delta):
 	pass
 func enter_state():
-	print("playerDied")
+	SignalBus.player_die.emit()
 	pass
 func exit_state():
 	pass
