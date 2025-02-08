@@ -14,8 +14,8 @@ var speed_lvl: int = 1
 @export var health_up = 1
 @export var dmg_up = 1
 @export var speed_up = 1.2
-@export var upgrade_cost = 10
-@export var currency_name: String = "coins"
+@export var upgrade_cost = 1
+@export var currency_name: String = "money"
 
 #Inventory ref from player
 @onready var inventory: Inventory = get_tree().get_nodes_in_group("Inventory")[0]
@@ -24,8 +24,6 @@ func _ready():
 	SignalBus.upgrade_stat_button_pressed.connect(_on_stat_upgraded)
 	
 func check_can_upgrade(upgrade_lvl: int) -> bool:
-	#TODO
-	#update coins string to whatever we decide to call the currency
 	if upgrade_lvl+1 * upgrade_cost <= inventory.check_item(currency_name):
 		return true
 	return false
@@ -38,7 +36,6 @@ func upgrade_health():
 	health_lvl+=1
 	
 func get_health():
-	print(health_lvl*health_up)
 	return health_lvl*health_up
 	
 func get_health_lvl():
@@ -66,7 +63,6 @@ func get_speed_lvl():
 
 func _on_stat_upgraded(stat_name: String):
 	if check_can_upgrade(Callable(self, "get_%s_lvl" %stat_name).call()):
-		print("upgrading")
 		Callable(self, "upgrade_%s" %stat_name).call()
 	#notify player to update self
 	SignalBus.player_stats_updated.emit()
