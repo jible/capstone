@@ -1,5 +1,6 @@
 extends Node
 # Exports
+
 @export var lock_direction = false
 @export var movement_details =  {
 	"moveable": false,
@@ -16,6 +17,7 @@ extends Node
 	}
 }
 
+@export var health_manager: Health
 @export var hurtbox:HurtBox
 @export var mobility_manager: Node2D
 
@@ -27,8 +29,12 @@ func knockback():
 
 
 func end_hurt():
-	sm.change_state("Pursuit")
-	
+	if health_manager.health <=0:
+		sm.change_state("Death")
+	else: 
+		sm.change_state("Pursuit")
+
+
 	# Main Functions
 func update_state(delta):
 	pass

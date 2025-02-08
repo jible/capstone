@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm7lowyho4lrh"]
+
+[ext_resource type="Script" path="res://level_generator.gd" id="1_6k4ie"]
+[ext_resource type="TileSet" uid="uid://dpvgrumxqj7fu" path="res://tilesets/test-tileset.tres" id="2_cpd1b"]
+
+[node name="Level Generator" type="Node2D"]
+script = ExtResource("1_6k4ie")
+size = null
+world_seed = null
+
+[node name="Environment" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_cpd1b")
+
+[node name="Objects" type="TileMapLayer" parent="."]
