@@ -1,7 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-
 @onready var mobility_manager= $"Mobility Manager"
 @onready var health_manager= $"Health Manager"
 @export var drag_coefficient: float

@@ -47,8 +47,9 @@ script = ExtResource("6_rq4oq")
 lock_direction = true
 hitbox = NodePath("../../Hitbox")
 
-[node name="Hurt" type="Node" parent="State Machine" node_paths=PackedStringArray("hurtbox", "character", "mobility_manager")]
+[node name="Hurt" type="Node" parent="State Machine" node_paths=PackedStringArray("health_manager", "hurtbox", "character", "mobility_manager")]
 script = ExtResource("6_m7eoc")
+health_manager = NodePath("../../Health Manager")
 hurtbox = NodePath("../../Hurtbox")
 character = NodePath("../..")
 mobility_manager = NodePath("../../Mobility Manager")

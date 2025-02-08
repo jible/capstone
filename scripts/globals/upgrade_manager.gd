@@ -18,7 +18,7 @@ var speed_lvl: int = 1
 @export var currency_name: String = "money"
 
 #Inventory ref from player
-@onready var inventory: Inventory = get_tree().get_nodes_in_group("Inventory")[0]
+@onready var inventory: Inventory = get_tree().get_first_node_in_group("Inventory")
 
 func _ready():
 	SignalBus.upgrade_stat_button_pressed.connect(_on_stat_upgraded)

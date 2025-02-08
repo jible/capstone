@@ -45,8 +45,9 @@ hitbox = NodePath("../../Hitbox")
 me = NodePath("../..")
 mobility_manager = NodePath("../../Mobility Manager")
 
-[node name="Hurt" type="Node2D" parent="State Machine" node_paths=PackedStringArray("hurtbox", "mobility_manager")]
+[node name="Hurt" type="Node2D" parent="State Machine" node_paths=PackedStringArray("health_manager", "hurtbox", "mobility_manager")]
 script = ExtResource("6_1sls6")
+health_manager = NodePath("../../Health Manager")
 hurtbox = NodePath("../../Hurtbox")
 mobility_manager = NodePath("../../Mobility Manager")
 

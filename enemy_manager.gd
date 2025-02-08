@@ -8,9 +8,9 @@ const enemy_types: Array[PackedScene] = [
 var alive_enemies = 0
 var killed_enemies = 0
 
-var max_living_enemies = 500
+var max_living_enemies = 10
 
-var min_dist_from_player = 1
+var min_dist_from_player = 100
 
 var time_since_check = 0
 var spawn_time = .2
