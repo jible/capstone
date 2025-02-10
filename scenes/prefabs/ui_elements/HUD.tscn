@@ -96,7 +96,7 @@ expand_mode = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
-text = "Coins: ?"
+text = "0"
 
 [node name="Minimap" type="PanelContainer" parent="."]
 layout_mode = 1

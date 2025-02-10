@@ -1,5 +1,7 @@
 extends Node
 
+class_name Mobility
+
 @onready var character = get_parent()
 @export var state_machine: Node
 
@@ -19,13 +21,13 @@ func update_velocity():
 	var current_state = state_machine.current_state_node
 	# TODO
 	# Set up player speed equation
-	var true_max_speed = max_speed * (current_state.movement_details.get("max_speed_mult", 1) + UpgradeManager.get_speed())
-	var true_acceleration = acceleration * (current_state.movement_details.get("acceleration_mult", 1) + UpgradeManager.get_speed())
+	var true_max_speed = max_speed * (current_state.movement_details.get("max_speed_mult", 1) + UpgradeManager.get_stat("speed"))
+	var true_acceleration = acceleration * (current_state.movement_details.get("acceleration_mult", 1) + UpgradeManager.get_stat("speed"))
 	var drag = current_state.movement_details.get("drag", default_drag)
 	
 	var movement_details = current_state.movement_details
 	if movement_details.get("moveable", true):
-		set_velocity(character.velocity + (input_direction * (acceleration + UpgradeManager.get_speed())))
+		set_velocity(character.velocity + (input_direction * (acceleration + UpgradeManager.get_stat("speed"))))
 	if movement_details.get("use_drag", true):
 		character.velocity *= drag
 	if movement_details.get("limit_velocity", true):

@@ -44,7 +44,7 @@ func set_damage(value: int):
 	damage = value
 	
 func set_upgrade_damage():
-	damage+= UpgradeManager.get_dmg()
+	damage+= UpgradeManager.get_stat("dmg")
 	
 func get_damage():
 	return damage

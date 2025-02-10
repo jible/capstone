@@ -2,6 +2,7 @@ extends Node
 
 
 var player: CharacterBody2D = null
+var currency_key: String = "money"
 
 var dir_dict = {
 	"north": Vector2i(0,1),

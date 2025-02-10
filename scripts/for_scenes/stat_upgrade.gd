@@ -22,4 +22,4 @@ func _on_stat_increased() -> void:
 	
 #this function runs after UpgradeManager has updated
 func update_level_label():
-	upgrade_level_label.text = "Lvl. %d" %Callable(UpgradeManager, "get_%s_lvl" %stat_name).call()
+	upgrade_level_label.text = "Lvl. %d" %UpgradeManager.get_stat_lvl(stat_name)
