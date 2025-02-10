@@ -26,5 +26,10 @@ func add(root):
 		print("pool is empty")
 		return null
 	var object = collection.pop_back()
-	root.add_child(object)
+	call_deferred("add_to_tree", root, object)
 	return (object)
+
+
+# seperated this into a function so I could defer the call.
+func add_to_tree(root, object):
+	root.add_child(object)

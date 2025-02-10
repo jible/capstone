@@ -21,7 +21,6 @@ func _ready():
 	for key in enemy_info:
 		var value = enemy_info [key]
 		enemy_pools[key] = Pool.new( value.path, value.amount)
-	print(enemy_pools)
 
 func enemy_killed(enemy):
 	enemy_pools[enemy.type].kill(enemy)
@@ -30,7 +29,6 @@ func enemy_killed(enemy):
 func spawn_enemy(pos, enemy_type = null):
 	if enemy_type == null:
 		return null
-	print("successful spawn")
 	
 	var new_enemy = enemy_pools[enemy_type].add(get_tree().root)
 	new_enemy.global_position = pos

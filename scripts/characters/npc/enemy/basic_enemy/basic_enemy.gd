@@ -16,8 +16,7 @@ var enemy_manager:Node = null
 
 
 func _ready():
-	if enemy_manager == null:
-		enemy_manager = get_tree().get_first_node_in_group("Enemy_Manager")
+	enemy_manager = get_tree().get_first_node_in_group("Enemy_Manager")
 
 func reset():
 	pass
