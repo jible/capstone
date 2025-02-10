@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var sprite_manager: SpriteManager
 @export var health_manager: Health
 
-
+var type = "basic_enemy"
 
 
 @export var drop : PackedScene

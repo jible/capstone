@@ -20,21 +20,21 @@ var enemy_pools: Dictionary = {}
 func _ready():
 	for key in enemy_info:
 		var value = enemy_info [key]
-		enemy_pools[key] =  Pool.new( value.path, value.amount)
+		enemy_pools[key] = Pool.new( value.path, value.amount)
+	print(enemy_pools)
 
 func enemy_killed(enemy):
-	if enemy.reset:
-		enemy.reset()
-	enemy_pools[enemy.type] = enemy_pools.get( enemy.tpye, 0) + 1
-	
+	enemy_pools[enemy.type].kill(enemy)
+
 
 func spawn_enemy(pos, enemy_type = null):
-	if enemy_type == null || enemy_pools[enemy_type].size() <= 0:
+	if enemy_type == null:
 		return null
-	var new_enemy = enemy_pools[enemy_type].pop_back()
+	print("successful spawn")
+	
+	var new_enemy = enemy_pools[enemy_type].add(get_tree().root)
 	new_enemy.global_position = pos
 	# might need to reset its velocity after TPing it
-	get_tree().current_scene.add_child(new_enemy)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,6 +46,10 @@ func _process(delta):
 	spawn an enemy there.
 	Add to current enemy count
 	'''
+	time_since_check += delta
+	if time_since_check > spawn_time:
+		time_since_check -= spawn_time
+		try_spawn()
 	pass
 
 func try_spawn():
@@ -57,4 +61,4 @@ func try_spawn():
 	if level_generator.get_tile_type(tile) == "floor":
 		var true_pos = Vector2(tile_size * tile)
 		if (player.position - true_pos).length() > min_dist_from_player:
-			spawn_enemy(true_pos)
+			spawn_enemy(true_pos, "basic_enemy")

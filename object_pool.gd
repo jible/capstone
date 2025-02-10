@@ -14,10 +14,17 @@ func _init(ref: String, amount):
 		collection.append(entity.instantiate())
 
 
-func _ready():
-	pass
+func kill(object):
+	if object.reset:
+		object.reset()
+	collection.append(object)
+	object.get_parent().remove_child(object)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func add(root):
+	if (collection.size() <= 0 ):
+		print("pool is empty")
+		return null
+	var object = collection.pop_back()
+	root.add_child(object)
+	return (object)
