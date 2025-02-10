@@ -3,8 +3,7 @@ extends Area2D
 
 signal received_damage(damage:int)
 
-@export var character: CharacterBody2D
-@export var collision: CollisionShape2D
+@onready var character: CharacterBody2D = get_parent()
 @export var timer: Timer
 @export var invincibility_time: float = .5
 @export var detectable: bool = false

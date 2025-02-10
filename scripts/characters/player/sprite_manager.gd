@@ -1,5 +1,5 @@
 extends Sprite2D
-
+class_name SpriteManager
 # Exports
 ## Index 0 is width, Index 1 is height
 @export var frame_size : Vector2i = Vector2i(32,32)

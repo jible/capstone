@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name PickUp
 
 
 signal item_collected
