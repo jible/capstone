@@ -39,7 +39,7 @@
 
 - Added player upgrades
 
-# version 0.16
+# version 0.18
 
 - Added background to title scene
 - Reworked title scene nodes
