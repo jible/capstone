@@ -15,7 +15,6 @@ func get_move_vector():
 	input_vector = input_vector.normalized()
 	return input_vector
 	
-	#
 #func get_attack_input():
 	#if Input.is_action_just_pressed("attack")
 

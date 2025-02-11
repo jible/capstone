@@ -12,14 +12,11 @@ var input_direction = Vector2.ZERO
 func ready():
 	pass
 	
-	
 func _physics_process(delta):
 	call_deferred("update_velocity")
 
-
 func set_velocity(arg):
 	character.velocity = arg
-
 
 func update_velocity():
 	var current_state = state_machine.current_state_node

@@ -33,8 +33,6 @@ func update_direction():
 		look_vector = new_look_vector
 		emit_signal("direction_changed", look_vector)
 
-
-
 # helper functions
 func dir_to_str(dir: Vector2):
 	var dir_dict = {
@@ -44,8 +42,6 @@ func dir_to_str(dir: Vector2):
 		Vector2.LEFT: "west",
 	}
 	return dir_dict.get(dir, "north")
-
-
 
 	#var end = start + look_vector * visualizer_length
 	#direction_visualizer.points = [start, end]

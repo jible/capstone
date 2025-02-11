@@ -14,7 +14,6 @@ var enemy_info = {
 	},
 }
 
-
 var enemy_pools: Dictionary = {}
 
 func _ready():
@@ -24,7 +23,6 @@ func _ready():
 
 func enemy_killed(enemy):
 	enemy_pools[enemy.type].kill(enemy)
-
 
 func spawn_enemy(pos, enemy_type = null):
 	if enemy_type == null:

@@ -20,12 +20,9 @@ func _ready():
 	}
 	tile_size = layers["environment"].tile_set.tile_size
 	
-
-
 # For other nodes to find tiles from map
 func get_tile_type(pos):
 	return map.get_tile(pos).type
-
 
 func generate_level(level_type):
 	'''

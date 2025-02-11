@@ -10,8 +10,6 @@ extends CharacterBody2D
 @export var health_manager: Health
 @export var pick_up: PickUp
 @export var inventory: Inventory
-
-
 @export var drag_coefficient: float
 @onready var drag:float  = 1.0 - drag_coefficient
 
