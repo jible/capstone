@@ -1,6 +1,5 @@
 extends Node
 
-
 # Exports
 @export var lock_direction = false
 @export var player:CharacterBody2D

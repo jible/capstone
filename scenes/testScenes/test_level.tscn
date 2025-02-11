@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dp6sdxgrjma40" path="res://scenes/prefabs/ui_elements/HUD.tscn" id="3_ibp2n"]
 [ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="4_6njjp"]
 [ext_resource type="PackedScene" uid="uid://cfy2mlhpkuxdd" path="res://scenes/prefabs/npcs/enemies/basic_enemy.tscn" id="5_o8dxy"]
+[ext_resource type="PackedScene" uid="uid://c60va2pop5yhv" path="res://scenes/prefabs/pit.tscn" id="6_vefyg"]
 
 [node name="Test Level" type="Node2D"]
 
@@ -29,6 +30,9 @@ follow_player = true
 
 [node name="Basic Enemy" parent="." instance=ExtResource("5_o8dxy")]
 position = Vector2(1077, 818)
+
+[node name="Pit" parent="." instance=ExtResource("6_vefyg")]
+position = Vector2(974, 1380)
 
 [editable path="Player"]
 [editable path="Player/State Machine"]

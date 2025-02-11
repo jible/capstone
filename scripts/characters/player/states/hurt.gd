@@ -11,7 +11,6 @@ extends SMState
 	"moveable": false
 }
 @onready var sm = get_parent()
-
 @export var animation = {
 	"frames": [1,0,1],
 	"framerate": 6,
@@ -27,7 +26,6 @@ extends SMState
 func knockback():
 	mobility_manager.set_velocity(knockback_velocity * hurtbox.latest_hit_direction)
 	
-
 func temp_invincibility():
 	hurtbox.turn_off_for_sec(invincibility_time)
 
@@ -35,11 +33,9 @@ func turn_off_hurtbox():
 	hurtbox.turn_off()
 	pass
 	
-	
 func turn_on_hurtbox():
 	hurtbox.turn_on()
 	
-
 func end_hurt():
 	if health_manager.health <= 0:
 		sm.change_state("Death")

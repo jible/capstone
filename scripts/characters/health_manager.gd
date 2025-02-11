@@ -3,7 +3,8 @@ extends Node
 
 # Exports
 @export var starting_health: int = 10
-@export var sm: Node
+@onready var character: CharacterBody2D = get_parent()
+@onready var sm = character.state_machine
 
 # On readys
 @onready var health = starting_health

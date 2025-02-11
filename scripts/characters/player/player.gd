@@ -1,9 +1,15 @@
 class_name Player
 extends CharacterBody2D
 
-@onready var mobility_manager: Mobility= $"Mobility Manager"
-@onready var health_manager: Health= $"Health Manager"
-@onready var inventory: Inventory= $"Inventory"
+@export var mobility_manager : MobilityManager
+@export var state_machine: StateMachine
+@export var hitbox: HitBox
+@export var hurtbox: HurtBox
+@export var sprite_manager: SpriteManager
+@export var direction_manager: DirectionManager
+@export var health_manager: Health
+@export var pick_up: PickUp
+@export var inventory: Inventory
 @export var drag_coefficient: float
 @onready var drag:float  = 1.0 - drag_coefficient
 

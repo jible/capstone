@@ -12,7 +12,6 @@ func check_item(type):
 		return items[type]
 	return 0
 
-
 func _on_pick_up_item_collected(type, amount):
 	obtain_item(type, amount)
 	SignalBus.currency_changed.emit()

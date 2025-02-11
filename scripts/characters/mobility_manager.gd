@@ -1,28 +1,33 @@
 extends Node
+class_name MobilityManager
 
 class_name Mobility
 
 @onready var character = get_parent()
-@export var state_machine: Node
+@onready var state_machine = character.state_machine
 
 @export var max_speed = 1000
 @export var acceleration = 100 
 var default_drag = .9
 var input_direction = Vector2.ZERO
 
-
-func _physics_process(delta):
-	update_velocity()
+func ready():
+	pass
 	
+func _physics_process(delta):
+	call_deferred("update_velocity")
+
 func set_velocity(arg):
 	character.velocity = arg
 
 func update_velocity():
 	var current_state = state_machine.current_state_node
+
 	# TODO
 	# Set up player speed equation
 	var true_max_speed = max_speed * (current_state.movement_details.get("max_speed_mult", 1) + UpgradeManager.get_stat("speed"))
 	var true_acceleration = acceleration * (current_state.movement_details.get("acceleration_mult", 1) + UpgradeManager.get_stat("speed"))
+
 	var drag = current_state.movement_details.get("drag", default_drag)
 	
 	var movement_details = current_state.movement_details

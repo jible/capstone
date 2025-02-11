@@ -12,6 +12,7 @@ extends Camera2D
 #var settings = {
 	#"" :,
 #}
+
 @export var follow_speed: float = 2
 @export var target: Node = null
 @export var follow_player: bool
@@ -20,6 +21,7 @@ extends Camera2D
 	'x': 100,
 	'y': 100,
 }
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if follow_player:
@@ -27,13 +29,11 @@ func _ready():
 		position = target.position
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (follow_player):
 		pursuit(delta)
 	pass
-
 
 func pursuit(delta):
 	# just a lil bit of chatgpt
@@ -44,6 +44,7 @@ func pursuit(delta):
 			target_position.x = position.x
 		if abs(target_position.y - position.y) < free_axis["y"]:
 			target_position.y = position.y
+			
 		# Interpolate between the current position and the target position
 		var new_position = lerp(position
 		, target_position, delta * follow_speed)

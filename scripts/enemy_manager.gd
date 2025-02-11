@@ -1,32 +1,37 @@
 extends Node
 
 @export var level_generator: Node2D
-const enemy_types: Array[PackedScene] = [
-	preload("res://scenes/prefabs/npcs/enemies/basic_enemy.tscn"),
-]
+
 @onready var player: Player = get_tree().get_first_node_in_group("Player")
-var alive_enemies = 0
-var killed_enemies = 0
-
 var max_living_enemies = 10
-
 var min_dist_from_player = 100
-
 var time_since_check = 0
 var spawn_time = .2
 
-func enemy_killed(enemy):
-	alive_enemies -= 1
-	killed_enemies += 1
-	pass
+var enemy_info = {
+	 "basic_enemy": {
+		"path" : "res://scenes/prefabs/npcs/enemies/basic_enemy.tscn",
+		"amount": 50
+	},
+}
 
-func spawn_enemy(pos, enemy = null):
-	if enemy == null:
-		enemy = randi()% enemy_types.size()
-	var instance = enemy_types[enemy].instantiate()
-	get_tree().current_scene.add_child(instance)
-	instance.position = pos
-	alive_enemies += 1
+var enemy_pools: Dictionary = {}
+
+func _ready():
+	for key in enemy_info:
+		var value = enemy_info [key]
+		enemy_pools[key] = Pool.new( value.path, value.amount)
+
+func enemy_killed(enemy):
+	enemy_pools[enemy.type].kill(enemy)
+
+func spawn_enemy(pos, enemy_type = null):
+	if enemy_type == null:
+		return null
+	
+	var new_enemy = enemy_pools[enemy_type].add(get_tree().root)
+	new_enemy.global_position = pos
+	# might need to reset its velocity after TPing it
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,10 +46,8 @@ func _process(delta):
 	
 	time_since_check += delta
 	if time_since_check > spawn_time:
-		time_since_check = 0
-		if max_living_enemies < alive_enemies:
-			return
-		var success = try_spawn()
+		time_since_check -= spawn_time
+		try_spawn()
 	pass
 
 func try_spawn():
@@ -56,4 +59,4 @@ func try_spawn():
 	if level_generator.get_tile_type(tile) == "floor":
 		var true_pos = Vector2(tile_size * tile)
 		if (player.position - true_pos).length() > min_dist_from_player:
-			spawn_enemy(true_pos)
+			spawn_enemy(true_pos, "basic_enemy")

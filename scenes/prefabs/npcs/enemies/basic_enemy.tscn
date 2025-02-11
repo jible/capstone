@@ -18,18 +18,23 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt6l6"]
 radius = 64.47
 
-[node name="Basic Enemy" type="CharacterBody2D"]
+[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager")]
 scale = Vector2(0.25, 0.25)
 collision_layer = 2
 collision_mask = 67
 script = ExtResource("1_s78sa")
+mobility_manager = NodePath("Mobility Manager")
+state_machine = NodePath("State Machine")
+hitbox = NodePath("Hitbox")
+hurtbox = NodePath("Hurtbox")
+sprite_manager = NodePath("Sprite Manager")
+health_manager = NodePath("Health Manager")
 drop = ExtResource("2_n2j2n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mt6l6")
 
-[node name="Mobility Manager" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("2_ffnce")]
-state_machine = NodePath("../State Machine")
+[node name="Mobility Manager" parent="." instance=ExtResource("2_ffnce")]
 max_speed = 80
 acceleration = 80
 
@@ -59,10 +64,9 @@ collision_layer = 32
 collision_mask = 4
 detecting = false
 
-[node name="Hurtbox" parent="." node_paths=PackedStringArray("character") instance=ExtResource("6_025q6")]
+[node name="Hurtbox" parent="." instance=ExtResource("6_025q6")]
 collision_layer = 16
 collision_mask = 8
-character = NodePath("..")
 
 [node name="Sprite Manager" parent="." instance=ExtResource("2_5s66b")]
 texture = ExtResource("8_rxyio")
@@ -70,13 +74,10 @@ region_enabled = true
 region_rect = Rect2(0, 0, 120, 120)
 frame_size = Vector2i(120, 120)
 
-[node name="Direction Manager" parent="." node_paths=PackedStringArray("sm", "character") instance=ExtResource("4_yxhsg")]
-sm = NodePath("../State Machine")
-character = NodePath("..")
+[node name="Direction Manager" parent="." instance=ExtResource("4_yxhsg")]
 
-[node name="Health Manager" parent="." node_paths=PackedStringArray("sm") instance=ExtResource("13_y7ykc")]
+[node name="Health Manager" parent="." instance=ExtResource("13_y7ykc")]
 starting_health = 2
-sm = NodePath("../State Machine")
 
 [connection signal="state_changed" from="State Machine" to="Sprite Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Direction Manager" method="_on_state_machine_state_changed"]
