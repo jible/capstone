@@ -38,3 +38,8 @@
 # v.15
 
 - Added player upgrades
+
+# v.19
+
+- Added pause menu
+- HUD updates with currency
