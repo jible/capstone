@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c60va2pop5yhv"]
 
 [ext_resource type="Script" path="res://scripts/pit.gd" id="1_lxy2n"]
-[ext_resource type="Texture2D" uid="uid://b6xdl6kd6uqm8" path="res://assets/sprites/hole.png" id="2_gg1mk"]
+[ext_resource type="Texture2D" uid="uid://b6xdl6kd6uqm8" path="res://assets/sprites/pit.png" id="2_gg1mk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tipcd"]
 radius = 16.4

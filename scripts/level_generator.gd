@@ -3,6 +3,7 @@ class_name LevelGenerator
 
 @export var size : Vector2i = Vector2i(150,150) 
 @export var world_seed : int = 0
+@export var randomize_seed = false
 @export var landing: PackedScene
 @export var pit: PackedScene
 var tile_size: Vector2
@@ -17,6 +18,8 @@ var gen_methods = {
 }
 
 func _ready():
+	if randomize_seed:
+		world_seed = randi()
 	layers = {
 		"environment":$Environment,
 		"walls": $Walls,

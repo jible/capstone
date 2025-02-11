@@ -3,6 +3,11 @@ extends Node
 
 var player: CharacterBody2D = null
 
+func get_player():
+	if player == null || ! is_instance_valid(player):
+		player = get_tree().get_first_node_in_group("Player")
+	return player
+
 var dir_dict = {
 	"north": Vector2i(0,1),
 	"south": Vector2i(0,-1),
