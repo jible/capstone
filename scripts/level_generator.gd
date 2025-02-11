@@ -3,8 +3,11 @@ class_name LevelGenerator
 
 @export var size : Vector2i = Vector2i(150,150) 
 @export var world_seed : int = 0
+@export var landing: PackedScene
+@export var pit: PackedScene
 var tile_size: Vector2
 var spawn_point = Vector2.ZERO
+var end_point = Vector2.ZERO
 var layers = {}
 var map: Map
 
@@ -37,7 +40,7 @@ func generate_level(level_type):
 	
 	var tile_size = Vector2( layers["environment"].tile_set.tile_size )
 	spawn_point = ( map.player_spawn * tile_size ) + (.5 * tile_size)
-	
+	end_point = ( map.end * tile_size ) + (.5 * tile_size)
 	render()
 
 func make_limbo():
@@ -58,6 +61,19 @@ func make_lust():
 
 func render():
 	render_layer("environment")
+	
+	
+	# Add the landing and ending
+	var landing_instance = landing.instantiate()
+	get_tree().root.call_deferred("add_child",landing_instance)
+	landing_instance.position = spawn_point
+	
+	var pit_instance = pit.instantiate()
+	get_tree().root.call_deferred("add_child",pit_instance)
+	pit_instance.position = end_point
+	
+	
+	
 	
 	# [ ] render walls (aesthetic only, walls are on seperate non-interactable layer).
 

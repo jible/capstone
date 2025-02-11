@@ -8,7 +8,7 @@ radius = 16.4
 
 [node name="Pit" type="Area2D"]
 collision_layer = 0
-collision_mask = 256
+collision_mask = 257
 script = ExtResource("1_lxy2n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -18,3 +18,4 @@ shape = SubResource("CircleShape2D_tipcd")
 texture = ExtResource("2_gg1mk")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
