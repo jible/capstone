@@ -25,11 +25,10 @@ extends Node
 func knockback():
 	mobility_manager.set_velocity(knockback_velocity * hurtbox.latest_hit_direction)
 
-
 func end_hurt():
 	sm.change_state("Pursuit")
 	
-	# Main Functions
+# Main Functions
 func update_state(delta):
 	pass
 func enter_state():

@@ -11,12 +11,10 @@ extends SMState
 # On readys
 @onready var sm = get_parent()
 
-
-
 func callback():
 	pass
 	
-	# Main Functions
+# Main Functions
 func update_state(delta):
 	pass
 func enter_state():

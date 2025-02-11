@@ -1,12 +1,23 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7syb6hircgps"]
 
-[ext_resource type="PackedScene" uid="uid://cfy2mlhpkuxdd" path="res://scenes/prefabs/npcs/enemies/basic_enemy.tscn" id="1_v7qk1"]
-[ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="2_ppr5d"]
+[ext_resource type="PackedScene" uid="uid://bugqksfg6vdn7" path="res://scenes/prefabs/scene_config_package.tscn" id="1_rw1ib"]
+[ext_resource type="PackedScene" uid="uid://c60va2pop5yhv" path="res://scenes/prefabs/pit.tscn" id="2_haypb"]
 
 [node name="James testing scene" type="Node2D"]
 
-[node name="Basic Enemy" parent="." instance=ExtResource("1_v7qk1")]
-position = Vector2(369, 269)
+[node name="Scene Config Package" parent="." instance=ExtResource("1_rw1ib")]
 
-[node name="Player" parent="." instance=ExtResource("2_ppr5d")]
-position = Vector2(580, 587)
+[node name="Pit" parent="Scene Config Package/Level Generator" index="2" instance=ExtResource("2_haypb")]
+position = Vector2(92372, 56418)
+
+[node name="Pit2" parent="Scene Config Package/Level Generator" index="3" instance=ExtResource("2_haypb")]
+position = Vector2(137172, 116322)
+
+[node name="Pit3" parent="Scene Config Package/Level Generator" index="4" instance=ExtResource("2_haypb")]
+position = Vector2(129748, 158101)
+
+[node name="Pit4" parent="Scene Config Package/Level Generator" index="5" instance=ExtResource("2_haypb")]
+position = Vector2(178593, 187490)
+
+[editable path="Scene Config Package"]
+[editable path="Scene Config Package/Level Generator"]

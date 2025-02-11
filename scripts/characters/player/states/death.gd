@@ -1,6 +1,5 @@
 extends SMState
 
-
 @export var lock_direction = false
 @export var movement_details =  {}
 @export var animation = {
@@ -8,11 +7,10 @@ extends SMState
 	"framerate": 1
 }
 
-
 func update_state(delta):
 	pass
 func enter_state():
-	print("playerDied")
+	SignalBus.player_die.emit()
 	pass
 func exit_state():
 	pass
