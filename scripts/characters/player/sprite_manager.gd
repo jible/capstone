@@ -4,7 +4,6 @@ class_name SpriteManager
 ## Index 0 is width, Index 1 is height
 @export var frame_size : Vector2i = Vector2i(32,32)
 
-
 #Properties
 var time_per_frame: float 
 var current_frame_index : int = 0
@@ -20,13 +19,11 @@ var current_animation
 	"callbacks" : Dictionary(),
 }
 
-
 func _process(delta):
 	frame_progress +=delta
 	if (frame_progress > time_per_frame):
 		frame_progress -= time_per_frame
 		_advance_frame()
-
 
 func _set_animation(animation: Dictionary):
 	""" 
@@ -71,7 +68,6 @@ func _advance_frame():
 	do_frame_callbacks()
 	_update_sprite()
 
-
 func _update_sprite():
 	"""
 	Assumes background info has been updated
@@ -79,7 +75,6 @@ func _update_sprite():
 	"""
 	var frame_num: int = current_animation["frames"][current_frame_index]
 	region_rect = Rect2( frame_num * frame_size.x, current_direction * frame_size.y, frame_size.x, frame_size.y)
-
 
 func _on_state_machine_state_changed(new_state):
 	""" When the state machine changes states, it fires this signal. it results in reseting the animation
@@ -89,7 +84,6 @@ func _on_state_machine_state_changed(new_state):
 	var animation = new_state.animation
 	if animation:
 		_set_animation(animation)
-
 
 func _on_direction_manager_direction_changed( direction):
 	"""
@@ -101,11 +95,9 @@ func _on_direction_manager_direction_changed( direction):
 	var new_direction = _direction_to_column(direction)
 	_change_direction(new_direction)
 
-
 func _change_direction(direction):
 	current_direction = direction
 	_update_sprite()
-
 
 func _create_animation(base_animation: Dictionary):
 	""" 
@@ -118,12 +110,11 @@ func _create_animation(base_animation: Dictionary):
 	}
 	return new_animation
 
-
 func _direction_to_column(direction):
 	"""
 	Converts direction string to coresponding column index
 	"""
-	
+
 	var direction_dict = {
 		Vector2(0,1): 0,
 		Vector2(0,-1): 3,

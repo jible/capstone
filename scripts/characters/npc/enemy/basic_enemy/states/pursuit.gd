@@ -26,10 +26,12 @@ func update_state(delta):
 			target_vector = target_vector.normalized()
 		mobility_manager.input_direction = target_vector
 	pass
+	
 func enter_state():
 	# turn on hitbox
 	hitbox.turn_on()
 	pass
+	
 func exit_state():
 	# turn off hitbox
 	hitbox.turn_off()

@@ -10,14 +10,11 @@ extends CharacterBody2D
 
 var type = "basic_enemy"
 
-
 @export var drop : PackedScene
 var enemy_manager:Node = null
 
-
 func _ready():
 	enemy_manager = get_tree().get_first_node_in_group("Enemy_Manager")
-
 
 func death_drop():
 	if drop:
@@ -33,14 +30,12 @@ func die():
 func _physics_process(_delta):
 	move_and_slide()
 
-
 func get_direction():
 	return velocity
 
 func _on_death_died():
 	die()
 	pass # Replace with function body.
-
 
 func reset():
 	velocity = Vector2.ZERO

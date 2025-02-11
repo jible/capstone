@@ -1,6 +1,5 @@
 extends Node
 
-
 var player: CharacterBody2D = null
 
 func get_player():

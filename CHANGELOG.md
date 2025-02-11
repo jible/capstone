@@ -38,3 +38,11 @@
 # v.15
 
 - Added player upgrades
+
+# version 0.17
+
+- Level Spawn Package created
+- Enemy Pooling Implemented
+- Hitbox/ Hurtbox balancing revision
+- Export settings configured for playtesting
+- Mobility Manager fixed to properly use the max_speed

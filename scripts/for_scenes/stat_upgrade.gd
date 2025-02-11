@@ -11,7 +11,6 @@ func _ready() -> void:
 	SignalBus.player_stats_updated.connect(update_level_label)
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

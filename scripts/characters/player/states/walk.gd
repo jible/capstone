@@ -12,9 +12,6 @@ extends SMState
 # On readys
 @onready var sm = get_parent()
 
-
-
-
 # Main Functions
 func update_state(delta):
 	if player.velocity.length() < 5:

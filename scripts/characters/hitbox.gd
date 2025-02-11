@@ -21,11 +21,9 @@ func turn_on():
 	detecting = true
 	pass
 
-
 func turn_off():
 	successful_hit = []
 	detecting = false
-
 
 func _on_area_entered(area):
 	overlapping_areas.append(area)
@@ -37,8 +35,6 @@ func _on_area_exited(area):
 
 func _on_direction_manager_direction_changed(direction: Vector2):
 	move_direction(direction)
-
-
 
 func set_damage(value: int):
 	damage = value
@@ -53,7 +49,6 @@ func hit( hurtbox: HurtBox):
 	successful_hit.append(hurtbox)
 	hurtbox.hit_by(self)
 	pass
-
 
 func move_direction(direction):
 	move_to(direction * distance_from_parent)
