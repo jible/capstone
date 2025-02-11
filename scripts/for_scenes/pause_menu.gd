@@ -1,28 +1,26 @@
 extends Control
 
+@onready var pause_menu: Control = $"PauseMenu"
 @onready var option_menu: Control = $"OptionMenu"
-@onready var pause_ui: PanelContainer = $"PauseUI"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	visible = false
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#TODO
-	#pause the game if esc is pressed
-	#if Input.is_action_just_pressed("esc"):
-		#print("esc press")
-		#pause_ui	.visible = true
-		#get_tree().paused = !get_tree().paused
-	pass
+	if Input.is_action_just_pressed("esc"):
+		if !pause_menu.visible && option_menu.visible:
+			option_menu.hide()
+			pause_menu.show()
+		else:
+			visible = !visible
+			get_tree().paused = !get_tree().paused
 
 func _on_options_toggle_pressed() -> void:
-	#toggle options menu
-	option_menu.visible = true
-	pause_ui.visible = false
-	#TODO
-	#Add universal esc button to return from options
+	pause_menu.hide()
+	option_menu.show()
 
 func _on_resume_toggle_pressed() -> void:
 	#resume game, hide pause menu
