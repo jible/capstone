@@ -46,3 +46,8 @@
 - Hitbox/ Hurtbox balancing revision
 - Export settings configured for playtesting
 - Mobility Manager fixed to properly use the max_speed
+
+# version 0.18
+
+- Added background to title scene
+- Reworked title scene nodes
