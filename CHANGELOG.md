@@ -38,3 +38,8 @@
 # v.15
 
 - Added player upgrades
+
+# version 0.16
+
+- Added background to title scene
+- Reworked title scene nodes
