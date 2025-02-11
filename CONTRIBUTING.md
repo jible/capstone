@@ -30,7 +30,7 @@ commit: `added enemy to scene`
 
 description: `enemy sprite is 240x240 but hit box is circular and slightly smaller: 220x220`
 
-When you've made your changes and are ready to make your pull request, check what the most recent version was named and incrament the decimal by one. As we are still in pre-production, the version should always start with 0.
+When you've made your changes and are ready to make your pull request, check what the most recent version was named and increment the decimal by one. As we are still in pre-production, the version should always start with 0.
 
 pull request title: `version 0.XX`
 
@@ -54,7 +54,7 @@ If changes are being made to the code-base, add James (programming lead), Jack (
 
 > 📑 markdown file specifications
 >
-> If changes are being made to markdown files (aside from CHANGELOG.md), add Jack, Carter and Rozy as reviewers. If changes are being made to markdown files **only**, the version number does not need to be incramented. Do not add markdown changes to `CHANGELOG.md` and name the pull request according to how the markdown files are being updated.
+> If changes are being made to markdown files (aside from CHANGELOG.md), add Jack, Carter and Rozy as reviewers. If changes are being made to markdown files **only**, the version number does not need to be incremented. Do not add markdown changes to `CHANGELOG.md` and name the pull request according to how the markdown files are being updated.
 
 **Nothing should be pushed to main without approval from the at least half of reviewers.**
 
