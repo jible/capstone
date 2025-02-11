@@ -54,7 +54,7 @@ If changes are being made to the code-base, add James (programming lead), Jack (
 
 > 📑 markdown file specifications
 >
-> If changes are being made to markdown files (aside from CHANGELOG.md), add Jack and Rozy as reviewers. If changes are being made to markdown files **only**, the version number does not need to be incramented. Do not add markdown changes to `CHANGELOG.md` and name the pull request according to how the markdown files are being updated.
+> If changes are being made to markdown files (aside from CHANGELOG.md), add Jack, Carter and Rozy as reviewers. If changes are being made to markdown files **only**, the version number does not need to be incramented. Do not add markdown changes to `CHANGELOG.md` and name the pull request according to how the markdown files are being updated.
 
 **Nothing should be pushed to main without approval from the at least half of reviewers.**
 
