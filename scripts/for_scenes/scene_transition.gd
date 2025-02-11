@@ -13,7 +13,6 @@ func _ready() -> void:
 	background.visible = false
 	anim_player.animation_finished.connect(_on_anim_finished)
 
-
 func transition():
 	background.visible = true
 	anim_player.play("fade_in")
@@ -24,7 +23,6 @@ func _on_anim_finished(anim_key):
 		anim_player.play("fade_out")
 	elif anim_key == "fade_out":
 		background.visible = false
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
