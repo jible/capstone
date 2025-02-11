@@ -1,8 +1,6 @@
 extends Node
 class_name MobilityManager
 
-class_name Mobility
-
 @onready var character = get_parent()
 @onready var state_machine = character.state_machine
 

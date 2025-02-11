@@ -89,10 +89,6 @@ region_rect = Rect2(0, 0, 32, 32)
 
 [node name="Inventory" parent="." instance=ExtResource("16_ycf0q")]
 
-[node name="Pick Up" parent="." instance=ExtResource("15_nqwto")]
-
-[node name="Inventory" parent="." instance=ExtResource("16_ycf0q")]
-
 [connection signal="state_changed" from="State Machine" to="Sprite Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Direction Manager" method="_on_state_machine_state_changed"]
 [connection signal="received_damage" from="Hurtbox" to="Health Manager" method="_on_hurtbox_received_damage"]
