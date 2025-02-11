@@ -18,8 +18,6 @@ var enemy_manager:Node = null
 func _ready():
 	enemy_manager = get_tree().get_first_node_in_group("Enemy_Manager")
 
-func reset():
-	pass
 
 func death_drop():
 	if drop:
@@ -42,3 +40,9 @@ func get_direction():
 func _on_death_died():
 	die()
 	pass # Replace with function body.
+
+
+func reset():
+	velocity = Vector2.ZERO
+	health_manager.health = health_manager.max_health
+	state_machine.change_state(state_machine.default_state)
