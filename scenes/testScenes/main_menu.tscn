@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7p3e5u8l5r52"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/main_menu.gd" id="1_q2ruy"]
-[ext_resource type="PackedScene" uid="uid://cxhhke25i6fup" path="res://scenes/testScenes/limbo.tscn" id="2_bpofg"]
+[ext_resource type="PackedScene" uid="uid://b17tkk14cvn2x" path="res://scenes/testScenes/test_level.tscn" id="2_h12bg"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q2ruy")
-scene_to_change = ExtResource("2_bpofg")
+scene_to_change = ExtResource("2_h12bg")
 metadata/_edit_use_anchors_ = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]

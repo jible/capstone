@@ -12,4 +12,6 @@ var dir_dict = {
 
 ## Takes a scene path as a parameter and transitions to it.
 func change_scene(scene: PackedScene):
+	SceneTransition.transition()
+	await SceneTransition.on_transition_finished
 	get_tree().call_deferred("change_scene_to_file",scene.resource_path)

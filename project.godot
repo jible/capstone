@@ -23,6 +23,7 @@ InputManager="*res://scripts/globals/input_manager.gd"
 Globals="*res://scripts/globals/globals.gd"
 SignalBus="*res://scripts/globals/signal_bus.gd"
 UpgradeManager="*res://scripts/globals/upgrade_manager.gd"
+SceneTransition="*res://scenes/scene_transition.tscn"
 
 [display]
 
