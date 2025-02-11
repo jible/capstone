@@ -1,9 +1,11 @@
-# v.0
+# CHANGELOG
+
+## version 0.0
 
 - Added default Godot project files.
 - Added basic documentation files (README, CONTRIBUTING, CHANGELOG, CREDITS).
 
-# v.1
+## version 0.1
 
 - Added testing level
 - Added temporary sprite/tile sheets (player, background)
@@ -15,19 +17,19 @@
 - Merged initial scene transition.
 - Added dev logo splash screen
 
-# v.11
+## version 0.11
 
 - Fixed Hitbox functionality
 
-# v.12
+## version 0.12
 
 - Added player to testing scene
 
-# v.13
+## version 0.13
 
 - Added UI menus to testing scene (HUD & Upgrades)
 
-# v.14
+## verson 0.14
 
 - Added enemy
 - Hitbox updates
@@ -35,7 +37,7 @@
 - Added death state to player
 - Custom camera fixes
 
-# v.15
+## version 0.15
 
 - Added player upgrades
 
