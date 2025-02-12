@@ -8,3 +8,5 @@ signal player_stats_updated()
 signal player_health_updated()
 
 signal player_die()
+
+signal currency_changed()

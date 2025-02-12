@@ -1,6 +1,7 @@
 extends Node
 
 @export var level_generator: Node2D
+
 @onready var player: Player = get_tree().get_first_node_in_group("Player")
 var max_living_enemies = 10
 var min_dist_from_player = 100
@@ -42,6 +43,7 @@ func _process(delta):
 	spawn an enemy there.
 	Add to current enemy count
 	'''
+	
 	time_since_check += delta
 	if time_since_check > spawn_time:
 		time_since_check -= spawn_time

@@ -24,6 +24,6 @@ func _ready():
 	SignalBus.player_stats_updated.connect(update_stats)
 
 func update_stats():
-	health_manager.increase_starting_health(UpgradeManager.get_health())
+	health_manager.increase_starting_health(UpgradeManager.get_stat("health"))
 	#Speed auto updates from upgrade manager global data
 	#Damage updates in res://scripts/characters/hitbox.gd

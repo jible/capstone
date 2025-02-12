@@ -1,9 +1,11 @@
-# v.0
+# CHANGELOG
+
+## version 0.0
 
 - Added default Godot project files.
 - Added basic documentation files (README, CONTRIBUTING, CHANGELOG, CREDITS).
 
-# v.1
+## version 0.1
 
 - Added testing level
 - Added temporary sprite/tile sheets (player, background)
@@ -15,19 +17,19 @@
 - Merged initial scene transition.
 - Added dev logo splash screen
 
-# v.11
+## version 0.11
 
 - Fixed Hitbox functionality
 
-# v.12
+## version 0.12
 
 - Added player to testing scene
 
-# v.13
+## version 0.13
 
 - Added UI menus to testing scene (HUD & Upgrades)
 
-# v.14
+## verson 0.14
 
 - Added enemy
 - Hitbox updates
@@ -35,14 +37,24 @@
 - Added death state to player
 - Custom camera fixes
 
-# v.15
+## version 0.15
 
 - Added player upgrades
 
-# version 0.17
+## version 0.17
 
 - Level Spawn Package created
 - Enemy Pooling Implemented
 - Hitbox/ Hurtbox balancing revision
 - Export settings configured for playtesting
 - Mobility Manager fixed to properly use the max_speed
+
+## version 0.18
+
+- Added background to title scene
+- Reworked title scene nodes
+
+## version 0.19
+
+- Added pause menu
+- HUD updates with currency

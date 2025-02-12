@@ -1,6 +1,7 @@
 extends Node
 
 var player: CharacterBody2D = null
+var currency_key: String = "money"
 
 func get_player():
 	if player == null || ! is_instance_valid(player):
