@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bugqksfg6vdn7"]
+[gd_scene load_steps=7 format=3 uid="uid://bugqksfg6vdn7"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/scene_config_package.gd" id="1_qcfrr"]
 [ext_resource type="PackedScene" uid="uid://b0qchcd21rx5b" path="res://scenes/level_generator.tscn" id="2_1eor7"]
 [ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="3_5fksv"]
 [ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="4_t24gl"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_e7sx3"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/ui_elements/HUD.tscn" id="6_14c2j"]
 
 [node name="Scene Config Package" type="Node2D" node_paths=PackedStringArray("level_generator", "camera", "player")]
 script = ExtResource("1_qcfrr")
@@ -29,5 +30,9 @@ free_axis = {
 [node name="Enemy Manager" type="Node" parent="." node_paths=PackedStringArray("level_generator") groups=["Enemy_Manager"]]
 script = ExtResource("5_e7sx3")
 level_generator = NodePath("../Level Generator")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("6_14c2j")]
 
 [editable path="Level Generator"]
