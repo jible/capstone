@@ -12,12 +12,14 @@ func _init(ref: String, amount):
 		collection.append(entity.instantiate())
 
 func kill(object):
+	object.get_parent().remove_child(object)
+	collection.append(object)
 	if object.reset:
 		object.reset()
-	collection.append(object)
-	object.get_parent().remove_child(object)
+
 
 func add(root):
+	print(collection.size())
 	if (collection.size() <= 0 ):
 		print("pool is empty")
 		return null

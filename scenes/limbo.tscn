@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxhhke25i6fup"]
+
+[ext_resource type="PackedScene" uid="uid://bugqksfg6vdn7" path="res://scenes/prefabs/scene_config_package.tscn" id="1_aqu5y"]
+
+[node name="Limbo" type="Node2D"]
+
+[node name="Scene Config Package" parent="." instance=ExtResource("1_aqu5y")]
+
+[editable path="Scene Config Package"]
+[editable path="Scene Config Package/Level Generator"]
