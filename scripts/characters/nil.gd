@@ -3,10 +3,7 @@ extends SMState
 # Exports
 @export var lock_direction = false
 @export var movement_details =  {}
-@export var animation = {
-	"frames": [0,2],
-	"framerate": 4
-}
+@export var animation_name = "nil"
 
 # On readys
 @onready var sm = get_parent()

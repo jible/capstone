@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6kyubdgubp47"]
+[gd_scene load_steps=17 format=3 uid="uid://c6kyubdgubp47"]
 
 [ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_u3dna"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_igigb"]
@@ -7,10 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://buwbtxan5ao3v" path="res://scenes/prefabs/character utils/hitbox.tscn" id="6_arj65"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/hurt.gd" id="6_m7eoc"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/attack.gd" id="6_rq4oq"]
-[ext_resource type="Texture2D" uid="uid://bivs6m68fn726" path="res://assets/sprites/playerV2.png" id="7_0quf5"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/death.gd" id="8_vxcvn"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="9_po6ig"]
-[ext_resource type="PackedScene" uid="uid://b3wmb7nx7u8ug" path="res://scenes/prefabs/character utils/sprite_manager.tscn" id="10_wvl2e"]
+[ext_resource type="PackedScene" uid="uid://0ry41ukaumi6" path="res://animation_manager.tscn" id="9_sc1mn"]
 [ext_resource type="PackedScene" uid="uid://bxdsl4tldum0b" path="res://scenes/prefabs/character utils/direction_manager.tscn" id="12_y1q07"]
 [ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="14_2dfdq"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="14_myo2d"]
@@ -19,7 +18,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up", "inventory") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "direction_manager", "health_manager", "pick_up", "inventory") groups=["Player"]]
 scale = Vector2(0.25, 0.25)
 collision_mask = 67
 motion_mode = 1
@@ -28,7 +27,6 @@ mobility_manager = NodePath("Mobility Manager")
 state_machine = NodePath("State Machine")
 hitbox = NodePath("Hitbox")
 hurtbox = NodePath("Hurtbox")
-sprite_manager = NodePath("Sprite Manager")
 direction_manager = NodePath("Direction Manager")
 health_manager = NodePath("Health Manager")
 pick_up = NodePath("Pick Up")
@@ -66,6 +64,8 @@ mobility_manager = NodePath("../../Mobility Manager")
 [node name="Death" type="Node" parent="State Machine"]
 script = ExtResource("8_vxcvn")
 
+[node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
+
 [node name="Hitbox" parent="." instance=ExtResource("6_arj65")]
 collision_layer = 8
 collision_mask = 16
@@ -75,12 +75,6 @@ detecting = false
 collision_layer = 4
 collision_mask = 32
 
-[node name="Sprite Manager" parent="." instance=ExtResource("10_wvl2e")]
-scale = Vector2(4, 4)
-texture = ExtResource("7_0quf5")
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
-
 [node name="Direction Manager" parent="." instance=ExtResource("12_y1q07")]
 
 [node name="Health Manager" parent="." instance=ExtResource("14_myo2d")]
@@ -89,11 +83,11 @@ region_rect = Rect2(0, 0, 32, 32)
 
 [node name="Inventory" parent="." instance=ExtResource("16_ycf0q")]
 
-[connection signal="state_changed" from="State Machine" to="Sprite Manager" method="_on_state_machine_state_changed"]
+[connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Direction Manager" method="_on_state_machine_state_changed"]
 [connection signal="received_damage" from="Hurtbox" to="Health Manager" method="_on_hurtbox_received_damage"]
+[connection signal="direction_changed" from="Direction Manager" to="Animation Manager" method="_on_direction_manager_direction_changed"]
 [connection signal="direction_changed" from="Direction Manager" to="Hitbox" method="_on_direction_manager_direction_changed"]
-[connection signal="direction_changed" from="Direction Manager" to="Sprite Manager" method="_on_direction_manager_direction_changed"]
 [connection signal="item_collected" from="Pick Up" to="Inventory" method="_on_pick_up_item_collected"]
 
 [editable path="State Machine"]

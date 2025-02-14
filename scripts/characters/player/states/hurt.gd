@@ -11,17 +11,15 @@ extends SMState
 	"moveable": false
 }
 @onready var sm = get_parent()
-@export var animation = {
-	"frames": [1,0,1],
-	"framerate": 6,
-	"callbacks" : {
-		0: [
-			#Callable(self, "temp_invincibility"),
-			Callable(self, "knockback"),
-		],
+@export var animation_name = "hurt"
+var callbacks = {
+	0: [
+		#Callable(self, "temp_invincibility"),
+		Callable(self, "knockback"),
+	],
 		"end": Callable(self, "end_hurt"),
-	}
 }
+
 
 func knockback():
 	mobility_manager.set_velocity(knockback_velocity * hurtbox.latest_hit_direction)

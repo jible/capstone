@@ -1,41 +1,26 @@
 extends AnimatedSprite2D
 class_name AnimationManager
-# Exports
-## Index 0 is width, Index 1 is height
-@export var frame_size : Vector2i = Vector2i(32,32)
-
 #Properties
 var current_direction = "north"
-var current_state 
-var current_package = {}
+var animation_name = "idle"
+var callbacks = {}
 
-func _set_animation(animation_name: String):
+func update_anim():
 	""" 
-	Sets argument animation as current animation and updates sprite and framerate appropriately
+	Plays animation based on animation name and direction properties
 	"""
 	var true_animation_name = animation_name + "_" + current_direction
-	play(animation_name)
-	
-	
-func do_frame_callbacks():
-	var callback = current_package.get(frame, null)
-	if callback:
-		if typeof(callback) == TYPE_ARRAY:
-			for i in callback:
-				i.call()
-		else:
-			callback.call()
-
+	play(true_animation_name)
 
 
 func _on_state_machine_state_changed(new_state):
-	""" When the state machine changes states, it fires this signal. it results in reseting the animation
-	and updating to a new animation
+	""" 
+	When the state machine changes states, it fires this signal. 
+	This sets the animation name and calls a new animation. it also updates the callbacks collection.
 	"""
-	
-	var animation = new_state.animation
-	if animation:
-		_set_animation(animation)
+	animation_name = new_state.animation_name
+	callbacks = new_state.callbacks
+	update_anim()
 
 func _on_direction_manager_direction_changed( direction):
 	"""
@@ -44,17 +29,13 @@ func _on_direction_manager_direction_changed( direction):
 	Direction buffer may need to move to another object. 
 	"""
 	
-	var new_direction = _direction_vec_to_string(direction)
-	_change_direction(new_direction)
-
-func _change_direction(direction):
-	current_direction = direction
-	
+	current_direction = _direction_vec_to_string(direction)
+	update_anim()
 
 
 func _direction_vec_to_string(direction):
 	"""
-	Converts direction string to coresponding column index
+	Converts direction vector to string
 	"""
 
 	var direction_dict = {
@@ -63,4 +44,21 @@ func _direction_vec_to_string(direction):
 		Vector2(1,0): "east",
 		Vector2(-1,0): "west",
 	}
-	return direction_dict.get(direction , "north") # defaults to north
+	return direction_dict.get(direction , "south") # defaults to north
+
+
+	
+func do_frame_callback():
+	var callback = null
+	if callbacks: callback = callbacks.get(frame, null)
+	if callback:
+		if typeof(callback) == TYPE_ARRAY:
+			for i in callback:
+				i.call()
+		else:
+			callback.call()
+
+
+func _on_frame_changed():
+	do_frame_callback()
+	pass # Replace with function body.
