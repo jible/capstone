@@ -65,11 +65,11 @@ func render():
 	
 	# Add the landing and ending
 	var landing_instance = landing.instantiate()
-	get_tree().root.call_deferred("add_child",landing_instance)
+	get_tree().current_scene.call_deferred("add_child",landing_instance)
 	landing_instance.position = spawn_point
 	
 	var pit_instance = pit.instantiate()
-	get_tree().root.call_deferred("add_child",pit_instance)
+	get_tree().current_scene.call_deferred("add_child",pit_instance)
 	pit_instance.position = end_point
 	
 	

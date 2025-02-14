@@ -63,4 +63,6 @@ sprite_frames = SubResource("SpriteFrames_ua50e")
 animation = &"idle_north"
 script = ExtResource("2_cc8na")
 
+[connection signal="animation_changed" from="." to="." method="_on_animation_changed"]
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
 [connection signal="frame_changed" from="." to="." method="_on_frame_changed"]

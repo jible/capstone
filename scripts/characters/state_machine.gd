@@ -25,13 +25,13 @@ func _ready():
 	
 	
 func _physics_process(delta):
-		update_state(delta)
+	update_state(delta)
 	
 func change_state(new_state):
 	if (new_state != current_state && new_state in state_names):
-		emit_signal("state_changed" , state_objects[new_state])
 		if (current_state in state_names):
 			exit_state(current_state)
+		emit_signal("state_changed" , state_objects[new_state])
 		current_state = new_state
 		current_state_node = state_objects[current_state]
 		enter_state(new_state)

@@ -8,6 +8,8 @@ extends SMState
 @export var movement_details =  {
 	"moveable" : true
 }
+var direction_dependent = true
+
 @export var animation_name = "attack"
 var callbacks = {
 	0: Callable(self, "turn_on_hitbox"),
@@ -29,7 +31,6 @@ func turn_off_hitbox():
 	pass
 
 func end():
-	turn_off_hitbox()
 	sm.change_state("Idle")
 
 # Main Functions

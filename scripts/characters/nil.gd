@@ -4,7 +4,8 @@ extends SMState
 @export var lock_direction = false
 @export var movement_details =  {}
 @export var animation_name = "nil"
-
+var direction_dependent = true
+var callbacks = {}
 # On readys
 @onready var sm = get_parent()
 

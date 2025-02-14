@@ -12,6 +12,8 @@ extends SMState
 }
 @onready var sm = get_parent()
 @export var animation_name = "hurt"
+var direction_dependent = true
+
 var callbacks = {
 	0: [
 		#Callable(self, "temp_invincibility"),

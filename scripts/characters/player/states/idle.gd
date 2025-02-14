@@ -7,6 +7,9 @@ extends SMState
 @export var animation_name = "idle"
 # On Readys
 @onready var sm = get_parent()
+var callbacks = {}
+
+var direction_dependent = true
 
 # Main Functions 
 func update_state(delta):
