@@ -61,7 +61,6 @@ func do_frame_callback(frm):
 			for i in callback:
 				i.call()
 		else:
-			print (frm, callback)
 			callback.call()
 
 

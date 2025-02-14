@@ -6,15 +6,14 @@ extends Node
 	"moveable": false,
 }
 @export var knockback_velocity: float = 900
-@export var animation = {
-	"frames": [6,7,8],
-	"framerate": 4,
-	"callbacks" : {
-		0: [
-			Callable(self, "knockback"),
-		],
-		"end": Callable(self,"end_hurt")
-	}
+@export var animation_name = "hurt"
+var direction_dependent = true
+
+var callbacks = {
+	0: [
+		Callable(self, "knockback"),
+	],
+	"end": Callable(self,"end_hurt")
 }
 
 @export var health_manager: Health
@@ -28,6 +27,7 @@ func knockback():
 	mobility_manager.set_velocity(knockback_velocity * hurtbox.latest_hit_direction)
 
 func end_hurt():
+	print("hurt end!!")
 	if health_manager.health <=0:
 		sm.change_state("Death")
 	else: 

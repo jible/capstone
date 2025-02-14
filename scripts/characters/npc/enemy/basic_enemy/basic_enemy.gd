@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var state_machine: StateMachine
 @export var hitbox: HitBox
 @export var hurtbox: HurtBox
-@export var sprite_manager: SpriteManager
+@export var sprite_manager: AnimationManager
 @export var health_manager: Health
 
 var type = "basic_enemy"

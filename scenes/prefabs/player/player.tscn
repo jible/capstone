@@ -17,8 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://c8m53vdgh2gf" path="res://scenes/prefabs/player/pick_up.tscn" id="15_nqwto"]
 [ext_resource type="PackedScene" uid="uid://cwjaeghgmlbgt" path="res://scenes/prefabs/character utils/inventory.tscn" id="16_ycf0q"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_mtwvy"]
 atlas = ExtResource("7_0quf5")
 region = Rect2(160, 64, 32, 32)
@@ -326,6 +324,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up", "inventory") groups=["Player"]]
 scale = Vector2(0.25, 0.25)
 collision_mask = 67
@@ -340,6 +340,11 @@ direction_manager = NodePath("Direction Manager")
 health_manager = NodePath("Health Manager")
 pick_up = NodePath("Pick Up")
 inventory = NodePath("Inventory")
+
+[node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
+scale = Vector2(3.935, 3.935)
+sprite_frames = SubResource("SpriteFrames_mf368")
+animation = &"attack_east"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kqpcb")
@@ -373,11 +378,6 @@ mobility_manager = NodePath("../../Mobility Manager")
 [node name="Death" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
 script = ExtResource("8_vxcvn")
 character = NodePath("../..")
-
-[node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
-scale = Vector2(3.935, 3.935)
-sprite_frames = SubResource("SpriteFrames_mf368")
-animation = &"attack_east"
 
 [node name="Hitbox" parent="." instance=ExtResource("6_arj65")]
 collision_layer = 8

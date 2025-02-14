@@ -5,12 +5,11 @@ extends Node
 @onready var sm = get_parent()
 @export var lock_direction = false
 @export var movement_details =  {}
-@export var animation = {
-	"frames": [3,4,5],
-	"framerate": 4
-}
+@export var animation_name = "pursuit"
+var callbacks = {}
 @export var mobility_manager: Node2D
 var player: CharacterBody2D
+var direction_dependent = true
 
 func _ready():
 	player = Globals.get_player()

@@ -1,66 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://0ry41ukaumi6"]
+[gd_scene load_steps=3 format=3 uid="uid://0ry41ukaumi6"]
 
-[ext_resource type="Texture2D" uid="uid://c6kbrr4r0yvl1" path="res://assets/sprites/basic_enemy.png" id="1_6wh6p"]
 [ext_resource type="Script" path="res://animation_manager.gd" id="2_cc8na"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g2rbn"]
-atlas = ExtResource("1_6wh6p")
-region = Rect2(0, 360, 120, 120)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cgbo8"]
-atlas = ExtResource("1_6wh6p")
-region = Rect2(120, 360, 120, 120)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d1onj"]
-atlas = ExtResource("1_6wh6p")
-region = Rect2(240, 360, 120, 120)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ee362"]
-atlas = ExtResource("1_6wh6p")
-region = Rect2(0, 0, 120, 120)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2c0to"]
-atlas = ExtResource("1_6wh6p")
-region = Rect2(120, 0, 120, 120)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q7oah"]
-atlas = ExtResource("1_6wh6p")
-region = Rect2(240, 0, 120, 120)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ua50e"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g2rbn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cgbo8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d1onj")
-}],
-"loop": true,
-"name": &"idle_north",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ee362")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2c0to")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q7oah")
-}],
-"loop": true,
-"name": &"idle_south",
-"speed": 5.0
-}]
+[sub_resource type="SpriteFrames" id="SpriteFrames_aptl5"]
 
 [node name="Animation Manager" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_ua50e")
-animation = &"idle_north"
+sprite_frames = SubResource("SpriteFrames_aptl5")
 script = ExtResource("2_cc8na")
 
 [connection signal="animation_changed" from="." to="." method="_on_animation_changed"]
