@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6kyubdgubp47"]
+[gd_scene load_steps=29 format=3 uid="uid://c6kyubdgubp47"]
 
 [ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_u3dna"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_igigb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://buwbtxan5ao3v" path="res://scenes/prefabs/character utils/hitbox.tscn" id="6_arj65"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/hurt.gd" id="6_m7eoc"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/attack.gd" id="6_rq4oq"]
+[ext_resource type="Texture2D" uid="uid://bivs6m68fn726" path="res://assets/sprites/playerV2.png" id="7_0quf5"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/death.gd" id="8_vxcvn"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="9_po6ig"]
 [ext_resource type="PackedScene" uid="uid://0ry41ukaumi6" path="res://animation_manager.tscn" id="9_sc1mn"]
@@ -17,6 +18,104 @@
 [ext_resource type="PackedScene" uid="uid://cwjaeghgmlbgt" path="res://scenes/prefabs/character utils/inventory.tscn" id="16_ycf0q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bvnu"]
+atlas = ExtResource("7_0quf5")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4t7f"]
+atlas = ExtResource("7_0quf5")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdqlc"]
+atlas = ExtResource("7_0quf5")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxw8w"]
+atlas = ExtResource("7_0quf5")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5q8p"]
+atlas = ExtResource("7_0quf5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5dog"]
+atlas = ExtResource("7_0quf5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jkwi"]
+atlas = ExtResource("7_0quf5")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a58t"]
+atlas = ExtResource("7_0quf5")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31e02"]
+atlas = ExtResource("7_0quf5")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4k1y"]
+atlas = ExtResource("7_0quf5")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mf368"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bvnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4t7f")
+}],
+"loop": true,
+"name": &"idle_east",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdqlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxw8w")
+}],
+"loop": true,
+"name": &"idle_north",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5q8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5dog")
+}],
+"loop": true,
+"name": &"idle_south",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jkwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a58t")
+}],
+"loop": true,
+"name": &"idle_west",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31e02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4k1y")
+}],
+"loop": true,
+"name": &"walk_east",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "direction_manager", "health_manager", "pick_up", "inventory") groups=["Player"]]
 scale = Vector2(0.25, 0.25)
@@ -65,6 +164,8 @@ mobility_manager = NodePath("../../Mobility Manager")
 script = ExtResource("8_vxcvn")
 
 [node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
+sprite_frames = SubResource("SpriteFrames_mf368")
+animation = &"walk_east"
 
 [node name="Hitbox" parent="." instance=ExtResource("6_arj65")]
 collision_layer = 8
