@@ -18,13 +18,12 @@ func kill(object):
 		object.reset()
 
 
-func add(root):
-	print(collection.size())
+func add(parent):
 	if (collection.size() <= 0 ):
 		print("pool is empty")
 		return null
 	var object = collection.pop_back()
-	call_deferred("add_to_tree", root, object)
+	call_deferred("add_to_tree", parent, object)
 	return (object)
 
 # seperated this into a function so I could defer the call.

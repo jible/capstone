@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7p3e5u8l5r52"]
+[gd_scene load_steps=3 format=3 uid="uid://b7p3e5u8l5r52"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/main_menu.gd" id="1_q2ruy"]
-[ext_resource type="PackedScene" uid="uid://cxhhke25i6fup" path="res://scenes/limbo.tscn" id="2_jj66u"]
 [ext_resource type="Texture2D" uid="uid://bg3mywhje512k" path="res://assets/images/title_screen.png" id="2_xkjyu"]
 
 [node name="MainMenu" type="Control"]
@@ -12,7 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q2ruy")
-scene_to_change = ExtResource("2_jj66u")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
