@@ -15,7 +15,7 @@ extends SMState
 var direction_dependent = true
 
 var callbacks = {
-	0: [
+	"start": [
 		#Callable(self, "temp_invincibility"),
 		Callable(self, "knockback"),
 	],

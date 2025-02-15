@@ -11,8 +11,10 @@ var callbacks = {}
 var player: CharacterBody2D
 var direction_dependent = true
 
+
 func _ready():
 	player = Globals.get_player()
+
 
 func update_state(delta):
 	if (!is_instance_valid(player)):
@@ -25,7 +27,8 @@ func update_state(delta):
 			target_vector = target_vector.normalized()
 		mobility_manager.input_direction = target_vector
 	pass
-	
+
+
 func enter_state():
 	# turn on hitbox
 	hitbox.turn_on()

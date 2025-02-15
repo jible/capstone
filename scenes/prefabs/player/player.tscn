@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://c6kyubdgubp47"]
+[gd_scene load_steps=53 format=3 uid="uid://c6kyubdgubp47"]
 
 [ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_u3dna"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_igigb"]
@@ -64,6 +64,14 @@ region = Rect2(192, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8hwv"]
 atlas = ExtResource("7_0quf5")
 region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1yq2"]
+atlas = ExtResource("7_0quf5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnahe"]
+atlas = ExtResource("7_0quf5")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4k5nw"]
 atlas = ExtResource("7_0quf5")
@@ -201,6 +209,17 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_west",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1yq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnahe")
+}],
+"loop": true,
+"name": &"death",
 "speed": 5.0
 }, {
 "frames": [{
@@ -344,7 +363,7 @@ inventory = NodePath("Inventory")
 [node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
 scale = Vector2(3.935, 3.935)
 sprite_frames = SubResource("SpriteFrames_mf368")
-animation = &"attack_east"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kqpcb")

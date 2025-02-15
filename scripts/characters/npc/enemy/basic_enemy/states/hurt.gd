@@ -1,7 +1,7 @@
 extends Node
 # Exports
 
-@export var lock_direction = false
+@export var lock_direction = true
 @export var movement_details =  {
 	"moveable": false,
 }
@@ -10,7 +10,7 @@ extends Node
 var direction_dependent = true
 
 var callbacks = {
-	0: [
+	"start": [
 		Callable(self, "knockback"),
 	],
 	"end": Callable(self,"end_hurt")
@@ -27,7 +27,6 @@ func knockback():
 	mobility_manager.set_velocity(knockback_velocity * hurtbox.latest_hit_direction)
 
 func end_hurt():
-	print("hurt end!!")
 	if health_manager.health <=0:
 		sm.change_state("Death")
 	else: 

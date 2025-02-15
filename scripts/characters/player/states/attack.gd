@@ -12,7 +12,7 @@ var direction_dependent = true
 
 @export var animation_name = "attack"
 var callbacks = {
-	0: Callable(self, "turn_on_hitbox"),
+	"start": Callable(self, "turn_on_hitbox"),
 	2: Callable(self, "turn_off_hitbox"),
 	"end": Callable(self, "end"),
 }

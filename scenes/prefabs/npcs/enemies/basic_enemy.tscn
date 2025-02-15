@@ -424,7 +424,8 @@ script = ExtResource("8_vddrh")
 
 [node name="Animation Manager" parent="." instance=ExtResource("9_37jjd")]
 sprite_frames = SubResource("SpriteFrames_d4jv7")
-animation = &"hurt_west"
+animation = &"pursuit_west"
+autoplay = "pursuit_east"
 
 [node name="Hitbox" parent="." instance=ExtResource("5_pk3ql")]
 collision_layer = 32

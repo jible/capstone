@@ -14,7 +14,7 @@ var overlapping_areas = []
 var latest_hit_direction = Vector2.ZERO
 
 func turn_on():
-	collisionshape.debug_color = Color(84, 73, 75,1)
+	collisionshape.debug_color = Color(84, 73, 75,.5)
 	for area in get_overlapping_areas():
 		if area is HitBox && area.detecting:
 			area.hit(self)

@@ -16,7 +16,7 @@ func _ready():
 	SignalBus.player_stats_updated.connect(set_upgrade_damage)
 
 func turn_on():
-	collisionshape.debug_color = Color (179, 57, 81, 1)
+	collisionshape.debug_color = Color (179, 57, 81, .5)
 	for area in overlapping_areas:
 		if area is HurtBox && area.detectable && ! (area in successful_hit):
 			hit(area)

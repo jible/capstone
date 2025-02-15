@@ -7,7 +7,7 @@ extends SMState
 var callbacks = {
 	"end": Callable(self,"anim_end")
 }
-var direction_dependent = true
+var direction_dependent = false
 
 signal died
 
