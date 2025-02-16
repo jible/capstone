@@ -12,11 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="6_025q6"]
 [ext_resource type="Texture2D" uid="uid://c6kbrr4r0yvl1" path="res://assets/sprites/basic_enemy.png" id="8_rxyio"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/death.gd" id="8_vddrh"]
-[ext_resource type="PackedScene" uid="uid://0ry41ukaumi6" path="res://animation_manager.tscn" id="9_37jjd"]
+[ext_resource type="PackedScene" uid="uid://0ry41ukaumi6" path="res://scenes/prefabs/animation_manager.tscn" id="9_37jjd"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="13_y7ykc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt6l6"]
-radius = 64.47
+radius = 44.1814
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jyxoc"]
 atlas = ExtResource("8_rxyio")

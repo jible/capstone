@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/prefabs/scene_config_package.gd" id="1_qcfrr"]
 [ext_resource type="PackedScene" uid="uid://b0qchcd21rx5b" path="res://scenes/level_generator.tscn" id="2_1eor7"]
 [ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="3_5fksv"]
-[ext_resource type="PackedScene" uid="uid://ddelqb5kn8xdx" path="res://landing.tscn" id="3_js5ky"]
+[ext_resource type="PackedScene" uid="uid://ddelqb5kn8xdx" path="res://scenes/prefabs/landing.tscn" id="3_js5ky"]
 [ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="4_t24gl"]
 [ext_resource type="PackedScene" uid="uid://c60va2pop5yhv" path="res://scenes/prefabs/pit.tscn" id="4_you5q"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_e7sx3"]
