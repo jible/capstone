@@ -24,6 +24,7 @@ Globals="*res://scripts/globals/globals.gd"
 SignalBus="*res://scripts/globals/signal_bus.gd"
 UpgradeManager="*res://scripts/globals/upgrade_manager.gd"
 SceneTransition="*res://scenes/scene_transition.tscn"
+SoundManager="*res://scenes/sound_manager.tscn"
 
 [display]
 
