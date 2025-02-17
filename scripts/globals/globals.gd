@@ -1,7 +1,12 @@
 extends Node
 
-
 var player: CharacterBody2D = null
+var currency_key: String = "money"
+
+func get_player():
+	if player == null || ! is_instance_valid(player):
+		player = get_tree().get_first_node_in_group("Player")
+	return player
 
 var dir_dict = {
 	"north": Vector2i(0,1),
@@ -12,4 +17,6 @@ var dir_dict = {
 
 ## Takes a scene path as a parameter and transitions to it.
 func change_scene(scene: PackedScene):
+	SceneTransition.transition()
+	await SceneTransition.on_transition_finished
 	get_tree().call_deferred("change_scene_to_file",scene.resource_path)

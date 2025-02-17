@@ -23,6 +23,7 @@ InputManager="*res://scripts/globals/input_manager.gd"
 Globals="*res://scripts/globals/globals.gd"
 SignalBus="*res://scripts/globals/signal_bus.gd"
 UpgradeManager="*res://scripts/globals/upgrade_manager.gd"
+SceneTransition="*res://scenes/scene_transition.tscn"
 
 [display]
 
@@ -31,6 +32,7 @@ window/size/viewport_height=1080
 window/size/initial_position_type=0
 window/size/window_width_override=800
 window/size/window_height_override=800
+window/stretch/mode="viewport"
 
 [global_group]
 

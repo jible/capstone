@@ -19,16 +19,25 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up", "inventory") groups=["Player"]]
 scale = Vector2(0.25, 0.25)
 collision_mask = 67
+motion_mode = 1
 script = ExtResource("1_u3dna")
+mobility_manager = NodePath("Mobility Manager")
+state_machine = NodePath("State Machine")
+hitbox = NodePath("Hitbox")
+hurtbox = NodePath("Hurtbox")
+sprite_manager = NodePath("Sprite Manager")
+direction_manager = NodePath("Direction Manager")
+health_manager = NodePath("Health Manager")
+pick_up = NodePath("Pick Up")
+inventory = NodePath("Inventory")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kqpcb")
 
-[node name="Mobility Manager" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("14_2dfdq")]
-state_machine = NodePath("../State Machine")
+[node name="Mobility Manager" parent="." instance=ExtResource("14_2dfdq")]
 max_speed = 100
 
 [node name="State Machine" parent="." instance=ExtResource("3_igigb")]
@@ -62,10 +71,9 @@ collision_layer = 8
 collision_mask = 16
 detecting = false
 
-[node name="Hurtbox" parent="." node_paths=PackedStringArray("character") instance=ExtResource("9_po6ig")]
+[node name="Hurtbox" parent="." instance=ExtResource("9_po6ig")]
 collision_layer = 4
 collision_mask = 32
-character = NodePath("..")
 
 [node name="Sprite Manager" parent="." instance=ExtResource("10_wvl2e")]
 scale = Vector2(4, 4)
@@ -73,12 +81,9 @@ texture = ExtResource("7_0quf5")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="Direction Manager" parent="." node_paths=PackedStringArray("sm", "character") instance=ExtResource("12_y1q07")]
-sm = NodePath("../State Machine")
-character = NodePath("..")
+[node name="Direction Manager" parent="." instance=ExtResource("12_y1q07")]
 
-[node name="Health Manager" parent="." node_paths=PackedStringArray("sm") instance=ExtResource("14_myo2d")]
-sm = NodePath("../State Machine")
+[node name="Health Manager" parent="." instance=ExtResource("14_myo2d")]
 
 [node name="Pick Up" parent="." instance=ExtResource("15_nqwto")]
 

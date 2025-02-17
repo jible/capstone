@@ -14,7 +14,6 @@ extends SMState
 func frameOneFunc():
 	pass
 
-
 func callback():
 	pass
 	

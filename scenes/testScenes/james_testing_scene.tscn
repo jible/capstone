@@ -1,35 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7syb6hircgps"]
+[gd_scene load_steps=2 format=3 uid="uid://c7syb6hircgps"]
 
-[ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="1_50k4n"]
-[ext_resource type="PackedScene" uid="uid://b0qchcd21rx5b" path="res://scenes/level_generator.tscn" id="1_am7ec"]
-[ext_resource type="Script" path="res://scenes/prefabs/scene_config_package.gd" id="1_qnhdi"]
-[ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="3_8q7io"]
-[ext_resource type="Script" path="res://enemy_manager.gd" id="5_rge60"]
+[ext_resource type="PackedScene" uid="uid://bugqksfg6vdn7" path="res://scenes/prefabs/scene_config_package.tscn" id="1_rw1ib"]
 
 [node name="James testing scene" type="Node2D"]
 
-[node name="Scene Config Package" type="Node2D" parent="." node_paths=PackedStringArray("level_generator", "camera", "player")]
-script = ExtResource("1_qnhdi")
-level_generator = NodePath("Level Generator")
-camera = NodePath("Custom Camera")
-player = NodePath("Player")
+[node name="Scene Config Package" parent="." instance=ExtResource("1_rw1ib")]
 
-[node name="Level Generator" parent="Scene Config Package" instance=ExtResource("1_am7ec")]
-world_seed = 2
+[node name="Level Generator" parent="Scene Config Package" index="0"]
+randomize_seed = true
 
-[node name="Player" parent="Scene Config Package" instance=ExtResource("1_50k4n")]
-
-[node name="Custom Camera" parent="Scene Config Package" node_paths=PackedStringArray("target") instance=ExtResource("3_8q7io")]
-zoom = Vector2(1.73, 1.73)
-target = NodePath("../Player")
-follow_player = true
-free_axis = {
-"x": 10,
-"y": 10
-}
-
-[node name="Enemy Manager" type="Node" parent="Scene Config Package" node_paths=PackedStringArray("level_generator") groups=["Enemy_Manager"]]
-script = ExtResource("5_rge60")
-level_generator = NodePath("../Level Generator")
-
+[editable path="Scene Config Package"]
 [editable path="Scene Config Package/Level Generator"]
