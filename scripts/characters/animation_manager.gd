@@ -35,7 +35,6 @@ func _on_direction_manager_direction_changed( direction):
 	current_direction = _direction_vec_to_string(direction)
 	update_anim()
 
-
 func _direction_vec_to_string(direction):
 	"""
 	Converts direction vector to string
@@ -61,8 +60,6 @@ func do_frame_callback(frm):
 
 func _on_frame_changed():
 	do_frame_callback(frame)
-	pass # Replace with function body.
-
 
 func _on_animation_finished():
 	var callback= callbacks.get("end", null)
@@ -75,4 +72,3 @@ func _on_animation_finished():
 
 func _on_animation_changed():
 	do_frame_callback("start")
-	pass # Replace with function body.
