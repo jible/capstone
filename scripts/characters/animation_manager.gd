@@ -17,7 +17,6 @@ func update_anim():
 		
 	play(true_animation_name)
 
-
 func _on_state_machine_state_changed(new_state):
 	""" 
 	When the state machine changes states, it fires this signal. 
@@ -50,8 +49,6 @@ func _direction_vec_to_string(direction):
 	}
 	return direction_dict.get(direction , "south") # defaults to north
 
-
-	
 func do_frame_callback(frm):
 	var callback
 	if callbacks: callback = callbacks.get(frm, null)
@@ -61,9 +58,6 @@ func do_frame_callback(frm):
 				i.call()
 		else:
 			callback.call()
-
-
-
 
 func _on_frame_changed():
 	do_frame_callback(frame)
@@ -78,7 +72,6 @@ func _on_animation_finished():
 				i.call()
 		else:
 			callback.call()
-
 
 func _on_animation_changed():
 	do_frame_callback("start")
