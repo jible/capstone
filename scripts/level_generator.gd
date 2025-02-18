@@ -17,7 +17,7 @@ var gen_methods = {
 	"lust": Callable(self, "make_lust"),
 }
 
-func _ready():
+func prep():
 	if randomize_seed:
 		world_seed = randi()
 	layers = {
@@ -34,7 +34,7 @@ func generate_level(level_type):
 	'''
 	Generate tilemap level dependent on argument type.
 	'''
-	
+	prep()
 	map = Map.new(size, world_seed)
 	gen_methods[level_type].call()
 	
@@ -87,7 +87,7 @@ func render_layer(layer):
 			if map.get_tile(pos).type == "floor":
 				# get random tile position
 				# [ ] get length and width of tileset, rather than magic number
-				layers["environment"].set_cell(pos, 0, Vector2i(randi()%10, randi()%10))
+				layers["environment"].set_cell(pos, 0, Vector2i(randi()%9, randi()%9))
 			
 			if map.get_tile(pos).type == null:
 				layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
