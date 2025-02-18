@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var speaker : AudioStreamPlayer2D
-var sfx = SoundManager
 var items = {}
 
 func _ready() -> void:
@@ -16,7 +14,6 @@ func check_item(type):
 	return 0
 
 func _on_pick_up_item_collected(type, amount):
-	sfx.play_player_sound(speaker,sfx.PlayerSounds.PICKUP)
-	speaker.pitch_scale = randf_range(0.25,2)
+
 	obtain_item(type, amount)
 	SignalBus.currency_changed.emit()
