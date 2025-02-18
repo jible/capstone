@@ -1,6 +1,5 @@
 extends Node2D
 
-class_name Inventory
 @export var speaker : AudioStreamPlayer2D
 var sfx = SoundManager
 var items = {}
