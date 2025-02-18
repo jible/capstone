@@ -16,6 +16,7 @@ func enter_state():
 	sfx.play_player_sound(speaker,sfx.PlayerSounds.DEATH)
 	character.hurtbox.turn_off()
 	SignalBus.player_die.emit()
+	Globals.player = null
 	Globals.change_scene(load(death_scene))
 	pass
 func exit_state():

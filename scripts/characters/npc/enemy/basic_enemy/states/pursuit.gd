@@ -16,8 +16,7 @@ func _ready():
 
 
 func update_state(delta):
-	if (!is_instance_valid(player)):
-		player = Globals.get_player()
+	player = Globals.player
 	if (player):
 		var target_vector = player.global_position - me.global_position
 		if (target_vector.length() < 10):

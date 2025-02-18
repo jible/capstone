@@ -119,3 +119,8 @@
 -   Balanced player movement and hitboxes
 -   Modified enemy knockback
 -   Modified look for exit for playetest
+
+## version .30
+
+-   Fixed tile map collision issue
+-   Patched enemy pathfinding
