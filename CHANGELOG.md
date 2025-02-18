@@ -86,7 +86,7 @@
 - Changed the import defaults for wav files to stop automatic looping.
 - Added polyphony to player's AudioStreamPlayer2D node to allow for 10 sounds to play at the same time.
 
-## version 0.24
+## version 0.25
 
 - asset size refactor
 - new temporary tilesets and sprites
