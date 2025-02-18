@@ -5,15 +5,15 @@ extends Node
 @onready var sm = get_parent()
 @export var lock_direction = false
 @export var movement_details =  {}
-@export var animation = {
-	"frames": [3,4,5],
-	"framerate": 4
-}
+@export var animation_name = "pursuit"
+var callbacks = {}
 @export var mobility_manager: Node2D
 var player: CharacterBody2D
+var direction_dependent = true
 
 func _ready():
 	player = Globals.get_player()
+
 
 func update_state(delta):
 	if (!is_instance_valid(player)):
@@ -26,7 +26,8 @@ func update_state(delta):
 			target_vector = target_vector.normalized()
 		mobility_manager.input_direction = target_vector
 	pass
-	
+
+
 func enter_state():
 	# turn on hitbox
 	hitbox.turn_on()

@@ -8,11 +8,13 @@ signal received_damage(damage:int)
 @export var invincibility_time: float = .5
 @export var detectable: bool = false
 
+@export var collisionshape :CollisionShape2D
 
 var overlapping_areas = []
 var latest_hit_direction = Vector2.ZERO
 
 func turn_on():
+	collisionshape.debug_color = Color(84, 73, 75,.5)
 	for area in get_overlapping_areas():
 		if area is HitBox && area.detecting:
 			area.hit(self)
@@ -20,6 +22,8 @@ func turn_on():
 	detectable = true
 
 func turn_off():
+	collisionshape.debug_color = Color(241, 247, 237, 0)
+	
 	detectable = false
 
 func _on_area_entered(area):

@@ -8,15 +8,15 @@ extends SMState
 @export var movement_details =  {
 	"moveable" : true
 }
-@export var animation = {
-	"framerate" : 5,
-	"frames": [5,6,7],
-	"callbacks" :{
-		0: Callable(self, "turn_on_hitbox"),
-		2: Callable(self, "turn_off_hitbox"),
-		"end": Callable(self, "end"),
-	}
+var direction_dependent = true
+
+@export var animation_name = "attack"
+var callbacks = {
+	"start": Callable(self, "turn_on_hitbox"),
+	2: Callable(self, "turn_off_hitbox"),
+	"end": Callable(self, "end"),
 }
+
 
 # Onreadys
 @onready var sm = get_parent()
@@ -31,7 +31,6 @@ func turn_off_hitbox():
 	pass
 
 func end():
-	turn_off_hitbox()
 	sm.change_state("Idle")
 
 # Main Functions

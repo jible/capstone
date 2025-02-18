@@ -1,20 +1,19 @@
 extends Node
 # Exports
 
-@export var lock_direction = false
+@export var lock_direction = true
 @export var movement_details =  {
 	"moveable": false,
 }
 @export var knockback_velocity: float = 900
-@export var animation = {
-	"frames": [6,7,8],
-	"framerate": 4,
-	"callbacks" : {
-		0: [
-			Callable(self, "knockback"),
-		],
-		"end": Callable(self,"end_hurt")
-	}
+@export var animation_name = "hurt"
+var direction_dependent = true
+
+var callbacks = {
+	"start": [
+		Callable(self, "knockback"),
+	],
+	"end": Callable(self,"end_hurt")
 }
 
 @export var health_manager: Health

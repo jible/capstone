@@ -3,13 +3,11 @@ extends SMState
 # Exports
 @export var lock_direction = true
 @export var movement_details =  {}
-@export var animation = {
-	"frames": [0,1,0,1],
-	"framerate": 4,
-	"callbacks" : {
-		"end": Callable(self,"anim_end")
-	}
+@export var animation_name = "death"
+var callbacks = {
+	"end": Callable(self,"anim_end")
 }
+var direction_dependent = false
 
 signal died
 

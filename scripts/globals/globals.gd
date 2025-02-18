@@ -2,6 +2,12 @@ extends Node
 
 var player: CharacterBody2D = null
 var currency_key: String = "money"
+var levels = ["Limbo", "Lust"]
+
+var current_level = {
+	"level":levels[0],
+	"layer" : 0
+}
 
 func get_player():
 	if player == null || ! is_instance_valid(player):

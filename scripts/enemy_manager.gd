@@ -29,7 +29,7 @@ func spawn_enemy(pos, enemy_type = null):
 	if enemy_type == null:
 		return null
 	
-	var new_enemy = enemy_pools[enemy_type].add(get_tree().root)
+	var new_enemy = enemy_pools[enemy_type].add(get_tree().current_scene)
 	new_enemy.global_position = pos
 	# might need to reset its velocity after TPing it
 	pass

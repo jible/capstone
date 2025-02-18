@@ -12,17 +12,18 @@ func _init(ref: String, amount):
 		collection.append(entity.instantiate())
 
 func kill(object):
+	object.get_parent().remove_child(object)
+	collection.append(object)
 	if object.reset:
 		object.reset()
-	collection.append(object)
-	object.get_parent().remove_child(object)
 
-func add(root):
+
+func add(parent):
 	if (collection.size() <= 0 ):
 		print("pool is empty")
 		return null
 	var object = collection.pop_back()
-	call_deferred("add_to_tree", root, object)
+	call_deferred("add_to_tree", parent, object)
 	return (object)
 
 # seperated this into a function so I could defer the call.

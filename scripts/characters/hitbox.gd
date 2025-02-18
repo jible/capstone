@@ -7,6 +7,7 @@ extends Area2D
 @export var detecting:bool = false
 @export var distance_from_parent: int = 100
 @export var knockback = 50
+@export var collisionshape :CollisionShape2D
 
 var overlapping_areas = []
 var successful_hit = []
@@ -15,6 +16,7 @@ func _ready():
 	SignalBus.player_stats_updated.connect(set_upgrade_damage)
 
 func turn_on():
+	collisionshape.debug_color = Color (179, 57, 81, .5)
 	for area in overlapping_areas:
 		if area is HurtBox && area.detectable && ! (area in successful_hit):
 			hit(area)
@@ -22,6 +24,7 @@ func turn_on():
 	pass
 
 func turn_off():
+	collisionshape.debug_color = Color (145, 199, 177,0)
 	successful_hit = []
 	detecting = false
 
