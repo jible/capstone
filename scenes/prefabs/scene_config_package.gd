@@ -15,8 +15,6 @@ func _ready():
 	
 	level_generator.generate_level(level_type)
 	place_player()
-	
-	pass # Replace with function body.
 
 func place_player():
 	player.global_position = level_generator.spawn_point
