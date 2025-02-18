@@ -98,10 +98,9 @@ func play_player_sound(speaker:AudioStreamPlayer2D, sound_index : int):
 	speaker.stream = player_sound_library[sound_index]
 	speaker.play()
 	
-func play_ui_sound(speaker:AudioStreamPlayer2D, sound_index : int):
+func play_ui_sound(speaker:AudioStreamPlayer, sound_index : int):
 	speaker.volume_db = ui_sound_settings[sound_index].volume_db
 	speaker.pitch_scale = ui_sound_settings[sound_index].pitch_scale
-	speaker.attenuation = ui_sound_settings[sound_index].attenuation
 	speaker.stream = ui_sound_library[sound_index]
 	speaker.play()
 	

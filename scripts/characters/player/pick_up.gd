@@ -1,15 +1,17 @@
 extends Area2D
 class_name PickUp
 
-signal item_collected
+@export var speaker : AudioStreamPlayer2D
+var sfx = SoundManager
 
 func _on_area_entered(area : Collectable):
 	collect(area.type, area.point_value)
 	kill(area)
-	pass # Replace with function body.
 
 func collect(type, amount):
-	emit_signal("item_collected", type, amount )
-	pass
+	sfx.play_player_sound(speaker,sfx.PlayerSounds.PICKUP)
+	speaker.pitch_scale = randf_range(0.25,2)
+	SignalBus.item_collected.emit(type, amount)
+
 func kill(collect):
 	collect.queue_free()
