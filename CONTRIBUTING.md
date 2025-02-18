@@ -67,19 +67,3 @@ https://youtu.be/GQdR1RUy6bI
 ## Conflicting Versions
 
 In the case that multiple pull requests are open at the same time, choose which to push first. Once you've done that, update the other open PR title(s) to the appropriate version number. Update the branch if there are now conflicts. *There should always be a conflict in the `CHANGELOG.md` file. Update the section headings appropriately.*
-
-# GITHUB ISSUES
-
-## Creating a new Issue
-
-- Ensure the issue to be made is also in the project [timeline spreadsheet](https://docs.google.com/spreadsheets/d/1dZAdF-VlB1Vsa7J4WZNaotAaQ00rfg6UreA8IbdnRlg/edit?gid=891834841#gid=891834841)
-- In the [repo](https://github.com/jible/capstone), create a new issue
-  - Include a title and description of what needs to be done to close the issue, using task list format
-	- Task list format: `- [ ] your text here`
-  - Assign people to the issue
-  - Assign tags to the issue
-
-## Closing an Issue
-
-- Include a link to a commit when closing an issue
-- Leave any relevant comments needed
