@@ -11,7 +11,6 @@ var callbacks = {}
 var player: CharacterBody2D
 var direction_dependent = true
 
-
 func _ready():
 	player = Globals.get_player()
 
