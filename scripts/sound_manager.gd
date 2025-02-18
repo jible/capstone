@@ -8,27 +8,46 @@ func _ready() -> void:
 	load_music_sounds()
 
 # Player Sound Setup
-enum PlayerSounds {PICKUP,HURT,DEATH,ATTACK}
+enum PlayerSounds {
+	PICKUP,
+	HURT,
+	DEATH,
+	ATTACK
+}
 var player_sound_library: Array[AudioStreamWAV] = []
 var player_sound_settings: Array[SoundSetting] = [] 
 
 # UI Sound Setup
-enum UISounds {MOVE_SELECTION,UPG_SUCCESS,UPG_FAIL,PAUSE,UNPAUSE,PLAY}
+enum UISounds {
+	MOVE_SELECTION,
+	UPG_SUCCESS,
+	UPG_FAIL,
+	PAUSE,
+	UNPAUSE,
+	PLAY
+}
 var ui_sound_library: Array[AudioStreamWAV] = []
 var ui_sound_settings: Array[SoundSetting] = [] 
 
 # Entity Sound Setup
-enum EntitySounds {DEATH}
+enum EntitySounds {
+	DEATH
+}
 var entity_sound_library: Array[AudioStreamWAV] = []
 var entity_sound_settings: Array[SoundSetting] = [] 
 
 # Environment Sound Setup
-enum EnvSounds {DOOR}
+enum EnvSounds {
+	DOOR
+}
 var env_sound_library: Array[AudioStreamWAV] = []
 var env_sound_settings: Array[SoundSetting] = [] 
 
 # Music Sound Setup
-enum MusicSounds {MENU,LUST}
+enum MusicSounds {
+	MENU,
+	LUST
+}
 var music_sound_library: Array[AudioStreamWAV] = []
 var music_sound_settings: Array[SoundSetting] = [] 
 
