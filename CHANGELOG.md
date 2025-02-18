@@ -109,18 +109,18 @@
 
 ## version 0.28
 
--   Global inventory refactor
--   UI sounds added
+- Global inventory refactor
+- UI sounds added
 
 ## version 0.29
 
--   Player sounds for attacking and death added.
--   Will need additional code in the future to stop death sound from being cut off.
--   Balanced player movement and hitboxes
--   Modified enemy knockback
--   Modified look for exit for playetest
+- Player sounds for attacking and death added.
+- Will need additional code in the future to stop death sound from being cut off.
+- Balanced player movement and hitboxes
+- Modified enemy knockback
+- Modified look for exit for playetest
 
 ## version .30
 
--   Fixed tile map collision issue
--   Patched enemy pathfinding
+- Fixed tile map collision issue
+- Patched enemy pathfinding
