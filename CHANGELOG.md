@@ -59,7 +59,18 @@
 - Added pause menu
 - HUD updates with currency
 
-## version 0.23
+## version 0.20
+- Added sound manager
+- Added in sound assets for UI
+- Temporary implementation of hurt sound to showcase sound manager's functionality.
+- Added an AudioStreamPlayer2D node to the Player scene to add in the sound manager's functionality.
+
+## version 0.21
+
+- Added death screen
+- Global quit game function
+
+## version 0.22
 
 - file refactoring
 - new animation and asset integration system
