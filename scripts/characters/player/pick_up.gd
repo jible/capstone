@@ -11,6 +11,5 @@ func _on_area_entered(area : Collectable):
 func collect(type, amount):
 	emit_signal("item_collected", type, amount )
 	pass
-
 func kill(collect):
 	collect.queue_free()

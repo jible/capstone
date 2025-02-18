@@ -59,6 +59,12 @@
 - Added pause menu
 - HUD updates with currency
 
+## version 0.2
+- Added sound manager
+- Added in sound assets for UI
+- Temporary implementation of hurt sound to showcase sound manager's functionality.
+- Added an AudioStreamPlayer2D node to the Player scene to add in the sound manager's functionality.
+
 ## version 0.22
 
 - Added death screen

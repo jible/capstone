@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://c60va2pop5yhv"]
 
 [ext_resource type="Script" path="res://scripts/pit.gd" id="1_lxy2n"]
-[ext_resource type="Texture2D" uid="uid://b6xdl6kd6uqm8" path="res://assets/sprites/hole.png" id="2_gg1mk"]
+[ext_resource type="Texture2D" uid="uid://b6xdl6kd6uqm8" path="res://assets/sprites/pit.png" id="2_gg1mk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tipcd"]
 radius = 16.4
 
 [node name="Pit" type="Area2D"]
 collision_layer = 0
-collision_mask = 256
+collision_mask = 257
 script = ExtResource("1_lxy2n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -18,3 +18,4 @@ shape = SubResource("CircleShape2D_tipcd")
 texture = ExtResource("2_gg1mk")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
