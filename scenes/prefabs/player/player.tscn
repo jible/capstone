@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bivs6m68fn726" path="res://assets/sprites/playerV2.png" id="7_0quf5"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/death.gd" id="8_vxcvn"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="9_po6ig"]
-[ext_resource type="PackedScene" uid="uid://b3wmb7nx7u8ug" path="res://scenes/prefabs/character utils/sprite_manager.tscn" id="10_wvl2e"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/character utils/sprite_manager.tscn" id="10_wvl2e"]
 [ext_resource type="PackedScene" uid="uid://bxdsl4tldum0b" path="res://scenes/prefabs/character utils/direction_manager.tscn" id="12_y1q07"]
 [ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="14_2dfdq"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="14_myo2d"]

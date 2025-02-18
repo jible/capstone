@@ -20,11 +20,16 @@ var upgrade_growth: Dictionary = {
 }
 var upgrade_cost = 1
 
+##Death Scene
+var death_scene: PackedScene = preload(
+	"res://scenes/prefabs/ui_elements/death_screen.tscn")
+
 #Inventory ref from player
 @onready var inventory: Inventory = get_tree().get_first_node_in_group("Inventory")
 
 func _ready():
 	SignalBus.upgrade_stat_button_pressed.connect(_on_stat_upgraded)
+	SignalBus.player_die.connect(_on_player_died)
 	
 func check_can_upgrade(stat: String) -> bool:
 	if get_upgrade_cost(stat) <= inventory.check_item(Globals.currency_key):
@@ -63,3 +68,6 @@ func _on_stat_upgraded(stat_name: String):
 		upgrade_stat(stat_name)
 	#notify player to update self
 	SignalBus.player_stats_updated.emit()
+	
+func _on_player_died():
+	Globals.change_scene(death_scene)

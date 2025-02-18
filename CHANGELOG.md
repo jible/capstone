@@ -64,3 +64,8 @@
 - Added in sound assets for UI
 - Temporary implementation of hurt sound to showcase sound manager's functionality.
 - Added an AudioStreamPlayer2D node to the Player scene to add in the sound manager's functionality.
+
+## version 0.22
+
+- Added death screen
+- Global quit game function

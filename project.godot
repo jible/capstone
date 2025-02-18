@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Capstone"
-run/main_scene="res://scenes/testScenes/james_testing_scene.tscn"
+run/main_scene="res://scenes/testScenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.0706698, 0.0463216, 0.107546, 1)
 boot_splash/image="res://assets/sprites/sexyIndieDevLogoV2.png"

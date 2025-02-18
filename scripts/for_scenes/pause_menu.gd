@@ -28,8 +28,4 @@ func _on_resume_toggle_pressed() -> void:
 	self.hide()
 
 func _on_quit_toggle_pressed() -> void:
-	# notification that is passed to all nodes before quit is called
-	# use for saving features or confirmation msgs
-	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
-	# close the application/scenetree
-	get_tree().quit()
+	Globals.quit_game()
