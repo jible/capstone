@@ -2,17 +2,6 @@ extends Camera2D
 # Broken for now
 # taken from https://github.com/jible/BallGame/blob/main/Scripts/SpecialCamera.gd
 
-# camera can follow player or sit at a location
-# it can only follow the player on one axis or both 
-# it can have a varying distance from edge of camera before 
-# camera can be several sizes
-# camera should can be smash bros style, where it zooms out to fit player and ball in frame. 
-
-# i need a function for transitioning from one boxy scene to the next
-#var settings = {
-	#"" :,
-#}
-
 @export var follow_speed: float = 2
 @export var target: Node = null
 @export var follow_player: bool
@@ -36,7 +25,6 @@ func _process(delta):
 	pass
 
 func pursuit(delta):
-	# just a lil bit of chatgpt
 	if target:
 		# Get the current position of the camera and the target's position
 		var target_position = target.position 
