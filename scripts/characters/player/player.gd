@@ -21,6 +21,7 @@ func get_direction():
 	return InputManager.get_look_vector(position)
 
 func _ready():
+	Globals.player = self
 	SignalBus.player_stats_updated.connect(update_stats)
 
 func update_stats():
