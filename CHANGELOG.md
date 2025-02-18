@@ -75,3 +75,8 @@
 - file refactoring
 - new animation and asset integration system
 - new test assets
+
+## version 0.24
+
+- size refactor
+- new temporary tilesets and sprites
