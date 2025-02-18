@@ -583,6 +583,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
+radius = 31.0161
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80b3n"]
 size = Vector2(200, 200)
@@ -602,9 +603,10 @@ pick_up = NodePath("Pick Up")
 
 [node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
 sprite_frames = SubResource("SpriteFrames_mf368")
-animation = &"attack_west"
+animation = &"hurt_south"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 99)
 shape = SubResource("CircleShape2D_kqpcb")
 
 [node name="Mobility Manager" parent="." instance=ExtResource("14_2dfdq")]
