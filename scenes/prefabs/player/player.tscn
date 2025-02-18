@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ct5tfh48ghst2" path="res://assets/spritesheets/player_idle_north.png" id="9_2m8w5"]
 [ext_resource type="Texture2D" uid="uid://cpp6grxd6u4yh" path="res://assets/spritesheets/player_hurt_north.png" id="9_kd5gr"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="9_po6ig"]
-[ext_resource type="PackedScene" uid="uid://0ry41ukaumi6" path="res://scenes/prefabs/animation_manager.tscn" id="9_sc1mn"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/animation_manager.tscn" id="9_sc1mn"]
 [ext_resource type="Texture2D" uid="uid://c8gaccgrsbcww" path="res://assets/spritesheets/player_hurt_south.png" id="10_cj5fo"]
 [ext_resource type="Texture2D" uid="uid://bf0kxgnakna0" path="res://assets/spritesheets/player_idle_south.png" id="10_koffb"]
 [ext_resource type="Texture2D" uid="uid://bss7or0rnpqbn" path="res://assets/spritesheets/player_idle_west.png" id="11_3ch3l"]
@@ -620,10 +620,11 @@ player = NodePath("../..")
 script = ExtResource("5_7mdyy")
 player = NodePath("../..")
 
-[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("hitbox")]
+[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("hitbox", "speaker")]
 script = ExtResource("6_rq4oq")
 lock_direction = true
 hitbox = NodePath("../../Hitbox")
+speaker = NodePath("../../AudioStreamPlayer2D")
 
 [node name="Hurt" type="Node" parent="State Machine" node_paths=PackedStringArray("health_manager", "hurtbox", "character", "mobility_manager", "speaker")]
 script = ExtResource("6_m7eoc")
@@ -633,9 +634,10 @@ character = NodePath("../..")
 mobility_manager = NodePath("../../Mobility Manager")
 speaker = NodePath("../../AudioStreamPlayer2D")
 
-[node name="Death" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
+[node name="Death" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "speaker")]
 script = ExtResource("8_vxcvn")
 character = NodePath("../..")
+speaker = NodePath("../../AudioStreamPlayer2D")
 
 [node name="Hitbox" parent="." instance=ExtResource("6_arj65")]
 collision_layer = 8

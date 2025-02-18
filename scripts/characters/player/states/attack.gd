@@ -5,6 +5,8 @@ extends SMState
 @export var acceleration: int
 @export var lock_direction = false
 @export var hitbox: HitBox
+@export var speaker : AudioStreamPlayer2D
+var sfx = SoundManager
 @export var movement_details =  {
 	"moveable" : true
 }
@@ -37,6 +39,7 @@ func end():
 func update_state(_delta):
 	pass
 func enter_state():
+	sfx.play_player_sound(speaker,sfx.PlayerSounds.ATTACK)
 	pass
 func exit_state():
 	turn_off_hitbox()
