@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://c6kyubdgubp47"]
+[gd_scene load_steps=101 format=3 uid="uid://c6kyubdgubp47"]
 
 [ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_u3dna"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_igigb"]
@@ -587,10 +587,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80b3n"]
 size = Vector2(200, 200)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_u7xil"]
-radius = 112.071
-
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up", "inventory") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up") groups=["Player"]]
 collision_mask = 67
 motion_mode = 1
 script = ExtResource("1_u3dna")
