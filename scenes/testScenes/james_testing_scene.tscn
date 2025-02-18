@@ -1,23 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7syb6hircgps"]
+[gd_scene load_steps=2 format=3 uid="uid://c7syb6hircgps"]
 
 [ext_resource type="PackedScene" uid="uid://bugqksfg6vdn7" path="res://scenes/prefabs/scene_config_package.tscn" id="1_rw1ib"]
-[ext_resource type="PackedScene" uid="uid://c60va2pop5yhv" path="res://scenes/prefabs/pit.tscn" id="2_haypb"]
 
 [node name="James testing scene" type="Node2D"]
 
 [node name="Scene Config Package" parent="." instance=ExtResource("1_rw1ib")]
 
-[node name="Pit" parent="Scene Config Package/Level Generator" index="2" instance=ExtResource("2_haypb")]
-position = Vector2(92372, 56418)
-
-[node name="Pit2" parent="Scene Config Package/Level Generator" index="3" instance=ExtResource("2_haypb")]
-position = Vector2(137172, 116322)
-
-[node name="Pit3" parent="Scene Config Package/Level Generator" index="4" instance=ExtResource("2_haypb")]
-position = Vector2(129748, 158101)
-
-[node name="Pit4" parent="Scene Config Package/Level Generator" index="5" instance=ExtResource("2_haypb")]
-position = Vector2(178593, 187490)
+[node name="Level Generator" parent="Scene Config Package" index="0"]
+randomize_seed = true
 
 [editable path="Scene Config Package"]
 [editable path="Scene Config Package/Level Generator"]

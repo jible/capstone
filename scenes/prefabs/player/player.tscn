@@ -21,8 +21,8 @@
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up", "inventory") groups=["Player"]]
 scale = Vector2(0.25, 0.25)
-collision_layer = 257
 collision_mask = 67
+motion_mode = 1
 script = ExtResource("1_u3dna")
 mobility_manager = NodePath("Mobility Manager")
 state_machine = NodePath("State Machine")
@@ -56,12 +56,13 @@ script = ExtResource("6_rq4oq")
 lock_direction = true
 hitbox = NodePath("../../Hitbox")
 
-[node name="Hurt" type="Node" parent="State Machine" node_paths=PackedStringArray("health_manager", "hurtbox", "character", "mobility_manager")]
+[node name="Hurt" type="Node" parent="State Machine" node_paths=PackedStringArray("health_manager", "hurtbox", "character", "mobility_manager", "speaker")]
 script = ExtResource("6_m7eoc")
 health_manager = NodePath("../../Health Manager")
 hurtbox = NodePath("../../Hurtbox")
 character = NodePath("../..")
 mobility_manager = NodePath("../../Mobility Manager")
+speaker = NodePath("../../AudioStreamPlayer2D")
 
 [node name="Death" type="Node" parent="State Machine"]
 script = ExtResource("8_vxcvn")
@@ -88,6 +89,8 @@ region_rect = Rect2(0, 0, 32, 32)
 [node name="Pick Up" parent="." instance=ExtResource("15_nqwto")]
 
 [node name="Inventory" parent="." instance=ExtResource("16_ycf0q")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="state_changed" from="State Machine" to="Sprite Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Direction Manager" method="_on_state_machine_state_changed"]

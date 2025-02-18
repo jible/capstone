@@ -13,11 +13,11 @@ extends Node
 var player: CharacterBody2D
 
 func _ready():
-	var players = get_tree().get_nodes_in_group("Player")
-	if players:
-		player = players[0]
+	player = Globals.get_player()
 
 func update_state(delta):
+	if (!is_instance_valid(player)):
+		player = Globals.get_player()
 	if (player):
 		var target_vector = player.global_position - me.global_position
 		if (target_vector.length() < 10):
