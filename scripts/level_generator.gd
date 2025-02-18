@@ -4,8 +4,8 @@ class_name LevelGenerator
 @export var size : Vector2i = Vector2i(150,150) 
 @export var world_seed : int = 0
 @export var randomize_seed = false
-@export var landing: PackedScene
-@export var pit: PackedScene
+@export var enter: PackedScene
+@export var exit: PackedScene
 var tile_size: Vector2
 var spawn_point = Vector2.ZERO
 var end_point = Vector2.ZERO
@@ -64,14 +64,14 @@ func make_lust():
 func render():
 	render_layer("environment")
 	
-	# Add the landing and ending
-	var landing_instance = landing.instantiate()
-	get_tree().current_scene.call_deferred("add_child",landing_instance)
-	landing_instance.position = spawn_point
+	# Add the enter and exit
+	var enter_instance = enter.instantiate()
+	get_tree().current_scene.call_deferred("add_child",enter_instance)
+	enter_instance.position = spawn_point
 	
-	var pit_instance = pit.instantiate()
-	get_tree().current_scene.call_deferred("add_child",pit_instance)
-	pit_instance.position = end_point
+	var exit_instance = exit.instantiate()
+	get_tree().current_scene.call_deferred("add_child",exit_instance)
+	exit_instance.position = end_point
 	
 	# [ ] render walls (aesthetic only, walls are on seperate non-interactable layer).
 
