@@ -75,3 +75,13 @@
 - file refactoring
 - new animation and asset integration system
 - new test assets
+
+# version 0.23
+
+- Pickup sound asset added
+- Hurt sound asset added
+- Pickup sound implemented
+- Hurt sound implemented
+- Pitch randomization for pickup sound.
+- Changed the import defaults for wav files to stop automatic looping.
+- Added polyphony to player's AudioStreamPlayer2D node to allow for 10 sounds to play at the same time.

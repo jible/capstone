@@ -41,6 +41,12 @@ Player=""
 Inventory=""
 Enemy_Manager=""
 
+[importer_defaults]
+
+wav={
+"edit/loop_mode": 1
+}
+
 [input]
 
 up={
