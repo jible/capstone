@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="3_5fksv"]
 [ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="4_t24gl"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_e7sx3"]
-[ext_resource type="PackedScene" uid="uid://dp6sdxgrjma40" path="res://scenes/prefabs/ui_elements/HUD.tscn" id="6_14c2j"]
+[ext_resource type="PackedScene" uid="uid://dfvsgbamdsiep" path="res://scenes/prefabs/ui_elements/HUD.tscn" id="6_14c2j"]
 
 [node name="Scene Config Package" type="Node2D" node_paths=PackedStringArray("level_generator", "camera", "player")]
 script = ExtResource("1_qcfrr")

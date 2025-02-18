@@ -4,6 +4,7 @@ extends Node
 @export var lock_direction = true
 @export var movement_details =  {
 	"moveable": false,
+	"limit_velocity" : false
 }
 @export var knockback_velocity: float = 900
 @export var animation_name = "hurt"
