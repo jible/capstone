@@ -26,9 +26,8 @@ func enemy_killed(enemy):
 	enemy_pools[enemy.type].kill(enemy)
 
 func spawn_enemy(pos, enemy_type = null):
-	if enemy_type == null:
+	if enemy_type == null || enemy_pools[enemy_type].collection.size() <= 30:
 		return null
-	
 	var new_enemy = enemy_pools[enemy_type].add(get_tree().current_scene)
 	new_enemy.global_position = pos
 	# might need to reset its velocity after TPing it
