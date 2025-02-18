@@ -58,3 +58,9 @@
 
 - Added pause menu
 - HUD updates with currency
+
+## version 0.23
+
+- file refactoring
+- new animation and asset integration system
+- new test assets

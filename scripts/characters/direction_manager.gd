@@ -20,8 +20,6 @@ func _on_state_machine_state_changed(_state):
 	call_deferred("update_direction")
 	pass # Replace with function body.
 
-
-
 func update_direction():
 	var new_look_vector = character.get_direction()
 	if (abs(new_look_vector.x) > abs(new_look_vector.y)):
@@ -42,6 +40,3 @@ func dir_to_str(dir: Vector2):
 		Vector2.LEFT: "west",
 	}
 	return dir_dict.get(dir, "north")
-
-	#var end = start + look_vector * visualizer_length
-	#direction_visualizer.points = [start, end]
