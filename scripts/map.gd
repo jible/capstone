@@ -19,6 +19,7 @@ func configure_matrix():
 	'''
 	Fill matrix with tiles.
 	'''
+	
 	for y in range (size.y):
 		matrix.append([])
 		
@@ -32,6 +33,7 @@ func fill(value, layer):
 	'''
 	Set all tiles on provided layer to provided value.
 	'''
+	
 	for y in range (size.y):
 		for x in range(size.x):
 			matrix[y][x][layer] = value
@@ -40,6 +42,7 @@ func random_walk(layer, value, steps = (size.x * size.y)/2):
 	'''
 	Generate map on provided layer using random walk method.
 	'''
+	
 	# get directions in which to "walk"
 	var directions = [
 		Vector2(0,1),	# down
@@ -68,6 +71,7 @@ func make_noise(layer, value):
 	'''
 	Generate map on provided layer using noise.
 	'''
+	
 	for y in range (size.y):
 		for x in range(size.x):
 			# find position and noise value (float)

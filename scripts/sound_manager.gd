@@ -62,7 +62,8 @@ func load_player_sounds():
 	player_sound_settings.resize(PlayerSounds.keys().size())
 	
 	# Add sounds to the libraries
-	create_sound(player_sound_library, player_sound_settings, PlayerSounds.HURT, load("res://assets/audio/prototype/ESCAPE_1.wav"), 0.0,1.0,1.0)
+	create_sound(player_sound_library, player_sound_settings, PlayerSounds.HURT, load("res://assets/audio/hurt.wav"), 0.0,1.0,1.0)
+	create_sound(player_sound_library, player_sound_settings, PlayerSounds.PICKUP, load("res://assets/audio/pickup.wav"), -10.0,1.0,1.0)
 
 func load_entity_sounds():
 	entity_sound_library.resize(EntitySounds.keys().size())

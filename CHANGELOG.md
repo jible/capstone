@@ -60,6 +60,7 @@
 - HUD updates with currency
 
 ## version 0.20
+
 - Added sound manager
 - Added in sound assets for UI
 - Temporary implementation of hurt sound to showcase sound manager's functionality.
@@ -75,3 +76,24 @@
 - file refactoring
 - new animation and asset integration system
 - new test assets
+
+# version 0.23
+
+- Pickup sound asset added
+- Hurt sound asset added
+- Pickup sound implemented
+- Hurt sound implemented
+- Pitch randomization for pickup sound.
+- Changed the import defaults for wav files to stop automatic looping.
+- Added polyphony to player's AudioStreamPlayer2D node to allow for 10 sounds to play at the same time.
+
+# version 0.24
+
+- Fixed a bug where the scene would transition back to the main menu automatically when the game loads.
+- Bug was due to the lack of a type check in pit.gd, where upon any body being detected the pit would transition the scene. The pit was detecting part of the tilemap and transitioned the scene back to the main menu.
+- I have changed it to check if the body detected is a part of the "Player" group and tested to make sure that the pit still functioned nominally with the player.
+
+## version 0.25
+
+- asset size refactor
+- new temporary tilesets and sprites
