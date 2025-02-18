@@ -35,7 +35,6 @@ func update_player_info():
 func update_health():
 	health_bar.value = player.health_manager.health
 	health_label.text = "%d/%d" % [player.health_manager.health, player.health_manager.max_health]
-	
-# TODO have signal to update on upgrade
+
 func update_currency():
-	currency_count.text = "%d" % player.inventory.items[Globals.currency_key]
+	currency_count.text = "%d" % Inventory.items[Globals.currency_key]

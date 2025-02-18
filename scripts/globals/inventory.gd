@@ -1,8 +1,9 @@
 extends Node2D
 
-class_name Inventory
-
 var items = {}
+
+func _ready() -> void:
+	SignalBus.item_collected.connect(_on_pick_up_item_collected)
 
 func obtain_item(currency_type,amount):
 	items[currency_type] =  items.get(currency_type, 0 ) + amount

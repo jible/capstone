@@ -9,11 +9,6 @@ func _ready() -> void:
 	var label: Label = $"StatNameLabel"
 	label.text = "Upgrade: " + stat_name
 	SignalBus.player_stats_updated.connect(update_level_label)
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 #this function runs when the upgrade button is pressed
 func _on_stat_increased() -> void:
