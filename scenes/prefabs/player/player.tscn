@@ -320,7 +320,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_east",
-"speed": 5.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -343,7 +343,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_north",
-"speed": 5.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -366,7 +366,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_south",
-"speed": 5.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -389,7 +389,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_west",
-"speed": 5.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -603,7 +603,7 @@ inventory = NodePath("Inventory")
 [node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
 scale = Vector2(3.935, 3.935)
 sprite_frames = SubResource("SpriteFrames_mf368")
-animation = &"hurt_east"
+animation = &"attack_west"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kqpcb")
