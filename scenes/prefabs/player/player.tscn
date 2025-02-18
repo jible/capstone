@@ -603,7 +603,7 @@ pick_up = NodePath("Pick Up")
 
 [node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
 sprite_frames = SubResource("SpriteFrames_mf368")
-animation = &"hurt_south"
+animation = &"idle_south"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 99)
