@@ -103,3 +103,8 @@
 ## version 0.27
 - Player sounds for attacking and death added.
 - Will need additional code in the future to stop death sound from being cut off.
+
+## version 0.28
+- Balanced player movement and hitboxes
+- Modified enemy knockback
+- Modified look for exit for playetest
