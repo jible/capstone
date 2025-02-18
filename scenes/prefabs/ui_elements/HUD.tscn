@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp6sdxgrjma40"]
+[gd_scene load_steps=7 format=3 uid="uid://dfvsgbamdsiep"]
 
 [ext_resource type="Texture2D" uid="uid://dslr3ip0cnxp0" path="res://assets/sprites/playerV1.png" id="1_ekvuy"]
 [ext_resource type="Script" path="res://scripts/for_scenes/HUD.gd" id="1_ndg1h"]
 [ext_resource type="Texture2D" uid="uid://bxevwqt0bicpt" path="res://assets/sprites/sexyIndiDevLogo.png" id="2_cbqub"]
-[ext_resource type="PackedScene" uid="uid://p161q7glhm18" path="res://scenes/prefabs/ui_elements/stat_upgrade_ui.tscn" id="4_0nay5"]
-[ext_resource type="PackedScene" uid="uid://c05l3ridoi3lc" path="res://scenes/prefabs/ui_elements/pause_menu.tscn" id="5_csnww"]
+[ext_resource type="PackedScene" uid="uid://ck64sagvojlr0" path="res://scenes/prefabs/ui_elements/stat_upgrade_ui.tscn" id="4_0nay5"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/ui_elements/pause_menu.tscn" id="5_csnww"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sjnk"]
 bg_color = Color(1, 0, 0, 1)

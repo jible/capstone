@@ -20,9 +20,6 @@ var upgrade_growth: Dictionary = {
 }
 var upgrade_cost = 1
 
-# Audio Player for UI sounds
-var my_speaker: AudioStreamPlayer2D
-
 ##Death Scene
 var death_scene: PackedScene = preload(
 	"res://scenes/prefabs/ui_elements/death_screen.tscn")
@@ -30,10 +27,6 @@ var death_scene: PackedScene = preload(
 #Inventory ref from player
 
 func _ready(): 
-	my_speaker = AudioStreamPlayer2D.new()
-	add_child(my_speaker)
-	##WHY WHY WHY
-	SoundManager.play_ui_sound(my_speaker, SoundManager.UISounds.UPG_SUCCESS)
 	SignalBus.upgrade_stat_button_pressed.connect(_on_stat_upgraded)
 	SignalBus.player_die.connect(_on_player_died)
 	
@@ -69,15 +62,12 @@ func remove_currency(stat: String):
 # speed in res://scripts/characters/mobility_manager.gd
 # all linked to player_stats_updated signal
 func _on_stat_upgraded(stat_name: String):
-	SoundManager.play_ui_sound(my_speaker, SoundManager.UISounds.UPG_SUCCESS)
 	if check_can_upgrade(stat_name):
-		SoundManager.play_ui_sound(my_speaker, SoundManager.UISounds.UPG_SUCCESS)
-		print("success upgrade")
+		SignalBus.upgrade_success.emit()
 		remove_currency(stat_name)
 		upgrade_stat(stat_name)
 	else:
-		SoundManager.play_ui_sound(my_speaker, SoundManager.UISounds.UPG_FAIL)
-		print("upgrade failed")
+		SignalBus.upgrade_fail.emit()
 	#notify player to update self
 	SignalBus.player_stats_updated.emit()
 	

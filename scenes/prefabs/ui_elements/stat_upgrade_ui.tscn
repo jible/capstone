@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsmerj830lma6"]
+[gd_scene load_steps=4 format=3 uid="uid://ck64sagvojlr0"]
 
 [ext_resource type="PackedScene" uid="uid://bt7w3orvfq2tv" path="res://scenes/prefabs/ui_elements/stat_upgrade.tscn" id="1_ekqrg"]
+[ext_resource type="Script" path="res://scripts/for_scenes/stat_upgrade_ui.gd" id="1_eu2fv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6vq2"]
 corner_radius_top_left = 25
@@ -8,13 +9,15 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
-[node name="StatUpgradeUi" type="Control"]
+[node name="StatUpgradeUi" type="Control" node_paths=PackedStringArray("speaker")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_eu2fv")
+speaker = NodePath("AudioStreamPlayer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -58,3 +61,5 @@ stat_name = "dmg"
 [node name="StatUpgrade3" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
 stat_name = "speed"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
