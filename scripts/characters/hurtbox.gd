@@ -8,6 +8,7 @@ signal received_damage(damage:int)
 @export var invincibility_time: float = .5
 @export var detectable: bool = false
 
+
 var overlapping_areas = []
 var latest_hit_direction = Vector2.ZERO
 

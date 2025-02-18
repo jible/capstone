@@ -41,7 +41,7 @@ func end_hurt():
 		sm.change_state("Death")
 	else:
 		sm.change_state("Idle")
-		
+
 func update_state(delta):
 	pass
 func enter_state():

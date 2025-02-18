@@ -41,7 +41,7 @@
 
 - Added player upgrades
 
-# version 0.17
+## version 0.17
 
 - Level Spawn Package created
 - Enemy Pooling Implemented
@@ -49,7 +49,12 @@
 - Export settings configured for playtesting
 - Mobility Manager fixed to properly use the max_speed
 
-# version 0.18
+## version 0.18
 
 - Added background to title scene
 - Reworked title scene nodes
+
+## version 0.19
+
+- Added pause menu
+- HUD updates with currency

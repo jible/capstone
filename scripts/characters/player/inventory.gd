@@ -14,4 +14,4 @@ func check_item(type):
 
 func _on_pick_up_item_collected(type, amount):
 	obtain_item(type, amount)
-	pass # Replace with function body.
+	SignalBus.currency_changed.emit()
