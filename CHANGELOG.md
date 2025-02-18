@@ -86,6 +86,12 @@
 - Changed the import defaults for wav files to stop automatic looping.
 - Added polyphony to player's AudioStreamPlayer2D node to allow for 10 sounds to play at the same time.
 
+# version 0.24
+
+- Fixed a bug where the scene would transition back to the main menu automatically when the game loads.
+- Bug was due to the lack of a type check in pit.gd, where upon any body being detected the pit would transition the scene. The pit was detecting part of the tilemap and transitioned the scene back to the main menu.
+- I have changed it to check if the body detected is a part of the "Player" group and tested to make sure that the pit still functioned nominally with the player.
+
 ## version 0.25
 
 - asset size refactor
