@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var direction_manager: DirectionManager
 @export var health_manager: Health
 @export var pick_up: PickUp
-@export var inventory: Inventory
+var inventory: Inventory = Inventory
 @export var drag_coefficient: float
 @onready var drag:float  = 1.0 - drag_coefficient
 

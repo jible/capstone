@@ -25,14 +25,13 @@ var death_scene: PackedScene = preload(
 	"res://scenes/prefabs/ui_elements/death_screen.tscn")
 
 #Inventory ref from player
-@onready var inventory: Inventory = get_tree().get_first_node_in_group("Inventory")
 
-func _ready():
+func _ready(): 
 	SignalBus.upgrade_stat_button_pressed.connect(_on_stat_upgraded)
 	SignalBus.player_die.connect(_on_player_died)
 	
 func check_can_upgrade(stat: String) -> bool:
-	if get_upgrade_cost(stat) <= inventory.check_item(Globals.currency_key):
+	if get_upgrade_cost(stat) <= Inventory.check_item(Globals.currency_key):
 		return true
 	return false
 
@@ -54,7 +53,7 @@ func get_upgrade_cost(stat: String):
 		return get_stat_lvl(stat) * upgrade_cost
 
 func remove_currency(stat: String):
-	inventory.items[Globals.currency_key] -= get_upgrade_cost(stat)
+	Inventory.items[Globals.currency_key] -= get_upgrade_cost(stat)
 	SignalBus.currency_changed.emit()
 
 # Upgrades: 
@@ -64,8 +63,11 @@ func remove_currency(stat: String):
 # all linked to player_stats_updated signal
 func _on_stat_upgraded(stat_name: String):
 	if check_can_upgrade(stat_name):
+		SignalBus.upgrade_success.emit()
 		remove_currency(stat_name)
 		upgrade_stat(stat_name)
+	else:
+		SignalBus.upgrade_fail.emit()
 	#notify player to update self
 	SignalBus.player_stats_updated.emit()
 	
