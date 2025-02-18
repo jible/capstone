@@ -10,18 +10,23 @@ var dmg_lvl: int = 0
 var speed_lvl: int = 1
 
 #amount to increase upgrades by
-@export_category("Upgrade Growth")
-@export var health_up = 1
-@export var dmg_up = 1
-@export var speed_up = 1.2
-@export var upgrade_cost = 1
-@export var currency_name: String = "money"
+##Upgrade Growth
+var health_up = 1
+var dmg_up = 1
+var speed_up = 1.2
+var upgrade_cost = 1
+var currency_name: String = "money"
+
+##Death Scene
+var death_scene: PackedScene = preload(
+	"res://scenes/prefabs/ui_elements/death_screen.tscn")
 
 #Inventory ref from player
 @onready var inventory: Inventory = get_tree().get_first_node_in_group("Inventory")
 
 func _ready():
 	SignalBus.upgrade_stat_button_pressed.connect(_on_stat_upgraded)
+	SignalBus.player_die.connect(_on_player_died)
 	
 func check_can_upgrade(upgrade_lvl: int) -> bool:
 	if upgrade_lvl+1 * upgrade_cost <= inventory.check_item(currency_name):
@@ -66,3 +71,6 @@ func _on_stat_upgraded(stat_name: String):
 		Callable(self, "upgrade_%s" %stat_name).call()
 	#notify player to update self
 	SignalBus.player_stats_updated.emit()
+	
+func _on_player_died():
+	Globals.change_scene(death_scene)
