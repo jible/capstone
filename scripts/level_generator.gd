@@ -90,7 +90,7 @@ func render_layer(layer):
 				layers["environment"].set_cell(pos, 0, Vector2i(randi()%10, randi()%10))
 			
 			if map.get_tile(pos).type == null:
-				layers["environment"].set_cell(pos, 0, Vector2i(29, 29))
+				layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
 			
 			if map.get_tile(pos).type == null && check_wall.y < map.size.y && map.get_tile(check_wall).type == "floor":
 				layers["walls"].set_cell(pos, 0, Vector2i(0,0))
