@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cbcmjaiqxltk3"]
 
-[ext_resource type="Texture2D" uid="uid://bw6vrjyjdju75" path="res://assets/spritesheets/temp_floor.jpg" id="1_o4xrr"]
+[ext_resource type="Texture2D" uid="uid://cln574bik4dno" path="res://assets/tilesets/ground_tileset.png" id="1_mr8qb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q3s2e"]
 resource_name = "floor"
-texture = ExtResource("1_o4xrr")
-texture_region_size = Vector2i(32, 32)
+texture = ExtResource("1_mr8qb")
+texture_region_size = Vector2i(120, 120)
 0:0/0 = 0
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16, -15.125, -16)
@@ -911,7 +911,7 @@ texture_region_size = Vector2i(32, 32)
 29:29/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
 
 [resource]
-tile_size = Vector2i(32, 32)
+tile_size = Vector2i(120, 120)
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_q3s2e")

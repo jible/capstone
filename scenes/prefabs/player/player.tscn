@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dr1qlj0lb2dph" path="res://assets/spritesheets/player_attack_west.png" id="6_dbqvv"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/hurt.gd" id="6_m7eoc"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/attack.gd" id="6_rq4oq"]
-[ext_resource type="Texture2D" uid="uid://bivs6m68fn726" path="res://assets/sprites/playerV2.png" id="7_0quf5"]
+[ext_resource type="Texture2D" uid="uid://bmcbhom6ih4vk" path="res://assets/spritesheets/player_death.png" id="7_fpjb7"]
 [ext_resource type="Texture2D" uid="uid://co26nwtgkl5t2" path="res://assets/spritesheets/player_hurt_east.png" id="8_f5gna"]
 [ext_resource type="Texture2D" uid="uid://pw4ou2kmf56l" path="res://assets/spritesheets/player_idle_east.png" id="8_lq5g6"]
 [ext_resource type="Script" path="res://scripts/characters/player/states/death.gd" id="8_vxcvn"]
@@ -129,13 +129,13 @@ region = Rect2(360, 480, 360, 480)
 atlas = ExtResource("6_dbqvv")
 region = Rect2(720, 480, 360, 480)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e1yq2"]
-atlas = ExtResource("7_0quf5")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhcqt"]
+atlas = ExtResource("7_fpjb7")
+region = Rect2(0, 0, 360, 480)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rnahe"]
-atlas = ExtResource("7_0quf5")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5nrf"]
+atlas = ExtResource("7_fpjb7")
+region = Rect2(360, 0, 360, 480)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_45qsc"]
 atlas = ExtResource("8_f5gna")
@@ -393,10 +393,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e1yq2")
+"texture": SubResource("AtlasTexture_uhcqt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rnahe")
+"texture": SubResource("AtlasTexture_v5nrf")
 }],
 "loop": true,
 "name": &"death",
@@ -603,7 +603,7 @@ inventory = NodePath("Inventory")
 [node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
 scale = Vector2(3.935, 3.935)
 sprite_frames = SubResource("SpriteFrames_mf368")
-animation = &"hurt_west"
+animation = &"hurt_east"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kqpcb")
