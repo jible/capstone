@@ -58,3 +58,8 @@
 
 - Added pause menu
 - HUD updates with currency
+
+## version 0.22
+
+- Added death screen
+- Global quit game function
