@@ -96,3 +96,10 @@
 
 - asset size refactor
 - new temporary tilesets and sprites
+
+## version 0.26
+- Fixed a bug with the wall and floor tilesets indexing transparent tiles outside of atlas
+
+## version 0.27
+- Player sounds for attacking and death added.
+- Will need additional code in the future to stop death sound from being cut off.
