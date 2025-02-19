@@ -1,6 +1,9 @@
 extends Node 
 
 # upgradable stats
+const HEALTH: String = "health"
+const DMG: String = "dmg"
+const SPEED: String = "speed"
 # hp and dmg are flat increases, starting at 0
 # speed is a mult increase, should start at 1
 # TODO
@@ -45,6 +48,9 @@ func get_stat(stat: String):
 func get_stat_lvl(stat: String):
 	return stat_lvl[stat]
 	
+func get_stat_growth(stat: String):
+	return upgrade_growth[stat]
+	
 #TODO convert to use array indices from csv
 func get_upgrade_cost(stat: String):
 	if get_stat_lvl(stat) == 0:
@@ -56,20 +62,15 @@ func remove_currency(stat: String):
 	Inventory.items[Globals.currency_key] -= get_upgrade_cost(stat)
 	SignalBus.currency_changed.emit()
 
-# Upgrades: 
-# health in res://scripts/characters/player/player.gd
-# dmg in res://scripts/characters/hitbox.gd
-# speed in res://scripts/characters/mobility_manager.gd
-# all linked to player_stats_updated signal
 func _on_stat_upgraded(stat_name: String):
 	if check_can_upgrade(stat_name):
-		SignalBus.upgrade_success.emit()
 		remove_currency(stat_name)
 		upgrade_stat(stat_name)
+		SignalBus.upgrade_success.emit()
+		SignalBus.player_stats_updated.emit()
 	else:
 		SignalBus.upgrade_fail.emit()
-	#notify player to update self
-	SignalBus.player_stats_updated.emit()
+	
 	
 func _on_player_died():
 	Globals.change_scene(death_scene)
