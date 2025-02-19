@@ -120,7 +120,11 @@
 -   Modified enemy knockback
 -   Modified look for exit for playetest
 
-## version .30
+## version 0.30
 
 -   Fixed tile map collision issue
 -   Patched enemy pathfinding
+
+## version 0.31
+
+-   Patched enemies upgrading with player
