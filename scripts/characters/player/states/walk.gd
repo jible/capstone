@@ -4,16 +4,12 @@ extends SMState
 @export var player:CharacterBody2D
 @export var lock_direction = false
 @export var movement_details =  {}
-@export var animation = {
-	"framerate": 4,
-	"frames": [3,0,4,0],
-}
+@export var animation_name = "walk"
 
 # On readys
 @onready var sm = get_parent()
-
-
-
+var direction_dependent = true
+var callbacks = {}
 
 # Main Functions
 func update_state(delta):

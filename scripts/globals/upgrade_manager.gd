@@ -1,53 +1,75 @@
 extends Node 
 
-#upgradable stats
-var health_lvl = 1
-var dmg_lvl = 1
-var speed_lvl = 1
-
+# upgradable stats
+# hp and dmg are flat increases, starting at 0
+# speed is a mult increase, should start at 1
+# TODO
+# delink level from stat increase
+# start levels at 0,
+# convert to indices of an upgrades array (source of truth)
+var stat_lvl: Dictionary = {
+	"health": 0,
+	"dmg": 0,
+	"speed": 1
+}
 #amount to increase upgrades by
-@export_category("Upgrade Growth")
-@export var health_up = 1
-@export var dmg_up = 1
-@export var speed_up = 1.2
+var upgrade_growth: Dictionary = {
+	"health": 1,
+	"dmg": 1,
+	"speed": 1.2
+}
+var upgrade_cost = 1
 
-func _ready():
+##Death Scene
+var death_scene: PackedScene = preload(
+	"res://scenes/prefabs/ui_elements/death_screen.tscn")
+
+#Inventory ref from player
+
+func _ready(): 
 	SignalBus.upgrade_stat_button_pressed.connect(_on_stat_upgraded)
+	SignalBus.player_die.connect(_on_player_died)
+	
+func check_can_upgrade(stat: String) -> bool:
+	if get_upgrade_cost(stat) <= Inventory.check_item(Globals.currency_key):
+		return true
+	return false
 
-# ALL STATS SHOULD HAVE A METHOD ACCORDING TO THIS CONVENTION
-# func upgrade_{stat_name}():
+func upgrade_stat(stat: String):
+	stat_lvl[stat] += 1
+	
+#TODO convert to use array indices from csv
+func get_stat(stat: String):
+	return stat_lvl[stat] * upgrade_growth[stat]
 
-#Upgrades in res://scripts/characters/player/player.gd
-func upgrade_health():
-	health_lvl+=1
+func get_stat_lvl(stat: String):
+	return stat_lvl[stat]
 	
-func get_health():
-	return health_lvl*health_up
-	
-func get_health_lvl():
-	return health_lvl
+#TODO convert to use array indices from csv
+func get_upgrade_cost(stat: String):
+	if get_stat_lvl(stat) == 0:
+		return upgrade_cost
+	else:
+		return get_stat_lvl(stat) * upgrade_cost
 
-#Upgrades in res://scripts/characters/hitbox.gd
-func upgrade_dmg():
-	dmg_lvl+=1
-	
-func get_dmg():
-	return dmg_lvl*dmg_up
-	
-func get_dmg_lvl():
-	return dmg_lvl
-	
-#Upgrades player acceleration in res://scripts/characters/mobility_manager.gd
-func upgrade_speed():
-	speed_lvl+=1
-	
-func get_speed():
-	return speed_lvl*speed_up
-	
-func get_speed_lvl():
-	return speed_lvl
+func remove_currency(stat: String):
+	Inventory.items[Globals.currency_key] -= get_upgrade_cost(stat)
+	SignalBus.currency_changed.emit()
 
+# Upgrades: 
+# health in res://scripts/characters/player/player.gd
+# dmg in res://scripts/characters/hitbox.gd
+# speed in res://scripts/characters/mobility_manager.gd
+# all linked to player_stats_updated signal
 func _on_stat_upgraded(stat_name: String):
-	Callable(self, "upgrade_%s" %stat_name).call()
+	if check_can_upgrade(stat_name):
+		SignalBus.upgrade_success.emit()
+		remove_currency(stat_name)
+		upgrade_stat(stat_name)
+	else:
+		SignalBus.upgrade_fail.emit()
 	#notify player to update self
 	SignalBus.player_stats_updated.emit()
+	
+func _on_player_died():
+	Globals.change_scene(death_scene)

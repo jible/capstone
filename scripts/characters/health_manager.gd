@@ -3,7 +3,8 @@ extends Node
 
 # Exports
 @export var starting_health: int = 10
-@export var sm: Node
+@onready var character: CharacterBody2D = get_parent()
+@onready var sm = character.state_machine
 
 # On readys
 @onready var health = starting_health
@@ -11,12 +12,8 @@ extends Node
 
 func _on_hurtbox_received_damage(damage):
 	health -= damage
-	print(health)
-	if health >0:
-		sm.change_state("Hurt")
-	else:
-		sm.change_state("Death")
-	pass # Replace with function body.
+	sm.change_state("Hurt")
+	SignalBus.player_health_updated.emit()
 	
 func increase_starting_health(increase):
 	max_health = starting_health + increase

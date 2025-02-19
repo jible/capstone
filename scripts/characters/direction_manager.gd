@@ -1,9 +1,10 @@
 extends Node
-
+class_name DirectionManager
 
 # Exports 
-@export var sm: StateMachine
-@export var character: CharacterBody2D
+@onready var character: CharacterBody2D = get_parent()
+@onready var sm = character.state_machine
+
 # Properties
 var look_vector: Vector2
 
@@ -12,14 +13,12 @@ signal direction_changed
 
 # Main Functions
 func _physics_process(_delta):
-	if !sm.current_state_node.lock_direction:
+	if sm != null &&!sm.current_state_node.lock_direction:
 		update_direction()
 
 func _on_state_machine_state_changed(_state):
-	update_direction()
+	call_deferred("update_direction")
 	pass # Replace with function body.
-
-
 
 func update_direction():
 	var new_look_vector = character.get_direction()
@@ -32,8 +31,6 @@ func update_direction():
 		look_vector = new_look_vector
 		emit_signal("direction_changed", look_vector)
 
-
-
 # helper functions
 func dir_to_str(dir: Vector2):
 	var dir_dict = {
@@ -43,8 +40,3 @@ func dir_to_str(dir: Vector2):
 		Vector2.LEFT: "west",
 	}
 	return dir_dict.get(dir, "north")
-
-
-
-	#var end = start + look_vector * visualizer_length
-	#direction_visualizer.points = [start, end]

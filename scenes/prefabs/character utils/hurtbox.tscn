@@ -5,12 +5,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjin1"]
 size = Vector2(122, 124)
 
-[node name="Hurtbox" type="Area2D" node_paths=PackedStringArray("collision", "timer")]
+[node name="Hurtbox" type="Area2D" node_paths=PackedStringArray("timer", "collisionshape")]
 collision_layer = 0
 script = ExtResource("1_6mwri")
-collision = NodePath("CollisionShape2D")
 timer = NodePath("Timer")
 detectable = true
+collisionshape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kjin1")

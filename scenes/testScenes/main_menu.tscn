@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7p3e5u8l5r52"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/main_menu.gd" id="1_q2ruy"]
-[ext_resource type="PackedScene" uid="uid://b17tkk14cvn2x" path="res://scenes/testScenes/test_level.tscn" id="2_h12bg"]
+[ext_resource type="Texture2D" uid="uid://bg3mywhje512k" path="res://assets/images/title_screen.png" id="2_xkjyu"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,24 +11,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q2ruy")
-scene_to_change = ExtResource("2_h12bg")
 metadata/_edit_use_anchors_ = true
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+texture = ExtResource("2_xkjyu")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.632
+anchor_right = 0.5
+anchor_bottom = 0.632
+offset_left = -68.5
+offset_top = -47.5601
+offset_right = 68.5
+offset_bottom = 48.4399
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
 text = "Play"
 
-[connection signal="button_up" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c60va2pop5yhv"]
+
+[ext_resource type="Script" path="res://scripts/pit.gd" id="1_lxy2n"]
+[ext_resource type="Texture2D" uid="uid://bg85vd6cvn2fm" path="res://assets/images/exit.png" id="2_3rowl"]
+[ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="3_bd6ud"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tipcd"]
+radius = 16.4
+
+[node name="Exit" type="Area2D"]
+collision_layer = 0
+collision_mask = 257
+script = ExtResource("1_lxy2n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tipcd")
+
+[node name="Temp Background" type="Sprite2D" parent="."]
+position = Vector2(3, -1.50001)
+scale = Vector2(1.28125, 1.17969)
+texture = ExtResource("3_bd6ud")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3rowl")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

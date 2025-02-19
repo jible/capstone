@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://0ry41ukaumi6"]
+
+[ext_resource type="Script" path="res://scripts/characters/animation_manager.gd" id="1_qb86c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aptl5"]
+
+[node name="Animation Manager" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_aptl5")
+script = ExtResource("1_qb86c")
+
+[connection signal="animation_changed" from="." to="." method="_on_animation_changed"]
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[connection signal="frame_changed" from="." to="." method="_on_frame_changed"]

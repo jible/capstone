@@ -5,11 +5,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ma6l2"]
 size = Vector2(131, 131)
 
-[node name="Hitbox" type="Area2D" node_paths=PackedStringArray("collision")]
+[node name="Hitbox" type="Area2D" node_paths=PackedStringArray("collision", "collisionshape")]
 collision_mask = 0
 script = ExtResource("1_8dr66")
 collision = NodePath("CollisionShape2D")
 detecting = true
+collisionshape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ma6l2")

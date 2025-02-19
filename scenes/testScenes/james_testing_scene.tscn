@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7syb6hircgps"]
+[gd_scene load_steps=4 format=3 uid="uid://c7syb6hircgps"]
 
-[ext_resource type="PackedScene" uid="uid://cfy2mlhpkuxdd" path="res://scenes/prefabs/npcs/enemies/basic_enemy.tscn" id="1_v7qk1"]
-[ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="2_ppr5d"]
+[ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="1_sxmck"]
+[ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="2_8lysn"]
+[ext_resource type="PackedScene" uid="uid://cfy2mlhpkuxdd" path="res://scenes/prefabs/npcs/enemies/basic_enemy.tscn" id="3_qawkk"]
 
 [node name="James testing scene" type="Node2D"]
 
-[node name="Basic Enemy" parent="." instance=ExtResource("1_v7qk1")]
-position = Vector2(369, 269)
+[node name="Player" parent="." instance=ExtResource("1_sxmck")]
 
-[node name="Player" parent="." instance=ExtResource("2_ppr5d")]
-position = Vector2(580, 587)
+[node name="Custom Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_8lysn")]
+target = NodePath("../Player")
+follow_player = true
+
+[node name="Basic Enemy" parent="." instance=ExtResource("3_qawkk")]

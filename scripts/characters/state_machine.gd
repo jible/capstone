@@ -25,13 +25,13 @@ func _ready():
 	
 	
 func _physics_process(delta):
-		update_state(delta)
+	update_state(delta)
 	
 func change_state(new_state):
 	if (new_state != current_state && new_state in state_names):
-		emit_signal("state_changed" , state_objects[new_state])
 		if (current_state in state_names):
 			exit_state(current_state)
+		emit_signal("state_changed" , state_objects[new_state])
 		current_state = new_state
 		current_state_node = state_objects[current_state]
 		enter_state(new_state)
@@ -49,13 +49,9 @@ func update_state(delta):
 func enter_state(new_state):
 	state_objects[new_state].enter_state()
 
-
 func exit_state(old_state):
 	state_objects[old_state].exit_state()
-	
-	
-	
-	
+
 # HOW  TO USE:
 # You do not need to modify this file when you are using it. 
 # Just add the states you want as children and set the default state in the editor
@@ -63,21 +59,3 @@ func exit_state(old_state):
 # SAMPLE STATE:
 # copy and paste this code into a script on a new node as a child of this node
 # name the node what you want the state to be changed
-
-#extends SMState
-
-#@export var character:CharacterBody2D
-#@export var max_speed: int
-#@export var acceleration: int
-#@onready var sm = get_parent()
-
-
-#func update_state(delta):
-	#print("I run every frame when this is the current frame")
-	#pass
-#func enter_state():
-	#print ("I run once when the state machine changes to this state")
-	#pass
-#func exit_state():
-	#print(" I run once when this is the current state and change state is called")
-	#pass
