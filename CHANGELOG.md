@@ -133,8 +133,6 @@
 
 -   Patched attack sounds being cut off by pick up sounds and vice versa
 -   Created a new AudioStream2D for the player to handle the inventory, and specified that the existing one should handle the voice.
-
-## version 0.33
 -   Created color blindness shaders for Deuteranopia, Protanopia, Triatanopia, and Achromatopsia.
 -   Each of the shaders has the accreditation written in their code, and the plans for how to implement them in the game.
 -   A testing scene was made to showcase these shaders, `shader_test.tscn` and a testing image `test.png` was used from the article referenced for the shader code as a sprite that the shaders can attach to.
