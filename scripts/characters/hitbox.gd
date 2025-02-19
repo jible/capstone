@@ -12,9 +12,6 @@ extends Area2D
 var overlapping_areas = []
 var successful_hit = []
 
-func _ready():
-	SignalBus.player_stats_updated.connect(set_upgrade_damage)
-
 func turn_on():
 	collisionshape.debug_color = Color (179, 57, 81, .5)
 	for area in overlapping_areas:
@@ -42,8 +39,8 @@ func _on_direction_manager_direction_changed(direction: Vector2):
 func set_damage(value: int):
 	damage = value
 	
-func set_upgrade_damage():
-	damage+= UpgradeManager.get_stat("dmg")
+func increase_damage(value: int):
+	damage += value
 	
 func get_damage():
 	return damage
