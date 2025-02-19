@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf1helea3wy5x"]
+
+[ext_resource type="Texture2D" uid="uid://b6mlyy5ay2lql" path="res://assets/shaders/test.png" id="2_hlnqm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2won2"]
+
+[node name="Shader Tester" type="Node2D"]
+
+[node name="Texture" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_2won2")
+texture = ExtResource("2_hlnqm")
