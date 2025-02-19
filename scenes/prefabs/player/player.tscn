@@ -625,7 +625,7 @@ player = NodePath("../..")
 script = ExtResource("6_rq4oq")
 lock_direction = true
 hitbox = NodePath("../../Hitbox")
-speaker = NodePath("../../AudioStreamPlayer2D")
+speaker = NodePath("../../Voice")
 
 [node name="Hurt" type="Node" parent="State Machine" node_paths=PackedStringArray("health_manager", "hurtbox", "character", "mobility_manager", "speaker")]
 script = ExtResource("6_m7eoc")
@@ -633,12 +633,12 @@ health_manager = NodePath("../../Health Manager")
 hurtbox = NodePath("../../Hurtbox")
 character = NodePath("../..")
 mobility_manager = NodePath("../../Mobility Manager")
-speaker = NodePath("../../AudioStreamPlayer2D")
+speaker = NodePath("../../Voice")
 
 [node name="Death" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "speaker")]
 script = ExtResource("8_vxcvn")
 character = NodePath("../..")
-speaker = NodePath("../../AudioStreamPlayer2D")
+speaker = NodePath("../../Voice")
 
 [node name="Hitbox" parent="." instance=ExtResource("6_arj65")]
 collision_layer = 8
@@ -657,9 +657,12 @@ collision_mask = 32
 [node name="Health Manager" parent="." instance=ExtResource("14_myo2d")]
 
 [node name="Pick Up" parent="." node_paths=PackedStringArray("speaker") instance=ExtResource("15_nqwto")]
-speaker = NodePath("../AudioStreamPlayer2D")
+speaker = NodePath("../Inventory Sounds")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Voice" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 10
+
+[node name="Inventory Sounds" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 10
 
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]

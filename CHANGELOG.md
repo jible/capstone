@@ -118,7 +118,7 @@
 -   Will need additional code in the future to stop death sound from being cut off.
 -   Balanced player movement and hitboxes
 -   Modified enemy knockback
--   Modified look for exit for playetest
+-   Modified look for exit for playtest
 
 ## version 0.30
 
@@ -128,3 +128,8 @@
 ## version 0.31
 
 -   Patched enemies upgrading with player
+
+## version 0.32
+
+-   Patched attack sounds being cut off by pick up sounds and vice versa
+-   Created a new AudioStream2D for the player to handle the inventory, and specified that the existing one should handle the voice.
