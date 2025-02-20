@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://cfy2mlhpkuxdd"]
+[gd_scene load_steps=86 format=3 uid="uid://cfy2mlhpkuxdd"]
 
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/basic_enemy.gd" id="1_s78sa"]
 [ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="2_ffnce"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://snxt44vfbqvc" path="res://assets/spritesheets/inifinimouth_idle.png" id="12_6khpr"]
 [ext_resource type="Texture2D" uid="uid://idkrtkxeva1r" path="res://assets/spritesheets/infinimouth_pursuit.png" id="13_mjspm"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="13_y7ykc"]
+[ext_resource type="Script" path="res://navigator.gd" id="18_cj80n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt6l6"]
 radius = 44.1814
@@ -544,7 +545,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager")]
+[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator")]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 67
@@ -556,6 +557,7 @@ hitbox = NodePath("Hitbox")
 hurtbox = NodePath("Hurtbox")
 sprite_manager = NodePath("Animation Manager")
 health_manager = NodePath("Health Manager")
+navigator = NodePath("Navigator")
 drop = ExtResource("2_n2j2n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -605,6 +607,9 @@ collision_mask = 8
 
 [node name="Health Manager" parent="." instance=ExtResource("13_y7ykc")]
 starting_health = 2
+
+[node name="Navigator" type="Node" parent="."]
+script = ExtResource("18_cj80n")
 
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Direction Manager" method="_on_state_machine_state_changed"]

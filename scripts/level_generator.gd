@@ -6,6 +6,7 @@ class_name LevelGenerator
 @export var randomize_seed = false
 @export var enter: PackedScene
 @export var exit: PackedScene
+@export var nav_mesh_maker: NavMeshMaker
 var tile_size: Vector2
 var spawn_point = Vector2.ZERO
 var end_point = Vector2.ZERO
@@ -16,6 +17,16 @@ var gen_methods = {
 	"limbo": Callable(self, "make_limbo"),
 	"lust": Callable(self, "make_lust"),
 }
+
+
+func get_corners():
+	return PackedVector2Array([
+		Vector2(-1000,-1000),
+		Vector2((tile_size.x * size.x)+ 1000, -1000),
+		Vector2((tile_size.x * size.x)+ 1000, (tile_size.y * size.y) + 1000),
+		Vector2(-1000,(tile_size.y * size.y) + 1000),
+		
+	])
 
 func prep():
 	if randomize_seed:
@@ -62,7 +73,7 @@ func make_lust():
 	# [ ] call function to find tile for player spawn and exit.
 
 func render():
-	render_layer("environment")
+	render_tiles("environment")
 	
 	# Add the enter and exit
 	var enter_instance = enter.instantiate()
@@ -73,11 +84,12 @@ func render():
 	get_tree().current_scene.call_deferred("add_child",exit_instance)
 	exit_instance.position = end_point
 	
-	# [ ] render walls (aesthetic only, walls are on seperate non-interactable layer).
+	nav_mesh_maker.make_mesh(get_corners())
 
-func render_layer(layer):
+
+func render_tiles(layer):
 	'''
-	Render the provided layer.
+	Render the tile map by placing tiles on the appropriate layers.
 	'''
 	
 	for y in range (size.y):
