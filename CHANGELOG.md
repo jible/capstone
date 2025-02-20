@@ -118,9 +118,22 @@
 -   Will need additional code in the future to stop death sound from being cut off.
 -   Balanced player movement and hitboxes
 -   Modified enemy knockback
--   Modified look for exit for playetest
+-   Modified look for exit for playtest
 
-## version .30
+## version 0.30
 
 -   Fixed tile map collision issue
 -   Patched enemy pathfinding
+
+## version 0.31
+
+-   Patched enemies upgrading with player
+
+## version 0.32
+
+-   Patched attack sounds being cut off by pick up sounds and vice versa
+-   Created a new AudioStream2D for the player to handle the inventory, and specified that the existing one should handle the voice.
+-   Created color blindness shaders for Deuteranopia, Protanopia, Triatanopia, and Achromatopsia.
+-   Each of the shaders has the accreditation written in their code, and the plans for how to implement them in the game.
+-   A testing scene was made to showcase these shaders, `shader_test.tscn` and a testing image `test.png` was used from the article referenced for the shader code as a sprite that the shaders can attach to.
+-   To test a shader, simply drag the shader to the `Sprite2d`'s shader exported variable under its shader material in the inspector.
