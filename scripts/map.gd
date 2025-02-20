@@ -63,7 +63,7 @@ func random_walk(layer, value, steps = (size.x * size.y)/2):
 		seed(seed + step)
 		pos += directions[randi() % 4]
 		
-		if pos.x >= size.x || pos.x < 0 || pos.y >= size.y || pos.y < 0:
+		if pos.x >= size.x - 5 || pos.x < 5 || pos.y >= size.y + 5 || pos.y < 5:
 			pos = start
 	end = pos
 

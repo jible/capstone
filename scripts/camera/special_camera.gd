@@ -20,6 +20,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_pressed("debug_zoom_in"):
+		zoom *= 1.2
+	if Input.is_action_pressed("debug_zoom_out"):
+		zoom *= .8
 	if (follow_player):
 		pursuit(delta)
 	pass
