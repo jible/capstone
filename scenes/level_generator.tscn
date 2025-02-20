@@ -20,6 +20,13 @@ tile_size = Vector2i(120, 120)
 sources/0 = SubResource("TileSetAtlasSource_sr1dw")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4vgcj"]
+vertices = PackedVector2Array(375529, 387622, -7935.87, 387929, -6989.11, -6390.58, 384411, -11048.4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-7039, -6440, -7986, 387979, 375578, 387672, 384462, -11099)])
+source_geometry_mode = 2
+source_geometry_group_name = &"pathfinder_collision"
+border_size = 1.0
+agent_radius = 50.0
 
 [node name="Level Generator" type="Node2D" node_paths=PackedStringArray("nav_mesh_maker")]
 script = ExtResource("1_imcpr")
@@ -27,7 +34,7 @@ enter = ExtResource("2_ci0jl")
 exit = ExtResource("3_8m6eb")
 nav_mesh_maker = NodePath("NavMeshMaker")
 
-[node name="Environment" type="TileMapLayer" parent="."]
+[node name="Environment" type="TileMapLayer" parent="." groups=["pathfinder_collision"]]
 tile_set = ExtResource("4_wlnp8")
 rendering_quadrant_size = 120
 navigation_enabled = false

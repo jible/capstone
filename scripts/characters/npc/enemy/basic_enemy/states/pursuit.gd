@@ -23,7 +23,6 @@ func update_state(delta):
 		me.navigator.update_target(player)
 		
 		var target_vector =  me.navigator.get_next_point() - me.global_position 
-		print(target_vector)
 		if target_vector == null:
 			return
 		if (target_vector.length() < 10):

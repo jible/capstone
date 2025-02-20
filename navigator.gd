@@ -19,7 +19,7 @@ func get_next_point():
 	if update_map() == null:
 		return null
 	calc_path()
-	return path [0]
+	return path [1]
 
 
 func update_target(target_char):
