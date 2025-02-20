@@ -19,14 +19,10 @@ use_texture_padding = false
 tile_size = Vector2i(120, 120)
 sources/0 = SubResource("TileSetAtlasSource_sr1dw")
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_4vgcj"]
-vertices = PackedVector2Array(375529, 387622, -7935.87, 387929, -6989.11, -6390.58, 384411, -11048.4)
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2pohe"]
+vertices = PackedVector2Array(12385.7, 9217.02, -1818.88, 9240.98, -1695.1, -1351.48, 9188.58, -1897.61)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-7039, -6440, -7986, 387979, 375578, 387672, 384462, -11099)])
-source_geometry_mode = 2
-source_geometry_group_name = &"pathfinder_collision"
-border_size = 1.0
-agent_radius = 50.0
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1705, -1361, 9196, -1908, 12399, 9227, -1829, 9251)])
 
 [node name="Level Generator" type="Node2D" node_paths=PackedStringArray("nav_mesh_maker")]
 script = ExtResource("1_imcpr")
@@ -45,5 +41,5 @@ navigation_enabled = false
 
 [node name="NavMeshMaker" type="NavigationRegion2D" parent="."]
 top_level = true
-navigation_polygon = SubResource("NavigationPolygon_4vgcj")
+navigation_polygon = SubResource("NavigationPolygon_2pohe")
 script = ExtResource("6_eeug0")

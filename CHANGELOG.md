@@ -143,3 +143,6 @@
 -   Added zoom feature to camera- can be removed in final game.
 -   Level generator now bakes a navmesh over tilemap, so enemies properly pathfind.
 -   Though pathfinding is done, it is in need of major refactoring; the code is super inefficent and should be easy to rewrite.
+-   Fixed tile map going out of bounds.
+-   Added sword cursor.
+-   Enemies go straight to death state.
