@@ -148,3 +148,4 @@
 -   Refined the generation to force entrances and exits to be a specified distance from eachother.
 -   Refined generation to make rooms more consistently sized.
 -   Made Lust room smaller.
+-   Cleaned up mobility manager
