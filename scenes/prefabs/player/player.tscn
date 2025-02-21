@@ -666,7 +666,7 @@ collision_mask = 32
 speaker = NodePath("../Inventory Sounds")
 
 [node name="CollisionShape2D" parent="Pick Up" index="0"]
-scale = Vector2(1, 2.6)
+scale = Vector2(0.650361, 1.9344)
 
 [node name="Voice" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 10
