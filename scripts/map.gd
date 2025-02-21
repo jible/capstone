@@ -42,7 +42,7 @@ func random_walk(layer, value, steps = (size.x * size.y)/2):
 	'''
 	Generate map on provided layer using random walk method.
 	'''
-	
+	var placed_tiles = 0
 	# get directions in which to "walk"
 	var directions = [
 		Vector2(0,1),	# down
@@ -57,14 +57,17 @@ func random_walk(layer, value, steps = (size.x * size.y)/2):
 	var pos = start
 	for step in range(steps):
 		var current_tile = get_tile(pos)
+		if (current_tile.type != value):
+			placed_tiles += 1
 		current_tile.type = value
 		
 		#update seed
 		seed(seed + step)
 		pos += directions[randi() % 4]
 		
-		if pos.x >= size.x - 5 || pos.x < 5 || pos.y >= size.y + 5 || pos.y <= 5:
+		if pos.x >= size.x - 5 || pos.x < 5 || pos.y >= size.y - 5 || pos.y <= 5:
 			pos = start
+	print(placed_tiles)
 	end = pos
 
 func make_noise(layer, value):
