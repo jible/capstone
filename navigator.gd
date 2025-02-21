@@ -1,32 +1,28 @@
-extends Node
+extends NavigationAgent2D
 class_name Navigator
 
+## Updates the path every x seconds
+@export var calc_path_frequency: float = 1
+
 var character:CharacterBody2D
-var map: RID
 var path: PackedVector2Array
 var target: Node2D
-var target_position: Vector2
+var timer: Timer
 
 func _ready():
 	character = get_parent()
+	make_timer()
 
 
-func update_map():
-	map = NavigationServer2D.get_maps()[0]
-	return map
-
-func get_next_point():
-	if update_map() == null:
-		return null
-	calc_path()
-	return path [1]
+func make_timer():
+	timer = Timer.new()
+	timer.one_shot = false
+	timer.autostart = true
+	add_child(timer)
+	timer.start()
 
 
 func update_target(target_char):
 	target = target_char
-	target_position = target.global_position
+	target_position = target.position
 	pass
-
-
-func calc_path():
-	path = NavigationServer2D.map_get_path(map, character.global_position, target_position, true)

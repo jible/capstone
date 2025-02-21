@@ -609,7 +609,7 @@ collision_mask = 8
 [node name="Health Manager" parent="." instance=ExtResource("13_y7ykc")]
 starting_health = 2
 
-[node name="Navigator" type="Node" parent="."]
+[node name="Navigator" type="NavigationAgent2D" parent="."]
 script = ExtResource("18_cj80n")
 
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]

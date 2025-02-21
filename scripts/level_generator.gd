@@ -99,8 +99,7 @@ func render_tiles(layer):
 			if map.get_tile(pos).type == "floor":
 				# get random tile position
 				# [ ] get length and width of tileset, rather than magic number
-				#layers["environment"].set_cell(pos, 0, Vector2i(randi()%9, randi()%9))
-				pass
+				layers["environment"].set_cell(pos, 0, Vector2i(randi()%9, randi()%9))
 			if map.get_tile(pos).type == null:
 				layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
 			
