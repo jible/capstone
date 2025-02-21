@@ -6,6 +6,7 @@ class_name LevelGenerator
 @export var randomize_seed = false
 @export var enter: PackedScene
 @export var exit: PackedScene
+@export var nav_mesh_maker: NavMeshMaker
 var tile_size: Vector2
 var spawn_point = Vector2.ZERO
 var end_point = Vector2.ZERO
@@ -16,6 +17,21 @@ var gen_methods = {
 	"limbo": Callable(self, "make_limbo"),
 	"lust": Callable(self, "make_lust"),
 }
+
+
+func get_corners():
+	# Used the extra distance to debug 
+	var extra_distance = Vector2(0,0)
+	var top_left = Vector2(-extra_distance.x,-extra_distance.y)
+	var top_right = Vector2((tile_size.x * size.x)+ extra_distance.x, -extra_distance.y)
+	var bot_right = Vector2((tile_size.x * size.x)+ extra_distance.x, (tile_size.y * size.y) + extra_distance.y)
+	var bot_left = Vector2(-1000,(tile_size.y * size.y) + extra_distance.y)
+	return PackedVector2Array([
+		top_left, 
+		top_right,
+		bot_right,
+		bot_left
+	])
 
 func prep():
 	if randomize_seed:
@@ -48,7 +64,8 @@ func make_limbo():
 	Randomly walk the terrain level and fill it with floors.
 	'''
 	
-	map.random_walk("terrain", "floor")
+	map.random_walk("terrain", "floor", 1000)
+	map.set_spawn_and_exit()
 	
 	# [ ] call function to find tile for player spawn and exit.
 
@@ -56,13 +73,12 @@ func make_lust():
 	'''
 	Make randomly generated noise to fill the terrai level with floors.
 	'''
-	
 	map.make_noise("terrain", "floor")
 	
 	# [ ] call function to find tile for player spawn and exit.
 
 func render():
-	render_layer("environment")
+	render_tiles("environment")
 	
 	# Add the enter and exit
 	var enter_instance = enter.instantiate()
@@ -73,11 +89,12 @@ func render():
 	get_tree().current_scene.call_deferred("add_child",exit_instance)
 	exit_instance.position = end_point
 	
-	# [ ] render walls (aesthetic only, walls are on seperate non-interactable layer).
+	nav_mesh_maker.make_mesh(get_corners())
 
-func render_layer(layer):
+
+func render_tiles(layer):
 	'''
-	Render the provided layer.
+	Render the tile map by placing tiles on the appropriate layers.
 	'''
 	
 	for y in range (size.y):
@@ -88,7 +105,6 @@ func render_layer(layer):
 				# get random tile position
 				# [ ] get length and width of tileset, rather than magic number
 				layers["environment"].set_cell(pos, 0, Vector2i(randi()%9, randi()%9))
-			
 			if map.get_tile(pos).type == null:
 				layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
 			

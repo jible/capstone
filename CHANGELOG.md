@@ -137,3 +137,15 @@
 -   Each of the shaders has the accreditation written in their code, and the plans for how to implement them in the game.
 -   A testing scene was made to showcase these shaders, `shader_test.tscn` and a testing image `test.png` was used from the article referenced for the shader code as a sprite that the shaders can attach to.
 -   To test a shader, simply drag the shader to the `Sprite2d`'s shader exported variable under its shader material in the inspector.
+
+## version 0.33
+
+-   Added zoom feature to camera- can be removed in final game.
+-   Level generator now bakes a navmesh over tilemap, so enemies properly pathfind.
+-   Fixed tile map going out of bounds.
+-   Added sword cursor.
+-   Enemies go straight to death state.
+-   Refined the generation to force entrances and exits to be a specified distance from eachother.
+-   Refined generation to make rooms more consistently sized.
+-   Made Lust room smaller.
+-   Cleaned up mobility manager

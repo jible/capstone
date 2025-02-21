@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ct5tfh48ghst2" path="res://assets/spritesheets/player_idle_north.png" id="9_2m8w5"]
 [ext_resource type="Texture2D" uid="uid://cpp6grxd6u4yh" path="res://assets/spritesheets/player_hurt_north.png" id="9_kd5gr"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="9_po6ig"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/animation_manager.tscn" id="9_sc1mn"]
+[ext_resource type="PackedScene" uid="uid://0ry41ukaumi6" path="res://scenes/prefabs/animation_manager.tscn" id="9_sc1mn"]
 [ext_resource type="Texture2D" uid="uid://c8gaccgrsbcww" path="res://assets/spritesheets/player_hurt_south.png" id="10_cj5fo"]
 [ext_resource type="Texture2D" uid="uid://bf0kxgnakna0" path="res://assets/spritesheets/player_idle_south.png" id="10_koffb"]
 [ext_resource type="Texture2D" uid="uid://bss7or0rnpqbn" path="res://assets/spritesheets/player_idle_west.png" id="11_3ch3l"]
@@ -583,11 +583,12 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
+radius = 31.0161
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80b3n"]
 size = Vector2(200, 200)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up", "speaker") groups=["Player"]]
 collision_mask = 67
 motion_mode = 1
 script = ExtResource("1_u3dna")
@@ -599,16 +600,20 @@ sprite_manager = NodePath("Animation Manager")
 direction_manager = NodePath("Direction Manager")
 health_manager = NodePath("Health Manager")
 pick_up = NodePath("Pick Up")
+speaker = NodePath("Voice")
 
 [node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
 sprite_frames = SubResource("SpriteFrames_mf368")
-animation = &"attack_west"
+animation = &"idle_south"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 99)
 shape = SubResource("CircleShape2D_kqpcb")
 
 [node name="Mobility Manager" parent="." instance=ExtResource("14_2dfdq")]
-max_speed = 250
+base_max_speed = 250
+base_acceleration = 500
+base_drag = 0.5
 
 [node name="State Machine" parent="." instance=ExtResource("3_igigb")]
 default_state = "Idle"
@@ -621,24 +626,19 @@ player = NodePath("../..")
 script = ExtResource("5_7mdyy")
 player = NodePath("../..")
 
-[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("hitbox", "speaker")]
+[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "speaker")]
 script = ExtResource("6_rq4oq")
-lock_direction = true
-hitbox = NodePath("../../Hitbox")
-speaker = NodePath("../../Voice")
-
-[node name="Hurt" type="Node" parent="State Machine" node_paths=PackedStringArray("health_manager", "hurtbox", "character", "mobility_manager", "speaker")]
-script = ExtResource("6_m7eoc")
-health_manager = NodePath("../../Health Manager")
-hurtbox = NodePath("../../Hurtbox")
 character = NodePath("../..")
-mobility_manager = NodePath("../../Mobility Manager")
+lock_direction = true
 speaker = NodePath("../../Voice")
 
-[node name="Death" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "speaker")]
+[node name="Hurt" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
+script = ExtResource("6_m7eoc")
+character = NodePath("../..")
+
+[node name="Death" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
 script = ExtResource("8_vxcvn")
 character = NodePath("../..")
-speaker = NodePath("../../Voice")
 
 [node name="Hitbox" parent="." instance=ExtResource("6_arj65")]
 collision_layer = 8
@@ -666,6 +666,7 @@ max_polyphony = 10
 max_polyphony = 10
 
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]
+[connection signal="state_changed" from="State Machine" to="Mobility Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Direction Manager" method="_on_state_machine_state_changed"]
 [connection signal="received_damage" from="Hurtbox" to="Health Manager" method="_on_hurtbox_received_damage"]
 [connection signal="direction_changed" from="Direction Manager" to="Animation Manager" method="_on_direction_manager_direction_changed"]

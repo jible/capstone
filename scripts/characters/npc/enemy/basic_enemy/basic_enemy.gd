@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name BasicEnemy
 # All children references
 @export var mobility_manager: MobilityManager
 @export var state_machine: StateMachine
@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var hurtbox: HurtBox
 @export var sprite_manager: AnimationManager
 @export var health_manager: Health
-
+@export var navigator: Navigator
 var type = "basic_enemy"
 
 @export var drop : PackedScene
@@ -21,6 +21,7 @@ func death_drop():
 		var instance = drop.instantiate()
 		instance.position = position
 		get_tree().current_scene.add_child(instance)
+
 
 func die():
 	death_drop()

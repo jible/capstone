@@ -1,24 +1,25 @@
 extends SMState
 
-@export var health_manager: Health
-@export var hurtbox: HurtBox
+# Exports
 @export var character:CharacterBody2D
-@export var mobility_manager: Node2D
+@export var direction_dependent = true
 @export var lock_direction = true
 @export var invincibility_time: float = 2
 @export var knockback_velocity: float = 1800
-
-# Sound Stuff
-@export var speaker : AudioStreamPlayer2D
-var sfx = SoundManager
-
+@export var animation_name = "hurt"
 @export var movement_details =  {
 	"moveable": false
 }
-@onready var sm = get_parent()
-@export var animation_name = "hurt"
-var direction_dependent = true
 
+# Node References
+@onready var sm = get_parent()
+@onready var health_manager = character.health_manager
+@onready var hurtbox = character.hurtbox
+@onready var mobility_manager = character.mobility_manager
+# Sound Stuff
+@onready var speaker = character.speaker
+var sfx = SoundManager
+# State Details
 var callbacks = {
 	"start": [
 		#Callable(self, "temp_invincibility"),
