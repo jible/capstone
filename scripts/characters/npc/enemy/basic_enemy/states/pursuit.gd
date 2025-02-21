@@ -1,28 +1,32 @@
 extends Node
 
+
+# Exports
 @export var hitbox: HitBox
-@export var me: CharacterBody2D
-@onready var sm = get_parent()
+@export var character: CharacterBody2D
 @export var lock_direction = false
 @export var movement_details =  {}
 @export var animation_name = "pursuit"
-var callbacks = {}
 @export var mobility_manager: Node2D
+
+# Other variables
+@onready var sm = get_parent()
+var callbacks = {}
 var player: Player
 var direction_dependent = true
 var path
 
+# Functions
 func _ready():
 	player = Globals.get_player()
 
 
+# Required state functions
 func update_state(delta):
-
 	player = Globals.player
 	if (player):
-		me.navigator.update_target(player)
-		
-		var target_vector =  me.navigator.get_next_path_position() - me.global_position 
+		character.navigator.update_target_pos(player.position)
+		var target_vector =  character.navigator.get_next_path_position() - character.global_position 
 		if target_vector == null:
 			return
 		if (target_vector.length() < 10):
@@ -30,7 +34,6 @@ func update_state(delta):
 		else:
 			target_vector = target_vector.normalized()
 		mobility_manager.input_direction = target_vector
-
 
 
 func enter_state():
