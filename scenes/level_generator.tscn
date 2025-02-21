@@ -26,6 +26,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1705, -1361, 9196, -19
 
 [node name="Level Generator" type="Node2D" node_paths=PackedStringArray("nav_mesh_maker")]
 script = ExtResource("1_imcpr")
+size = null
+world_seed = null
+randomize_seed = null
 enter = ExtResource("2_ci0jl")
 exit = ExtResource("3_8m6eb")
 nav_mesh_maker = NodePath("NavMeshMaker")

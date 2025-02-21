@@ -1,7 +1,8 @@
 extends Node2D
 class_name Map
 
-@export var size: Vector2 = Vector2.ZERO
+# Changed this to 2i check here for issues bugs f-f-f-
+@export var size: Vector2i = Vector2i.ZERO
 var matrix = []
 var seed : int = 0
 var noise_ref = FastNoiseLite.new()
@@ -38,10 +39,11 @@ func fill(value, layer):
 		for x in range(size.x):
 			matrix[y][x][layer] = value
 
-func random_walk(layer, value, steps = (size.x * size.y)/2):
+func random_walk(layer, value, steps = size.x * size.y / 5):
 	'''
 	Generate map on provided layer using random walk method.
 	'''
+	assert(steps <= size.x * size.y, "Too many steps requested")
 	var placed_tiles = 0
 	# get directions in which to "walk"
 	var directions = [
@@ -52,23 +54,50 @@ func random_walk(layer, value, steps = (size.x * size.y)/2):
 	]
 	
 	var start = Vector2(floor(size.x/2), floor(size.y/2) )
-	player_spawn = start
 	
 	var pos = start
-	for step in range(steps):
+	var count = 0
+	while placed_tiles <= steps:
 		var current_tile = get_tile(pos)
 		if (current_tile.type != value):
 			placed_tiles += 1
+		count +=1
 		current_tile.type = value
 		
 		#update seed
-		seed(seed + step)
+		seed(seed + count)
 		pos += directions[randi() % 4]
-		
 		if pos.x >= size.x - 5 || pos.x < 5 || pos.y >= size.y - 5 || pos.y <= 5:
 			pos = start
-	print(placed_tiles)
-	end = pos
+
+
+func set_spawn_and_exit( min_distance = 15 ):
+	var a = Vector2i.ZERO
+	var b = Vector2i.ZERO
+	
+	while (true):
+		# Select 2 random points. Both must be on floor tiles
+		# If those 2 are within the right distance from eachother, set them and return
+		a = get_random_floor()
+		b = get_random_floor()
+		
+		var distance = calc_distance( a, b )
+		if (distance > min_distance):
+			player_spawn = a
+			end = b
+			return
+
+
+func get_random_floor():
+	while true:
+		var point = Vector2(randi() % (size.x -1), randi() % (size.y- 1))
+		if ( get_tile(point).type == "floor" ):
+			return point
+
+func calc_distance(a,b):
+	var distance_v = a - b
+	return abs(distance_v.x) + abs(distance_v.y)
+
 
 func make_noise(layer, value):
 	'''

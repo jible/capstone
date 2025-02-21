@@ -14,12 +14,23 @@ extends Node
 var callbacks = {}
 var player: Player
 var direction_dependent = true
-var path
+var timer:Timer
+var target: Node2D
 
 # Functions
 func _ready():
 	player = Globals.get_player()
+	make_timer()
 
+
+func make_timer():
+	timer = Timer.new()
+	timer.one_shot = false
+	timer.autostart = true
+	add_child(timer)
+	#timer.timeout.connect(update_position)
+	timer.start()
+	
 
 # Required state functions
 func update_state(delta):

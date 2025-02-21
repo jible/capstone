@@ -59,7 +59,8 @@ func make_limbo():
 	Randomly walk the terrain level and fill it with floors.
 	'''
 	
-	map.random_walk("terrain", "floor")
+	map.random_walk("terrain", "floor", 1000)
+	map.set_spawn_and_exit()
 	
 	# [ ] call function to find tile for player spawn and exit.
 
@@ -67,7 +68,6 @@ func make_lust():
 	'''
 	Make randomly generated noise to fill the terrai level with floors.
 	'''
-	
 	map.make_noise("terrain", "floor")
 	
 	# [ ] call function to find tile for player spawn and exit.
