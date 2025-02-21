@@ -138,7 +138,7 @@
 -   A testing scene was made to showcase these shaders, `shader_test.tscn` and a testing image `test.png` was used from the article referenced for the shader code as a sprite that the shaders can attach to.
 -   To test a shader, simply drag the shader to the `Sprite2d`'s shader exported variable under its shader material in the inspector.
 
-## version 0.32
+## version 0.33
 
 -   Added zoom feature to camera- can be removed in final game.
 -   Level generator now bakes a navmesh over tilemap, so enemies properly pathfind.
