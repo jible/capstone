@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ct5tfh48ghst2" path="res://assets/spritesheets/player_idle_north.png" id="9_2m8w5"]
 [ext_resource type="Texture2D" uid="uid://cpp6grxd6u4yh" path="res://assets/spritesheets/player_hurt_north.png" id="9_kd5gr"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="9_po6ig"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/animation_manager.tscn" id="9_sc1mn"]
+[ext_resource type="PackedScene" uid="uid://0ry41ukaumi6" path="res://scenes/prefabs/animation_manager.tscn" id="9_sc1mn"]
 [ext_resource type="Texture2D" uid="uid://c8gaccgrsbcww" path="res://assets/spritesheets/player_hurt_south.png" id="10_cj5fo"]
 [ext_resource type="Texture2D" uid="uid://bf0kxgnakna0" path="res://assets/spritesheets/player_idle_south.png" id="10_koffb"]
 [ext_resource type="Texture2D" uid="uid://bss7or0rnpqbn" path="res://assets/spritesheets/player_idle_west.png" id="11_3ch3l"]
@@ -582,10 +582,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2x6a"]
+size = Vector2(20, 11.4171)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80b3n"]
-size = Vector2(200, 200)
+size = Vector2(102, 122.99)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up") groups=["Player"]]
 collision_mask = 67
@@ -602,10 +603,12 @@ pick_up = NodePath("Pick Up")
 
 [node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
 sprite_frames = SubResource("SpriteFrames_mf368")
-animation = &"attack_west"
+animation = &"walk_north"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_kqpcb")
+position = Vector2(0, 2.5)
+scale = Vector2(5.12944, 21.1087)
+shape = SubResource("RectangleShape2D_h2x6a")
 
 [node name="Mobility Manager" parent="." instance=ExtResource("14_2dfdq")]
 max_speed = 250
@@ -646,9 +649,12 @@ collision_mask = 16
 detecting = false
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, 61.7489)
+scale = Vector2(1.44, 1.08413)
 shape = SubResource("RectangleShape2D_80b3n")
 
 [node name="Hurtbox" parent="." instance=ExtResource("9_po6ig")]
+scale = Vector2(0.652757, 1.79526)
 collision_layer = 4
 collision_mask = 32
 
@@ -658,6 +664,9 @@ collision_mask = 32
 
 [node name="Pick Up" parent="." node_paths=PackedStringArray("speaker") instance=ExtResource("15_nqwto")]
 speaker = NodePath("../Inventory Sounds")
+
+[node name="CollisionShape2D" parent="Pick Up" index="0"]
+scale = Vector2(1, 2.6)
 
 [node name="Voice" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 10
