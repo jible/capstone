@@ -588,7 +588,7 @@ radius = 31.0161
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80b3n"]
 size = Vector2(200, 200)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up", "speaker") groups=["Player"]]
 collision_mask = 67
 motion_mode = 1
 script = ExtResource("1_u3dna")
@@ -600,6 +600,7 @@ sprite_manager = NodePath("Animation Manager")
 direction_manager = NodePath("Direction Manager")
 health_manager = NodePath("Health Manager")
 pick_up = NodePath("Pick Up")
+speaker = NodePath("Voice")
 
 [node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
 sprite_frames = SubResource("SpriteFrames_mf368")
@@ -623,24 +624,19 @@ player = NodePath("../..")
 script = ExtResource("5_7mdyy")
 player = NodePath("../..")
 
-[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("hitbox", "speaker")]
+[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "speaker")]
 script = ExtResource("6_rq4oq")
-lock_direction = true
-hitbox = NodePath("../../Hitbox")
-speaker = NodePath("../../Voice")
-
-[node name="Hurt" type="Node" parent="State Machine" node_paths=PackedStringArray("health_manager", "hurtbox", "character", "mobility_manager", "speaker")]
-script = ExtResource("6_m7eoc")
-health_manager = NodePath("../../Health Manager")
-hurtbox = NodePath("../../Hurtbox")
 character = NodePath("../..")
-mobility_manager = NodePath("../../Mobility Manager")
+lock_direction = true
 speaker = NodePath("../../Voice")
 
-[node name="Death" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "speaker")]
+[node name="Hurt" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
+script = ExtResource("6_m7eoc")
+character = NodePath("../..")
+
+[node name="Death" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
 script = ExtResource("8_vxcvn")
 character = NodePath("../..")
-speaker = NodePath("../../Voice")
 
 [node name="Hitbox" parent="." instance=ExtResource("6_arj65")]
 collision_layer = 8

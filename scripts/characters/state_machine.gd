@@ -7,6 +7,7 @@ extends Node
 @export var default_state: String = "Nil"
 
 # Attributes
+@onready var character: CharacterBody2D = get_parent()
 var state_names = []
 var state_objects = {}
 var current_state: String
