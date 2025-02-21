@@ -9,7 +9,6 @@
 [node name="Scene Config Package" parent="." instance=ExtResource("1_aqu5y")]
 
 [node name="Level Generator" parent="Scene Config Package" index="0"]
-size = null
 randomize_seed = true
 
 [node name="NavMeshMaker" parent="Scene Config Package/Level Generator" index="2"]

@@ -611,7 +611,9 @@ position = Vector2(-1, 99)
 shape = SubResource("CircleShape2D_kqpcb")
 
 [node name="Mobility Manager" parent="." instance=ExtResource("14_2dfdq")]
-max_speed = 250
+base_max_speed = 250
+base_acceleration = 500
+base_drag = 0.5
 
 [node name="State Machine" parent="." instance=ExtResource("3_igigb")]
 default_state = "Idle"
@@ -664,6 +666,7 @@ max_polyphony = 10
 max_polyphony = 10
 
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]
+[connection signal="state_changed" from="State Machine" to="Mobility Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Direction Manager" method="_on_state_machine_state_changed"]
 [connection signal="received_damage" from="Hurtbox" to="Health Manager" method="_on_hurtbox_received_damage"]
 [connection signal="direction_changed" from="Direction Manager" to="Animation Manager" method="_on_direction_manager_direction_changed"]

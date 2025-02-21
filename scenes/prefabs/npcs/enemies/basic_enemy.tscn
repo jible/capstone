@@ -565,8 +565,8 @@ drop = ExtResource("2_n2j2n")
 shape = SubResource("CircleShape2D_mt6l6")
 
 [node name="Mobility Manager" parent="." instance=ExtResource("2_ffnce")]
-max_speed = 80
-acceleration = 80
+base_max_speed = 80
+base_acceleration = 80
 
 [node name="State Machine" parent="." instance=ExtResource("3_4kkek")]
 default_state = "Pursuit"
@@ -610,6 +610,7 @@ starting_health = 2
 [node name="Navigator" type="NavigationAgent2D" parent="."]
 script = ExtResource("18_cj80n")
 
+[connection signal="state_changed" from="State Machine" to="Mobility Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Direction Manager" method="_on_state_machine_state_changed"]
 [connection signal="died" from="State Machine/Death" to="." method="_on_death_died"]

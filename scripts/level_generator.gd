@@ -20,12 +20,17 @@ var gen_methods = {
 
 
 func get_corners():
+	# Used the extra distance to debug 
+	var extra_distance = Vector2(0,0)
+	var top_left = Vector2(-extra_distance.x,-extra_distance.y)
+	var top_right = Vector2((tile_size.x * size.x)+ extra_distance.x, -extra_distance.y)
+	var bot_right = Vector2((tile_size.x * size.x)+ extra_distance.x, (tile_size.y * size.y) + extra_distance.y)
+	var bot_left = Vector2(-1000,(tile_size.y * size.y) + extra_distance.y)
 	return PackedVector2Array([
-		Vector2(-1000,-1000),
-		Vector2((tile_size.x * size.x)+ 1000, -1000),
-		Vector2((tile_size.x * size.x)+ 1000, (tile_size.y * size.y) + 1000),
-		Vector2(-1000,(tile_size.y * size.y) + 1000),
-		
+		top_left, 
+		top_right,
+		bot_right,
+		bot_left
 	])
 
 func prep():

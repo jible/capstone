@@ -2,7 +2,8 @@ extends NavigationRegion2D
 class_name NavMeshMaker
 
 func make_mesh(corners):
-	# James: After a bunch of fighting this, I just coppied some code from ball game
+	# James: Copied this from a personal project- https://github.com/jible/BallGame/blob/main/Scripts/TileMapPackage.gd
+	# The repo may be set to private
 	var polygon = NavigationPolygon.new()
 	polygon.add_outline(corners)
 	polygon.agent_radius = 50
