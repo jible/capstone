@@ -109,7 +109,7 @@ func render_tiles(layer):
 				layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
 			
 			if map.get_tile(pos).type == null && check_wall.y < map.size.y && map.get_tile(check_wall).type == "floor":
-				layers["walls"].set_cell(Vector2(x,y), 0, Vector2i(0,0))
+				layers["walls"].set_cell(Vector2(x,y), 0, Vector2i(0,0))	# 0,0 to ensure collision
 				layers["walls"].set_cell(Vector2(x,y - 1), 0, Vector2i(0,0))
-				layers["walls"].set_cell(Vector2(x,y - 2), 0, Vector2i(1,0))
-				layers["walls"].set_cell(Vector2(x,y - 3), 0, Vector2i(2,0))
+				layers["walls"].set_cell(Vector2(x,y - 2), 0, Vector2i(1,0))	# 1,0 to allow the player to pass behind
+				layers["walls"].set_cell(Vector2(x,y - 3), 0, Vector2i(2,0))	# 2,0 to allow the player to pass behind and simulate shadow
