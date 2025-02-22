@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://cfy2mlhpkuxdd"]
+[gd_scene load_steps=87 format=3 uid="uid://cfy2mlhpkuxdd"]
 
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/basic_enemy.gd" id="1_s78sa"]
 [ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="2_ffnce"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://idkrtkxeva1r" path="res://assets/spritesheets/infinimouth_pursuit.png" id="13_mjspm"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="13_y7ykc"]
 [ext_resource type="Script" path="res://scripts/navigator.gd" id="18_cj80n"]
+[ext_resource type="Script" path="res://scripts/target_tracker.gd" id="19_3101n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt6l6"]
 radius = 44.1814
@@ -545,7 +546,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator")]
+[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator", "target_tracker")]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 67
@@ -559,6 +560,7 @@ hurtbox = NodePath("Hurtbox")
 sprite_manager = NodePath("Animation Manager")
 health_manager = NodePath("Health Manager")
 navigator = NodePath("Navigator")
+target_tracker = NodePath("TargetTracker")
 drop = ExtResource("2_n2j2n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -607,8 +609,12 @@ collision_mask = 8
 [node name="Health Manager" parent="." instance=ExtResource("13_y7ykc")]
 starting_health = 2
 
-[node name="Navigator" type="NavigationAgent2D" parent="."]
+[node name="Navigator" type="NavigationAgent2D" parent="." node_paths=PackedStringArray("character")]
 script = ExtResource("18_cj80n")
+character = NodePath("..")
+
+[node name="TargetTracker" type="Node" parent="."]
+script = ExtResource("19_3101n")
 
 [connection signal="state_changed" from="State Machine" to="Mobility Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]
