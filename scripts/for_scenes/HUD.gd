@@ -12,7 +12,7 @@ var test = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalBus.player_stats_updated.connect(update_player_info)
+	SignalBus.update_HUD.connect(update_player_info)
 	SignalBus.player_health_updated.connect(update_health)
 	SignalBus.currency_changed.connect(update_currency)
 
