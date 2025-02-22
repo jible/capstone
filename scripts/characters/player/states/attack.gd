@@ -10,6 +10,7 @@ extends SMState
 @export var movement_details =  {
 	"moveable" : true
 }
+@export var particle_swing : CPUParticles2D
 
 # Other variables
 @onready var sm : StateMachine = get_parent()
@@ -25,6 +26,7 @@ var callbacks = {
 # Frame specific functions
 func turn_on_hitbox():
 	hitbox.turn_on()
+	particle_swing.emitting = true
 	pass
 
 func turn_off_hitbox():

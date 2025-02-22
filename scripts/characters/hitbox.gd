@@ -5,7 +5,7 @@ extends Area2D
 @export var damage: int = 1
 @export var collision: CollisionShape2D
 @export var detecting:bool = false
-@export var distance_from_parent: int = 100
+@export var distance_from_parent: int = 130
 @export var knockback = 50
 @export var collisionshape :CollisionShape2D
 

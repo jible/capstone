@@ -14,9 +14,7 @@ camera = NodePath("Custom Camera")
 player = NodePath("Player")
 
 [node name="Level Generator" parent="." instance=ExtResource("2_1eor7")]
-size = Vector2i(150, 150)
 world_seed = 2
-randomize_seed = false
 
 [node name="Player" parent="." instance=ExtResource("3_5fksv")]
 
@@ -38,3 +36,9 @@ level_generator = NodePath("../Level Generator")
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("6_14c2j")]
 
 [editable path="Level Generator"]
+[editable path="Player"]
+[editable path="Player/State Machine"]
+[editable path="Player/Hitbox"]
+[editable path="Player/Hurtbox"]
+[editable path="Player/Direction Manager"]
+[editable path="Player/Pick Up"]
