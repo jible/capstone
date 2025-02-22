@@ -168,3 +168,8 @@
 -   Added particle effects to player attack
 -   Edit collision
 -   Player movement refining
+
+## version 0.38
+
+-   Added CSV file importing for Upgrade Manager
+-   HUD now starts at Lvl 0
