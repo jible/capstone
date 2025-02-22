@@ -5,10 +5,10 @@ extends SMState
 @export var lock_direction = false
 @export var movement_details =  {}
 @export var animation_name = "idle"
-# On Readys
+
+# Other variables
 @onready var sm = get_parent()
 var callbacks = {}
-
 var direction_dependent = true
 
 # Main Functions 

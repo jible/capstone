@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0qchcd21rx5b"]
+[gd_scene load_steps=10 format=3 uid="uid://b0qchcd21rx5b"]
 
 [ext_resource type="Script" path="res://scripts/level_generator.gd" id="1_imcpr"]
 [ext_resource type="PackedScene" uid="uid://ddelqb5kn8xdx" path="res://scenes/prefabs/enter.tscn" id="2_ci0jl"]
 [ext_resource type="PackedScene" uid="uid://c60va2pop5yhv" path="res://scenes/prefabs/exit.tscn" id="3_8m6eb"]
 [ext_resource type="Texture2D" uid="uid://ca6grrk71ix8f" path="res://assets/tilesets/wall_tileset.png" id="3_r8qfe"]
 [ext_resource type="TileSet" uid="uid://cbcmjaiqxltk3" path="res://tilesets/temp_floor.tres" id="4_wlnp8"]
+[ext_resource type="Script" path="res://scripts/nav_mesh_maker.gd" id="6_eeug0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sr1dw"]
 resource_name = "walls"
@@ -23,14 +24,27 @@ physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_sr1dw")
 
-[node name="Level Generator" type="Node2D"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2pohe"]
+vertices = PackedVector2Array(12385.7, 9217.02, -1818.88, 9240.98, -1695.1, -1351.48, 9188.58, -1897.61)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1705, -1361, 9196, -1908, 12399, 9227, -1829, 9251)])
+
+[node name="Level Generator" type="Node2D" node_paths=PackedStringArray("nav_mesh_maker")]
 script = ExtResource("1_imcpr")
 enter = ExtResource("2_ci0jl")
 exit = ExtResource("3_8m6eb")
+nav_mesh_maker = NodePath("NavMeshMaker")
 
-[node name="Environment" type="TileMapLayer" parent="."]
+[node name="Environment" type="TileMapLayer" parent="." groups=["pathfinder_collision"]]
 tile_set = ExtResource("4_wlnp8")
 rendering_quadrant_size = 120
+navigation_enabled = false
 
 [node name="Walls" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_0kjvg")
+navigation_enabled = false
+
+[node name="NavMeshMaker" type="NavigationRegion2D" parent="."]
+top_level = true
+navigation_polygon = SubResource("NavigationPolygon_2pohe")
+script = ExtResource("6_eeug0")

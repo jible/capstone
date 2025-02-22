@@ -8,21 +8,25 @@ extends Node
 }
 @export var knockback_velocity: float = 900
 @export var animation_name = "hurt"
-var direction_dependent = true
+@export var character: CharacterBody2D
 
+# Other Variables
+@onready var sm = get_parent()
+var health_manager: Health
+var hurtbox:HurtBox
+var mobility_manager: Node2D
+var direction_dependent = true
 var callbacks = {
 	"start": [
 		Callable(self, "knockback"),
 	],
 	"end": Callable(self,"end_hurt")
 }
+func _ready():
+	health_manager = character.health_manager
+	hurtbox = character.hurtbox
+	mobility_manager = character.mobility_manager
 
-@export var health_manager: Health
-@export var hurtbox:HurtBox
-@export var mobility_manager: Node2D
-
-# On readys
-@onready var sm = get_parent()
 
 func knockback():
 	mobility_manager.set_velocity(knockback_velocity * hurtbox.latest_hit_direction)

@@ -6,7 +6,7 @@ extends SMState
 @export var movement_details =  {}
 @export var animation_name = "walk"
 
-# On readys
+# Other variables
 @onready var sm = get_parent()
 var direction_dependent = true
 var callbacks = {}

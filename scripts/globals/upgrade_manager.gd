@@ -67,7 +67,7 @@ func _on_stat_upgraded(stat_name: String):
 		remove_currency(stat_name)
 		upgrade_stat(stat_name)
 		SignalBus.upgrade_success.emit()
-		SignalBus.player_stats_updated.emit()
+		SignalBus.player_stat_upgraded.emit(stat_name)
 	else:
 		SignalBus.upgrade_fail.emit()
 	
