@@ -79,3 +79,5 @@ When you notice a problem or something that needs editing: start a review, add y
 - ***Why were these changes made?*** Sometimes, changes are made unintentionally, or should not actually make it into the game. For instance, if a file is created automatically or changed without intention by the creator, those changes should be discarded.
 - ***Would this be immediately readable by someone not deeply familiar with the code-base?*** Pay attention to variable names, code comments, magic numbers, etc. Code should be written with the ability of future contributers to involve themselves in mind.
 - ***What small improvements can I make in browser?*** If there are spacing issues, unclear comments, etc. you should feel free to make those edits yourself (if you have the time and ability).
+
+For more information on how to take advantage of all of Git's PR capabilities, please reference [this page](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request).
