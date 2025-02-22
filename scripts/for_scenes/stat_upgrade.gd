@@ -8,7 +8,7 @@ extends HBoxContainer
 func _ready() -> void:
 	var label: Label = $"StatNameLabel"
 	label.text = "Upgrade: " + stat_name
-	SignalBus.player_stats_updated.connect(update_level_label)
+	SignalBus.update_HUD.connect(update_level_label)
 
 #this function runs when the upgrade button is pressed
 func _on_stat_increased() -> void:

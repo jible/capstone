@@ -582,11 +582,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kqpcb"]
-radius = 31.0161
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_qh38c"]
+points = PackedVector2Array(-10, -10, 10, -10, 11, -20, -11, -20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80b3n"]
-size = Vector2(200, 200)
+size = Vector2(102, 122.99)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up", "speaker") groups=["Player"]]
 collision_mask = 67
@@ -604,11 +604,12 @@ speaker = NodePath("Voice")
 
 [node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
 sprite_frames = SubResource("SpriteFrames_mf368")
-animation = &"idle_south"
+animation = &"walk_north"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 99)
-shape = SubResource("CircleShape2D_kqpcb")
+position = Vector2(0.647182, 3)
+scale = Vector2(4.98133, -5.97068)
+shape = SubResource("ConvexPolygonShape2D_qh38c")
 
 [node name="Mobility Manager" parent="." instance=ExtResource("14_2dfdq")]
 base_max_speed = 250
@@ -646,9 +647,12 @@ collision_mask = 16
 detecting = false
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, 61.7489)
+scale = Vector2(1.44, 1.08413)
 shape = SubResource("RectangleShape2D_80b3n")
 
 [node name="Hurtbox" parent="." instance=ExtResource("9_po6ig")]
+scale = Vector2(0.652757, 1.79526)
 collision_layer = 4
 collision_mask = 32
 
@@ -658,6 +662,9 @@ collision_mask = 32
 
 [node name="Pick Up" parent="." node_paths=PackedStringArray("speaker") instance=ExtResource("15_nqwto")]
 speaker = NodePath("../Inventory Sounds")
+
+[node name="CollisionShape2D" parent="Pick Up" index="0"]
+scale = Vector2(0.650361, 1.9344)
 
 [node name="Voice" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 10

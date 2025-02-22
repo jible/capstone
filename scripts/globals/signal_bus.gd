@@ -6,7 +6,9 @@ signal upgrade_success()
 
 signal upgrade_fail()
 
-signal player_stats_updated()
+signal player_stat_upgraded(stat_name: String)
+
+signal update_HUD()
 
 # emit when player is damaged/healed
 signal player_health_updated()

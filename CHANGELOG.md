@@ -149,3 +149,16 @@
 -   Refined generation to make rooms more consistently sized.
 -   Made Lust room smaller.
 -   Cleaned up mobility manager
+
+## version 0.34
+
+-   Fixed bug, stats now upgrade separately
+-   Added new signal for updating HUD elements
+
+## version 0.35
+
+-   Bug-fixed and refined player and wall collisions
+-   Added a new wall tileset
+-   Fixed enemy animation bounce
+-   Increased wall height
+-   Grayboxed particle effects on pickups
