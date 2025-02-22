@@ -162,3 +162,9 @@
 -   Fixed enemy animation bounce
 -   Increased wall height
 -   Grayboxed particle effects on pickups
+
+## version 0.36
+
+-   Added particle effects to player attack
+-   Edit collision
+-   Player movement refining
