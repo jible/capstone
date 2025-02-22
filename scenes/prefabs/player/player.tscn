@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://c6kyubdgubp47"]
+[gd_scene load_steps=103 format=3 uid="uid://c6kyubdgubp47"]
 
 [ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_u3dna"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_igigb"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bbnjl5bpsrdd6" path="res://assets/spritesheets/player_walk_north.png" id="17_spqdu"]
 [ext_resource type="Texture2D" uid="uid://daupw1ov13eoo" path="res://assets/spritesheets/player_walk_south.png" id="18_ts85c"]
 [ext_resource type="Texture2D" uid="uid://br6eavhfkfe4" path="res://assets/spritesheets/player_walk_west.png" id="19_ik34j"]
+[ext_resource type="Texture2D" uid="uid://btawghlpn4ah1" path="res://assets/images/particle.jpg" id="28_7yx3u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a255u"]
 atlas = ExtResource("3_tdv4r")
@@ -582,14 +583,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_qh38c"]
-points = PackedVector2Array(-10, -10, 10, -10, 11, -20, -11, -20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_80b3n"]
-size = Vector2(102, 122.99)
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5in5"]
+radius = 61.337
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fqphw"]
 radius = 44.1601
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_qh38c"]
+points = PackedVector2Array(-10, -10, 10, -10, 11, -20, -11, -20)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up", "speaker") groups=["Player"]]
 collision_mask = 67
@@ -606,18 +607,14 @@ pick_up = NodePath("Pick Up")
 speaker = NodePath("Voice")
 
 [node name="Animation Manager" parent="." instance=ExtResource("9_sc1mn")]
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_mf368")
 animation = &"walk_north"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.647182, 3)
-scale = Vector2(4.98133, -5.97068)
-shape = SubResource("ConvexPolygonShape2D_qh38c")
+offset = Vector2(0, 2.76)
 
 [node name="Mobility Manager" parent="." instance=ExtResource("14_2dfdq")]
-base_max_speed = 250
+base_max_speed = 375
 base_acceleration = 500
-base_drag = 0.5
 
 [node name="State Machine" parent="." instance=ExtResource("3_igigb")]
 default_state = "Idle"
@@ -630,11 +627,12 @@ player = NodePath("../..")
 script = ExtResource("5_7mdyy")
 player = NodePath("../..")
 
-[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "speaker")]
+[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "speaker", "particle_swing")]
 script = ExtResource("6_rq4oq")
 character = NodePath("../..")
 lock_direction = true
 speaker = NodePath("../../Voice")
+particle_swing = NodePath("../../Hitbox/CPUParticles2D")
 
 [node name="Hurt" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
 script = ExtResource("6_m7eoc")
@@ -650,9 +648,21 @@ collision_mask = 16
 detecting = false
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(0, 61.7489)
-scale = Vector2(1.44, 1.08413)
-shape = SubResource("RectangleShape2D_80b3n")
+position = Vector2(0, 82)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_a5in5")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Hitbox"]
+position = Vector2(0, 82)
+emitting = false
+amount = 100
+lifetime = 0.3
+one_shot = true
+texture = ExtResource("28_7yx3u")
+emission_shape = 1
+emission_sphere_radius = 90.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.0
 
 [node name="Hurtbox" parent="." instance=ExtResource("9_po6ig")]
 position = Vector2(-3, 15)
@@ -681,6 +691,11 @@ max_polyphony = 10
 
 [node name="Inventory Sounds" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.647182, 3)
+scale = Vector2(4.98133, -5.97068)
+shape = SubResource("ConvexPolygonShape2D_qh38c")
 
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Mobility Manager" method="_on_state_machine_state_changed"]
