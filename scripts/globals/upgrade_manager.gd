@@ -4,7 +4,8 @@ extends Node
 const HEALTH: String = "health"
 const DMG: String = "dmg"
 const SPEED: String = "speed"
-const stat_sheet_path: String = "res://assets/csvs/Cast Into Flame Stat Sheet - upgrades.csv"
+const STAT_SHEET_PATH: String = "res://assets/csvs/Cast Into Flame Stat Sheet - upgrades.csv"
+const MAX_LEVEL: int = 9
 
 var stat_lvl: Dictionary = {
 	"health": 0,
@@ -12,7 +13,7 @@ var stat_lvl: Dictionary = {
 	"speed": 0
 }
 
-var stat_growth: Dictionary = LoadCsv.load_csv_dictionary(stat_sheet_path)
+var stat_growth: Dictionary = LoadCsv.load_csv_dictionary(STAT_SHEET_PATH)
 
 #amount to increase upgrades by
 var upgrade_bonus: Dictionary = {
@@ -31,8 +32,9 @@ func _ready():
 	SignalBus.player_die.connect(_on_player_died)
 	
 func check_can_upgrade(stat: String) -> bool:
-	if get_upgrade_cost(stat) <= Inventory.check_item(Globals.currency_key):
-		return true
+	if (get_upgrade_cost(stat) <= Inventory.check_item(Globals.currency_key) 
+		&& get_stat_lvl(stat) < MAX_LEVEL):
+			return true
 	return false
 
 func upgrade_stat(stat: String):
