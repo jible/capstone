@@ -664,7 +664,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a50l1"]
-radius = 836.002
+radius = 1404.04
 
 [node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator", "target_tracker")]
 scale = Vector2(0.5, 0.5)
@@ -732,6 +732,7 @@ starting_health = 2
 
 [node name="Navigator" type="NavigationAgent2D" parent="." node_paths=PackedStringArray("character")]
 script = ExtResource("18_cj80n")
+calc_path_frequency = 1.0
 character = NodePath("..")
 
 [node name="Target Tracker" type="Area2D" parent="." node_paths=PackedStringArray("character")]
