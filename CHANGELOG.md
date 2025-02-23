@@ -180,3 +180,8 @@
 
 -   Added CSV file importing for Upgrade Manager
 -   HUD now starts at Lvl 0
+
+## version 0.39
+-   Upgrades now have a space for icons
+-   Fixed upgrade menu going behind HUD
+-   Merged in the foundation of the Options menu from the branch `jackson-jack-options`
