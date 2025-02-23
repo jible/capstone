@@ -16,7 +16,7 @@ text = "Upgrade Stat"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.69
-text = "Lvl. 1"
+text = "Lvl. 0"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]

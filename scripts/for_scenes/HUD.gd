@@ -1,13 +1,12 @@
 extends Control
 
 var test = 0
-@onready var upgrade_menu = $"StatUpgradeUi"
-@onready var menu_button = $"Button"
+@onready var upgrade_menu = $StatUpgradeUi
+@onready var menu_button = $Border/Button
 
-@onready var health_bar: ProgressBar = $"PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Health/HealthBar"
-@onready var health_label: Label = $"PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Health/HealthLabel"
-@onready var currency_count: Label = $"PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Currency/CurrencyCount"
-
+@onready var health_bar: ProgressBar = $Border/PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Health/HealthBar
+@onready var health_label: Label = $Border/PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Health/HealthLabel
+@onready var currency_count: Label = $Border/Currency/CurrencyCount
 @onready var player: Player = get_tree().get_first_node_in_group("Player")
 
 # Called when the node enters the scene tree for the first time.

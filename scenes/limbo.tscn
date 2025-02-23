@@ -16,3 +16,9 @@ navigation_polygon = SubResource("NavigationPolygon_k7bpu")
 
 [editable path="Scene Config Package"]
 [editable path="Scene Config Package/Level Generator"]
+[editable path="Scene Config Package/Player"]
+[editable path="Scene Config Package/Player/State Machine"]
+[editable path="Scene Config Package/Player/Hitbox"]
+[editable path="Scene Config Package/Player/Hurtbox"]
+[editable path="Scene Config Package/Player/Direction Manager"]
+[editable path="Scene Config Package/Player/Pick Up"]
