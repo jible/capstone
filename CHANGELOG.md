@@ -169,6 +169,13 @@
 -   Edit collision
 -   Player movement refining
 
+## version 0.37
+
+-   Added in assets from Phoebe's UI work (HUD, Upgrade icons(Health Damage Speed), temp icon for currency (Still needs to have transparent background)) to the file system under `assets/ui_models`
+-   HUD Border will need to be refined because it obscures too much of the screen, for now the transparency is lowered to allow for an easy replacement
+-   Reordered node hierarchy to support the HUD changes. There are two main nodes now associated with the HUD, one for the border HUD with the health, currency, mini-map, and upgrade button, and another for the upgrade menu itself. This change was meant to prevent scaling the HUD accidentally scaling the upgrade menu, and allow for the transparency of the HUD texture to be lowered while keeping the information like the health and currency still fully visible.
+-   Pathing in the `hud.gd` code was adjusted to fit these changes.
+
 ## version 0.38
 
 -   Added CSV file importing for Upgrade Manager
