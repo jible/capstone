@@ -43,10 +43,10 @@ text = "Resume"
 layout_mode = 2
 text = "Quit"
 
-[node name="OptionMenu" parent="." node_paths=PackedStringArray("pause_menu") instance=ExtResource("2_piomc")]
+[node name="OptionMenu" parent="." node_paths=PackedStringArray("previous_menu") instance=ExtResource("2_piomc")]
 visible = false
 layout_mode = 1
-pause_menu = NodePath("../PauseMenu")
+previous_menu = NodePath("../PauseMenu")
 
 [connection signal="pressed" from="PauseMenu/VBoxContainer/OptionsToggle" to="." method="_on_options_toggle_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/ResumeToggle" to="." method="_on_resume_toggle_pressed"]

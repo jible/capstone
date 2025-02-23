@@ -1,7 +1,7 @@
 extends Control
 
-@export var pause_menu: Control
+@export var previous_menu: Control
 
 func _on_back_button_pressed() -> void:
 	self.hide()
-	pause_menu.show()
+	previous_menu.show()
