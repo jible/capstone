@@ -43,11 +43,11 @@ grow_vertical = 2
 
 [node name="Reset" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Reset"
+text = "RESET_BUTTON"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+text = "QUIT_BUTTON"
 
 [connection signal="pressed" from="VBoxContainer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -24,4 +24,4 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Option Menu"
+text = "OPTIONS_MENU"

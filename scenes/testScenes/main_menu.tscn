@@ -36,6 +36,6 @@ offset_bottom = 48.4399
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
-text = "Play"
+text = "PLAY_BUTTON"
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]

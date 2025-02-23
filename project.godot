@@ -152,6 +152,10 @@ debug_zoom_out={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/localization.en.translation", "res://assets/localization.fr.translation", "res://assets/localization.las.translation")
+
 [layer_names]
 
 2d_physics/layer_1="player_collision"

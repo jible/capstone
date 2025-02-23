@@ -32,16 +32,16 @@ layout_mode = 2
 
 [node name="OptionsToggle" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
-text = "Options
+text = "OPTIONS_BUTTON
 "
 
 [node name="ResumeToggle" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
-text = "Resume"
+text = "RESUME_BUTTON"
 
 [node name="QuitToggle" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+text = "QUIT_BUTTON"
 
 [node name="OptionMenu" parent="." instance=ExtResource("2_piomc")]
 visible = false
