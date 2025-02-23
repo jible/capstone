@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsmerj830lma6"]
+[gd_scene load_steps=6 format=3 uid="uid://bsmerj830lma6"]
 
 [ext_resource type="PackedScene" uid="uid://bt7w3orvfq2tv" path="res://scenes/prefabs/ui_elements/stat_upgrade.tscn" id="1_ekqrg"]
 [ext_resource type="Script" path="res://scripts/for_scenes/stat_upgrade_ui.gd" id="1_eu2fv"]
+[ext_resource type="Texture2D" uid="uid://cegvvvlsxekts" path="res://assets/ui_renders/HeartIcon.png" id="3_klydc"]
+[ext_resource type="Texture2D" uid="uid://c7bfofw7rd1tu" path="res://assets/ui_renders/FistIcon.png" id="4_0piuq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6vq2"]
 corner_radius_top_left = 25
@@ -53,10 +55,12 @@ layout_mode = 2
 [node name="StatUpgrade" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
 stat_name = "health"
+upgrade_icon = ExtResource("3_klydc")
 
 [node name="StatUpgrade2" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
 stat_name = "dmg"
+upgrade_icon = ExtResource("4_0piuq")
 
 [node name="StatUpgrade3" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
