@@ -36,3 +36,9 @@ level_generator = NodePath("../Level Generator")
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("6_14c2j")]
 
 [editable path="Level Generator"]
+[editable path="Player"]
+[editable path="Player/State Machine"]
+[editable path="Player/Hitbox"]
+[editable path="Player/Hurtbox"]
+[editable path="Player/Direction Manager"]
+[editable path="Player/Pick Up"]
