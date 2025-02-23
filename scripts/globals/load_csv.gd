@@ -4,13 +4,11 @@ extends Node
 
 func load_csv_dictionary(csv_path: String) -> Dictionary:
 	var _csv_dictionary = {}
-	
 	var file = FileAccess.open(csv_path, FileAccess.READ)
 	
 	if file == null:
 		printerr("No file found at: ", csv_path)
 		return _csv_dictionary
-	
 	
 	#load rest of lines as arr values	
 	while not file.eof_reached():
