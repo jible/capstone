@@ -18,6 +18,8 @@ world_seed = 2
 
 [node name="Player" parent="." instance=ExtResource("3_5fksv")]
 
+[node name="WallTransparencyCollision" type="CollisionShape2D" parent="Player"]
+
 [node name="Custom Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_t24gl")]
 zoom = Vector2(0.8, 0.8)
 target = NodePath("../Player")
