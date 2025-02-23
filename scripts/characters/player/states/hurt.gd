@@ -18,6 +18,7 @@ extends SMState
 @onready var mobility_manager = character.mobility_manager
 # Sound Stuff
 @onready var speaker = character.speaker
+var is_active = false
 var sfx = SoundManager
 # State Details
 var callbacks = {

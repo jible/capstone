@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://cfy2mlhpkuxdd"]
+[gd_scene load_steps=88 format=3 uid="uid://cfy2mlhpkuxdd"]
 
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/basic_enemy.gd" id="1_s78sa"]
 [ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="2_ffnce"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://idkrtkxeva1r" path="res://assets/spritesheets/infinimouth_pursuit.png" id="13_mjspm"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="13_y7ykc"]
 [ext_resource type="Script" path="res://scripts/navigator.gd" id="18_cj80n"]
-[ext_resource type="Script" path="res://scripts/target_tracker.gd" id="19_3101n"]
+[ext_resource type="Script" path="res://target_tracker.gd" id="20_k6fip"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt6l6"]
 radius = 44.1814
@@ -663,6 +663,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_a50l1"]
+radius = 836.002
+
 [node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator", "target_tracker")]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
@@ -677,7 +680,7 @@ hurtbox = NodePath("Hurtbox")
 sprite_manager = NodePath("Animation Manager")
 health_manager = NodePath("Health Manager")
 navigator = NodePath("Navigator")
-target_tracker = NodePath("TargetTracker")
+target_tracker = NodePath("Target Tracker")
 drop = ExtResource("2_n2j2n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -688,10 +691,11 @@ base_max_speed = 80
 base_acceleration = 80
 
 [node name="State Machine" parent="." instance=ExtResource("3_4kkek")]
-default_state = "Pursuit"
+default_state = "Idle"
 
-[node name="Idle" type="Node" parent="State Machine"]
+[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
 script = ExtResource("3_f8pux")
+character = NodePath("../..")
 
 [node name="Pursuit" type="Node" parent="State Machine" node_paths=PackedStringArray("hitbox", "character", "mobility_manager")]
 script = ExtResource("4_nlsgk")
@@ -709,7 +713,8 @@ script = ExtResource("8_vddrh")
 
 [node name="Animation Manager" parent="." instance=ExtResource("9_37jjd")]
 sprite_frames = SubResource("SpriteFrames_d4jv7")
-animation = &"pursuit_south"
+animation = &"idle_south"
+autoplay = "idle_south"
 
 [node name="Hitbox" parent="." instance=ExtResource("5_pk3ql")]
 collision_layer = 32
@@ -729,8 +734,12 @@ starting_health = 2
 script = ExtResource("18_cj80n")
 character = NodePath("..")
 
-[node name="TargetTracker" type="Node" parent="."]
-script = ExtResource("19_3101n")
+[node name="Target Tracker" type="Area2D" parent="." node_paths=PackedStringArray("character")]
+script = ExtResource("20_k6fip")
+character = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target Tracker"]
+shape = SubResource("CircleShape2D_a50l1")
 
 [connection signal="state_changed" from="State Machine" to="Mobility Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]
@@ -738,6 +747,9 @@ script = ExtResource("19_3101n")
 [connection signal="died" from="State Machine/Death" to="." method="_on_death_died"]
 [connection signal="received_damage" from="Hurtbox" to="Health Manager" method="_on_hurtbox_received_damage"]
 [connection signal="direction_changed" from="Direction Manager" to="Animation Manager" method="_on_direction_manager_direction_changed"]
+[connection signal="new_target" from="Target Tracker" to="State Machine/Idle" method="_on_target_tracker_new_target"]
+[connection signal="new_target" from="Target Tracker" to="State Machine/Pursuit" method="_on_target_tracker_new_target"]
+[connection signal="new_target" from="Target Tracker" to="Navigator" method="_on_target_tracker_new_target"]
 
 [editable path="State Machine"]
 [editable path="Direction Manager"]

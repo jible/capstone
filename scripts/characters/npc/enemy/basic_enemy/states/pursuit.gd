@@ -11,6 +11,7 @@ extends Node
 
 # Other variables
 @onready var sm = get_parent()
+var is_active = false
 var callbacks = {}
 var direction_dependent = true
 var timer:Timer
@@ -56,3 +57,8 @@ func exit_state():
 	
 	mobility_manager.input_direction = Vector2.ZERO
 	pass
+
+
+func _on_target_tracker_new_target(target):
+	if !target:
+		sm.change_state("Idle")

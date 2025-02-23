@@ -12,6 +12,7 @@ extends Node
 
 # Other Variables
 @onready var sm = get_parent()
+var is_active = false
 var health_manager: Health
 var hurtbox:HurtBox
 var mobility_manager: Node2D
@@ -35,7 +36,7 @@ func end_hurt():
 	if health_manager.health <=0:
 		sm.change_state("Death")
 	else: 
-		sm.change_state("Pursuit")
+		sm.change_state("Idle")
 
 # Main Functions
 func update_state(delta):

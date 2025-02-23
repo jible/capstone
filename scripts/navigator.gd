@@ -27,10 +27,12 @@ func turn_off():
 	update_path_on_timer = true
 
 
-func update_target_pos():
+func update_target_pos(new_pos = null):
 	var temp = character.target_tracker.get_target_position()
 	if temp != null:
 		target_position = temp
+	else:
+		target_position = Vector2.ZERO
 
 
 func make_timer():
@@ -41,3 +43,7 @@ func make_timer():
 	timer.timeout.connect(timer_done)
 	add_child(timer)
 	timer.start()
+
+
+func _on_target_tracker_new_target(new_target):
+	update_target_pos()

@@ -14,9 +14,7 @@ camera = NodePath("Custom Camera")
 player = NodePath("Player")
 
 [node name="Level Generator" parent="." instance=ExtResource("2_1eor7")]
-size = Vector2i(150, 150)
 world_seed = 2
-randomize_seed = false
 
 [node name="Player" parent="." instance=ExtResource("3_5fksv")]
 
