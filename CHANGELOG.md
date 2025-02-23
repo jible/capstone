@@ -185,3 +185,4 @@
 -   Upgrades now have a space for icons
 -   Fixed upgrade menu going behind HUD
 -   Merged in the foundation of the Options menu from the branch `jackson-jack-options`
+-   Changed hotspot for cursor to better match the tip of the sword image.
