@@ -17,7 +17,7 @@ rendering_quadrant_size = 120
 [node name="Player" parent="." instance=ExtResource("2_8l773")]
 position = Vector2(1602, 981)
 
-[node name="Direction Manager" parent="Player" index="6"]
+[node name="Direction Manager" parent="Player" index="5"]
 position = Vector2(-315, -121)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

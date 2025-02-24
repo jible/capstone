@@ -10,9 +10,16 @@ extends CharacterBody2D
 @export var health_manager: Health
 @export var pick_up: PickUp
 @export var speaker: AudioStreamPlayer2D
+@export var wall_layer : TileMap
 var inventory: Inventory = Inventory
 @export var drag_coefficient: float
 @onready var drag:float  = 1.0 - drag_coefficient
+
+func _ready():
+	Globals.player = self
+	SignalBus.player_stat_upgraded.connect(update_stats)
+	
+
 
 func _physics_process(_delta):
 	mobility_manager.input_direction = InputManager.get_move_vector()
@@ -20,10 +27,6 @@ func _physics_process(_delta):
 
 func get_direction():
 	return InputManager.get_look_vector(position)
-
-func _ready():
-	Globals.player = self
-	SignalBus.player_stat_upgraded.connect(update_stats)
 
 func update_stats(stat_name: String):
 	Callable(self, "update_%s" %stat_name).call()
@@ -41,3 +44,8 @@ func update_speed():
 func update_dmg():
 	print("dmg")
 	hitbox.increase_damage(UpgradeManager.get_stat(UpgradeManager.DMG))
+
+
+func _on_wall_collision_area_body_entered(body):
+	
+	print(body)
