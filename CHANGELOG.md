@@ -181,7 +181,7 @@
 -   Added CSV file importing for Upgrade Manager
 -   HUD now starts at Lvl 0
 
-## version 0.39
+## version 0.40
 
 -   Enemies now have a patrol state. They walk around searching for player
 -   Enemies use navigator to get next direction from nav mesh.
