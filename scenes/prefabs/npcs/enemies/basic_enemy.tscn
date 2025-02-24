@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://cfy2mlhpkuxdd"]
+[gd_scene load_steps=89 format=3 uid="uid://cfy2mlhpkuxdd"]
 
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/basic_enemy.gd" id="1_s78sa"]
 [ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="2_ffnce"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="6_025q6"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/death.gd" id="8_vddrh"]
 [ext_resource type="PackedScene" uid="uid://0ry41ukaumi6" path="res://scenes/prefabs/animation_manager.tscn" id="9_37jjd"]
+[ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/patrol.gd" id="9_b67qh"]
 [ext_resource type="Texture2D" uid="uid://b1kag480gef6o" path="res://assets/spritesheets/infinimouth_death.png" id="10_n4e04"]
 [ext_resource type="Texture2D" uid="uid://c5ar0lb8pj5x5" path="res://assets/spritesheets/infinimouth.png" id="11_cosgq"]
 [ext_resource type="Texture2D" uid="uid://snxt44vfbqvc" path="res://assets/spritesheets/inifinimouth_idle.png" id="12_6khpr"]
@@ -710,6 +711,10 @@ character = NodePath("../..")
 
 [node name="Death" type="Node" parent="State Machine"]
 script = ExtResource("8_vddrh")
+
+[node name="Patrol" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
+script = ExtResource("9_b67qh")
+character = NodePath("../..")
 
 [node name="Animation Manager" parent="." instance=ExtResource("9_37jjd")]
 sprite_frames = SubResource("SpriteFrames_d4jv7")

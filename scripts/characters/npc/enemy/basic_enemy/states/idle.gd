@@ -17,6 +17,10 @@ var is_active = false
 func update_state(delta):
 	pass
 func enter_state():
+	if character.target_tracker.get_target() != null:
+		sm.change_state("Pursuit")
+	else: 
+		sm.change_state("Patrol")
 	pass
 func exit_state():
 	pass

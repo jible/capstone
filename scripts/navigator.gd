@@ -24,10 +24,13 @@ func turn_on():
 	update_path_on_timer = true
 	update_target_pos()
 func turn_off():
-	update_path_on_timer = true
+	update_path_on_timer = false
 
 
 func update_target_pos(new_pos = null):
+	if new_pos:
+		target_position = new_pos
+		return
 	var temp = character.target_tracker.get_target_position()
 	if temp != null:
 		target_position = temp

@@ -4,7 +4,7 @@ extends Node
 
 @onready var player: Player = get_tree().get_first_node_in_group("Player")
 var max_living_enemies = 10
-var min_dist_from_player = 100
+var min_dist_from_player = 1000
 var time_since_check = 0
 var spawn_time = .2
 
