@@ -102,7 +102,10 @@ func set_spawn_and_exit( min_distance = 15 ):
 func get_random_floor():
 	while true:
 		var point = Vector2(randi() % (size.x -1), randi() % (size.y- 1))
-		if ( get_tile(point).type == "floor" ):
+		# The second half should be a temp fix - 
+		# it prevents it from placing tiles on tile sthat will be overwritten with collision
+		
+		if ( get_tile(point).type == "floor" && get_tile (point - Vector2(0,-1)).type == "floor" ):
 			return point
 
 func calc_distance(a,b):
