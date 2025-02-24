@@ -9,6 +9,10 @@ var noise_ref = FastNoiseLite.new()
 var threshold = .3
 var player_spawn = Vector2i.ZERO
 var end = Vector2i.ZERO
+var step_points = [
+	Vector2i.ZERO,
+	Vector2i(0,1)
+]
 
 func _init(arg_size, arg_seed):
 	size = arg_size
@@ -58,11 +62,8 @@ func random_walk(layer, value, steps = size.x * size.y / 5):
 	var pos = start
 	var count = 0
 	while placed_tiles <= steps:
-		var current_tile = get_tile(pos)
-		if (current_tile.type != value):
-			placed_tiles += 1
-		count +=1
-		current_tile.type = value
+		placed_tiles += walk_over_point(pos, value)
+		count+=1
 		
 		#update seed
 		seed(seed + count)
@@ -70,6 +71,16 @@ func random_walk(layer, value, steps = size.x * size.y / 5):
 		if pos.x >= size.x - 5 || pos.x < 5 || pos.y >= size.y - 5 || pos.y <= 5:
 			pos = start
 
+func walk_over_point(point:Vector2i, value):
+	var placed_tiles = 0
+	for i in step_points:
+		var look = i + point
+		var current_tile = get_tile(look)
+		
+		if (current_tile.type != value):
+			current_tile.type = value
+			placed_tiles += 1
+	return placed_tiles
 
 func set_spawn_and_exit( min_distance = 15 ):
 	var a = Vector2i.ZERO
