@@ -8,6 +8,7 @@ extends SMState
 # Variables
 @onready var sm = get_parent()
 var direction_dependent = false
+var is_active = false
 var callbacks = {
 	"end": Callable(self,"anim_end")
 }

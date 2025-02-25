@@ -10,6 +10,7 @@ extends SMState
 @onready var speaker: AudioStreamPlayer2D = character.speaker
 var sfx = SoundManager
 var animation_name = "death"
+var is_active = false
 var direction_dependent = false
 var callbacks = {}
 

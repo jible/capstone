@@ -182,7 +182,17 @@
 -   HUD now starts at Lvl 0
 
 ## version 0.39
+
 -   Upgrades now have a space for icons
 -   Fixed upgrade menu going behind HUD
 -   Merged in the foundation of the Options menu from the branch `jackson-jack-options`
 -   Changed hotspot for cursor to better match the tip of the sword image.
+
+## version 0.40
+
+-   Enemies now have a patrol state. They walk around searching for player
+-   Enemies use navigator to get next direction from nav mesh.
+-   Enemies have a target tracker to handle the reference to the node they are chasing (usually the player)
+-   Fixed all map issues:
+		- Map generator walks with a 2 tile cursor preventing 1 tile tall areas that can be blocked by new wall collision
+		- Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)

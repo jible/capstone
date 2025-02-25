@@ -13,3 +13,4 @@ target = NodePath("../Player")
 follow_player = true
 
 [node name="Basic Enemy" parent="." instance=ExtResource("3_qawkk")]
+position = Vector2(338, 48)
