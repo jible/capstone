@@ -155,7 +155,7 @@ debug_zoom_out={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://assets/localization.en.translation", "res://assets/localization.fr.translation", "res://assets/localization.las.translation")
+locale/translations=PackedStringArray("res://assets/csvs/localization.en.translation", "res://assets/csvs/localization.fr.translation", "res://assets/csvs/localization.las.translation")
 
 [layer_names]
 
