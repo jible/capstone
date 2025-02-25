@@ -10,10 +10,9 @@ extends CharacterBody2D
 @export var health_manager: Health
 @export var pick_up: PickUp
 @export var speaker: AudioStreamPlayer2D
-@export var wall_layer : TileMap
+@export var silhouette: AnimatedSprite2D
 var inventory: Inventory = Inventory
 @export var drag_coefficient: float
-@onready var drag:float  = 1.0 - drag_coefficient
 
 func _ready():
 	Globals.player = self

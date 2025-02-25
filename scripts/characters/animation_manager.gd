@@ -1,6 +1,7 @@
 extends AnimatedSprite2D
 class_name AnimationManager
 #Properties
+@export var character: CharacterBody2D
 var current_direction = "north"
 var current_state = null
 var callbacks = {}
@@ -16,6 +17,11 @@ func update_anim():
 		true_animation_name = current_state.animation_name
 		
 	play(true_animation_name)
+	# TODO make silhouette a proper object and give it a function to get 
+	# its animations from the animaition manager so we doesn't have to copy and paste
+	if ( character.silhouette):
+		character.silhouette.play(true_animation_name)
+	
 
 func _on_state_machine_state_changed(new_state):
 	""" 

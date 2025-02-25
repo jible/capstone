@@ -662,7 +662,7 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator")]
+[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator", "silhouette")]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 67
@@ -676,6 +676,7 @@ hurtbox = NodePath("Hurtbox")
 sprite_manager = NodePath("Animation Manager")
 health_manager = NodePath("Health Manager")
 navigator = NodePath("Navigator")
+silhouette = NodePath("Silhouette")
 drop = ExtResource("2_n2j2n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -705,9 +706,18 @@ character = NodePath("../..")
 [node name="Death" type="Node" parent="State Machine"]
 script = ExtResource("8_vddrh")
 
-[node name="Animation Manager" parent="." instance=ExtResource("9_37jjd")]
+[node name="Animation Manager" parent="." node_paths=PackedStringArray("character") instance=ExtResource("9_37jjd")]
 sprite_frames = SubResource("SpriteFrames_d4jv7")
 animation = &"pursuit_south"
+character = NodePath("..")
+
+[node name="Silhouette" parent="." instance=ExtResource("9_37jjd")]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = 5
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_d4jv7")
+animation = &"pursuit_south"
+script = null
 
 [node name="Hitbox" parent="." instance=ExtResource("5_pk3ql")]
 collision_layer = 32
