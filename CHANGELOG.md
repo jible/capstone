@@ -195,6 +195,7 @@
 -   Refactored the upgrade menu to have more readable font size, and centered the text for the upgrade name.
 -   Implemented the new button textures into the pause menu.
 -   Changed upgrade names, and made them use all uppercase letters
+-   Speed icon added to upgrade UI
 
 ## version 0.41
 -   Enemies now have a patrol state. They walk around searching for player
