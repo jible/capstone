@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0qchcd21rx5b"]
+[gd_scene load_steps=12 format=3 uid="uid://b0qchcd21rx5b"]
 
 [ext_resource type="Script" path="res://scripts/level_generator.gd" id="1_imcpr"]
 [ext_resource type="PackedScene" uid="uid://ddelqb5kn8xdx" path="res://scenes/prefabs/enter.tscn" id="2_ci0jl"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ca6grrk71ix8f" path="res://assets/tilesets/wall_tileset.png" id="3_r8qfe"]
 [ext_resource type="TileSet" uid="uid://cbcmjaiqxltk3" path="res://tilesets/temp_floor.tres" id="4_wlnp8"]
 [ext_resource type="Script" path="res://scripts/nav_mesh_maker.gd" id="6_eeug0"]
+[ext_resource type="Texture2D" uid="uid://duufxwo0sqfp" path="res://assets/tilesets/wall_tileset_v2.png" id="6_kmgqy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sr1dw"]
 resource_name = "walls"
@@ -29,10 +30,29 @@ texture_region_size = Vector2i(120, 120)
 2:1/0/z_index = 1
 2:1/0/y_sort_origin = 100
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8j4gp"]
+resource_name = "wallV2"
+texture = ExtResource("6_kmgqy")
+texture_region_size = Vector2i(120, 120)
+0:0/0 = 0
+0:0/0/z_index = 1
+0:0/0/y_sort_origin = -100
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -60, -60, 60, 60, 60, 60, -60)
+1:0/0 = 0
+1:0/0/z_index = 1
+1:0/0/y_sort_origin = 20
+2:0/0 = 0
+2:0/0/z_index = 2
+0:1/0 = 0
+0:1/0/z_index = 2
+1:1/0 = 0
+2:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_0kjvg"]
 tile_size = Vector2i(120, 120)
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
+sources/1 = SubResource("TileSetAtlasSource_8j4gp")
 sources/0 = SubResource("TileSetAtlasSource_sr1dw")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2pohe"]

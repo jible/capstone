@@ -112,8 +112,8 @@ func render_tiles(layer):
 				layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
 			
 			if map.get_tile(pos).type == null:
-				layers["wall1"].set_cell(Vector2(x,y), 0, Vector2i(0,0))
+				layers["wall1"].set_cell(Vector2(x,y), 1, Vector2i(0,0))
 				if y - 1 >= 0:
-					layers["wall2"].set_cell(Vector2(x,y - 1), 0, Vector2i(1,0))
+					layers["wall2"].set_cell(Vector2(x,y - 1), 1, Vector2i(1,0))
 				if y -2 >= 0:
-					layers["ceiling"].set_cell(Vector2(x,y - 2), 0, Vector2i(2,0))
+					layers["ceiling"].set_cell(Vector2(x,y - 2), 1, Vector2i(2,0))
