@@ -17,6 +17,7 @@ extends SMState
 @onready var hitbox : HitBox = character.hitbox
 var sfx = SoundManager
 var direction_dependent = true
+var is_active = false
 var callbacks = {
 	"start": Callable(self, "turn_on_hitbox"),
 	2: Callable(self, "turn_off_hitbox"),

@@ -11,15 +11,14 @@ extends Node
 
 # Other variables
 @onready var sm = get_parent()
+var is_active = false
 var callbacks = {}
-var player: Player
 var direction_dependent = true
 var timer:Timer
 var target: Node2D
 
 # Functions
 func _ready():
-	player = Globals.get_player()
 	make_timer()
 
 
@@ -34,27 +33,32 @@ func make_timer():
 
 # Required state functions
 func update_state(delta):
-	player = Globals.player
-	if (player):
-		character.navigator.update_target_pos(player.position)
-		var target_vector =  character.navigator.get_next_path_position() - character.global_position 
-		if target_vector == null:
-			return
-		if (target_vector.length() < 10):
-			target_vector = Vector2.ZERO
-		else:
-			target_vector = target_vector.normalized()
-		mobility_manager.input_direction = target_vector
+	var target_vector =  character.navigator.get_next_step() - character.global_position 
+	if target_vector == null:
+		return
+	if (target_vector.length() < 10):
+		target_vector = Vector2.ZERO
+	else:
+		target_vector = target_vector.normalized()
+	mobility_manager.input_direction = target_vector
 
 
 func enter_state():
 	# turn on hitbox
 	hitbox.turn_on()
+	character.navigator.turn_on()
 	pass
 	
 func exit_state():
 	# turn off hitbox
 	hitbox.turn_off()
+	character.navigator.turn_off()
+	
 	
 	mobility_manager.input_direction = Vector2.ZERO
 	pass
+
+
+func _on_target_tracker_new_target(target):
+	if !target:
+		sm.change_state("Idle")

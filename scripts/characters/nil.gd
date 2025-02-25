@@ -4,10 +4,13 @@ extends SMState
 @export var lock_direction = false
 @export var movement_details =  {}
 @export var animation_name = "nil"
+
+# Other variables
+@onready var sm = get_parent()
 var direction_dependent = true
 var callbacks = {}
-# On readys
-@onready var sm = get_parent()
+var is_active = false
+
 
 func frameOneFunc():
 	pass

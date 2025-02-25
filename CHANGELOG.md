@@ -168,3 +168,31 @@
 -   Added particle effects to player attack
 -   Edit collision
 -   Player movement refining
+
+## version 0.37
+
+-   Added in assets from Phoebe's UI work (HUD, Upgrade icons(Health Damage Speed), temp icon for currency (Still needs to have transparent background)) to the file system under `assets/ui_models`
+-   HUD Border will need to be refined because it obscures too much of the screen, for now the transparency is lowered to allow for an easy replacement
+-   Reordered node hierarchy to support the HUD changes. There are two main nodes now associated with the HUD, one for the border HUD with the health, currency, mini-map, and upgrade button, and another for the upgrade menu itself. This change was meant to prevent scaling the HUD accidentally scaling the upgrade menu, and allow for the transparency of the HUD texture to be lowered while keeping the information like the health and currency still fully visible.
+-   Pathing in the `hud.gd` code was adjusted to fit these changes.
+
+## version 0.38
+
+-   Added CSV file importing for Upgrade Manager
+-   HUD now starts at Lvl 0
+
+## version 0.39
+
+-   Upgrades now have a space for icons
+-   Fixed upgrade menu going behind HUD
+-   Merged in the foundation of the Options menu from the branch `jackson-jack-options`
+-   Changed hotspot for cursor to better match the tip of the sword image.
+
+## version 0.40
+
+-   Enemies now have a patrol state. They walk around searching for player
+-   Enemies use navigator to get next direction from nav mesh.
+-   Enemies have a target tracker to handle the reference to the node they are chasing (usually the player)
+-   Fixed all map issues:
+		- Map generator walks with a 2 tile cursor preventing 1 tile tall areas that can be blocked by new wall collision
+		- Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)

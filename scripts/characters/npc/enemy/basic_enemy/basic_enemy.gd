@@ -9,6 +9,7 @@ class_name BasicEnemy
 @export var health_manager: Health
 @export var navigator: Navigator
 @export var silhouette: AnimatedSprite2D
+@export var target_tracker: TargetTracker
 var type = "basic_enemy"
 
 @export var drop : PackedScene

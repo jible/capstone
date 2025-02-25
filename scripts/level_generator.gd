@@ -61,6 +61,10 @@ func generate_level(level_type):
 	spawn_point = ( map.player_spawn * tile_size ) + (.5 * tile_size)
 	end_point = ( map.end * tile_size ) + (.5 * tile_size)
 	render()
+	
+	# Re randomize world seed after making seeded content.
+	randomize()
+
 
 func make_limbo():
 	'''
