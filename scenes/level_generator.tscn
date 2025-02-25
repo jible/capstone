@@ -40,7 +40,7 @@ tile_set = ExtResource("4_wlnp8")
 rendering_quadrant_size = 120
 navigation_enabled = false
 
-[node name="Walls" type="TileMapLayer" parent="."]
+[node name="Walls" type="TileMapLayer" parent="." groups=["pathfinder_collision"]]
 tile_set = SubResource("TileSet_0kjvg")
 navigation_enabled = false
 

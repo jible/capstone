@@ -1,11 +1,12 @@
 extends HBoxContainer
 
 @export var stat_name: String
-
+@export var upgrade_icon : CompressedTexture2D
 @onready var upgrade_level_label = $"UpgradeLevelLabel"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$TextureRect.texture = upgrade_icon
 	var label: Label = $"StatNameLabel"
 	label.text = "Upgrade: " + stat_name
 	SignalBus.update_HUD.connect(update_level_label)

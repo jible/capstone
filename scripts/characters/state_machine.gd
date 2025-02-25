@@ -49,9 +49,13 @@ func update_state(delta):
 # private functions:
 func enter_state(new_state):
 	state_objects[new_state].enter_state()
+	state_objects[new_state].is_active = true
+	
 
 func exit_state(old_state):
 	state_objects[old_state].exit_state()
+	state_objects[old_state].is_active = false
+	
 
 # HOW  TO USE:
 # You do not need to modify this file when you are using it. 
