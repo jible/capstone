@@ -14,12 +14,16 @@ expand_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 20.0
-text = "Upgrade Stat"
+theme_override_font_sizes/font_size = 48
+text = "UPGRADE: "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="UpgradeLevelLabel" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.69
+theme_override_font_sizes/font_size = 48
 text = "Lvl. 0"
 horizontal_alignment = 1
 
@@ -28,6 +32,7 @@ custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.18
+theme_override_font_sizes/font_size = 48
 text = "+"
 
 [connection signal="pressed" from="Button" to="." method="_on_stat_increased"]

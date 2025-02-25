@@ -186,3 +186,11 @@
 -   Fixed upgrade menu going behind HUD
 -   Merged in the foundation of the Options menu from the branch `jackson-jack-options`
 -   Changed hotspot for cursor to better match the tip of the sword image.
+
+## version 0.40
+-   Added in new assets from Phoebe for buttons, the main menu, and currency.
+-   Changed the main menu scene to include the main menu book, and the new play button
+-   Polished the play button so on mouse hover, it turns red
+-   Refactored the upgrade menu to have more readable font size, and centered the text for the upgrade name.
+-   Implemented the new button textures into the pause menu.
+-   Changed upgrade names, and made them use all uppercase letters
