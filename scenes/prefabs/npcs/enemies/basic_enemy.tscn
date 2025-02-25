@@ -664,13 +664,10 @@ animations = [{
 "speed": 15.0
 }]
 
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_a50l1"]
 radius = 1404.04
 
 [node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator", "silhouette", "target_tracker")]
->>>>>>> main
-scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 67
 motion_mode = 1
@@ -715,6 +712,10 @@ character = NodePath("../..")
 [node name="Death" type="Node" parent="State Machine"]
 script = ExtResource("8_vddrh")
 
+[node name="Patrol" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
+script = ExtResource("9_b67qh")
+character = NodePath("../..")
+
 [node name="Animation Manager" parent="." node_paths=PackedStringArray("character") instance=ExtResource("9_37jjd")]
 sprite_frames = SubResource("SpriteFrames_d4jv7")
 animation = &"pursuit_south"
@@ -727,14 +728,6 @@ y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_d4jv7")
 animation = &"pursuit_south"
 script = null
-[node name="Patrol" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
-script = ExtResource("9_b67qh")
-character = NodePath("../..")
-
-[node name="Animation Manager" parent="." instance=ExtResource("9_37jjd")]
-sprite_frames = SubResource("SpriteFrames_d4jv7")
-animation = &"idle_south"
-autoplay = "idle_south"
 
 [node name="Hitbox" parent="." instance=ExtResource("5_pk3ql")]
 collision_layer = 32
