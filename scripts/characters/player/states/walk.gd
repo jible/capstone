@@ -10,6 +10,7 @@ extends SMState
 @onready var sm = get_parent()
 var direction_dependent = true
 var callbacks = {}
+var is_active = false
 
 # Main Functions
 func update_state(delta):
