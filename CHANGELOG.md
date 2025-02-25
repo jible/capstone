@@ -181,6 +181,13 @@
 -   Added CSV file importing for Upgrade Manager
 -   HUD now starts at Lvl 0
 
+## version 0.39
+
+-   Upgrades now have a space for icons
+-   Fixed upgrade menu going behind HUD
+-   Merged in the foundation of the Options menu from the branch `jackson-jack-options`
+-   Changed hotspot for cursor to better match the tip of the sword image.
+
 ## version 0.40
 
 -   Enemies now have a patrol state. They walk around searching for player
