@@ -1,11 +1,26 @@
-extends Node
+extends SMState
 
+# Exports
+@export var character: CharacterBody2D
+@export var lock_direction = false
+@export var movement_details =  {}
+@export var animation_name = "charge"
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+# On readys
+@onready var sm = get_parent()
+var direction_dependent = false
+var callbacks = {
+	"end": Callable(self, "anim_done")
+}
+var is_active = false
 
+func anim_done():
+	sm.change_state("Attack")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+# Main Functions
+func update_state(delta):
+	pass
+func enter_state():
+	character.mobility_manager.input_direction = Vector2.ZERO
+func exit_state():
 	pass

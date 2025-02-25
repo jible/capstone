@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://cfy2mlhpkuxdd"]
+[gd_scene load_steps=98 format=3 uid="uid://cfy2mlhpkuxdd"]
 
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/basic_enemy.gd" id="1_s78sa"]
 [ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="2_ffnce"]
@@ -25,6 +25,34 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt6l6"]
 radius = 44.1814
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0bjf"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(0, 0, 206, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeb27"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(206, 0, 206, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b2ft"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(412, 0, 206, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w6vj"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(618, 0, 206, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7r7s"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(0, 675, 206, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydb1m"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(206, 675, 206, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0dp7"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(412, 675, 206, 225)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kwjjp"]
 atlas = ExtResource("10_n4e04")
@@ -288,6 +316,37 @@ region = Rect2(824, 675, 206, 225)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d4jv7"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0bjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeb27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b2ft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w6vj")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7r7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydb1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0dp7")
+}],
+"loop": false,
+"name": &"charge",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kwjjp")
@@ -700,9 +759,8 @@ default_state = "Idle"
 script = ExtResource("3_f8pux")
 character = NodePath("../..")
 
-[node name="Pursuit" type="Node" parent="State Machine" node_paths=PackedStringArray("hitbox", "character", "mobility_manager")]
+[node name="Pursuit" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "mobility_manager")]
 script = ExtResource("4_nlsgk")
-hitbox = NodePath("../../Hitbox")
 character = NodePath("../..")
 mobility_manager = NodePath("../../Mobility Manager")
 
@@ -722,12 +780,13 @@ character = NodePath("../..")
 script = ExtResource("10_ovdpx")
 character = NodePath("../..")
 
-[node name="Charge" type="Node" parent="State Machine"]
+[node name="Charge" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
 script = ExtResource("11_fq3s2")
+character = NodePath("../..")
 
 [node name="Animation Manager" parent="." instance=ExtResource("9_37jjd")]
 sprite_frames = SubResource("SpriteFrames_d4jv7")
-animation = &"death"
+animation = &"charge"
 autoplay = "idle_south"
 
 [node name="Hitbox" parent="." instance=ExtResource("5_pk3ql")]
