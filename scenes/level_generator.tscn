@@ -12,15 +12,22 @@ resource_name = "walls"
 texture = ExtResource("3_r8qfe")
 texture_region_size = Vector2i(120, 120)
 0:0/0 = 0
+0:0/0/z_index = 1
+0:0/0/y_sort_origin = -100
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(60, 60, -60, 60, -60, -60, 60, -60)
 1:0/0 = 0
 1:0/0/z_index = 1
+1:0/0/y_sort_origin = 20
 2:0/0 = 0
-2:0/0/z_index = 1
+2:0/0/z_index = 2
 1:1/0 = 0
+1:1/0/z_index = 1
+1:1/0/y_sort_origin = 100
 0:1/0 = 0
+0:1/0/z_index = 2
 2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, 60, -60, -60, 60, -60, 60, 60)
+2:1/0/z_index = 1
+2:1/0/y_sort_origin = 100
 
 [sub_resource type="TileSet" id="TileSet_0kjvg"]
 tile_size = Vector2i(120, 120)
@@ -34,6 +41,8 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1705, -1361, 9196, -1908, 12399, 9227, -1829, 9251)])
 
 [node name="Level Generator" type="Node2D" node_paths=PackedStringArray("nav_mesh_maker")]
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_imcpr")
 enter = ExtResource("2_ci0jl")
 exit = ExtResource("3_8m6eb")
@@ -44,7 +53,21 @@ tile_set = ExtResource("4_wlnp8")
 rendering_quadrant_size = 120
 navigation_enabled = false
 
-[node name="Walls" type="TileMapLayer" parent="."]
+[node name="Wall Level 1" type="TileMapLayer" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+tile_set = SubResource("TileSet_0kjvg")
+navigation_enabled = false
+
+[node name="Wall Level 2" type="TileMapLayer" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+tile_set = SubResource("TileSet_0kjvg")
+navigation_enabled = false
+
+[node name="Ceiling" type="TileMapLayer" parent="."]
+z_index = 2
+z_as_relative = false
 tile_set = SubResource("TileSet_0kjvg")
 navigation_enabled = false
 
