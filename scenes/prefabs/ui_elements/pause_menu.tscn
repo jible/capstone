@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c05l3ridoi3lc"]
+[gd_scene load_steps=3 format=3 uid="uid://bqwbdvntcsrc0"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/pause_menu.gd" id="1_j5c0s"]
-[ext_resource type="PackedScene" uid="uid://wuikybn3pwsx" path="res://scenes/prefabs/ui_elements/option_menu.tscn" id="2_piomc"]
+[ext_resource type="PackedScene" uid="uid://df3do2furq7r6" path="res://scenes/prefabs/ui_elements/option_menu.tscn" id="2_piomc"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -43,9 +43,10 @@ text = "RESUME_BUTTON"
 layout_mode = 2
 text = "QUIT_BUTTON"
 
-[node name="OptionMenu" parent="." instance=ExtResource("2_piomc")]
+[node name="OptionMenu" parent="." node_paths=PackedStringArray("pause_menu") instance=ExtResource("2_piomc")]
 visible = false
 layout_mode = 1
+pause_menu = NodePath("../PauseMenu")
 
 [connection signal="pressed" from="PauseMenu/VBoxContainer/OptionsToggle" to="." method="_on_options_toggle_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/ResumeToggle" to="." method="_on_resume_toggle_pressed"]

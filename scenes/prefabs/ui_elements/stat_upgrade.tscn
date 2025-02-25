@@ -6,6 +6,10 @@
 size_flags_vertical = 3
 script = ExtResource("1_ejj0v")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+expand_mode = 3
+
 [node name="StatNameLabel" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
