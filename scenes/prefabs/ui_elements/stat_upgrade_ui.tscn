@@ -67,3 +67,7 @@ layout_mode = 2
 stat_name = "speed"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+
+[editable path="MarginContainer/Panel/MarginContainer/VBoxContainer/StatUpgrade"]

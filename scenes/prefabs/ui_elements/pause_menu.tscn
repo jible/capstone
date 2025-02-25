@@ -48,6 +48,7 @@ visible = false
 layout_mode = 1
 previous_menu = NodePath("../PauseMenu")
 
+[connection signal="draw" from="PauseMenu" to="." method="_on_pause_menu_draw"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/OptionsToggle" to="." method="_on_options_toggle_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/ResumeToggle" to="." method="_on_resume_toggle_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/QuitToggle" to="." method="_on_quit_toggle_pressed"]

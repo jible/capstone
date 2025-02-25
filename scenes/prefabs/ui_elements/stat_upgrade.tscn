@@ -30,4 +30,6 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.18
 text = "+"
 
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_stat_increased"]

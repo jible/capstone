@@ -68,4 +68,5 @@ text = "Reset Stats"
 layout_mode = 2
 text = "Back"
 
+[connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
