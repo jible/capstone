@@ -202,8 +202,8 @@
 -   Enemies use navigator to get next direction from nav mesh.
 -   Enemies have a target tracker to handle the reference to the node they are chasing (usually the player)
 -   Fixed all map issues:
-        - Map generator walks with a 2 tile cursor preventing 1 tile tall areas that can be blocked by new wall collision
-        - Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)
+		- Map generator walks with a 2 tile cursor preventing 1 tile tall areas that can be blocked by new wall collision
+		- Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)
 
 ## version 0.42
 
@@ -216,3 +216,10 @@
 -   Walls now spawn on every tile that isn't a floor tile. 
 -   Y-ordering slightly implemented - in need of bug testing
 -   Added player and enemy silhouette to show entites below walls. 
+
+## version 0.44
+
+- Enemy AI refined
+- Enemy now has explicit attack state and that is the only time their hitbox is active
+        - Map generator walks with a 2 tile cursor preventing 1 tile tall areas that can be blocked by new wall collision
+        - Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)

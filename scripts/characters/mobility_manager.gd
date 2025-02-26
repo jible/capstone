@@ -53,6 +53,8 @@ func increase_max_speed_mult(mult: float):
 	max_speed_mult += mult
 	calculate_true_values()
 
+func apply_impulse(impulse_vector):
+	character.velocity += impulse_vector
 
 func increase_max_accel_mult(mult: float):
 	max_accel_mult += mult

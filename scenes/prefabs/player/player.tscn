@@ -398,7 +398,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v5nrf")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -614,7 +614,7 @@ silhouette = NodePath("Silhouette")
 [node name="Animation Manager" parent="." node_paths=PackedStringArray("character") instance=ExtResource("9_sc1mn")]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_mf368")
-animation = &"walk_north"
+animation = &"death"
 offset = Vector2(0, 2.76)
 character = NodePath("..")
 
