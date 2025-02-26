@@ -125,7 +125,7 @@ offset_top = 936.625
 offset_right = 257.5
 offset_bottom = 1021.62
 grow_vertical = 0
-text = "Upgrade Menu"
+text = "UPGRADE_MENU"
 
 [node name="Currency" type="HBoxContainer" parent="Border"]
 layout_mode = 2

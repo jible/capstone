@@ -221,8 +221,8 @@
 
 - Enemy AI refined
 - Enemy now has explicit attack state and that is the only time their hitbox is active
-        - Map generator walks with a 2 tile cursor preventing 1 tile tall areas that can be blocked by new wall collision
-        - Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)
+		- Map generator walks with a 2 tile cursor preventing 1 tile tall areas that can be blocked by new wall collision
+		- Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)
 
 ## version 0.45
 -   Created tutorial scene
@@ -234,3 +234,8 @@
 ## version 0.46
 -   High-Contrast shader written, used a GPT conversation as a starting point and worked the math into my own code while crediting the original conversation in the shader's code.
 -   Fixed typo in tutorial text from "Left Stick to Aim" to "Right Stick to Aim"
+
+## version 0.47
+-   Localization functioning on all static UI elements that are not custom buttons
+-   An options button will be available in the main menu in the future
+-   Available languages are English, Mexican Spanish, and French
