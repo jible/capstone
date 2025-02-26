@@ -214,5 +214,5 @@
 ## version 0.43
 
 -   Walls now spawn on every tile that isn't a floor tile. 
--   Y-ordering slightly implemented- in need of bugtesting
+-   Y-ordering slightly implemented - in need of bug testing
 -   Added player and enemy silhouette to show entites below walls. 
