@@ -202,18 +202,14 @@
 -   Enemies use navigator to get next direction from nav mesh.
 -   Enemies have a target tracker to handle the reference to the node they are chasing (usually the player)
 -   Fixed all map issues:
-		- Map generator walks with a 2 tile cursor preventing 1 tile tall areas that can be blocked by new wall collision
-		- Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)
+        - Map generator walks with a 2 tile cursor preventing 1 tile tall areas that can be blocked by new wall collision
+        - Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)
 
+## version 0.42
 
-
-
-
-
-
-
-
-
+-   Added Options menu UI
+-   Added UI navigation with controller
+-   New controller input for inventory
 
 ## version 0.43
 

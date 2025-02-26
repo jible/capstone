@@ -35,4 +35,6 @@ size_flags_stretch_ratio = 2.18
 theme_override_font_sizes/font_size = 48
 text = "+"
 
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_stat_increased"]
