@@ -229,4 +229,4 @@
 - Attached video slide show that is cycled through using buttons
 - Added a button to the main menu to initiate the tutorial
 - In the future, the game will detect if the player is playing for the first time and set a flag to show the tutorial when the play button is pressed.
-- Added additional versions of tutorial videos, in GIF and MP4 format for future use.
+- Added additional version of tutorial videos in GIF format for future use.
