@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/hurt.gd" id="6_1sls6"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="6_025q6"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/death.gd" id="8_vddrh"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/animation_manager.tscn" id="9_37jjd"]
+[ext_resource type="PackedScene" uid="uid://0ry41ukaumi6" path="res://scenes/prefabs/animation_manager.tscn" id="9_37jjd"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/patrol.gd" id="9_b67qh"]
 [ext_resource type="Texture2D" uid="uid://b1kag480gef6o" path="res://assets/spritesheets/infinimouth_death.png" id="10_n4e04"]
 [ext_resource type="Texture2D" uid="uid://c5ar0lb8pj5x5" path="res://assets/spritesheets/infinimouth.png" id="11_cosgq"]
@@ -667,8 +667,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_a50l1"]
 radius = 1404.04
 
-[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator", "target_tracker")]
-scale = Vector2(0.5, 0.5)
+[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator", "silhouette", "target_tracker")]
 collision_layer = 2
 collision_mask = 67
 motion_mode = 1
@@ -681,6 +680,7 @@ hurtbox = NodePath("Hurtbox")
 sprite_manager = NodePath("Animation Manager")
 health_manager = NodePath("Health Manager")
 navigator = NodePath("Navigator")
+silhouette = NodePath("Silhouette")
 target_tracker = NodePath("Target Tracker")
 drop = ExtResource("2_n2j2n")
 
@@ -716,10 +716,18 @@ script = ExtResource("8_vddrh")
 script = ExtResource("9_b67qh")
 character = NodePath("../..")
 
-[node name="Animation Manager" parent="." instance=ExtResource("9_37jjd")]
+[node name="Animation Manager" parent="." node_paths=PackedStringArray("character") instance=ExtResource("9_37jjd")]
 sprite_frames = SubResource("SpriteFrames_d4jv7")
-animation = &"idle_south"
-autoplay = "idle_south"
+animation = &"pursuit_south"
+character = NodePath("..")
+
+[node name="Silhouette" parent="." instance=ExtResource("9_37jjd")]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = 5
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_d4jv7")
+animation = &"pursuit_south"
+script = null
 
 [node name="Hitbox" parent="." instance=ExtResource("5_pk3ql")]
 collision_layer = 32
