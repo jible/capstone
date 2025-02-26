@@ -8,6 +8,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Header" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -159.0
+offset_top = 132.0
+offset_right = 159.0
+offset_bottom = 201.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Option Menu"
+horizontal_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -15,13 +29,58 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -64.5
+offset_top = -46.5
+offset_right = 64.5
+offset_bottom = 46.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="RemapButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "OPTIONS_MENU"
+text = "Controls
+"
+
+[node name="FilterText" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Colorblind Filter:"
+
+[node name="FilterDropdown" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "None"
+popup/item_1/text = "B&W"
+popup/item_1/id = 1
+popup/item_2/text = "Protanopia"
+popup/item_2/id = 2
+
+[node name="ResetStatButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Reset Stats"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="LanguageText" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Language:"
+horizontal_alignment = 1
+
+[node name="LanguageDropdown" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "English"
+popup/item_1/text = "Español"
+popup/item_1/id = 1
+popup/item_2/text = "Français"
+popup/item_2/id = 2
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="item_selected" from="VBoxContainer/LanguageDropdown" to="." method="_on_language_dropdown_item_selected"]

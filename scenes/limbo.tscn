@@ -11,7 +11,7 @@
 [node name="Level Generator" parent="Scene Config Package" index="0"]
 randomize_seed = true
 
-[node name="NavMeshMaker" parent="Scene Config Package/Level Generator" index="2"]
+[node name="NavMeshMaker" parent="Scene Config Package/Level Generator" index="4"]
 navigation_polygon = SubResource("NavigationPolygon_k7bpu")
 
 [editable path="Scene Config Package"]

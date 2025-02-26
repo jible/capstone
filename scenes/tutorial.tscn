@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://df7bilp0j8e1a"]
+
+[ext_resource type="Script" path="res://scripts/for_scenes/tutorial.gd" id="1_cxgyi"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/aim.ogv" id="2_c8v4m"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/attack.ogv" id="3_mgfju"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/hud.ogv" id="4_1incj"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/buy-upgrades.ogv" id="4_ip0hq"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/exit.ogv" id="5_udufg"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/kill-pickup.ogv" id="6_5jfy1"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/pause.ogv" id="7_as2u3"]
+[ext_resource type="Theme" uid="uid://yx62bcop46jb" path="res://themes/navigation_buttons.tres" id="9_yxu3a"]
+
+[node name="Tutorial" type="Control" node_paths=PackedStringArray("tutor_text", "movie")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cxgyi")
+tutor_vids = Array[VideoStreamTheora]([ExtResource("2_c8v4m"), ExtResource("3_mgfju"), ExtResource("4_1incj"), ExtResource("4_ip0hq"), ExtResource("6_5jfy1"), ExtResource("7_as2u3"), ExtResource("5_udufg")])
+tutor_text = NodePath("Label")
+movie = NodePath("Visuals/VideoStreamPlayer")
+text_bank = Array[String](["USE MOUSE OR LEFT STICK TO AIM", "USE LEFT CLICK OR RIGHT TRIGGER TO ATTACK", "THE HUD DISPLAYS HEALTH AND CURRENCY", "KILL ENEMIES AND PICK UP CURRENCY", "USE CURRENCY TO UPGRADE YOUR CHARACTER", "PRESS ESCAPE OR START TO PAUSE", "FIND THE EXIT TO GO TO THE NEXT LEVEL"])
+
+[node name="Visuals" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Visuals"]
+layout_mode = 2
+stream = ExtResource("2_c8v4m")
+volume_db = -80.0
+autoplay = true
+loop = true
+
+[node name="Next" type="Button" parent="."]
+z_index = 100
+layout_mode = 2
+offset_left = 1475.0
+offset_top = 979.0
+offset_right = 1645.0
+offset_bottom = 1075.0
+theme = ExtResource("9_yxu3a")
+text = "NEXT"
+
+[node name="Skip" type="Button" parent="."]
+z_index = 100
+layout_mode = 2
+offset_left = 653.5
+offset_top = 984.0
+offset_right = 1120.5
+offset_bottom = 1080.0
+theme = ExtResource("9_yxu3a")
+text = "SKIP TUTORIAL"
+
+[node name="Previous" type="Button" parent="."]
+z_index = 100
+layout_mode = 2
+offset_left = 117.0
+offset_top = 982.0
+offset_right = 433.0
+offset_bottom = 1078.0
+grow_vertical = 0
+theme = ExtResource("9_yxu3a")
+text = "PREVIOUS"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "DEFAULT TEXT"
+
+[connection signal="button_up" from="Next" to="." method="_on_next_button_up"]
+[connection signal="button_up" from="Skip" to="." method="_on_skip_button_up"]
+[connection signal="button_up" from="Previous" to="." method="_on_previous_button_up"]

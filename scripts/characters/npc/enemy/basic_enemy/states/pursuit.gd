@@ -2,12 +2,12 @@ extends Node
 
 
 # Exports
-@export var hitbox: HitBox
 @export var character: CharacterBody2D
 @export var lock_direction = false
 @export var movement_details =  {}
 @export var animation_name = "pursuit"
 @export var mobility_manager: Node2D
+@export var attack_distance = 300
 
 # Other variables
 @onready var sm = get_parent()
@@ -16,7 +16,6 @@ var callbacks = {}
 var direction_dependent = true
 var timer:Timer
 var target: Node2D
-
 # Functions
 func _ready():
 	make_timer()
@@ -42,16 +41,17 @@ func update_state(delta):
 		target_vector = target_vector.normalized()
 	mobility_manager.input_direction = target_vector
 
-
+	if (character.position - character.target_tracker.get_target().position).length() < attack_distance:
+		sm.change_state("Charge")
+	
+	
 func enter_state():
 	# turn on hitbox
-	hitbox.turn_on()
 	character.navigator.turn_on()
 	pass
 	
 func exit_state():
 	# turn off hitbox
-	hitbox.turn_off()
 	character.navigator.turn_off()
 	
 	

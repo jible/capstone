@@ -53,7 +53,6 @@ func update_state(delta):
 	pass
 func enter_state():
 	sfx.play_player_sound(speaker,sfx.PlayerSounds.HURT)
-	print("HURT SOUND")
 	pass
 func exit_state():
 	pass

@@ -12,8 +12,15 @@ var sfx = SoundManager
 var animation_name = "death"
 var is_active = false
 var direction_dependent = false
-var callbacks = {}
+var callbacks = {
+	"end": Callable(self, "done"),
+}
 
+func done():
+	print("dead")
+	SignalBus.player_die.emit()
+	Globals.change_scene(load(death_scene))
+	
 func update_state(delta):
 	pass
 
@@ -21,9 +28,7 @@ func update_state(delta):
 func enter_state():
 	sfx.play_player_sound(speaker,sfx.PlayerSounds.DEATH)
 	character.hurtbox.turn_off()
-	SignalBus.player_die.emit()
 	Globals.player = null
-	Globals.change_scene(load(death_scene))
 	pass
 
 

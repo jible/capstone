@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://cfy2mlhpkuxdd"]
+[gd_scene load_steps=98 format=3 uid="uid://cfy2mlhpkuxdd"]
 
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/basic_enemy.gd" id="1_s78sa"]
 [ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="2_ffnce"]
@@ -14,7 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://0ry41ukaumi6" path="res://scenes/prefabs/animation_manager.tscn" id="9_37jjd"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/patrol.gd" id="9_b67qh"]
 [ext_resource type="Texture2D" uid="uid://b1kag480gef6o" path="res://assets/spritesheets/infinimouth_death.png" id="10_n4e04"]
+[ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/attack.gd" id="10_ovdpx"]
 [ext_resource type="Texture2D" uid="uid://c5ar0lb8pj5x5" path="res://assets/spritesheets/infinimouth.png" id="11_cosgq"]
+[ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/charge.gd" id="11_fq3s2"]
 [ext_resource type="Texture2D" uid="uid://snxt44vfbqvc" path="res://assets/spritesheets/inifinimouth_idle.png" id="12_6khpr"]
 [ext_resource type="Texture2D" uid="uid://idkrtkxeva1r" path="res://assets/spritesheets/infinimouth_pursuit.png" id="13_mjspm"]
 [ext_resource type="PackedScene" uid="uid://daaxhy5pdp2sj" path="res://scenes/prefabs/character utils/health_manager.tscn" id="13_y7ykc"]
@@ -23,6 +25,34 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mt6l6"]
 radius = 44.1814
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0bjf"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(0, 0, 206, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeb27"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(206, 0, 206, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b2ft"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(412, 0, 206, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w6vj"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(618, 0, 206, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7r7s"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(0, 675, 206, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydb1m"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(206, 675, 206, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0dp7"]
+atlas = ExtResource("13_mjspm")
+region = Rect2(412, 675, 206, 225)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kwjjp"]
 atlas = ExtResource("10_n4e04")
@@ -286,6 +316,37 @@ region = Rect2(824, 675, 206, 225)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d4jv7"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0bjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeb27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b2ft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w6vj")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7r7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydb1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0dp7")
+}],
+"loop": false,
+"name": &"charge",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kwjjp")
@@ -667,8 +728,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_a50l1"]
 radius = 1404.04
 
-[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator", "target_tracker")]
-scale = Vector2(0.5, 0.5)
+[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator", "silhouette", "target_tracker")]
 collision_layer = 2
 collision_mask = 67
 motion_mode = 1
@@ -681,6 +741,7 @@ hurtbox = NodePath("Hurtbox")
 sprite_manager = NodePath("Animation Manager")
 health_manager = NodePath("Health Manager")
 navigator = NodePath("Navigator")
+silhouette = NodePath("Silhouette")
 target_tracker = NodePath("Target Tracker")
 drop = ExtResource("2_n2j2n")
 
@@ -698,9 +759,8 @@ default_state = "Idle"
 script = ExtResource("3_f8pux")
 character = NodePath("../..")
 
-[node name="Pursuit" type="Node" parent="State Machine" node_paths=PackedStringArray("hitbox", "character", "mobility_manager")]
+[node name="Pursuit" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "mobility_manager")]
 script = ExtResource("4_nlsgk")
-hitbox = NodePath("../../Hitbox")
 character = NodePath("../..")
 mobility_manager = NodePath("../../Mobility Manager")
 
@@ -716,10 +776,27 @@ script = ExtResource("8_vddrh")
 script = ExtResource("9_b67qh")
 character = NodePath("../..")
 
-[node name="Animation Manager" parent="." instance=ExtResource("9_37jjd")]
+[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
+script = ExtResource("10_ovdpx")
+character = NodePath("../..")
+
+[node name="Charge" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
+script = ExtResource("11_fq3s2")
+character = NodePath("../..")
+
+[node name="Animation Manager" parent="." node_paths=PackedStringArray("character") instance=ExtResource("9_37jjd")]
 sprite_frames = SubResource("SpriteFrames_d4jv7")
-animation = &"idle_south"
+animation = &"charge"
 autoplay = "idle_south"
+character = NodePath("..")
+
+[node name="Silhouette" parent="." instance=ExtResource("9_37jjd")]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = 5
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_d4jv7")
+animation = &"pursuit_south"
+script = null
 
 [node name="Hitbox" parent="." instance=ExtResource("5_pk3ql")]
 collision_layer = 32
