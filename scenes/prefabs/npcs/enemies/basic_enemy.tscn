@@ -784,10 +784,11 @@ character = NodePath("../..")
 script = ExtResource("11_fq3s2")
 character = NodePath("../..")
 
-[node name="Animation Manager" parent="." instance=ExtResource("9_37jjd")]
+[node name="Animation Manager" parent="." node_paths=PackedStringArray("character") instance=ExtResource("9_37jjd")]
 sprite_frames = SubResource("SpriteFrames_d4jv7")
 animation = &"charge"
 autoplay = "idle_south"
+character = NodePath("..")
 
 [node name="Silhouette" parent="." instance=ExtResource("9_37jjd")]
 modulate = Color(1, 1, 1, 0.501961)
