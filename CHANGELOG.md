@@ -223,3 +223,10 @@
 - Enemy now has explicit attack state and that is the only time their hitbox is active
         - Map generator walks with a 2 tile cursor preventing 1 tile tall areas that can be blocked by new wall collision
         - Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)
+
+## version 0.45
+- Created tutorial scene
+- Attached video slide show that is cycled through using buttons
+- Added a button to the main menu to initiate the tutorial
+- In the future, the game will detect if the player is playing for the first time and set a flag to show the tutorial when the play button is pressed.
+- Added additional version of tutorial videos in GIF format for future use.

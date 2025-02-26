@@ -10,3 +10,7 @@ func _ready() -> void:
 func _on_play_button_button_up() -> void:
 	## Switch to the next scene without interuppting a process
 	Globals.change_scene(load (path_to_scene) )
+
+
+func _on_tutorial_button_button_up():
+	Globals.change_scene(load ("res://scenes/tutorial.tscn") )
