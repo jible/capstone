@@ -1,6 +1,5 @@
 extends Control
 # TODO: Find out if player is playing the game for the first time to show this scene and/or include button in the main menu for rewatch.
-# TODO: ADD TEXT AND IMAGES
 @export var tutor_vids : Array[VideoStreamTheora]
 @export var tutor_pics : Array[TextureRect]
 @export var tutor_text : Label
@@ -12,7 +11,6 @@ extends Control
 var current_slide = 0
 var total_vids
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	total_vids = tutor_vids.size()
 	show_slide()
