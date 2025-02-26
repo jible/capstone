@@ -225,8 +225,12 @@
         - Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)
 
 ## version 0.45
-- Created tutorial scene
-- Attached video slide show that is cycled through using buttons
-- Added a button to the main menu to initiate the tutorial
-- In the future, the game will detect if the player is playing for the first time and set a flag to show the tutorial when the play button is pressed.
-- Added additional version of tutorial videos in GIF format for future use.
+-   Created tutorial scene
+-   Attached video slide show that is cycled through using buttons
+-   Added a button to the main menu to initiate the tutorial
+-   In the future, the game will detect if the player is playing for the first time and set a flag to show the tutorial when the play button is pressed.
+-   Added additional version of tutorial videos in GIF format for future use.
+
+## version 0.46
+-   High-Contrast shader written, used a GPT conversation as a starting point and worked the math into my own code while crediting the original conversation in the shader's code.
+-   Fixed typo in tutorial text from "Left Stick to Aim" to "Right Stick to Aim"
