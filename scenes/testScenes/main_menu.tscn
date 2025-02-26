@@ -58,7 +58,7 @@ offset_top = 873.0
 offset_right = 1135.0
 offset_bottom = 948.0
 theme_override_font_sizes/font_size = 48
-text = "HOW TO PLAY"
+text = "HOW_TO_PLAY"
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="TutorialButton" to="." method="_on_tutorial_button_button_up"]

@@ -1,5 +1,9 @@
 extends Control
 
+# Accreditation
+# For how to use the TranslationServer functions
+# https://docs.godotengine.org/en/stable/classes/class_translationserver.html#class-translationserver
+
 @export var previous_menu: Control
 @onready var remap_button: Button = $"VBoxContainer/RemapButton"
 @onready var language_dropdown: OptionButton = $"VBoxContainer/LanguageDropdown"
@@ -13,15 +17,16 @@ func _on_draw() -> void:
 
 func _on_language_dropdown_item_selected(index: int) -> void:
 	#var language = language_dropdown.get_item_text(index)
+	print(index)
 	match index:
 		0:
-			#set to english
+			TranslationServer.set_locale("en")
 			pass
 		1:
-			#set to spanish
+			TranslationServer.set_locale("las")
 			pass
 		2:
-			#set to french
+			TranslationServer.set_locale("fr")
 			pass
 		_:
 			#default case for errors, do nothing

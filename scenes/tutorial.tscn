@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://df7bilp0j8e1a"]
+[gd_scene load_steps=10 format=3 uid="uid://cncge7c4uemyj"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/tutorial.gd" id="1_cxgyi"]
 [ext_resource type="VideoStream" path="res://assets/tutorial/aim.ogv" id="2_c8v4m"]
@@ -53,7 +53,7 @@ offset_top = 984.0
 offset_right = 1120.5
 offset_bottom = 1080.0
 theme = ExtResource("9_yxu3a")
-text = "SKIP TUTORIAL"
+text = "SKIP"
 
 [node name="Previous" type="Button" parent="."]
 z_index = 100

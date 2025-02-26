@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://do6yls2v6fe6n"
+
+[deps]
+
+files=["res://scenes/prefabs/localization.en.translation", "res://scenes/prefabs/localization.las.translation", "res://scenes/prefabs/localization.fr.translation"]
+
+source_file="res://scenes/prefabs/localization.csv"
+dest_files=["res://scenes/prefabs/localization.en.translation", "res://scenes/prefabs/localization.las.translation", "res://scenes/prefabs/localization.fr.translation"]
+
+[params]
+
+compress=true
+delimiter=0
