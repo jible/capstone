@@ -49,7 +49,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Colorblind Filter:"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
+[node name="FilterDropdown" type="OptionButton" parent="VBoxContainer"]
 layout_mode = 2
 selected = 0
 allow_reselect = true
@@ -68,5 +68,22 @@ text = "Reset Stats"
 layout_mode = 2
 text = "Back"
 
+[node name="LanguageText" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Language:"
+horizontal_alignment = 1
+
+[node name="LanguageDropdown" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "English"
+popup/item_1/text = "Español"
+popup/item_1/id = 1
+popup/item_2/text = "Français"
+popup/item_2/id = 2
+
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="item_selected" from="VBoxContainer/LanguageDropdown" to="." method="_on_language_dropdown_item_selected"]
