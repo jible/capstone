@@ -38,7 +38,10 @@ func prep():
 		world_seed = randi()
 	layers = {
 		"environment":$Environment,
-		"walls": $Walls,
+		"wall1": $"Wall Level 1",
+		"wall2": $"Wall Level 2",
+		"ceiling": $"Ceiling",
+		
 	}
 	tile_size = layers["environment"].tile_set.tile_size
 	
@@ -112,8 +115,9 @@ func render_tiles(layer):
 			if map.get_tile(pos).type == null:
 				layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
 			
-			if map.get_tile(pos).type == null && check_wall.y < map.size.y && map.get_tile(check_wall).type == "floor":
-				layers["walls"].set_cell(Vector2(x,y), 0, Vector2i(0,0))
-				layers["walls"].set_cell(Vector2(x,y - 1), 0, Vector2i(0,0))
-				layers["walls"].set_cell(Vector2(x,y - 2), 0, Vector2i(1,0))
-				layers["walls"].set_cell(Vector2(x,y - 3), 0, Vector2i(2,0))
+			if map.get_tile(pos).type == null:
+				layers["wall1"].set_cell(Vector2(x,y), 1, Vector2i(0,0))
+				if y - 1 >= 0:
+					layers["wall2"].set_cell(Vector2(x,y - 1), 1, Vector2i(1,0))
+				if y -2 >= 0:
+					layers["ceiling"].set_cell(Vector2(x,y - 2), 1, Vector2i(2,0))

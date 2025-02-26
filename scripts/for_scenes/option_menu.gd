@@ -1,7 +1,11 @@
 extends Control
 
-@export var pause_menu: Control
+@export var previous_menu: Control
+@onready var remap_button: Button = $"VBoxContainer/RemapButton"
 
 func _on_back_button_pressed() -> void:
 	self.hide()
-	pause_menu.show()
+	previous_menu.show()
+
+func _on_draw() -> void:
+	remap_button.grab_focus()

@@ -18,3 +18,5 @@ signal player_die()
 signal currency_changed()
 
 signal item_collected(type: String, amount)
+
+signal game_resumed()

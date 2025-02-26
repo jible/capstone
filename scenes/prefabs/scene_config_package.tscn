@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dfvsgbamdsiep" path="res://scenes/prefabs/ui_elements/HUD.tscn" id="6_14c2j"]
 
 [node name="Scene Config Package" type="Node2D" node_paths=PackedStringArray("level_generator", "camera", "player")]
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_qcfrr")
 level_generator = NodePath("Level Generator")
 camera = NodePath("Custom Camera")
@@ -17,6 +19,8 @@ player = NodePath("Player")
 world_seed = 2
 
 [node name="Player" parent="." instance=ExtResource("3_5fksv")]
+
+[node name="WallTransparencyCollision" type="CollisionShape2D" parent="Player"]
 
 [node name="Custom Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_t24gl")]
 zoom = Vector2(0.8, 0.8)

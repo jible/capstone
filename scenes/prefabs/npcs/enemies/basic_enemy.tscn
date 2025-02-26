@@ -728,8 +728,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_a50l1"]
 radius = 1404.04
 
-[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator", "target_tracker")]
-scale = Vector2(0.5, 0.5)
+[node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator", "silhouette", "target_tracker")]
 collision_layer = 2
 collision_mask = 67
 motion_mode = 1
@@ -742,6 +741,7 @@ hurtbox = NodePath("Hurtbox")
 sprite_manager = NodePath("Animation Manager")
 health_manager = NodePath("Health Manager")
 navigator = NodePath("Navigator")
+silhouette = NodePath("Silhouette")
 target_tracker = NodePath("Target Tracker")
 drop = ExtResource("2_n2j2n")
 
@@ -788,6 +788,14 @@ character = NodePath("../..")
 sprite_frames = SubResource("SpriteFrames_d4jv7")
 animation = &"charge"
 autoplay = "idle_south"
+
+[node name="Silhouette" parent="." instance=ExtResource("9_37jjd")]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = 5
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_d4jv7")
+animation = &"pursuit_south"
+script = null
 
 [node name="Hitbox" parent="." instance=ExtResource("5_pk3ql")]
 collision_layer = 32
