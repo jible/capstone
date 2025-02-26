@@ -234,3 +234,8 @@
 ## version 0.46
 -   High-Contrast shader written, used a GPT conversation as a starting point and worked the math into my own code while crediting the original conversation in the shader's code.
 -   Fixed typo in tutorial text from "Left Stick to Aim" to "Right Stick to Aim"
+
+## version 0.47
+-   Localization functioning on all static UI elements that are not custom buttons
+-   An options button will be available in the main menu in the future
+-   Available languages are English, Mexican Spanish, and French
