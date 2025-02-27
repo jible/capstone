@@ -70,6 +70,11 @@ func _on_stat_upgraded(stat_name: String):
 	else:
 		SignalBus.upgrade_fail.emit()
 	
-	
 func _on_player_died():
-	Globals.change_scene(death_scene)
+	reset_upgrades()
+	pass
+
+func reset_upgrades():
+	for key in stat_lvl:
+		stat_lvl[key] = 0
+		upgrade_bonus[key] = 0
