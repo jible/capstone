@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/for_scenes/pause_menu.gd" id="1_j5c0s"]
 [ext_resource type="Texture2D" uid="uid://bm6ix8eogt5uj" path="res://assets/ui_renders/options_button.png" id="2_eeu0w"]
-[ext_resource type="PackedScene" uid="uid://df3do2furq7r6" path="res://scenes/prefabs/ui_elements/option_menu.tscn" id="2_piomc"]
+[ext_resource type="PackedScene" uid="uid://wuikybn3pwsx" path="res://scenes/prefabs/ui_elements/option_menu.tscn" id="2_piomc"]
 [ext_resource type="Texture2D" uid="uid://hm048sbxcgu6" path="res://assets/ui_renders/play_button.png" id="3_4xfm6"]
 [ext_resource type="Texture2D" uid="uid://75hlvmacs7q7" path="res://assets/ui_renders/quit_button.png" id="4_6se52"]
 
@@ -56,10 +56,9 @@ icon = ExtResource("4_6se52")
 flat = true
 icon_alignment = 1
 
-[node name="OptionMenu" parent="." node_paths=PackedStringArray("previous_menu") instance=ExtResource("2_piomc")]
+[node name="OptionMenu" parent="." instance=ExtResource("2_piomc")]
 visible = false
 layout_mode = 1
-previous_menu = NodePath("../PauseMenu")
 
 [connection signal="draw" from="PauseMenu" to="." method="_on_pause_menu_draw"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/OptionsToggle" to="." method="_on_options_toggle_pressed"]
