@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1pm0mjolk2s1"]
+[gd_scene load_steps=6 format=3 uid="uid://b1pm0mjolk2s1"]
 
 [ext_resource type="Texture2D" uid="uid://bvpkjan54gt5p" path="res://assets/you-died-prototype.png" id="1_e7pif"]
 [ext_resource type="Script" path="res://scripts/for_scenes/death_screen.gd" id="1_mhqcw"]
+[ext_resource type="Texture2D" uid="uid://c6rn5fded0foh" path="res://assets/images/splash_screen.png" id="2_wey11"]
 [ext_resource type="Texture2D" uid="uid://hm048sbxcgu6" path="res://assets/ui_renders/play_button.png" id="3_j0jkj"]
 [ext_resource type="Texture2D" uid="uid://75hlvmacs7q7" path="res://assets/ui_renders/quit_button.png" id="4_l7ng7"]
 
@@ -13,6 +14,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mhqcw")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wey11")
 
 [node name="DeathSplash" type="TextureRect" parent="."]
 layout_mode = 1
@@ -46,17 +56,17 @@ grow_vertical = 2
 
 [node name="Reset" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+text = "RESET_BUTTON"
 icon = ExtResource("3_j0jkj")
 flat = true
 icon_alignment = 1
-text = "RESET_BUTTON"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+text = "QUIT_BUTTON"
 icon = ExtResource("4_l7ng7")
 flat = true
 icon_alignment = 1
-text = "QUIT_BUTTON"
 
 [connection signal="pressed" from="VBoxContainer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
