@@ -239,3 +239,7 @@
 -   Localization functioning on all static UI elements that are not custom buttons
 -   An options button will be available in the main menu in the future
 -   Available languages are English, Mexican Spanish, and French
+
+## version 0.48
+-   Fixed ordering of tutorial slides
+-   Added proper instructions about controls to open upgrade menu

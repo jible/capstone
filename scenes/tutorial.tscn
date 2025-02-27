@@ -18,10 +18,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cxgyi")
-tutor_vids = Array[VideoStreamTheora]([ExtResource("2_c8v4m"), ExtResource("3_mgfju"), ExtResource("4_1incj"), ExtResource("4_ip0hq"), ExtResource("6_5jfy1"), ExtResource("7_as2u3"), ExtResource("5_udufg")])
+tutor_vids = Array[VideoStreamTheora]([ExtResource("2_c8v4m"), ExtResource("3_mgfju"), ExtResource("4_1incj"), ExtResource("6_5jfy1"), ExtResource("4_ip0hq"), ExtResource("7_as2u3"), ExtResource("5_udufg")])
 tutor_text = NodePath("Label")
 movie = NodePath("Visuals/VideoStreamPlayer")
-text_bank = Array[String](["USE MOUSE OR RIGHT STICK TO AIM", "USE LEFT CLICK OR RIGHT TRIGGER TO ATTACK", "THE HUD DISPLAYS HEALTH AND CURRENCY", "KILL ENEMIES AND PICK UP CURRENCY", "USE CURRENCY TO UPGRADE YOUR CHARACTER", "PRESS ESCAPE OR START TO PAUSE", "FIND THE EXIT TO GO TO THE NEXT LEVEL"])
+text_bank = Array[String](["USE MOUSE OR RIGHT STICK TO AIM", "USE LEFT CLICK OR RIGHT TRIGGER TO ATTACK", "THE HUD DISPLAYS HEALTH AND CURRENCY", "KILL ENEMIES AND PICK UP CURRENCY", "PRESS TAB OR SELECT TO USE CURRENCY TO UPGRADE YOUR CHARACTER", "PRESS ESCAPE OR START TO PAUSE", "FIND THE EXIT TO GO TO THE NEXT LEVEL"])
 
 [node name="Visuals" type="HBoxContainer" parent="."]
 layout_mode = 0
