@@ -189,6 +189,7 @@
 -   Changed hotspot for cursor to better match the tip of the sword image.
 
 ## version 0.40
+
 -   Added in new assets from Phoebe for buttons, the main menu, and currency.
 -   Changed the main menu scene to include the main menu book, and the new play button
 -   Polished the play button so on mouse hover, it turns red
@@ -198,6 +199,7 @@
 -   Speed icon added to upgrade UI
 
 ## version 0.41
+
 -   Enemies now have a patrol state. They walk around searching for player
 -   Enemies use navigator to get next direction from nav mesh.
 -   Enemies have a target tracker to handle the reference to the node they are chasing (usually the player)
@@ -219,12 +221,13 @@
 
 ## version 0.44
 
-- Enemy AI refined
-- Enemy now has explicit attack state and that is the only time their hitbox is active
-		- Map generator walks with a 2 tile cursor preventing 1 tile tall areas that can be blocked by new wall collision
-		- Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)
+-   Enemy AI refined
+-   Enemy now has explicit attack state and that is the only time their hitbox is active
+-   Map generator walks with a 2 tile cursor preventing 1 tile tall areas that can be blocked by new wall collision
+-   Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)
 
 ## version 0.45
+
 -   Created tutorial scene
 -   Attached video slide show that is cycled through using buttons
 -   Added a button to the main menu to initiate the tutorial
@@ -232,14 +235,21 @@
 -   Added additional version of tutorial videos in GIF format for future use.
 
 ## version 0.46
+
 -   High-Contrast shader written, used a GPT conversation as a starting point and worked the math into my own code while crediting the original conversation in the shader's code.
 -   Fixed typo in tutorial text from "Left Stick to Aim" to "Right Stick to Aim"
 
 ## version 0.47
+
 -   Localization functioning on all static UI elements that are not custom buttons
 -   An options button will be available in the main menu in the future
 -   Available languages are English, Mexican Spanish, and French
 
 ## version 0.48
+
 -   Fixed ordering of tutorial slides
 -   Added proper instructions about controls to open upgrade menu
+
+## version 0.49
+
+-   Added death scene

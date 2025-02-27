@@ -1,7 +1,7 @@
 extends SMState
 
 # Exports
-@export var death_scene :String = "res://scenes/testScenes/main_menu.tscn"
+@export var death_scene :String = "res://scenes/prefabs/ui_elements/death_screen.tscn"
 @export var character: CharacterBody2D
 @export var lock_direction = false
 @export var movement_details =  {}
