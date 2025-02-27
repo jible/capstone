@@ -253,3 +253,7 @@
 ## version 0.49
 
 -   Added death scene
+
+## version 0.50
+
+-   Fixed extra text on death screen
