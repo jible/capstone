@@ -56,9 +56,10 @@ icon = ExtResource("4_6se52")
 flat = true
 icon_alignment = 1
 
-[node name="OptionMenu" parent="." instance=ExtResource("2_piomc")]
+[node name="OptionMenu" parent="." node_paths=PackedStringArray("previous_menu") instance=ExtResource("2_piomc")]
 visible = false
 layout_mode = 1
+previous_menu = NodePath("../PauseMenu")
 
 [connection signal="draw" from="PauseMenu" to="." method="_on_pause_menu_draw"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/OptionsToggle" to="." method="_on_options_toggle_pressed"]

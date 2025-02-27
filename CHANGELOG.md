@@ -257,3 +257,7 @@
 ## version 0.50
 
 -   Fixed extra text on death screen
+
+## version 0.51
+
+-   Fixed option menu not reopening pause menu
