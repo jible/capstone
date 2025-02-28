@@ -261,3 +261,6 @@
 ## version 0.51
 
 -   Fixed option menu not reopening pause menu
+
+## version 0.53
+- 	Changed particle texture
