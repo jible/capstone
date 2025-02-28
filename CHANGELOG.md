@@ -266,7 +266,7 @@
 
 -   Fixed upgrade manager not reseting on death
 
-## version 0.54
+## version 0.55
 
 -   Swapped the direction the cursor faces
 -   Refactored play scene handling
