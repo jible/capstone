@@ -51,7 +51,6 @@ func generate_level(level_package):
 	Generate tilemap level dependent on argument type.
 	'''
 	var package = level_package
-	print("Generating: ", package.name)
 	prep()
 	size.x = package.width
 	size.y = package.height

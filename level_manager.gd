@@ -65,6 +65,7 @@ var level_packages = {
 func reset_levels():
 	current_level_index = 0
 
+
 func go_next_level():
 	current_level_index += 1
 	Globals.change_scene( level_scene_reference )
