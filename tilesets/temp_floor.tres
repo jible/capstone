@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cbcmjaiqxltk3"]
 
-[ext_resource type="Texture2D" uid="uid://cln574bik4dno" path="res://assets/tilesets/ground_tileset.png" id="1_mr8qb"]
+[ext_resource type="Texture2D" uid="uid://b36wpunkaj4sr" path="res://assets/tilesets/ground_tileset.png" id="1_mr8qb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q3s2e"]
 resource_name = "floor"
