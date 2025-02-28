@@ -266,6 +266,9 @@
 
 -   Fixed upgrade manager not reseting on death
 
+## version 0.53
+- 	Changed particle texture
+
 ## version 0.55
 
 -	Added currency (tooth) spritesheet to assets folder
