@@ -272,3 +272,4 @@
 ## version 0.55
 
 -	Added currency (tooth) spritesheet to assets folder
+-	Added health (heart) spritesheet to assets folder
