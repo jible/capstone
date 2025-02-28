@@ -9,8 +9,7 @@ func load_csv_dictionary(csv_path: String) -> Dictionary:
 	if file == null:
 		printerr("No file found at: ", csv_path)
 		return _csv_dictionary
-	
-	#load rest of lines as arr values	
+
 	while not file.eof_reached():
 		var line = file.get_csv_line()
 		for value in line.size():

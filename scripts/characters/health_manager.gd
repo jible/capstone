@@ -20,4 +20,4 @@ func _on_hurtbox_received_damage(damage):
 	
 func increase_max_health(increase):
 	max_health = starting_health + increase
-	health = min(max_health, health + UpgradeManager.get_stat_growth(UpgradeManager.HEALTH))
+	health = min(max_health, health + UpgradeManager.get_stat_growth(UpgradeManager.STATS.HP))

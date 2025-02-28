@@ -32,17 +32,14 @@ func update_stats(stat_name: String):
 	SignalBus.update_HUD.emit()
 	
 func update_health():
-	print("health")
-	health_manager.increase_max_health(UpgradeManager.get_stat(UpgradeManager.HEALTH))
+	health_manager.increase_max_health(UpgradeManager.get_stat(UpgradeManager.STATS.HP))
 	
 func update_speed():
-	print("speed")
-	mobility_manager.increase_max_speed_mult(UpgradeManager.get_stat(UpgradeManager.SPEED))
-	mobility_manager.increase_max_accel_mult(UpgradeManager.get_stat(UpgradeManager.SPEED))
+	mobility_manager.increase_max_speed_mult(UpgradeManager.get_stat(UpgradeManager.STATS.SPD))
+	mobility_manager.increase_max_accel_mult(UpgradeManager.get_stat(UpgradeManager.STATS.SPD))
 	
 func update_dmg():
-	print("dmg")
-	hitbox.increase_damage(UpgradeManager.get_stat(UpgradeManager.DMG))
+	hitbox.increase_damage(UpgradeManager.get_stat(UpgradeManager.STATS.DMG))
 
 
 func _on_wall_collision_area_body_entered(body):

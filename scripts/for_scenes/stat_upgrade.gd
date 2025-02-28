@@ -1,6 +1,7 @@
 extends HBoxContainer
 
-@export var stat_name: String
+@export var stat_text: String
+@export var stat: UpgradeManager.STATS
 @export var upgrade_icon : CompressedTexture2D
 @onready var upgrade_level_label = $"UpgradeLevelLabel"
 
@@ -8,13 +9,13 @@ extends HBoxContainer
 func _ready() -> void:
 	$TextureRect.texture = upgrade_icon
 	var label: Label = $"StatNameLabel"
-	label.text = "UPGRADE: " + stat_name
+	label.text = "UPGRADE: " + stat_text
 	SignalBus.update_HUD.connect(update_level_label)
 
 #this function runs when the upgrade button is pressed
 func _on_stat_increased() -> void:
-	SignalBus.upgrade_stat_button_pressed.emit(stat_name)
+	SignalBus.upgrade_stat_button_pressed.emit(stat)
 	
 #this function runs after UpgradeManager has updated
 func update_level_label():
-	upgrade_level_label.text = "Lvl. %d" %UpgradeManager.get_stat_lvl(stat_name)
+	upgrade_level_label.text = "%d" %UpgradeManager.get_stat_lvl(stat)

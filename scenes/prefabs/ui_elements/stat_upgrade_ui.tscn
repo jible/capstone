@@ -55,17 +55,19 @@ layout_mode = 2
 
 [node name="StatUpgrade" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
-stat_name = "health"
+stat_text = "HEALTH"
 upgrade_icon = ExtResource("3_klydc")
 
 [node name="StatUpgrade2" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
-stat_name = "dmg"
+stat_text = "DAMAGE"
+stat = 2
 upgrade_icon = ExtResource("4_0piuq")
 
 [node name="StatUpgrade3" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
-stat_name = "speed"
+stat_text = "SPEED"
+stat = 1
 upgrade_icon = ExtResource("5_wylq6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
