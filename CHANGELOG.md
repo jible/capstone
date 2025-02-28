@@ -253,3 +253,15 @@
 ## version 0.49
 
 -   Added death scene
+
+## version 0.50
+
+-   Fixed extra text on death screen
+
+## version 0.51
+
+-   Fixed option menu not reopening pause menu
+
+## version 0.52
+
+-   Fixed upgrade manager not reseting on death
