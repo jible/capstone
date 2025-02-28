@@ -16,6 +16,7 @@ var level_order = [
 
 var level_packages = {
 	"limbo_1" : {
+		"name": "limbo_1",
 		"width": 100,
 		"height": 100,
 		"floor_tiles": 1200,
@@ -25,6 +26,7 @@ var level_packages = {
 		"tile_set": "path?"
 	},
 	"limbo_2" : {
+		"name": "limbo_2",
 		"width": 100,
 		"height": 100,
 		"floor_tiles": 1700,
@@ -34,6 +36,7 @@ var level_packages = {
 		"tile_set": "path?"
 	},
 	"limbo_3" : {
+		"name": "limbo_3",
 		"width": 100,
 		"height": 100,
 		"floor_tiles": 1700,
@@ -45,6 +48,7 @@ var level_packages = {
 	
 	
 	"lust_1" : {
+		"name": "lust_1",
 		"width": 100,
 		"height": 100,
 		"floor_tiles": 1700,

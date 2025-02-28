@@ -29,9 +29,11 @@ func get_corners():
 		bot_left
 	])
 
+
 func prep():
+	# TODO may need to improve seed setting. Right now, this prevents lust 1-3 from being the same.
 	if randomize_seed:
-		world_seed = randi()
+		world_seed = randi() + ( 100 * LevelManager.current_level_index)
 	layers = {
 		"environment":$Environment,
 		"wall1": $"Wall Level 1",
@@ -39,7 +41,7 @@ func prep():
 		"ceiling": $"Ceiling",
 	}
 	tile_size = layers["environment"].tile_set.tile_size
-	
+
 # For other nodes to find tiles from map
 func get_tile_type(pos):
 	return map.get_tile(pos).type
@@ -49,6 +51,7 @@ func generate_level(level_package):
 	Generate tilemap level dependent on argument type.
 	'''
 	var package = level_package
+	print("Generating: ", package.name)
 	prep()
 	size.x = package.width
 	size.y = package.height
@@ -71,13 +74,6 @@ func generate_level(level_package):
 	# Re randomize world seed after making seeded content.
 	randomize()
 
-#func make_lust():
-	#'''
-	#Make randomly generated noise to fill the terrai level with floors.
-	#'''
-	#map.make_noise("terrain", "floor")
-	#
-	## [ ] call function to find tile for player spawn and exit.
 
 func render():
 	render_tiles("environment")
