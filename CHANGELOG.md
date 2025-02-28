@@ -265,3 +265,6 @@
 ## version 0.52
 
 -   Fixed upgrade manager not reseting on death
+
+## version 0.53
+- 	Changed particle texture
