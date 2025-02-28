@@ -261,3 +261,7 @@
 ## version 0.51
 
 -   Fixed option menu not reopening pause menu
+
+## version 0.52
+
+-   Fixed upgrade manager not reseting on death
