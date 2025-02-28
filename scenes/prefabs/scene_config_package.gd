@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var level_name = "limbo"
 @export var level_generator: Node2D
 @export var camera: Camera2D
 @export var player: Player
