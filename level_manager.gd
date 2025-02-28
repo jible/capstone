@@ -5,7 +5,7 @@ var level_scene_reference
 
 func _ready():
 	level_scene_reference = preload("res://scenes/prefabs/scene_config_package.tscn")
-
+	SignalBus.player_die.connect(reset_levels)
 
 var level_order = [
 	"limbo_1",
@@ -15,6 +15,8 @@ var level_order = [
 ]
 
 var level_packages = {
+	# LIMBO SECTION
+	
 	"limbo_1" : {
 		"name": "limbo_1",
 		"width": 100,
@@ -46,7 +48,7 @@ var level_packages = {
 		"tile_set": "path?"
 	},
 	
-	
+	# LUST SECTION
 	"lust_1" : {
 		"name": "lust_1",
 		"width": 100,
@@ -59,6 +61,9 @@ var level_packages = {
 	},
 }
 
+
+func reset_levels():
+	current_level_index = 0
 
 func go_next_level():
 	current_level_index += 1
