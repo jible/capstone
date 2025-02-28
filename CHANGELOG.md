@@ -273,3 +273,4 @@
 
 -	Added currency (tooth) spritesheet to assets folder
 -	Added health (heart) spritesheet to assets folder
+-	Added temporary wall border tilesets to assets folder
