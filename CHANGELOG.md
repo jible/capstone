@@ -268,3 +268,9 @@
 
 ## version 0.53
 - 	Changed particle texture
+
+## version 0.54
+
+-	Added currency (tooth) spritesheet to assets folder
+-	Added health (heart) spritesheet to assets folder
+-	Added temporary wall border tilesets to assets folder
