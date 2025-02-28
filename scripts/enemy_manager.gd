@@ -3,21 +3,36 @@ extends Node
 @export var level_generator: Node2D
 
 @onready var player: Player = get_tree().get_first_node_in_group("Player")
-var max_living_enemies = 10
-var min_dist_from_player = 1000
+var min_dist_from_player = 2000
+var enemy_package
+var max_concurrent_enemies
+var required_enemies
 var time_since_check = 0
 var spawn_time = .2
 
-var enemy_info = {
-	 "basic_enemy": {
-		"path" : "res://scenes/prefabs/npcs/enemies/basic_enemy.tscn",
-		"amount": 50
-	},
+var name_to_path = {
+	 "infinimouth" : "res://scenes/prefabs/npcs/enemies/basic_enemy.tscn",
+		
 }
 
 var enemy_pools: Dictionary = {}
 
 func _ready():
+	enemy_package = LevelManager.get_current_package().enemy_package
+	
+	# 
+	max_concurrent_enemies = enemy_package.max_concurrent_enemies
+	required_enemies =enemy_package.required_enemies
+	
+	var enemy_info = []
+	var walk = 0
+	
+	for enemy in enemy_package.enemy_types:
+		enemy_info.append(
+			[ "name",]
+		)
+	
+	
 	for key in enemy_info:
 		var value = enemy_info [key]
 		enemy_pools[key] = Pool.new( value.path, value.amount)
