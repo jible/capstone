@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bbnjl5bpsrdd6" path="res://assets/spritesheets/player_walk_north.png" id="17_spqdu"]
 [ext_resource type="Texture2D" uid="uid://daupw1ov13eoo" path="res://assets/spritesheets/player_walk_south.png" id="18_ts85c"]
 [ext_resource type="Texture2D" uid="uid://br6eavhfkfe4" path="res://assets/spritesheets/player_walk_west.png" id="19_ik34j"]
-[ext_resource type="Texture2D" uid="uid://btawghlpn4ah1" path="res://assets/images/particle.jpg" id="28_7yx3u"]
+[ext_resource type="Texture2D" uid="uid://j6vff2f1psgh" path="res://assets/images/particle_dust.png" id="28_36idg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a255u"]
 atlas = ExtResource("3_tdv4r")
@@ -674,7 +674,7 @@ emitting = false
 amount = 100
 lifetime = 0.3
 one_shot = true
-texture = ExtResource("28_7yx3u")
+texture = ExtResource("28_36idg")
 emission_shape = 1
 emission_sphere_radius = 90.0
 gravity = Vector2(0, 0)
