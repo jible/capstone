@@ -4,7 +4,7 @@ extends Control
 @export var tutor_pics : Array[TextureRect]
 @export var tutor_text : Label
 @export var movie : VideoStreamPlayer
-@export var game_scene : String = "scene_config_package"
+@export var game_scene : String = "res://scenes/prefabs/scene_config_package.tscn"
 @export var main_menu_scene : String = "res://scenes/testScenes/main_menu.tscn"
 @export var text_bank : Array[String]
 
