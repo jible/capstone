@@ -56,7 +56,8 @@ func generate_level(level_package):
 	size.y = package.height
 	map = Map.new(size, world_seed)
 	
-	# fill this out as more methods are made.
+	# TODO - fill this out as more methods are made.
+	# We may want to use noise or wave collapse function or a modified walk
 	match package.gen_method:
 		"walk":
 			map.random_walk("terrain", "floor", package.floor_tiles)
