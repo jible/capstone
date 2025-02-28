@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var level_type = "limbo"
 @export var level_generator: Node2D
 @export var camera: Camera2D
 @export var player: Player
@@ -13,7 +12,7 @@ func _ready():
 	put player at spawn point
 	'''
 	
-	level_generator.generate_level(level_type)
+	level_generator.generate_level(LevelManager.get_current_package())
 	place_player()
 
 func place_player():

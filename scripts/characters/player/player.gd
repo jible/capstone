@@ -43,8 +43,3 @@ func update_speed():
 func update_dmg():
 	print("dmg")
 	hitbox.increase_damage(UpgradeManager.get_stat(UpgradeManager.DMG))
-
-
-func _on_wall_collision_area_body_entered(body):
-	
-	print(body)
