@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bywi33bblmvxw"]
+
+[ext_resource type="Script" path="res://scripts/for_scenes/stat_total.gd" id="1_tjtci"]
+
+[node name="StatTotal" type="Control"]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_tjtci")
+
+[node name="BonusLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -33.5
+offset_right = 226.0
+offset_bottom = 33.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Bonus: +0"
+vertical_alignment = 1

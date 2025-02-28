@@ -154,10 +154,6 @@ text = "0"
 [node name="StatUpgradeUi" parent="." instance=ExtResource("4_0nay5")]
 visible = false
 layout_mode = 1
-offset_left = 38.0
-offset_top = -15.0
-offset_right = 38.0
-offset_bottom = -15.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_csnww")]
 visible = false

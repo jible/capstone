@@ -1,7 +1,7 @@
 extends Control
 
 @export var speaker: AudioStreamPlayer
-@onready var focus_button: Button = $"MarginContainer/Panel/MarginContainer/VBoxContainer/StatUpgrade/Button"
+@export var focus_button: Button
 
 func _ready() -> void:
 	SignalBus.upgrade_success.connect(play_upgrade_success)
