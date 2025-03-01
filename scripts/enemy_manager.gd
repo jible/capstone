@@ -3,37 +3,59 @@ extends Node
 @export var level_generator: Node2D
 
 @onready var player: Player = get_tree().get_first_node_in_group("Player")
-var max_living_enemies = 10
-var min_dist_from_player = 1000
+var min_dist_from_player = 2000
+var enemy_package
+var max_concurrent_enemies
+var required_enemies
+var live_enemies = 0
+var enemies_killed = 0
 var time_since_check = 0
+var enemies_spawned =0
 var spawn_time = .2
-
-var enemy_info = {
-	 "basic_enemy": {
-		"path" : "res://scenes/prefabs/npcs/enemies/basic_enemy.tscn",
-		"amount": 50
-	},
+var enemy_odds = []
+var enemy_pools: Dictionary = {}
+var name_to_path = {
+	 "infinimouth" : "res://scenes/prefabs/npcs/enemies/infinimouth.tscn",
+		
 }
 
-var enemy_pools: Dictionary = {}
+signal required_enemies_killed
+
 
 func _ready():
-	for key in enemy_info:
-		var value = enemy_info [key]
-		enemy_pools[key] = Pool.new( value.path, value.amount)
+	enemy_package = LevelManager.get_current_package().enemy_package
+	
+	max_concurrent_enemies = enemy_package.max_concurrent_enemies
+	required_enemies = enemy_package.required_enemies
+	
+	var accumulated_odds = 0
+	
+	for enemy in enemy_package.enemy_types:
+		accumulated_odds+= enemy.frequency
+		enemy_odds.append( { "name": enemy.name, "odds": accumulated_odds}  )
+	for enemy in enemy_package.enemy_types:
+		enemy_pools[enemy.name] = Pool.new( name_to_path[enemy.name] , enemy.pool_size )
 
 func enemy_killed(enemy):
+	live_enemies -= 1
+	enemies_killed += 1
+	if enemies_killed >= required_enemies:
+		print("required_enemies_killed")
+		emit_signal("required_enemies_killed")
+		
 	enemy_pools[enemy.type].kill(enemy)
 
+
 func spawn_enemy(pos, enemy_type = null):
-	if enemy_type == null || enemy_pools[enemy_type].collection.size() <= 30:
+	if enemy_type == null || ! ( enemy_pools[enemy_type].collection.size() >= 0 )  || live_enemies >= max_concurrent_enemies:
 		return null
 	var new_enemy = enemy_pools[enemy_type].add(get_tree().current_scene)
 	new_enemy.global_position = pos
-	# might need to reset its velocity after TPing it
+	live_enemies+=1
+	enemies_spawned += 1
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	'''
 	Every second, pick a random tile.
@@ -42,12 +64,12 @@ func _process(delta):
 	spawn an enemy there.
 	Add to current enemy count
 	'''
-	
+	if enemies_spawned >= enemy_package.all_time_spawns || live_enemies >= max_concurrent_enemies:
+		return
 	time_since_check += delta
 	if time_since_check > spawn_time:
 		time_since_check -= spawn_time
 		try_spawn()
-	pass
 
 func try_spawn():
 	# Get a random tile.
@@ -58,4 +80,12 @@ func try_spawn():
 	if level_generator.get_tile_type(tile) == "floor":
 		var true_pos = Vector2(tile_size * tile)
 		if (player.position - true_pos).length() > min_dist_from_player:
-			spawn_enemy(true_pos, "basic_enemy")
+			
+			spawn_enemy(true_pos, pick_rand_enemy())
+
+
+func pick_rand_enemy():
+	var chance = randf_range(0,1)
+	for enemy in enemy_odds:
+		if chance <= enemy.odds:
+			return enemy.name
