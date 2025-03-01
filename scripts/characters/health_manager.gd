@@ -18,6 +18,11 @@ func _on_hurtbox_received_damage(damage):
 		sm.change_state("Death")
 	SignalBus.player_health_updated.emit()
 	
-func increase_max_health(increase):
-	max_health = starting_health + increase
-	health = min(max_health, health + UpgradeManager.get_stat_growth(UpgradeManager.HEALTH))
+func increase_health_from_base(value):
+	var tmp = max_health
+	max_health = starting_health + value
+	if health == tmp:
+		health = max_health
+	else:
+		health = min(health + abs(max_health - tmp), max_health)
+	

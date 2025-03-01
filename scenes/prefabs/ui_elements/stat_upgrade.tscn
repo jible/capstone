@@ -1,20 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt7w3orvfq2tv"]
+[gd_scene load_steps=3 format=3 uid="uid://bt7w3orvfq2tv"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/stat_upgrade.gd" id="1_ejj0v"]
+[ext_resource type="Texture2D" uid="uid://de7l8kh1k1tt7" path="res://assets/ui_renders/ChestIcon.png" id="2_qvxb7"]
 
 [node name="StatUpgrade" type="HBoxContainer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -37.5
+offset_right = 490.0
+offset_bottom = 37.5
+grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("1_ejj0v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
-expand_mode = 3
+size_flags_vertical = 4
+texture = ExtResource("2_qvxb7")
+expand_mode = 1
 
 [node name="StatNameLabel" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 20.0
-theme_override_font_sizes/font_size = 48
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/font_size = 32
 text = "UPGRADE: "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -22,17 +33,17 @@ vertical_alignment = 1
 [node name="UpgradeLevelLabel" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.69
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 text = "Lvl. 0"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
-custom_minimum_size = Vector2(25, 25)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.18
-theme_override_font_sizes/font_size = 48
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.5
+theme_override_font_sizes/font_size = 32
 text = "+"
 
 [connection signal="draw" from="." to="." method="_on_draw"]

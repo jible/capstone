@@ -17,7 +17,7 @@ func load_csv_dictionary(csv_path: String) -> Dictionary:
 			if value == 0:
 				_csv_dictionary[line[value]] = []
 			else:
-				_csv_dictionary[line[0]].append(int(line[value]))
+				_csv_dictionary[line[0]].append(float(line[value]))
 	file.close()
 	
 	return _csv_dictionary
