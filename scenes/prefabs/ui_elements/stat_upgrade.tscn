@@ -30,14 +30,6 @@ text = "UPGRADE: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeLevelLabel" type="Label" parent="."]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
-text = "Lvl. 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2

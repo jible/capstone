@@ -12,15 +12,32 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_tjtci")
 
-[node name="BonusLabel" type="Label" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -33.5
-offset_right = 226.0
-offset_bottom = 33.5
+offset_top = -22.5
+offset_right = 234.0
+offset_bottom = 22.5
 grow_vertical = 2
+
+[node name="UpgradeLevelLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/font_size = 32
+text = "Lvl. 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BonusLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 32
 text = "Bonus: +0"
 vertical_alignment = 1
