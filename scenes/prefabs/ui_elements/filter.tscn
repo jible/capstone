@@ -1,0 +1,24 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpgwnuci04paw"]
+
+[ext_resource type="Shader" path="res://assets/shaders/high-contrast.gdshader" id="1_4hxou"]
+[ext_resource type="Script" path="res://scripts/filter.gd" id="1_8quny"]
+[ext_resource type="Shader" path="res://assets/shaders/achromatopsia.gdshader" id="2_3sai1"]
+[ext_resource type="Shader" path="res://assets/shaders/protanopia.gdshader" id="2_t7pmn"]
+[ext_resource type="Shader" path="res://assets/shaders/deuteranopia.gdshader" id="3_orja7"]
+[ext_resource type="Shader" path="res://assets/shaders/tritanopia.gdshader" id="6_vyb4y"]
+[ext_resource type="Material" uid="uid://n0l3k6nwrmjw" path="res://scenes/prefabs/ui_elements/filter_material.tres" id="7_cnp4i"]
+
+[node name="Filter" type="CanvasLayer" node_paths=PackedStringArray("rect")]
+script = ExtResource("1_8quny")
+shader_pool = Array[Shader]([ExtResource("2_3sai1"), ExtResource("3_orja7"), ExtResource("1_4hxou"), ExtResource("2_t7pmn"), ExtResource("6_vyb4y")])
+rect = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+material = ExtResource("7_cnp4i")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

@@ -307,3 +307,8 @@
 - Level manager now controls when the exit is enabled (v.56 refactor)
 - New signal in SignalBus for when required enemies are killed
 - Removed spam print statement
+
+## version 0.60
+- Implemented a new scene, filter.tcsn that can be attached to all scenes at the botton and will use an overlay of a shader when functions are called.
+- For example, to change to the high contrast filter, you can reference the filter scene and write FILTER_SCENE.change_shader(FILTER_SCENE.CONT)
+- Fixed shader code to apply to the screen instead of a texture.
