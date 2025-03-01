@@ -88,8 +88,7 @@ func render():
 	get_tree().current_scene.call_deferred("add_child",exit_instance)
 	exit_instance.position = end_point
 	
-	if package.enemy_package.required_enemies <= 0:
-		exit_instance.turn_on()
+	LevelManager.link_exit(exit_instance)
 	
 	nav_mesh_maker.make_mesh(get_corners())
 
@@ -116,10 +115,3 @@ func render_tiles(layer):
 					layers["wall2"].set_cell(Vector2(x,y - 1), 1, Vector2i(1,0))
 				if y -2 >= 0:
 					layers["ceiling"].set_cell(Vector2(x,y - 2), 1, Vector2i(2,0))
-
-
-
-
-func _on_enemy_manager_required_enemies_killed():
-	exit_instance.turn_on()
-	pass # Replace with function body.

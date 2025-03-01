@@ -21,4 +21,6 @@ signal item_collected(type: String, amount)
 
 signal game_resumed()
 
+signal required_enemies_killed()
+
 signal level_completed()

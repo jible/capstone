@@ -19,9 +19,6 @@ var name_to_path = {
 		
 }
 
-signal required_enemies_killed
-
-
 func _ready():
 	enemy_package = LevelManager.get_current_package().enemy_package
 	
@@ -41,7 +38,7 @@ func enemy_killed(enemy):
 	enemies_killed += 1
 	if enemies_killed >= required_enemies:
 		print("required_enemies_killed")
-		emit_signal("required_enemies_killed")
+		SignalBus.required_enemies_killed.emit()
 		
 	enemy_pools[enemy.type].kill(enemy)
 
