@@ -60,7 +60,6 @@ func increase_max_accel_mult(mult: float):
 	max_accel_mult += mult
 	calculate_true_values()
 
-
 func _on_state_machine_state_changed(new_state):
 	current_state = new_state
 	calculate_true_values()
