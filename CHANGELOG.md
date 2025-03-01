@@ -266,7 +266,7 @@
 
 ## version 0.53
 
--     Changed particle texture
+- Changed particle texture
 
 ## version 0.54
 
@@ -285,3 +285,11 @@
 
 - Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing.
 - basic_enemy renamed to infinimouth.
+
+## version 0.57
+
+- Added stat bonus displays to upgrade menu
+- Fixed upgrades not persisting across levels
+- Fixed player health not persisting across levels
+- Fixed speed upgrades scaling faster than intended
+- Made health an item stored in the Inventory
