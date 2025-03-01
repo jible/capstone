@@ -12,8 +12,9 @@ var spawn_point = Vector2.ZERO
 var end_point = Vector2.ZERO
 var layers = {}
 var map: Map
-
-
+var enter_instance
+var exit_instance
+var package
 
 func get_corners():
 	# Used the extra distance to debug 
@@ -50,7 +51,7 @@ func generate_level(level_package):
 	'''
 	Generate tilemap level dependent on argument type.
 	'''
-	var package = level_package
+	package = level_package
 	prep()
 	size.x = package.width
 	size.y = package.height
@@ -79,13 +80,16 @@ func render():
 	render_tiles("environment")
 	
 	# Add the enter and exit
-	var enter_instance = enter.instantiate()
+	enter_instance = enter.instantiate()
 	get_tree().current_scene.call_deferred("add_child",enter_instance)
 	enter_instance.position = spawn_point
 	
-	var exit_instance = exit.instantiate()
+	exit_instance = exit.instantiate()
 	get_tree().current_scene.call_deferred("add_child",exit_instance)
 	exit_instance.position = end_point
+	
+	if package.enemy_package.required_enemies <= 0:
+		exit_instance.turn_on()
 	
 	nav_mesh_maker.make_mesh(get_corners())
 
@@ -112,3 +116,10 @@ func render_tiles(layer):
 					layers["wall2"].set_cell(Vector2(x,y - 1), 1, Vector2i(1,0))
 				if y -2 >= 0:
 					layers["ceiling"].set_cell(Vector2(x,y - 2), 1, Vector2i(2,0))
+
+
+
+
+func _on_enemy_manager_required_enemies_killed():
+	exit_instance.turn_on()
+	pass # Replace with function body.

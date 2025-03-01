@@ -34,11 +34,6 @@ func _ready():
 		enemy_odds.append( { "name": enemy.name, "odds": accumulated_odds}  )
 	for enemy in enemy_package.enemy_types:
 		enemy_pools[enemy.name] = Pool.new( name_to_path[enemy.name] , enemy.pool_size )
-	
-	
-	if enemies_killed >= required_enemies:
-		print("required_enemies_killed")
-		emit_signal("required_enemies_killed")
 
 func enemy_killed(enemy):
 	live_enemies -= 1

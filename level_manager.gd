@@ -18,7 +18,7 @@ var level_order = [
 
 var default_enemy_package = {
 	"max_concurrent_enemies": 5,
-	"required_enemies" : 0,
+	"required_enemies" : 1,
 	"enemy_types":[
 		{
 			"name" : "infinimouth",
