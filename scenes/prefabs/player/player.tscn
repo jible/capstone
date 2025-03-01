@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ct5tfh48ghst2" path="res://assets/spritesheets/player_idle_north.png" id="9_2m8w5"]
 [ext_resource type="Texture2D" uid="uid://cpp6grxd6u4yh" path="res://assets/spritesheets/player_hurt_north.png" id="9_kd5gr"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="9_po6ig"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/animation_manager.tscn" id="9_sc1mn"]
+[ext_resource type="PackedScene" uid="uid://0ry41ukaumi6" path="res://scenes/prefabs/animation_manager.tscn" id="9_sc1mn"]
 [ext_resource type="Texture2D" uid="uid://c8gaccgrsbcww" path="res://assets/spritesheets/player_hurt_south.png" id="10_cj5fo"]
 [ext_resource type="Texture2D" uid="uid://bf0kxgnakna0" path="res://assets/spritesheets/player_idle_south.png" id="10_koffb"]
 [ext_resource type="Texture2D" uid="uid://bss7or0rnpqbn" path="res://assets/spritesheets/player_idle_west.png" id="11_3ch3l"]
@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bbnjl5bpsrdd6" path="res://assets/spritesheets/player_walk_north.png" id="17_spqdu"]
 [ext_resource type="Texture2D" uid="uid://daupw1ov13eoo" path="res://assets/spritesheets/player_walk_south.png" id="18_ts85c"]
 [ext_resource type="Texture2D" uid="uid://br6eavhfkfe4" path="res://assets/spritesheets/player_walk_west.png" id="19_ik34j"]
-[ext_resource type="Texture2D" uid="uid://btawghlpn4ah1" path="res://assets/images/particle.jpg" id="28_7yx3u"]
+[ext_resource type="Texture2D" uid="uid://j6vff2f1psgh" path="res://assets/images/particle_dust.png" id="28_36idg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a255u"]
 atlas = ExtResource("3_tdv4r")
@@ -674,7 +674,7 @@ emitting = false
 amount = 100
 lifetime = 0.3
 one_shot = true
-texture = ExtResource("28_7yx3u")
+texture = ExtResource("28_36idg")
 emission_shape = 1
 emission_sphere_radius = 90.0
 gravity = Vector2(0, 0)

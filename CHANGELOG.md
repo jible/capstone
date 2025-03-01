@@ -265,3 +265,22 @@
 ## version 0.52
 
 -   Fixed upgrade manager not reseting on death
+
+## version 0.53
+
+- 	Changed particle texture
+
+## version 0.54
+
+-	Added currency (tooth) spritesheet to assets folder
+-	Added health (heart) spritesheet to assets folder
+-	Added temporary wall border tilesets to assets folder
+
+## version 0.55
+
+-   Swapped the direction the cursor faces
+-   Refactored play scene handling
+-   Deleted Limbo scene, since all main play will take play in "scene_config_package"
+	    - All scene ordering and generation configuring is in the global script "level_manager"
+		- "scene_config_package" should be renamed to something like play scene or level
+-   Connected all menu scenes to "scene_config_package"

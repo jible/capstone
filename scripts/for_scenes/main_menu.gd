@@ -1,7 +1,7 @@
 extends Control
 
 ## The scene to transition to when the player hits "Start"
-@export var path_to_scene : String = "res://scenes/limbo.tscn"
+@export var path_to_scene : String = "res://scenes/prefabs/scene_config_package.tscn"
 @onready var play_button: Button = $"PlayButton"
 
 func _ready() -> void:

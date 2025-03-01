@@ -10,8 +10,7 @@ var threshold = .3
 var player_spawn = Vector2i.ZERO
 var end = Vector2i.ZERO
 var step_points = [
-	Vector2i.ZERO,
-	Vector2i(0,1)
+	Vector2i.ZERO
 ]
 
 func _init(arg_size, arg_seed):
