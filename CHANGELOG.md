@@ -281,6 +281,6 @@
 -   Swapped the direction the cursor faces
 -   Refactored play scene handling
 -   Deleted Limbo scene, since all main play will take play in "scene_config_package"
-	    - All scene ordering and generation configuring is in the global script "level_manager"
+		- All scene ordering and generation configuring is in the global script "level_manager"
 		- "scene_config_package" should be renamed to something like play scene or level
 -   Connected all menu scenes to "scene_config_package"
