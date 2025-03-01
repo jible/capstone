@@ -10,6 +10,7 @@ var required_enemies
 var live_enemies = 0
 var enemies_killed = 0
 var time_since_check = 0
+var enemies_spawned =0
 var spawn_time = .2
 var enemy_odds = []
 var enemy_pools: Dictionary = {}
@@ -51,6 +52,7 @@ func spawn_enemy(pos, enemy_type = null):
 	var new_enemy = enemy_pools[enemy_type].add(get_tree().current_scene)
 	new_enemy.global_position = pos
 	live_enemies+=1
+	enemies_spawned += 1
 	pass
 
 
@@ -62,8 +64,8 @@ func _process(delta):
 	spawn an enemy there.
 	Add to current enemy count
 	'''
-	#if enemies_killed >= required_enemies:
-		#return
+	if enemies_spawned >= enemy_package.all_time_spawns || live_enemies >= max_concurrent_enemies:
+		return
 	time_since_check += delta
 	if time_since_check > spawn_time:
 		time_since_check -= spawn_time
