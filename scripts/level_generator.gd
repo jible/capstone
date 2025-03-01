@@ -97,7 +97,8 @@ func render_tiles(layer):
 	'''
 	Render the tile map by placing tiles on the appropriate layers.
 	'''
-	
+	# ChatGPT reference:
+	# https://chatgpt.com/share/67c39e54-ae50-8012-abd0-b3f26d08568a
 	var modified_walls = []
 	for y in range (size.y):
 		for x in range(size.x):
@@ -112,5 +113,5 @@ func render_tiles(layer):
 			
 			if map.get_tile(pos).type == null:
 				modified_walls.append( Vector2i( pos ) ) 
-				
+	
 	layers["wall1"].set_cells_terrain_connect(modified_walls, 0 ,0 )
