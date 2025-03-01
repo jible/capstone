@@ -21,7 +21,7 @@ var default_enemy_package = {
 	"required_enemies" : 0,
 	"enemy_types":[
 		{
-			"name" : "infini_mouth",
+			"name" : "infinimouth",
 			"pool_size": 50,
 			"frequency": 1
 		}
