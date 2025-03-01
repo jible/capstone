@@ -1,14 +1,14 @@
 class_name HitBox
 extends Area2D
 #src: https://www.youtube.com/watch?v=rU-JfP2nOpo&ab_channel=blazeDev
-
+@export var character:CharacterBody2D
 @export var damage: int = 1
 @export var collision: CollisionShape2D
 @export var detecting:bool = false
 @export var distance_from_parent: int = 130
 @export var knockback = 50
 @export var collisionshape :CollisionShape2D
-
+@export var on_swivel = false
 var overlapping_areas = []
 var successful_hit = []
 
@@ -34,7 +34,13 @@ func _on_area_exited(area):
 	overlapping_areas.erase(area)
 
 func _on_direction_manager_direction_changed(direction: Vector2):
-	move_direction(direction)
+	if !on_swivel:
+		move_direction(direction)
+
+func _physics_process(delta):
+	if on_swivel:
+		print(character.get_direction().normalized())
+		move_to (character.get_direction().normalized() * distance_from_parent ) 
 
 func set_damage(value: int):
 	damage = value

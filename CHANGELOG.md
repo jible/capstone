@@ -283,6 +283,7 @@
 
 ## version 0.56
 
+
 - Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing.
 - basic_enemy renamed to infinimouth.
 
@@ -293,3 +294,11 @@
 - Fixed player health not persisting across levels
 - Fixed speed upgrades scaling faster than intended
 - Made health an item stored in the Inventory
+
+-   Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing.
+-   basic_enemy renamed to infinimouth.
+
+## version 0.58
+
+- Player hitbox now spins around player instead of locking to axis
+
