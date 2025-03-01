@@ -112,6 +112,5 @@ func render_tiles(layer):
 			
 			if map.get_tile(pos).type == null:
 				modified_walls.append( Vector2i( pos ) ) 
-				layers["wall1"].set_cell(pos, 0,Vector2i(0,0))
 				
 	layers["wall1"].set_cells_terrain_connect(modified_walls, 0 ,0 )
