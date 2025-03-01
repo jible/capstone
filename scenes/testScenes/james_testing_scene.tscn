@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="1_sxmck"]
 [ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="2_8lysn"]
-[ext_resource type="PackedScene" uid="uid://cfy2mlhpkuxdd" path="res://scenes/prefabs/npcs/enemies/basic_enemy.tscn" id="3_qawkk"]
+[ext_resource type="PackedScene" uid="uid://cfy2mlhpkuxdd" path="res://scenes/prefabs/npcs/enemies/infinimouth.tscn" id="3_qawkk"]
 
 [node name="James testing scene" type="Node2D"]
 

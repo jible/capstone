@@ -284,3 +284,12 @@
 		- All scene ordering and generation configuring is in the global script "level_manager"
 		- "scene_config_package" should be renamed to something like play scene or level
 -   Connected all menu scenes to "scene_config_package"
+
+## version 0.56
+
+-   Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing.
+-   basic_enemy renamed to infinimouth.
+
+## version 0.58
+
+-   Player hitbox now spins around player instead of locking to axis
