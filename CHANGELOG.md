@@ -274,3 +274,7 @@
 -	Added currency (tooth) spritesheet to assets folder
 -	Added health (heart) spritesheet to assets folder
 -	Added temporary wall border tilesets to assets folder
+
+## version 0.60
+
+- Added and implemented player attack animations
