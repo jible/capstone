@@ -72,6 +72,9 @@ tile_set = SubResource("TileSet_dw07b")
 
 [node name="Player" parent="." instance=ExtResource("3_5fksv")]
 
+[node name="CPUParticles2D" parent="Player/Hitbox" index="1"]
+texture = null
+
 [node name="WallTransparencyCollision" type="CollisionShape2D" parent="Player"]
 
 [node name="Custom Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_t24gl")]
@@ -90,8 +93,6 @@ level_generator = NodePath("../Level Generator")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("6_14c2j")]
-
-[connection signal="required_enemies_killed" from="Enemy Manager" to="Level Generator" method="_on_enemy_manager_required_enemies_killed"]
 
 [editable path="Level Generator"]
 [editable path="Player"]

@@ -302,3 +302,8 @@
 
 - Player hitbox now spins around player instead of locking to axis
 
+## version 0.59
+
+- Level manager now controls when the exit is enabled (v.56 refactor)
+- New signal in SignalBus for when required enemies are killed
+- Removed spam print statement

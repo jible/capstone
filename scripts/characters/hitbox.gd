@@ -39,7 +39,6 @@ func _on_direction_manager_direction_changed(direction: Vector2):
 
 func _physics_process(delta):
 	if on_swivel:
-		print(character.get_direction().normalized())
 		move_to (character.get_direction().normalized() * distance_from_parent ) 
 
 func set_damage(value: int):

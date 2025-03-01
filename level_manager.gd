@@ -3,11 +3,13 @@ extends Node
 var current_level_index = 0
 var level_scene_reference
 var current_package 
+var exit_instance
 
 func _ready():
 	update_current_package()
 	level_scene_reference = preload("res://scenes/prefabs/scene_config_package.tscn")
 	SignalBus.player_die.connect(reset_levels)
+	SignalBus.required_enemies_killed.connect(enable_exit)
 
 var level_order = [
 	"limbo_1",
@@ -85,6 +87,14 @@ var level_packages = {
 func reset_levels():
 	current_level_index = 0
 	update_current_package()
+	
+func link_exit(exit):
+	exit_instance = exit
+	if current_package.enemy_package.required_enemies <= 0:
+		exit_instance.turn_on()
+	
+func enable_exit():
+	exit_instance.turn_on()
 
 func go_next_level():
 	current_level_index += 1
