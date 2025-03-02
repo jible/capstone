@@ -307,3 +307,8 @@
 - Level manager now controls when the exit is enabled (v.56 refactor)
 - New signal in SignalBus for when required enemies are killed
 - Removed spam print statement
+
+## version 0.62
+
+- Player can now dash, using the shift key
+- The dash state mobility attributes needs balancing
