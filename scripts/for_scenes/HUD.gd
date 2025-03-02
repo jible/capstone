@@ -14,6 +14,7 @@ func _ready() -> void:
 	SignalBus.update_HUD.connect(update_player_info)
 	SignalBus.player_health_updated.connect(update_health)
 	SignalBus.currency_changed.connect(update_currency)
+	update_health()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,10 +29,10 @@ func toggle_upgrade_menu():
 	
 func update_player_info():
 	#Updates health bar when player upgrades health
-	health_bar.max_value = player.health_manager.max_health
 	update_health()
 	
 func update_health():
+	health_bar.max_value = player.health_manager.max_health
 	health_bar.value = player.health_manager.health
 	health_label.text = "%d/%d" % [player.health_manager.health, player.health_manager.max_health]
 

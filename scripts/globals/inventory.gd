@@ -1,6 +1,7 @@
 extends Node2D
 
 var items = {}
+var health: int = 10
 
 func _ready() -> void:
 	SignalBus.item_collected.connect(_on_pick_up_item_collected)
@@ -14,6 +15,5 @@ func check_item(type):
 	return 0
 
 func _on_pick_up_item_collected(type, amount):
-
 	obtain_item(type, amount)
 	SignalBus.currency_changed.emit()

@@ -27,6 +27,7 @@ SoundManager="*res://scenes/sound_manager.tscn"
 UpgradeManager="*res://scripts/globals/upgrade_manager.gd"
 SceneTransition="*res://scenes/scene_transition.tscn"
 Inventory="*res://scripts/globals/inventory.gd"
+LevelManager="*res://level_manager.gd"
 
 [display]
 
@@ -37,7 +38,6 @@ window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://assets/images/cursorV1.png"
-mouse_cursor/custom_image_hotspot=Vector2(24, 0)
 
 [global_group]
 

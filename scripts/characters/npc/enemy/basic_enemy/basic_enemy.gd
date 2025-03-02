@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name BasicEnemy
+class_name Infinimouth
 # All children references
 @export var mobility_manager: MobilityManager
 @export var state_machine: StateMachine
@@ -10,7 +10,7 @@ class_name BasicEnemy
 @export var navigator: Navigator
 @export var silhouette: AnimatedSprite2D
 @export var target_tracker: TargetTracker
-var type = "basic_enemy"
+var type = "infinimouth"
 
 @export var drop : PackedScene
 var enemy_manager:Node = null

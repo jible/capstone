@@ -16,9 +16,10 @@ var inventory: Inventory = Inventory
 
 func _ready():
 	Globals.player = self
-	SignalBus.player_stat_upgraded.connect(update_stats)
-	
-
+	grab_upgrades()
+	grab_health()
+	SignalBus.player_stat_upgraded.connect(update_stat)
+	SignalBus.level_completed.connect(store_health)
 
 func _physics_process(_delta):
 	mobility_manager.input_direction = InputManager.get_move_vector()
@@ -26,25 +27,33 @@ func _physics_process(_delta):
 
 func get_direction():
 	return InputManager.get_look_vector(position)
+	
+func set_base_stats():
+	#health_manager.increase_max_health(UpgradeManager.get_stat(UpgradeManager.HEALTH))
+	pass
+	
+func grab_upgrades():
+	update_health()
+	update_speed()
+	update_dmg()
+	
+func grab_health():
+	health_manager.health = Inventory.health
+	SignalBus.update_HUD.emit()
 
-func update_stats(stat_name: String):
+func update_stat(stat_name: String):
 	Callable(self, "update_%s" %stat_name).call()
 	SignalBus.update_HUD.emit()
 	
 func update_health():
-	print("health")
-	health_manager.increase_max_health(UpgradeManager.get_stat(UpgradeManager.HEALTH))
+	health_manager.increase_health_from_base(UpgradeManager.get_stat(UpgradeManager.HEALTH))
 	
 func update_speed():
-	print("speed")
-	mobility_manager.increase_max_speed_mult(UpgradeManager.get_stat(UpgradeManager.SPEED))
-	mobility_manager.increase_max_accel_mult(UpgradeManager.get_stat(UpgradeManager.SPEED))
+	mobility_manager.max_speed_mult = UpgradeManager.get_stat(UpgradeManager.SPEED)
+	mobility_manager.max_accel_mult = UpgradeManager.get_stat(UpgradeManager.SPEED)
 	
 func update_dmg():
-	print("dmg")
 	hitbox.increase_damage(UpgradeManager.get_stat(UpgradeManager.DMG))
-
-
-func _on_wall_collision_area_body_entered(body):
 	
-	print(body)
+func store_health():
+	Inventory.health = health_manager.health

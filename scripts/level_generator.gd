@@ -1,7 +1,7 @@
 extends Node2D
 class_name LevelGenerator
 
-@export var size : Vector2i = Vector2i(150,150) 
+var size : Vector2i = Vector2i(150,150) 
 @export var world_seed : int = 0
 @export var randomize_seed = false
 @export var enter: PackedScene
@@ -12,12 +12,9 @@ var spawn_point = Vector2.ZERO
 var end_point = Vector2.ZERO
 var layers = {}
 var map: Map
-
-var gen_methods = {
-	"limbo": Callable(self, "make_limbo"),
-	"lust": Callable(self, "make_lust"),
-}
-
+var enter_instance
+var exit_instance
+var package
 
 func get_corners():
 	# Used the extra distance to debug 
@@ -33,29 +30,42 @@ func get_corners():
 		bot_left
 	])
 
+
 func prep():
+	# TODO may need to improve seed setting. Right now, this prevents lust 1-3 from being the same.
 	if randomize_seed:
-		world_seed = randi()
+		world_seed = randi() + ( 100 * LevelManager.current_level_index)
 	layers = {
 		"environment":$Environment,
 		"wall1": $"Wall Level 1",
 		"wall2": $"Wall Level 2",
 		"ceiling": $"Ceiling",
-		
 	}
 	tile_size = layers["environment"].tile_set.tile_size
-	
+
 # For other nodes to find tiles from map
 func get_tile_type(pos):
 	return map.get_tile(pos).type
 
-func generate_level(level_type):
+func generate_level(level_package):
 	'''
 	Generate tilemap level dependent on argument type.
 	'''
+	package = level_package
 	prep()
+	size.x = package.width
+	size.y = package.height
 	map = Map.new(size, world_seed)
-	gen_methods[level_type].call()
+	
+	# TODO - fill this out as more methods are made.
+	# We may want to use noise or wave collapse function or a modified walk
+	match package.gen_method:
+		"walk":
+			map.random_walk("terrain", "floor", package.floor_tiles)
+		"_":
+			map.random_walk("terrain", "floor", package.floor_tiles)
+	
+	map.set_spawn_and_exit()
 	
 	var tile_size = Vector2( layers["environment"].tile_set.tile_size )
 	spawn_point = ( map.player_spawn * tile_size ) + (.5 * tile_size)
@@ -66,35 +76,19 @@ func generate_level(level_type):
 	randomize()
 
 
-func make_limbo():
-	'''
-	Randomly walk the terrain level and fill it with floors.
-	'''
-	
-	map.random_walk("terrain", "floor", 1000)
-	map.set_spawn_and_exit()
-	
-	# [ ] call function to find tile for player spawn and exit.
-
-func make_lust():
-	'''
-	Make randomly generated noise to fill the terrai level with floors.
-	'''
-	map.make_noise("terrain", "floor")
-	
-	# [ ] call function to find tile for player spawn and exit.
-
 func render():
 	render_tiles("environment")
 	
 	# Add the enter and exit
-	var enter_instance = enter.instantiate()
+	enter_instance = enter.instantiate()
 	get_tree().current_scene.call_deferred("add_child",enter_instance)
 	enter_instance.position = spawn_point
 	
-	var exit_instance = exit.instantiate()
+	exit_instance = exit.instantiate()
 	get_tree().current_scene.call_deferred("add_child",exit_instance)
 	exit_instance.position = end_point
+	
+	LevelManager.link_exit(exit_instance)
 	
 	nav_mesh_maker.make_mesh(get_corners())
 
