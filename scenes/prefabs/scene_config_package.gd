@@ -18,6 +18,7 @@ func _ready():
 
 func play_music():
 	MusicManager.stop()
+	MusicManager.change_song(MusicManager.LUST)
 	# TODO Connect music asset for level and play
 	
 func place_player():
