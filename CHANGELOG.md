@@ -308,7 +308,6 @@
 - New signal in SignalBus for when required enemies are killed
 - Removed spam print statement
 
-
 ## version 0.60
 - Implemented a global script, ShaderManager that changes the material on a new scene, Filter, that is a ColorRect placed over the global SceneTransition scene.
 - Since SceneTransition exists over the top of the entire game, this is a quick way to apply the filter to all scenes without any scene knowing about it.
@@ -321,3 +320,7 @@
 -	Added health (heart) spritesheet to assets folder
 -	Added temporary wall border tilesets to assets folder
 
+## version 0.63
+
+- Dungeon walls now auto-tile
+- The script functions correctly, but it needs an updated tile map. 
