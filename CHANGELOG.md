@@ -308,6 +308,18 @@
 - New signal in SignalBus for when required enemies are killed
 - Removed spam print statement
 
+## version 0.60
+- Implemented a global script, ShaderManager that changes the material on a new scene, Filter, that is a ColorRect placed over the global SceneTransition scene.
+- Since SceneTransition exists over the top of the entire game, this is a quick way to apply the filter to all scenes without any scene knowing about it.
+- It is important that if the dropdown of the options menu's shaders change order, **this needs to be reflected in the ShaderManager's SHADER_POOL const variable**.
+
+## version 0.61
+-	Added and implemented player attack animations
+-	Implemented currency animation
+-	Added currency (tooth) spritesheet to assets folder
+-	Added health (heart) spritesheet to assets folder
+-	Added temporary wall border tilesets to assets folder
+
 ## version 0.62
 
 - Player can now dash, using the shift key

@@ -28,6 +28,7 @@ UpgradeManager="*res://scripts/globals/upgrade_manager.gd"
 SceneTransition="*res://scenes/scene_transition.tscn"
 Inventory="*res://scripts/globals/inventory.gd"
 LevelManager="*res://level_manager.gd"
+ShaderManager="*res://scripts/shader_manager.gd"
 
 [display]
 
