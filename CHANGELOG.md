@@ -309,6 +309,6 @@
 - Removed spam print statement
 
 ## version 0.60
-- Implemented a new scene, filter.tcsn that can be attached to all scenes at the botton and will use an overlay of a shader when functions are called.
-- For example, to change to the high contrast filter, you can reference the filter scene and write FILTER_SCENE.change_shader(FILTER_SCENE.CONT)
-- Fixed shader code to apply to the screen instead of a texture.
+- Implemented a global script, ShaderManager that changes the material on a new scene, Filter, that is a ColorRect placed over the global SceneTransition scene.
+- Since SceneTransition exists over the top of the entire game, this is a quick way to apply the filter to all scenes without any scene knowing about it.
+- It is important that if the dropdown of the options menu's shaders change order, **this needs to be reflected in the ShaderManager's SHADER_POOL const variable**.
