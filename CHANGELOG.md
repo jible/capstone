@@ -277,4 +277,5 @@
 
 ## version 0.60
 
-- Added and implemented player attack animations
+-	Added and implemented player attack animations
+-	Implemented currency animation
