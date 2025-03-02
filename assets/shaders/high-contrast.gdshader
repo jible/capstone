@@ -24,9 +24,10 @@ void vertex() {
 	// Called for every vertex the material is visible on.
 }
 const float contrast = 1.5;
+uniform sampler2D SCREEN_TEXTURE :hint_screen_texture, filter_linear_mipmap;
 void fragment() {
 	// Pull image texture
-	vec4 source = texture(TEXTURE,UV);
+	vec4 source = texture(SCREEN_TEXTURE,SCREEN_UV);
 	// Make grayscale
 	source *= grayscale;
 	// Create a contrast version by making points shy away from the center
