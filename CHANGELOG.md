@@ -308,7 +308,7 @@
 - New signal in SignalBus for when required enemies are killed
 - Removed spam print statement
 
-## version 0.61
+## version 0.63
 
 - Dungeon walls now auto-tile
 - The script functions correctly, but it needs an updated tile map. 
