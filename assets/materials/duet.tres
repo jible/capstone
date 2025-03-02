@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://vjjcemr22jvf"]
+
+[ext_resource type="Shader" path="res://assets/shaders/deuteranopia.gdshader" id="1_mqaq8"]
+
+[resource]
+shader = ExtResource("1_mqaq8")

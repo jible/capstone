@@ -31,3 +31,7 @@ func _on_language_dropdown_item_selected(index: int) -> void:
 		_:
 			#default case for errors, do nothing
 			pass
+
+# Changing the material order of the dropdown has to be reflected in the ShaderManager
+func _on_filter_dropdown_item_selected(index: int) -> void:
+	ShaderManager.change_material(index)
