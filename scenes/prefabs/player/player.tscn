@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://c6kyubdgubp47"]
+[gd_scene load_steps=116 format=3 uid="uid://c6kyubdgubp47"]
 
 [ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_u3dna"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_igigb"]
