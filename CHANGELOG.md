@@ -324,3 +324,13 @@
 
 - Dungeon walls now auto-tile
 - The script functions correctly, but it needs an updated tile map. 
+
+## version 0.65
+- Main menu music implemented with a global MusicManager scene
+- Changed the cursor to a high contrast grayscale version cursorV3, with another option as well, cursorV2.
+- Made character attack noise louder
+- Created a spritesheet for the blood spatter hurt overlay
+- Added the new HUD sprite hudV2, but because it was still pretty big, I chopped it up and created the temporary hudV3 and tweaked the HUD scene so it properly fit.
+- Lust is set up now to play its music once I create the asset for it.
+- Added Lust's music and it plays when the scene starts
+- Fixed weird misalignment of HUD border
