@@ -307,3 +307,10 @@
 - Level manager now controls when the exit is enabled (v.56 refactor)
 - New signal in SignalBus for when required enemies are killed
 - Removed spam print statement
+
+## version 0.61
+-	Added and implemented player attack animations
+-	Implemented currency animation
+-	Added currency (tooth) spritesheet to assets folder
+-	Added health (heart) spritesheet to assets folder
+-	Added temporary wall border tilesets to assets folder
