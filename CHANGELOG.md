@@ -325,6 +325,11 @@
 - Dungeon walls now auto-tile
 - The script functions correctly, but it needs an updated tile map. 
 
+## version 0.64
+
+- Player can now dash, using the shift key
+- The dash state mobility attributes need balancing
+
 ## version 0.65
 - Main menu music implemented with a global MusicManager scene
 - Changed the cursor to a high contrast grayscale version cursorV3, with another option as well, cursorV2.

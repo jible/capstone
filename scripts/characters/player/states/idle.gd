@@ -17,10 +17,12 @@ func update_state(delta):
 	if player.velocity.length() > 5:
 		sm.change_state("Walk")
 		return
-	if Input.is_action_just_pressed("attack"):
+	elif Input.is_action_just_pressed("attack"):
 		sm.change_state("Attack")
-	if Input.is_action_just_pressed("debug_hurt_player"):
+	elif Input.is_action_just_pressed("debug_hurt_player"):
 		sm.change_state("Hurt")
+	elif Input.is_action_just_pressed("dash"):
+		sm.change_state("Dash")
 	pass
 func enter_state():
 	pass
