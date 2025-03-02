@@ -324,3 +324,8 @@
 
 - Dungeon walls now auto-tile
 - The script functions correctly, but it needs an updated tile map. 
+
+## version 0.64
+
+- Player can now dash, using the shift key
+- The dash state mobility attributes need balancing
