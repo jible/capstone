@@ -29,6 +29,7 @@ SceneTransition="*res://scenes/scene_transition.tscn"
 Inventory="*res://scripts/globals/inventory.gd"
 LevelManager="*res://level_manager.gd"
 MusicManager="*res://scenes/music_manager.tscn"
+ShaderManager="*res://scripts/shader_manager.gd"
 
 [display]
 

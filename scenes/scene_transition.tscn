@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b45qnwvk3uqo6"]
+[gd_scene load_steps=7 format=3 uid="uid://b45qnwvk3uqo6"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/scene_transition.gd" id="1_lsyys"]
+[ext_resource type="PackedScene" uid="uid://ca05of01m07uk" path="res://scenes/prefabs/ui_elements/filter.tscn" id="2_pfat5"]
 
 [sub_resource type="Animation" id="Animation_akhi3"]
 length = 0.001
@@ -72,3 +73,6 @@ color = Color(0.227451, 0.0823529, 0.0235294, 1)
 libraries = {
 "": SubResource("AnimationLibrary_63t0p")
 }
+
+[node name="Filter" parent="." instance=ExtResource("2_pfat5")]
+z_index = 2
