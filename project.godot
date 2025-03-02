@@ -28,6 +28,7 @@ UpgradeManager="*res://scripts/globals/upgrade_manager.gd"
 SceneTransition="*res://scenes/scene_transition.tscn"
 Inventory="*res://scripts/globals/inventory.gd"
 LevelManager="*res://level_manager.gd"
+MusicManager="*res://scenes/music_manager.tscn"
 ShaderManager="*res://scripts/shader_manager.gd"
 
 [display]
@@ -38,7 +39,7 @@ window/size/initial_position_type=0
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
-mouse_cursor/custom_image="res://assets/images/cursorV1.png"
+mouse_cursor/custom_image="res://assets/images/cursorV3.png"
 
 [global_group]
 

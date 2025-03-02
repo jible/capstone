@@ -190,10 +190,6 @@ level_generator = NodePath("../Level Generator")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("6_14c2j")]
-offset_left = -3.0
-offset_top = -188.0
-offset_right = -3.0
-offset_bottom = -188.0
 
 [editable path="Level Generator"]
 [editable path="Player"]
