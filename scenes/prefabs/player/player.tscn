@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://c6kyubdgubp47"]
+[gd_scene load_steps=116 format=3 uid="uid://c6kyubdgubp47"]
 
 [ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_u3dna"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_igigb"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bbnjl5bpsrdd6" path="res://assets/spritesheets/player_walk_north.png" id="17_spqdu"]
 [ext_resource type="Texture2D" uid="uid://daupw1ov13eoo" path="res://assets/spritesheets/player_walk_south.png" id="18_ts85c"]
 [ext_resource type="Texture2D" uid="uid://br6eavhfkfe4" path="res://assets/spritesheets/player_walk_west.png" id="19_ik34j"]
+[ext_resource type="Script" path="res://scripts/characters/player/states/dash.gd" id="27_ilokj"]
 [ext_resource type="Texture2D" uid="uid://j6vff2f1psgh" path="res://assets/images/particle_dust.png" id="28_36idg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_htf8h"]
@@ -740,6 +741,10 @@ character = NodePath("../..")
 
 [node name="Death" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
 script = ExtResource("8_vxcvn")
+character = NodePath("../..")
+
+[node name="Dash" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
+script = ExtResource("27_ilokj")
 character = NodePath("../..")
 
 [node name="Hitbox" parent="." node_paths=PackedStringArray("character") instance=ExtResource("6_arj65")]

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dslr3ip0cnxp0" path="res://assets/sprites/playerV1.png" id="1_ekvuy"]
 [ext_resource type="Script" path="res://scripts/for_scenes/HUD.gd" id="1_ndg1h"]
 [ext_resource type="Texture2D" uid="uid://bxevwqt0bicpt" path="res://assets/sprites/sexyIndiDevLogo.png" id="2_cbqub"]
-[ext_resource type="Texture2D" uid="uid://cb3ihhfb8trsd" path="res://assets/ui_renders/hud-transparentbg.png" id="3_2oo5a"]
+[ext_resource type="Texture2D" uid="uid://bspcc8ob30fpb" path="res://assets/ui_renders/hudv3.png" id="3_oovd0"]
 [ext_resource type="PackedScene" uid="uid://bsmerj830lma6" path="res://scenes/prefabs/ui_elements/stat_upgrade_ui.tscn" id="4_0nay5"]
 [ext_resource type="PackedScene" uid="uid://bqwbdvntcsrc0" path="res://scenes/prefabs/ui_elements/pause_menu.tscn" id="5_csnww"]
 
@@ -33,10 +33,11 @@ grow_vertical = 2
 
 [node name="PlayerInfo" type="PanelContainer" parent="Border"]
 layout_mode = 1
-offset_left = 49.0
-offset_top = 101.0
-offset_right = 432.87
-offset_bottom = 222.45
+offset_left = 102.0
+offset_top = 93.0
+offset_right = 485.87
+offset_bottom = 214.45
+scale = Vector2(0.96, 1.04)
 
 [node name="MarginContainer" type="MarginContainer" parent="Border/PlayerInfo"]
 layout_mode = 2
@@ -95,14 +96,10 @@ size_flags_stretch_ratio = 0.5
 text = "player name"
 
 [node name="HUD Overlay" type="TextureRect" parent="Border"]
-modulate = Color(1, 1, 1, 0.627451)
 layout_mode = 0
-offset_left = -417.0
-offset_top = -199.0
-offset_right = 1979.0
-offset_bottom = 1040.0
-scale = Vector2(1.125, 1.125)
-texture = ExtResource("3_2oo5a")
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_oovd0")
 
 [node name="Minimap" type="PanelContainer" parent="Border"]
 layout_mode = 1
