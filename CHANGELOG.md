@@ -307,3 +307,43 @@
 - Level manager now controls when the exit is enabled (v.56 refactor)
 - New signal in SignalBus for when required enemies are killed
 - Removed spam print statement
+
+## version 0.60
+- Implemented a global script, ShaderManager that changes the material on a new scene, Filter, that is a ColorRect placed over the global SceneTransition scene.
+- Since SceneTransition exists over the top of the entire game, this is a quick way to apply the filter to all scenes without any scene knowing about it.
+- It is important that if the dropdown of the options menu's shaders change order, **this needs to be reflected in the ShaderManager's SHADER_POOL const variable**.
+
+## version 0.61
+-	Added and implemented player attack animations
+-	Implemented currency animation
+-	Added currency (tooth) spritesheet to assets folder
+-	Added health (heart) spritesheet to assets folder
+-	Added temporary wall border tilesets to assets folder
+
+## version 0.63
+
+- Dungeon walls now auto-tile
+- The script functions correctly, but it needs an updated tile map. 
+
+## version 0.64
+
+- Player can now dash, using the shift key
+- The dash state mobility attributes need balancing
+
+## version 0.65
+- Main menu music implemented with a global MusicManager scene
+- Changed the cursor to a high contrast grayscale version cursorV3, with another option as well, cursorV2.
+- Made character attack noise louder
+- Created a spritesheet for the blood spatter hurt overlay
+- Added the new HUD sprite hudV2, but because it was still pretty big, I chopped it up and created the temporary hudV3 and tweaked the HUD scene so it properly fit.
+- Lust is set up now to play its music once I create the asset for it.
+- Added Lust's music and it plays when the scene starts
+- Fixed weird misalignment of HUD border
+
+## version 0.66
+- Trimmed the edges of the main menu book image so that it scales better and fits the viewport nicely without it getting separated from its origin.
+- Main menu layout has been finalized. The title is now on the book and the book covers nearly the whole screen.
+- Added dummy button for options menu so that the work can be started on implementing the ability for options to be managed at start.
+- The ShaderManager now uses an enum for the ability for other scenes to more easily set a shader manually, which is used for `rozy_mode`, a debug boolean flag in the scene transition scene that sets the high contrast mode automatically at start.
+- The tutorial's text label now extends to the edges of the screen and wraps based on the word.
+- The tutorial now explains that the button used to show the upgrade menu also hides the upgrade menu.

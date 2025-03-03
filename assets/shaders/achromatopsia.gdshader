@@ -18,12 +18,10 @@ const mat4 achromatopsia = mat4(
 	vec4(0.299,0.587,0.114,0.0),
 	vec4(0.0,0.0,0.0,1.0)
 );
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
+uniform sampler2D SCREEN_TEXTURE :hint_screen_texture, filter_linear_mipmap;
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	vec4 source = texture(TEXTURE,UV);
+	vec4 source = texture(SCREEN_TEXTURE,SCREEN_UV);
 	COLOR = source * achromatopsia;
 }

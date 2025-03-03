@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bcudkx0xehs35"]
+
+[ext_resource type="Shader" path="res://assets/shaders/high-contrast.gdshader" id="1_75p8g"]
+
+[resource]
+shader = ExtResource("1_75p8g")

@@ -14,7 +14,13 @@ func _ready():
 	
 	level_generator.generate_level(LevelManager.get_current_package())
 	place_player()
+	play_music()
 
+func play_music():
+	MusicManager.stop()
+	MusicManager.change_song(MusicManager.LUST)
+	# TODO Connect music asset for level and play
+	
 func place_player():
 	player.global_position = level_generator.spawn_point
 	

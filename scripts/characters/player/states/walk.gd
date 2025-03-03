@@ -18,6 +18,8 @@ func update_state(delta):
 		sm.change_state("Idle")
 	elif Input.is_action_just_pressed("attack"):
 		sm.change_state("Attack")
+	elif Input.is_action_just_pressed("dash"):
+		sm.change_state("Dash")
 	pass
 func enter_state():
 	pass
