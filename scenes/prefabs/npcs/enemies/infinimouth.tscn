@@ -764,10 +764,11 @@ script = ExtResource("4_nlsgk")
 character = NodePath("../..")
 mobility_manager = NodePath("../../Mobility Manager")
 
-[node name="Hurt" type="Node2D" parent="State Machine" node_paths=PackedStringArray("character")]
+[node name="Hurt" type="Node2D" parent="State Machine" node_paths=PackedStringArray("character", "speaker")]
 script = ExtResource("6_1sls6")
 knockback_velocity = 2000.0
 character = NodePath("../..")
+speaker = NodePath("../../Voice")
 
 [node name="Death" type="Node" parent="State Machine" node_paths=PackedStringArray("speaker")]
 script = ExtResource("8_vddrh")

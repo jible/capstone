@@ -57,7 +57,7 @@ func load_player_sounds():
 	
 	# Add sounds to the libraries
 	create_sound(player_sound_library, player_sound_settings, PlayerSounds.HURT, load("res://assets/audio/hurt.wav"), 0.0,1.0,1.0)
-	create_sound(player_sound_library, player_sound_settings, PlayerSounds.PICKUP, load("res://assets/audio/pickup.wav"), -10.0,1.0,1.0)
+	create_sound(player_sound_library, player_sound_settings, PlayerSounds.PICKUP, load("res://assets/audio/pickup.wav"), 3.0,1.0,1.0)
 	create_sound(player_sound_library, player_sound_settings, PlayerSounds.ATTACK, load("res://assets/audio/player_attack.wav"), 17.0,1.0,1.0)
 	create_sound(player_sound_library, player_sound_settings, PlayerSounds.DEATH, load("res://assets/audio/player_death.wav"), 14.0,1.0,1.0)
 
@@ -65,8 +65,9 @@ func load_entity_sounds():
 	entity_sound_library.resize(EntitySounds.keys().size())
 	entity_sound_settings.resize(EntitySounds.keys().size())
 	
-	create_sound(entity_sound_library,entity_sound_settings, EntitySounds.DEATH, load("res://assets/audio/enemy_death.wav"),17.0,1.0,1.0)
+	create_sound(entity_sound_library,entity_sound_settings, EntitySounds.DEATH, load("res://assets/audio/enemy_death.wav"),22.0,1.0,1.0)
 	create_sound(entity_sound_library,entity_sound_settings, EntitySounds.ATTACK, load("res://assets/audio/enemy_attack.wav"),15.0,1.0,1.0)
+	create_sound(entity_sound_library,entity_sound_settings, EntitySounds.HURT, load("res://assets/audio/enemy_hurt.wav"),8.0,1.0,1.0)
 func load_ui_sounds():
 	ui_sound_library.resize(UISounds.keys().size())
 	ui_sound_settings.resize(UISounds.keys().size())
