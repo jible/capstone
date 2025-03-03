@@ -5,7 +5,6 @@ func _ready() -> void:
 	load_entity_sounds()
 	load_ui_sounds()
 	load_env_sounds()
-	load_music_sounds()
 
 # Player Sound Setup
 enum PlayerSounds {
@@ -31,7 +30,9 @@ var ui_sound_settings: Array[SoundSetting] = []
 
 # Entity Sound Setup
 enum EntitySounds {
-	DEATH
+	DEATH,
+	ATTACK,
+	HURT
 }
 var entity_sound_library: Array[AudioStreamWAV] = []
 var entity_sound_settings: Array[SoundSetting] = [] 
@@ -43,13 +44,6 @@ enum EnvSounds {
 var env_sound_library: Array[AudioStreamWAV] = []
 var env_sound_settings: Array[SoundSetting] = [] 
 
-# Music Sound Setup
-enum MusicSounds {
-	MENU,
-	LUST
-}
-var music_sound_library: Array[AudioStreamWAV] = []
-var music_sound_settings: Array[SoundSetting] = [] 
 
 func create_sound(sound_lib: Array[AudioStreamWAV], setting_lib:Array[SoundSetting],index:int,sound_file:AudioStreamWAV,volume:float,pitch:float,attenuation:float):
 	sound_lib[index] = sound_file
@@ -64,13 +58,15 @@ func load_player_sounds():
 	# Add sounds to the libraries
 	create_sound(player_sound_library, player_sound_settings, PlayerSounds.HURT, load("res://assets/audio/hurt.wav"), 0.0,1.0,1.0)
 	create_sound(player_sound_library, player_sound_settings, PlayerSounds.PICKUP, load("res://assets/audio/pickup.wav"), -10.0,1.0,1.0)
-	create_sound(player_sound_library, player_sound_settings, PlayerSounds.ATTACK, load("res://assets/audio/player_attack.wav"), 8.0,1.0,1.0)
+	create_sound(player_sound_library, player_sound_settings, PlayerSounds.ATTACK, load("res://assets/audio/player_attack.wav"), 17.0,1.0,1.0)
 	create_sound(player_sound_library, player_sound_settings, PlayerSounds.DEATH, load("res://assets/audio/player_death.wav"), 14.0,1.0,1.0)
 
 func load_entity_sounds():
 	entity_sound_library.resize(EntitySounds.keys().size())
 	entity_sound_settings.resize(EntitySounds.keys().size())
 	
+	create_sound(entity_sound_library,entity_sound_settings, EntitySounds.DEATH, load("res://assets/audio/enemy_death.wav"),17.0,1.0,1.0)
+	create_sound(entity_sound_library,entity_sound_settings, EntitySounds.ATTACK, load("res://assets/audio/enemy_attack.wav"),15.0,1.0,1.0)
 func load_ui_sounds():
 	ui_sound_library.resize(UISounds.keys().size())
 	ui_sound_settings.resize(UISounds.keys().size())
@@ -85,10 +81,6 @@ func load_ui_sounds():
 func load_env_sounds():
 	env_sound_library.resize(EnvSounds.keys().size())
 	env_sound_settings.resize(EnvSounds.keys().size())
-	
-func load_music_sounds():
-	music_sound_library.resize(MusicSounds.keys().size())
-	music_sound_settings.resize(MusicSounds.keys().size())
 	
 # PLAYERS
 func play_player_sound(speaker:AudioStreamPlayer2D, sound_index : int):
@@ -116,12 +108,5 @@ func play_env_sound(speaker:AudioStreamPlayer2D, sound_index : int):
 	speaker.pitch_scale = env_sound_settings[sound_index].pitch_scale
 	speaker.attenuation = env_sound_settings[sound_index].attenuation
 	speaker.stream = env_sound_library[sound_index]
-	speaker.play()
-	
-func play_music_sound(speaker:AudioStreamPlayer2D, sound_index : int):
-	speaker.volume_db = music_sound_settings[sound_index].volume_db
-	speaker.pitch_scale = music_sound_settings[sound_index].pitch_scale
-	speaker.attenuation = music_sound_settings[sound_index].attenuation
-	speaker.stream = music_sound_library[sound_index]
 	speaker.play()
 	
