@@ -7,7 +7,7 @@ var save_locations = {
 }
 
 func _ready():
-	SignalBus.connect("player_die", save_game())
+	SignalBus.connect("player_die", save_game)
 
 # used chatgpt to double check the functionality
 # conversation: https://chatgpt.com/share/67c62d00-08f4-8012-974d-f915c4d82c4c
@@ -35,9 +35,10 @@ func save_game():
 # Note: This can be called from anywhere inside the tree. This function
 # is path independent.
 func load_game():
+	print("loading game")
 	if not FileAccess.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.
-
+	
 	# Load the file line by line and process that dictionary to restore
 	# the object it represents.
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
@@ -53,9 +54,8 @@ func load_game():
 
 		# Get the data from the JSON object.
 		var data = json.data
+		
 		var save_name = data["save_name"]
 		var script = save_locations[save_name]
 		# Now we set the remaining variables.
-		for key in data.keys():
-			if key != "save_name":
-				script.set(key,data[key])
+		script.load_save(data)

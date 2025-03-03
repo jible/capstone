@@ -8,5 +8,3 @@ func _ready():
 
 func game_start_routine():
 	SaveHandler.load_game()
-	
-	pass

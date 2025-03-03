@@ -38,6 +38,7 @@ func calculate_true_values():
 
 
 func update_velocity():
+	# TODO change drag calculation to use detla
 	var movement_details = current_state.movement_details
 	if movement_details.get("moveable", true):
 		character.velocity = character.velocity + (input_direction * true_acceleration)
