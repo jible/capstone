@@ -339,3 +339,11 @@
 - Lust is set up now to play its music once I create the asset for it.
 - Added Lust's music and it plays when the scene starts
 - Fixed weird misalignment of HUD border
+
+## version 0.66
+- Trimmed the edges of the main menu book image so that it scales better and fits the viewport nicely without it getting separated from its origin.
+- Main menu layout has been finalized. The title is now on the book and the book covers nearly the whole screen.
+- Added dummy button for options menu so that the work can be started on implementing the ability for options to be managed at start.
+- The ShaderManager now uses an enum for the ability for other scenes to more easily set a shader manually, which is used for `rozy_mode`, a debug boolean flag that sets the high contrast mode automatically at start.
+- The tutorial's text label now extends to the edges of the screen and wraps based on the word.
+- The tutorial now explains that the button used to show the upgrade menu also hides the upgrade menu.
