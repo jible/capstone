@@ -373,3 +373,7 @@
 
 - Added enemies killed count to HUD
 - Added new upgrade menu assets
+
+## version 0.70
+
+- Fixed debugger error, removed defunct variable

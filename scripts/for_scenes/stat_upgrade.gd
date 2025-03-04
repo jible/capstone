@@ -2,7 +2,6 @@ extends HBoxContainer
 
 @export var stat_name: String
 @export var upgrade_icon : CompressedTexture2D
-@onready var upgrade_level_label = $"UpgradeLevelLabel"
 @onready var stat_name_label = $"StatNameLabel"
 
 # Called when the node enters the scene tree for the first time.
