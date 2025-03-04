@@ -283,7 +283,6 @@
 
 ## version 0.56
 
-
 - Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing.
 - basic_enemy renamed to infinimouth.
 
@@ -295,8 +294,8 @@
 - Fixed speed upgrades scaling faster than intended
 - Made health an item stored in the Inventory
 
--   Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing.
--   basic_enemy renamed to infinimouth.
+- Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing.
+- basic_enemy renamed to infinimouth.
 
 ## version 0.58
 
@@ -309,21 +308,23 @@
 - Removed spam print statement
 
 ## version 0.60
+
 - Implemented a global script, ShaderManager that changes the material on a new scene, Filter, that is a ColorRect placed over the global SceneTransition scene.
 - Since SceneTransition exists over the top of the entire game, this is a quick way to apply the filter to all scenes without any scene knowing about it.
 - It is important that if the dropdown of the options menu's shaders change order, **this needs to be reflected in the ShaderManager's SHADER_POOL const variable**.
 
 ## version 0.61
--	Added and implemented player attack animations
--	Implemented currency animation
--	Added currency (tooth) spritesheet to assets folder
--	Added health (heart) spritesheet to assets folder
--	Added temporary wall border tilesets to assets folder
+
+- Added and implemented player attack animations
+- Implemented currency animation
+- Added currency (tooth) spritesheet to assets folder
+- Added health (heart) spritesheet to assets folder
+- Added temporary wall border tilesets to assets folder
 
 ## version 0.63
 
 - Dungeon walls now auto-tile
-- The script functions correctly, but it needs an updated tile map. 
+- The script functions correctly, but it needs an updated tile map.
 
 ## version 0.64
 
@@ -331,6 +332,7 @@
 - The dash state mobility attributes need balancing
 
 ## version 0.65
+
 - Main menu music implemented with a global MusicManager scene
 - Changed the cursor to a high contrast grayscale version cursorV3, with another option as well, cursorV2.
 - Made character attack noise louder
@@ -341,9 +343,19 @@
 - Fixed weird misalignment of HUD border
 
 ## version 0.66
+
 - Trimmed the edges of the main menu book image so that it scales better and fits the viewport nicely without it getting separated from its origin.
 - Main menu layout has been finalized. The title is now on the book and the book covers nearly the whole screen.
 - Added dummy button for options menu so that the work can be started on implementing the ability for options to be managed at start.
 - The ShaderManager now uses an enum for the ability for other scenes to more easily set a shader manually, which is used for `rozy_mode`, a debug boolean flag in the scene transition scene that sets the high contrast mode automatically at start.
 - The tutorial's text label now extends to the edges of the screen and wraps based on the word.
 - The tutorial now explains that the button used to show the upgrade menu also hides the upgrade menu.
+
+## version 0.67
+
+- Game now has point manager
+- Enemy manager tells point manager to increase points every time an enemy dies
+- When the player dies or the quit button is pressed, the game saves.
+- Currently, the high score is the only thing that is saved.
+- You can clear your save data by pressing the "L" button.
+- In the future, we can discuss better save management, like dedicated save UI.
