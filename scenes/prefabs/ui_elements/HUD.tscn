@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfvsgbamdsiep"]
+[gd_scene load_steps=9 format=3 uid="uid://dfvsgbamdsiep"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/HUD.gd" id="1_ndg1h"]
-[ext_resource type="Texture2D" uid="uid://bxevwqt0bicpt" path="res://assets/sprites/sexyIndiDevLogo.png" id="2_cbqub"]
 [ext_resource type="Texture2D" uid="uid://bspcc8ob30fpb" path="res://assets/ui_renders/hudv3.png" id="3_oovd0"]
 [ext_resource type="PackedScene" uid="uid://bsmerj830lma6" path="res://scenes/prefabs/ui_elements/stat_upgrade_ui.tscn" id="4_0nay5"]
 [ext_resource type="Texture2D" uid="uid://dixby21fjwcxc" path="res://assets/ui_renders/currency_tooth.png" id="4_mjk8y"]
 [ext_resource type="PackedScene" uid="uid://bqwbdvntcsrc0" path="res://scenes/prefabs/ui_elements/pause_menu.tscn" id="5_csnww"]
 [ext_resource type="Texture2D" uid="uid://c0nobm6vf3dl4" path="res://assets/ui_renders/main_menu_book.png" id="5_ojgqu"]
+[ext_resource type="PackedScene" uid="uid://ciq2y3xn8blhn" path="res://scenes/prefabs/ui_elements/enemies_slain.tscn" id="7_ktbfn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sjnk"]
 bg_color = Color(1, 0, 0, 1)
@@ -72,10 +72,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -393.0
-offset_top = -359.0
-offset_right = 900.0
-offset_bottom = 947.0
+offset_left = -209.0
+offset_top = -217.0
+offset_right = 490.0
+offset_bottom = 508.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.297816, 0.297816)
@@ -117,5 +117,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+
+[node name="EnemiesSlain" parent="." instance=ExtResource("7_ktbfn")]
+layout_mode = 1
 
 [connection signal="pressed" from="Border/UpgradeMenuButton" to="." method="_on_upgrade_menu_button_pressed"]

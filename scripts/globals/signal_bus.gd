@@ -23,4 +23,6 @@ signal game_resumed()
 
 signal required_enemies_killed()
 
+signal enemy_killed()
+
 signal level_completed()

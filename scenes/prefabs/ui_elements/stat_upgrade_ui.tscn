@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsmerj830lma6"]
+[gd_scene load_steps=9 format=3 uid="uid://bsmerj830lma6"]
 
 [ext_resource type="PackedScene" uid="uid://bt7w3orvfq2tv" path="res://scenes/prefabs/ui_elements/stat_upgrade.tscn" id="1_ekqrg"]
 [ext_resource type="Script" path="res://scripts/for_scenes/stat_upgrade_ui.gd" id="1_eu2fv"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://c7bfofw7rd1tu" path="res://assets/ui_renders/FistIcon.png" id="4_0piuq"]
 [ext_resource type="Texture2D" uid="uid://df5dpo8q4en1s" path="res://assets/ui_renders/speedUpgradeIcon.png" id="5_wylq6"]
 [ext_resource type="PackedScene" uid="uid://bywi33bblmvxw" path="res://scenes/prefabs/ui_elements/stat_total.tscn" id="6_ggy7d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7j3mb"]
+bg_color = Color(0.678431, 0.607843, 0.509804, 1)
 
 [node name="StatUpgradeUi" type="Control" node_paths=PackedStringArray("speaker", "focus_button")]
 layout_mode = 3
@@ -52,6 +55,10 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_right = 25
 
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7j3mb")
+
 [node name="StatContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
@@ -87,6 +94,10 @@ theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7j3mb")
 
 [node name="UpgradeContainer" type="VBoxContainer" parent="MarginContainer2"]
 layout_mode = 2
