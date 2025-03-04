@@ -315,16 +315,16 @@
 
 ## version 0.61
 
-- Added and implemented player attack animations
-- Implemented currency animation
-- Added currency (tooth) spritesheet to assets folder
-- Added health (heart) spritesheet to assets folder
-- Added temporary wall border tilesets to assets folder
+-	Added and implemented player attack animations
+-	Implemented currency animation
+-	Added currency (tooth) spritesheet to assets folder
+-	Added health (heart) spritesheet to assets folder
+-	Added temporary wall border tilesets to assets folder
 
 ## version 0.63
 
 - Dungeon walls now auto-tile
-- The script functions correctly, but it needs an updated tile map.
+- The script functions correctly, but it needs an updated tile map. 
 
 ## version 0.64
 
