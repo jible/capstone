@@ -360,7 +360,7 @@
 ## version 0.68
 - Enemy attack, hurt, and death sound implemented
 - Player dash sound implemented
-- Health pickup sound added and framework is ready for scene implementation, it is under `SoundManager.PlayerSounds.HEALTH`
+- Health pickup sound added and framework is ready for scene implementation, it is under `SoundManager.PlayerSounds.HEAL`
 - Currency pickup sound reworked, and reimplemented
 - Volume mixing done to balance out sound effects
 - Removed code meant for music that was in `sound_manager.gd` as that functionality is in `music_manager.gd`
