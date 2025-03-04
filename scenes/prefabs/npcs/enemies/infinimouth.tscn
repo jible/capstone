@@ -764,21 +764,24 @@ script = ExtResource("4_nlsgk")
 character = NodePath("../..")
 mobility_manager = NodePath("../../Mobility Manager")
 
-[node name="Hurt" type="Node2D" parent="State Machine" node_paths=PackedStringArray("character")]
+[node name="Hurt" type="Node2D" parent="State Machine" node_paths=PackedStringArray("character", "speaker")]
 script = ExtResource("6_1sls6")
 knockback_velocity = 2000.0
 character = NodePath("../..")
+speaker = NodePath("../../Voice")
 
-[node name="Death" type="Node" parent="State Machine"]
+[node name="Death" type="Node" parent="State Machine" node_paths=PackedStringArray("speaker")]
 script = ExtResource("8_vddrh")
+speaker = NodePath("../../Voice")
 
 [node name="Patrol" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
 script = ExtResource("9_b67qh")
 character = NodePath("../..")
 
-[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
+[node name="Attack" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "speaker")]
 script = ExtResource("10_ovdpx")
 character = NodePath("../..")
+speaker = NodePath("../../Voice")
 
 [node name="Charge" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
 script = ExtResource("11_fq3s2")
@@ -823,6 +826,9 @@ character = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Target Tracker"]
 shape = SubResource("CircleShape2D_a50l1")
+
+[node name="Voice" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 10
 
 [connection signal="state_changed" from="State Machine" to="Mobility Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]

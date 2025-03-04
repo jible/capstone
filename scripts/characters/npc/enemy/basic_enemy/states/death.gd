@@ -4,9 +4,11 @@ extends SMState
 @export var lock_direction = true
 @export var movement_details =  {}
 @export var animation_name = "death"
+@export var speaker : AudioStreamPlayer2D
 
 # Variables
 @onready var sm = get_parent()
+var sfx = SoundManager
 var direction_dependent = false
 var is_active = false
 var callbacks = {
@@ -25,6 +27,7 @@ func anim_end():
 func update_state(delta):
 	pass
 func enter_state():
+	sfx.play_entity_sound(speaker,sfx.EntitySounds.DEATH)
 	pass
 func exit_state():
 	pass
