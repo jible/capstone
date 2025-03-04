@@ -380,5 +380,5 @@
 
 ## version 0.72
 
-- Refactor, ptions menu now creatable by any scene
+- Refactor, options menu now creatable by any scene
 - Added options menu to main menu
