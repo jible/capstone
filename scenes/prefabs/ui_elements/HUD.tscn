@@ -1,7 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dfvsgbamdsiep"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/HUD.gd" id="1_ndg1h"]
-[ext_resource type="Texture2D" uid="uid://bxevwqt0bicpt" path="res://assets/sprites/sexyIndiDevLogo.png" id="2_cbqub"]
 [ext_resource type="Texture2D" uid="uid://bspcc8ob30fpb" path="res://assets/ui_renders/hudv3.png" id="3_oovd0"]
 [ext_resource type="PackedScene" uid="uid://bsmerj830lma6" path="res://scenes/prefabs/ui_elements/stat_upgrade_ui.tscn" id="4_0nay5"]
 [ext_resource type="Texture2D" uid="uid://dixby21fjwcxc" path="res://assets/ui_renders/currency_tooth.png" id="4_mjk8y"]
