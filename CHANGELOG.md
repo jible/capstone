@@ -347,3 +347,12 @@
 - The ShaderManager now uses an enum for the ability for other scenes to more easily set a shader manually, which is used for `rozy_mode`, a debug boolean flag in the scene transition scene that sets the high contrast mode automatically at start.
 - The tutorial's text label now extends to the edges of the screen and wraps based on the word.
 - The tutorial now explains that the button used to show the upgrade menu also hides the upgrade menu.
+
+## version 0.67
+- Enemy attack, hurt, and death sound implemented
+- Player dash sound implemented
+- Health pickup sound added and framework is ready for scene implementation, it is under `SoundManager.PlayerSounds.HEALTH`
+- Currency pickup sound reworked, and reimplemented
+- Volume mixing done to balance out sound effects
+- Removed code meant for music that was in `sound_manager.gd` as that functionality is in `music_manager.gd`
+- Set up functionality in `music_manager.gd` and `sound_manager.gd` to allow for muting sound effects and/or music. This can be used later as an option in the options menu for players who want to do away with either optionally. They use function `mute_music()`, `unmute_music()`, `mute_sfx()` and `unmute_sfx()` to flip a flag that will permit or block audio playback.

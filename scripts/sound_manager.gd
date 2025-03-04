@@ -1,5 +1,12 @@
 extends Node2D
 
+@export var muted : bool = false
+
+func mute_sfx():
+	muted = true
+func unmute_sfx():
+	muted = false
+	
 func _ready() -> void:
 	load_player_sounds()
 	load_entity_sounds()
@@ -93,25 +100,29 @@ func play_player_sound(speaker:AudioStreamPlayer2D, sound_index : int):
 	speaker.pitch_scale = player_sound_settings[sound_index].pitch_scale
 	speaker.attenuation = player_sound_settings[sound_index].attenuation
 	speaker.stream = player_sound_library[sound_index]
-	speaker.play()
+	if muted == false:
+		speaker.play()
 	
 func play_ui_sound(speaker:AudioStreamPlayer, sound_index : int):
 	speaker.volume_db = ui_sound_settings[sound_index].volume_db
 	speaker.pitch_scale = ui_sound_settings[sound_index].pitch_scale
 	speaker.stream = ui_sound_library[sound_index]
-	speaker.play()
+	if muted == false:
+		speaker.play()
 	
 func play_entity_sound(speaker:AudioStreamPlayer2D, sound_index : int):
 	speaker.volume_db = entity_sound_settings[sound_index].volume_db
 	speaker.pitch_scale = entity_sound_settings[sound_index].pitch_scale
 	speaker.attenuation = entity_sound_settings[sound_index].attenuation
 	speaker.stream = entity_sound_library[sound_index]
-	speaker.play()
+	if muted == false:
+		speaker.play()
 	
 func play_env_sound(speaker:AudioStreamPlayer2D, sound_index : int):
 	speaker.volume_db = env_sound_settings[sound_index].volume_db
 	speaker.pitch_scale = env_sound_settings[sound_index].pitch_scale
 	speaker.attenuation = env_sound_settings[sound_index].attenuation
 	speaker.stream = env_sound_library[sound_index]
-	speaker.play()
+	if muted == false:
+		speaker.play()
 	
