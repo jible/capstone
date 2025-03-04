@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://hm048sbxcgu6" path="res://assets/ui_renders/play_button.png" id="4_dfrxe"]
 [ext_resource type="Texture2D" uid="uid://dmpogiisg846u" path="res://assets/images/title.png" id="5_j82jr"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("high_score_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q2ruy")
+high_score_label = NodePath("High Score Label")
 metadata/_edit_use_anchors_ = true
 
 [node name="MenuBackground" type="TextureRect" parent="."]
@@ -86,6 +87,21 @@ offset_bottom = 987.0
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 48
 text = "OPTIONS"
+
+[node name="High Score Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -580.0
+offset_right = 580.0
+offset_bottom = 67.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 54
+text = "HIGH SCORE:"
+horizontal_alignment = 1
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="TutorialButton" to="." method="_on_tutorial_button_button_up"]

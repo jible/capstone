@@ -783,9 +783,10 @@ script = ExtResource("10_ovdpx")
 character = NodePath("../..")
 speaker = NodePath("../../Voice")
 
-[node name="Charge" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
+[node name="Charge" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "color")]
 script = ExtResource("11_fq3s2")
 character = NodePath("../..")
+color = NodePath("../../Animation Manager")
 
 [node name="Animation Manager" parent="." node_paths=PackedStringArray("character") instance=ExtResource("9_37jjd")]
 sprite_frames = SubResource("SpriteFrames_d4jv7")
