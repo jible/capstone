@@ -16,8 +16,6 @@ func _on_draw() -> void:
 	remap_button.grab_focus()
 
 func _on_language_dropdown_item_selected(index: int) -> void:
-	#var language = language_dropdown.get_item_text(index)
-	print(index)
 	match index:
 		0:
 			TranslationServer.set_locale("en")
@@ -28,6 +26,8 @@ func _on_language_dropdown_item_selected(index: int) -> void:
 		2:
 			TranslationServer.set_locale("fr")
 			pass
+		3: 
+			TranslationServer.set_locale("ja")
 		_:
 			#default case for errors, do nothing
 			pass
