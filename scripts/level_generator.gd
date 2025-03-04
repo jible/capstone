@@ -88,8 +88,7 @@ func render():
 	get_tree().current_scene.call_deferred("add_child",exit_instance)
 	exit_instance.position = end_point
 	
-	if package.enemy_package.required_enemies <= 0:
-		exit_instance.turn_on()
+	LevelManager.link_exit(exit_instance)
 	
 	nav_mesh_maker.make_mesh(get_corners())
 
@@ -98,7 +97,9 @@ func render_tiles(layer):
 	'''
 	Render the tile map by placing tiles on the appropriate layers.
 	'''
-	
+	# ChatGPT reference:
+	# https://chatgpt.com/share/67c39e54-ae50-8012-abd0-b3f26d08568a
+	var modified_walls = []
 	for y in range (size.y):
 		for x in range(size.x):
 			var pos = Vector2(x,y)
@@ -111,15 +112,6 @@ func render_tiles(layer):
 				layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
 			
 			if map.get_tile(pos).type == null:
-				layers["wall1"].set_cell(Vector2(x,y), 1, Vector2i(0,0))
-				if y - 1 >= 0:
-					layers["wall2"].set_cell(Vector2(x,y - 1), 1, Vector2i(1,0))
-				if y -2 >= 0:
-					layers["ceiling"].set_cell(Vector2(x,y - 2), 1, Vector2i(2,0))
-
-
-
-
-func _on_enemy_manager_required_enemies_killed():
-	exit_instance.turn_on()
-	pass # Replace with function body.
+				modified_walls.append( Vector2i( pos ) ) 
+	
+	layers["wall1"].set_cells_terrain_connect(modified_walls, 0 ,0 )

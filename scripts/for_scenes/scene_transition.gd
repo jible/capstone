@@ -8,8 +8,13 @@ signal on_transition_finished
 @onready var background: ColorRect = $"ColorRect"
 @onready var anim_player: AnimationPlayer = $"AnimationPlayer"
 
+## This sets the high-contrast filter to already be on at start. For debugging purposes only, will layer other filters on top.
+@export var rozy_mode : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if rozy_mode:
+		ShaderManager.change_material(ShaderManager.SHADERS.CONT)
 	background.visible = false
 	anim_player.animation_finished.connect(_on_anim_finished)
 
