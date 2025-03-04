@@ -1,15 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsmerj830lma6"]
+[gd_scene load_steps=8 format=3 uid="uid://bsmerj830lma6"]
 
 [ext_resource type="PackedScene" uid="uid://bt7w3orvfq2tv" path="res://scenes/prefabs/ui_elements/stat_upgrade.tscn" id="1_ekqrg"]
 [ext_resource type="Script" path="res://scripts/for_scenes/stat_upgrade_ui.gd" id="1_eu2fv"]
-[ext_resource type="Texture2D" uid="uid://dpm18ne067ij5" path="res://assets/ui_renders/openBookMenu.png" id="2_k1juh"]
+[ext_resource type="Texture2D" uid="uid://iigmx3tuwt28" path="res://assets/ui_renders/optionsMenuv2.png" id="2_0cdeb"]
 [ext_resource type="Texture2D" uid="uid://cegvvvlsxekts" path="res://assets/ui_renders/HeartIcon.png" id="3_klydc"]
 [ext_resource type="Texture2D" uid="uid://c7bfofw7rd1tu" path="res://assets/ui_renders/FistIcon.png" id="4_0piuq"]
 [ext_resource type="Texture2D" uid="uid://df5dpo8q4en1s" path="res://assets/ui_renders/speedUpgradeIcon.png" id="5_wylq6"]
 [ext_resource type="PackedScene" uid="uid://bywi33bblmvxw" path="res://scenes/prefabs/ui_elements/stat_total.tscn" id="6_ggy7d"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7j3mb"]
-bg_color = Color(0.678431, 0.607843, 0.509804, 1)
 
 [node name="StatUpgradeUi" type="Control" node_paths=PackedStringArray("speaker", "focus_button")]
 layout_mode = 3
@@ -26,19 +23,19 @@ focus_button = NodePath("MarginContainer/StatContainer/StatUpgrade/Button")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1366.0
-offset_top = -765.0
-offset_right = 554.0
-offset_bottom = 315.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(0.843066, 0.785263)
-texture = ExtResource("2_k1juh")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -993.0
+offset_top = -500.0
+offset_right = 927.0
+offset_bottom = 580.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.539511, 0.465263)
+texture = ExtResource("2_0cdeb")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -47,17 +44,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -957.0
-offset_top = -553.0
-offset_right = -527.0
-offset_bottom = -41.0
+offset_left = -898.0
+offset_top = -464.0
+offset_right = -490.0
+offset_bottom = -25.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_right = 25
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7j3mb")
 
 [node name="StatContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -84,20 +77,16 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -502.0
-offset_top = -553.0
-offset_right = -72.0
-offset_bottom = -41.0
+offset_left = -433.0
+offset_top = -458.0
+offset_right = -45.0
+offset_bottom = -33.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer2"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7j3mb")
 
 [node name="UpgradeContainer" type="VBoxContainer" parent="MarginContainer2"]
 layout_mode = 2
