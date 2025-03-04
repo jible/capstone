@@ -36,6 +36,7 @@ func _ready():
 func enemy_killed(enemy):
 	live_enemies -= 1
 	enemies_killed += 1
+	ScoreManager.increase_score(1)
 	if enemies_killed >= required_enemies:
 		print("required_enemies_killed")
 		SignalBus.required_enemies_killed.emit()

@@ -348,6 +348,15 @@
 - The tutorial's text label now extends to the edges of the screen and wraps based on the word.
 - The tutorial now explains that the button used to show the upgrade menu also hides the upgrade menu.
 
+## version 0.67
+
+- Game now has point manager
+- Enemy manager tells point manager to increase points every time an enemy dies
+- When the player dies or the quit button is pressed, the game saves.
+- Currently, the high score is the only thing that is saved.
+- You can clear your save data by pressing the "L" button.
+- In the future, we can discuss better save management, like dedicated save UI.
+
 ## version 0.68
 - Enemy attack, hurt, and death sound implemented
 - Player dash sound implemented
