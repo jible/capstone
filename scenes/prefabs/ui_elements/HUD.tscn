@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfvsgbamdsiep"]
+[gd_scene load_steps=9 format=3 uid="uid://dfvsgbamdsiep"]
 
-[ext_resource type="Texture2D" uid="uid://dslr3ip0cnxp0" path="res://assets/sprites/playerV1.png" id="1_ekvuy"]
 [ext_resource type="Script" path="res://scripts/for_scenes/HUD.gd" id="1_ndg1h"]
-[ext_resource type="Texture2D" uid="uid://bxevwqt0bicpt" path="res://assets/sprites/sexyIndiDevLogo.png" id="2_cbqub"]
 [ext_resource type="Texture2D" uid="uid://bspcc8ob30fpb" path="res://assets/ui_renders/hudv3.png" id="3_oovd0"]
 [ext_resource type="PackedScene" uid="uid://bsmerj830lma6" path="res://scenes/prefabs/ui_elements/stat_upgrade_ui.tscn" id="4_0nay5"]
+[ext_resource type="Texture2D" uid="uid://dixby21fjwcxc" path="res://assets/ui_renders/currency_tooth.png" id="4_mjk8y"]
 [ext_resource type="PackedScene" uid="uid://bqwbdvntcsrc0" path="res://scenes/prefabs/ui_elements/pause_menu.tscn" id="5_csnww"]
+[ext_resource type="Texture2D" uid="uid://c0nobm6vf3dl4" path="res://assets/ui_renders/main_menu_book.png" id="5_ojgqu"]
+[ext_resource type="PackedScene" uid="uid://ciq2y3xn8blhn" path="res://scenes/prefabs/ui_elements/enemies_slain.tscn" id="7_ktbfn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sjnk"]
 bg_color = Color(1, 0, 0, 1)
@@ -31,44 +32,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerInfo" type="PanelContainer" parent="Border"]
-layout_mode = 1
-offset_left = 102.0
-offset_top = 93.0
-offset_right = 485.87
-offset_bottom = 214.45
-scale = Vector2(0.96, 1.04)
-
-[node name="MarginContainer" type="MarginContainer" parent="Border/PlayerInfo"]
+[node name="HealthBar" type="ProgressBar" parent="Border"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Border/PlayerInfo/MarginContainer"]
-layout_mode = 2
-
-[node name="PlayerImage" type="TextureRect" parent="Border/PlayerInfo/MarginContainer/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.3
-texture = ExtResource("1_ekvuy")
-expand_mode = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Border/PlayerInfo/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.6
-
-[node name="Health" type="HBoxContainer" parent="Border/PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HealthBar" type="ProgressBar" parent="Border/PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Health"]
-layout_mode = 2
+offset_left = 104.0
+offset_top = 83.0
+offset_right = 487.0
+offset_bottom = 220.0
+scale = Vector2(0.959999, 1)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/fill = SubResource("StyleBoxFlat_8sjnk")
@@ -76,24 +47,6 @@ max_value = 10.0
 step = 1.0
 value = 10.0
 show_percentage = false
-
-[node name="HealthLabel" type="Label" parent="Border/PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer/Health"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-size_flags_stretch_ratio = 0.25
-text = "10/10
-"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="PlayerName" type="Label" parent="Border/PlayerInfo/MarginContainer/HBoxContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-text = "player name"
 
 [node name="HUD Overlay" type="TextureRect" parent="Border"]
 layout_mode = 0
@@ -106,43 +59,47 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1581.0
-offset_top = 787.0
-offset_right = 1831.0
-offset_bottom = 1037.0
+offset_left = 158.0
+offset_top = -318.0
+offset_right = 408.0
+offset_bottom = -68.0
 grow_horizontal = 0
 
-[node name="Button" type="Button" parent="Border"]
+[node name="UpgradeMenuButton" type="TextureButton" parent="Border"]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -79.5
-offset_top = 936.625
-offset_right = 257.5
-offset_bottom = 1021.62
+offset_left = -209.0
+offset_top = -217.0
+offset_right = 490.0
+offset_bottom = 508.0
+grow_horizontal = 0
 grow_vertical = 0
-text = "UPGRADE_MENU"
+scale = Vector2(0.297816, 0.297816)
+texture_normal = ExtResource("5_ojgqu")
 
 [node name="Currency" type="HBoxContainer" parent="Border"]
 layout_mode = 2
-offset_left = 1557.0
-offset_top = 37.0
-offset_right = 1657.46
-offset_bottom = 67.82
+offset_left = 1501.0
+offset_top = 31.0
+offset_right = 1557.0
+offset_bottom = 62.0
 scale = Vector2(2.79, 2.79)
 size_flags_vertical = 3
 
 [node name="CurrencyIcon" type="TextureRect" parent="Border/Currency"]
-visible = false
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
-texture = ExtResource("2_cbqub")
+texture = ExtResource("4_mjk8y")
 expand_mode = 1
 
 [node name="CurrencyCount" type="Label" parent="Border/Currency"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
@@ -161,4 +118,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 
-[connection signal="pressed" from="Border/Button" to="." method="_on_button_pressed"]
+[node name="EnemiesSlain" parent="." instance=ExtResource("7_ktbfn")]
+layout_mode = 1
+
+[connection signal="pressed" from="Border/UpgradeMenuButton" to="." method="_on_upgrade_menu_button_pressed"]
