@@ -348,7 +348,7 @@
 - The tutorial's text label now extends to the edges of the screen and wraps based on the word.
 - The tutorial now explains that the button used to show the upgrade menu also hides the upgrade menu.
 
-## version 0.67
+## version 0.68
 - Enemy attack, hurt, and death sound implemented
 - Player dash sound implemented
 - Health pickup sound added and framework is ready for scene implementation, it is under `SoundManager.PlayerSounds.HEALTH`
