@@ -743,9 +743,10 @@ character = NodePath("../..")
 script = ExtResource("8_vxcvn")
 character = NodePath("../..")
 
-[node name="Dash" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
+[node name="Dash" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "speaker")]
 script = ExtResource("27_ilokj")
 character = NodePath("../..")
+speaker = NodePath("../../Voice")
 
 [node name="Hitbox" parent="." node_paths=PackedStringArray("character") instance=ExtResource("6_arj65")]
 collision_layer = 8

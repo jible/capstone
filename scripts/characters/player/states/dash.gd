@@ -10,9 +10,10 @@ extends Node
 }
 @export var animation_name = "death"
 var dash_velocity = 2000
-
+@export var speaker : AudioStreamPlayer2D
 # Other variables
 @onready var sm = get_parent()
+var sfx = SoundManager
 var callbacks = {
 	"start" : Callable(self, "velocity_impulse"),
 	"end" : Callable(self, "end_dash")
@@ -30,6 +31,7 @@ func velocity_impulse():
 func update_state(delta):
 	pass
 func enter_state():
+	sfx.play_player_sound(speaker, sfx.PlayerSounds.DASH)
 	pass
 func exit_state():
 	pass
