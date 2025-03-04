@@ -9,9 +9,10 @@ extends Node
 @export var knockback_velocity: float = 900
 @export var animation_name = "hurt"
 @export var character: CharacterBody2D
-
+@export var speaker : AudioStreamPlayer2D
 # Other Variables
 @onready var sm = get_parent()
+var sfx = SoundManager
 var is_active = false
 var health_manager: Health
 var hurtbox:HurtBox
@@ -42,6 +43,7 @@ func end_hurt():
 func update_state(delta):
 	pass
 func enter_state():
+	sfx.play_entity_sound(speaker,sfx.EntitySounds.HURT)
 	pass
 func exit_state():
 	pass

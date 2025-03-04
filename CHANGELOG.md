@@ -360,6 +360,15 @@
 - You can clear your save data by pressing the "L" button.
 - In the future, we can discuss better save management, like dedicated save UI.
 
+## version 0.68
+- Enemy attack, hurt, and death sound implemented
+- Player dash sound implemented
+- Health pickup sound added and framework is ready for scene implementation, it is under `SoundManager.PlayerSounds.HEAL`
+- Currency pickup sound reworked, and reimplemented
+- Volume mixing done to balance out sound effects
+- Removed code meant for music that was in `sound_manager.gd` as that functionality is in `music_manager.gd`
+- Set up functionality in `music_manager.gd` and `sound_manager.gd` to allow for muting sound effects and/or music. This can be used later as an option in the options menu for players who want to do away with either optionally. They use function `mute_music()`, `unmute_music()`, `mute_sfx()` and `unmute_sfx()` to flip a flag that will permit or block audio playback.
+
 ## version 0.69
 
 - Added enemies killed count to HUD
