@@ -21,3 +21,7 @@ func save():
 
 func load_save(data):
 	high_score = data.get( "high_score", 0 )
+
+func delete_save():
+	score = 0
+	high_score = 0
