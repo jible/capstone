@@ -377,3 +377,8 @@
 ## version 0.70
 
 - Fixed debugger error, removed defunct variable
+
+## version 0.72
+
+- Refactor, ptions menu now creatable by any scene
+- Added options menu to main menu
