@@ -359,3 +359,8 @@
 - Currently, the high score is the only thing that is saved.
 - You can clear your save data by pressing the "L" button.
 - In the future, we can discuss better save management, like dedicated save UI.
+
+## version 0.69
+
+- Added enemies killed count to HUD
+- Added new upgrade menu assets
