@@ -786,8 +786,9 @@ shape = SubResource("CircleShape2D_fqphw")
 
 [node name="Health Manager" parent="." instance=ExtResource("14_myo2d")]
 
-[node name="Pick Up" parent="." node_paths=PackedStringArray("speaker") instance=ExtResource("15_nqwto")]
+[node name="Pick Up" parent="." node_paths=PackedStringArray("speaker", "character") instance=ExtResource("15_nqwto")]
 speaker = NodePath("../Inventory Sounds")
+character = NodePath("..")
 
 [node name="CollisionShape2D" parent="Pick Up" index="0"]
 position = Vector2(0, 48)
