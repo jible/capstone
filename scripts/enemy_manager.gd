@@ -36,7 +36,16 @@ func _ready():
 func enemy_killed(enemy):
 	live_enemies -= 1
 	enemies_killed += 1
-	item_manager.spawn_item("health", enemy.position)
+	
+	#TODO temp code to make drop a 50/50
+	
+	var chance =randi()
+	var drop_name
+	if chance%2 == 0:
+		drop_name = "health"
+	else:
+		drop_name = "currency"
+	item_manager.spawn_item(drop_name, enemy.position)
 	death_drop()
 	ScoreManager.increase_score(1)
 	if enemies_killed >= required_enemies:
