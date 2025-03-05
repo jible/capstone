@@ -47,6 +47,7 @@ func enemy_killed(enemy):
 		drop_name = "currency"
 	item_manager.spawn_item(drop_name, enemy.position)
 	death_drop()
+	SignalBus.enemy_killed.emit(enemies_killed)
 	ScoreManager.increase_score(1)
 	if enemies_killed >= required_enemies:
 		print("required_enemies_killed")
