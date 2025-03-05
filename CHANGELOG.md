@@ -377,3 +377,10 @@
 ## version 0.70
 
 - Fixed debugger error, removed defunct variable
+
+## version 0.73
+
+- Health drop implemented.
+- Enemy now has 50% chance to drop health or currency.
+- Item manager now handles instancing items. 
+- All items are collectibles with different types.
