@@ -68,11 +68,11 @@ func load_player_sounds():
 	player_sound_settings.resize(PlayerSounds.keys().size())
 	
 	# Add sounds to the libraries
-	create_sound(player_sound_library, player_sound_settings, PlayerSounds.HURT, load("res://assets/audio/hurt.wav"), 0.0,1.0,1.0)
+	create_sound(player_sound_library, player_sound_settings, PlayerSounds.HURT, load("res://assets/audio/hurt.wav"), 20.0,1.0,1.0)
 	create_sound(player_sound_library, player_sound_settings, PlayerSounds.PICKUP, load("res://assets/audio/tooth_pickup.wav"), 3.0,1.0,1.0)
-	create_sound(player_sound_library, player_sound_settings, PlayerSounds.ATTACK, load("res://assets/audio/player_attack.wav"), 17.0,1.0,1.0)
-	create_sound(player_sound_library, player_sound_settings, PlayerSounds.DEATH, load("res://assets/audio/player_death.wav"), 14.0,1.0,1.0)
-	create_sound(player_sound_library, player_sound_settings, PlayerSounds.HEAL, load("res://assets/audio/heartbeat.wav"), 0.0,1.0,1.0)
+	create_sound(player_sound_library, player_sound_settings, PlayerSounds.ATTACK, load("res://assets/audio/player_attack.wav"), 25.0,1.0,1.0)
+	create_sound(player_sound_library, player_sound_settings, PlayerSounds.DEATH, load("res://assets/audio/player_death.wav"), 27.0,1.0,1.0)
+	create_sound(player_sound_library, player_sound_settings, PlayerSounds.HEAL, load("res://assets/audio/heartbeat.wav"), 8.0,1.0,1.0)
 	create_sound(player_sound_library, player_sound_settings, PlayerSounds.DASH, load("res://assets/audio/player_dash.wav"), 0.0,1.0,1.0)
 
 func load_entity_sounds():
