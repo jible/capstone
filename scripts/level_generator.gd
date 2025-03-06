@@ -60,7 +60,7 @@ func generate_level(level_package):
 	match package.gen_method:
 		"walk":
 			map.random_walk("floor", package.floor_tiles)
-		"_":
+		_:
 			map.random_walk("floor", package.floor_tiles)
 	
 	map.set_spawn_and_exit()
