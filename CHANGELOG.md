@@ -387,4 +387,4 @@
 - Added map hint function and call for it
 - The map hint function marks tiles for the next level randomly within a radius around the exit
 - The renderer is updated to place the next level's floor tiles for tiles that are marked as "next"
-- Removed wall level 2 and celining tile map layers since we are no longer using them
+- Removed wall level 2 and ceilining tile map layers since we are no longer using them
