@@ -2,6 +2,9 @@ extends Node2D
 
 @export var muted : bool = false
 
+# Use this float to control volume for the sound effects
+var volume_mult : float = 1.0
+
 func mute_sfx():
 	muted = true
 func unmute_sfx():
@@ -65,11 +68,11 @@ func load_player_sounds():
 	player_sound_settings.resize(PlayerSounds.keys().size())
 	
 	# Add sounds to the libraries
-	create_sound(player_sound_library, player_sound_settings, PlayerSounds.HURT, load("res://assets/audio/hurt.wav"), 0.0,1.0,1.0)
+	create_sound(player_sound_library, player_sound_settings, PlayerSounds.HURT, load("res://assets/audio/hurt.wav"), 20.0,1.0,1.0)
 	create_sound(player_sound_library, player_sound_settings, PlayerSounds.PICKUP, load("res://assets/audio/tooth_pickup.wav"), 3.0,1.0,1.0)
-	create_sound(player_sound_library, player_sound_settings, PlayerSounds.ATTACK, load("res://assets/audio/player_attack.wav"), 17.0,1.0,1.0)
-	create_sound(player_sound_library, player_sound_settings, PlayerSounds.DEATH, load("res://assets/audio/player_death.wav"), 14.0,1.0,1.0)
-	create_sound(player_sound_library, player_sound_settings, PlayerSounds.HEAL, load("res://assets/audio/heartbeat.wav"), 0.0,1.0,1.0)
+	create_sound(player_sound_library, player_sound_settings, PlayerSounds.ATTACK, load("res://assets/audio/player_attack.wav"), 25.0,1.0,1.0)
+	create_sound(player_sound_library, player_sound_settings, PlayerSounds.DEATH, load("res://assets/audio/player_death.wav"), 27.0,1.0,1.0)
+	create_sound(player_sound_library, player_sound_settings, PlayerSounds.HEAL, load("res://assets/audio/heartbeat.wav"), 8.0,1.0,1.0)
 	create_sound(player_sound_library, player_sound_settings, PlayerSounds.DASH, load("res://assets/audio/player_dash.wav"), 0.0,1.0,1.0)
 
 func load_entity_sounds():
@@ -96,7 +99,7 @@ func load_env_sounds():
 	
 # PLAYERS
 func play_player_sound(speaker:AudioStreamPlayer2D, sound_index : int):
-	speaker.volume_db = player_sound_settings[sound_index].volume_db
+	speaker.volume_db = player_sound_settings[sound_index].volume_db * volume_mult
 	speaker.pitch_scale = player_sound_settings[sound_index].pitch_scale
 	speaker.attenuation = player_sound_settings[sound_index].attenuation
 	speaker.stream = player_sound_library[sound_index]
@@ -104,14 +107,14 @@ func play_player_sound(speaker:AudioStreamPlayer2D, sound_index : int):
 		speaker.play()
 	
 func play_ui_sound(speaker:AudioStreamPlayer, sound_index : int):
-	speaker.volume_db = ui_sound_settings[sound_index].volume_db
+	speaker.volume_db = ui_sound_settings[sound_index].volume_db * volume_mult
 	speaker.pitch_scale = ui_sound_settings[sound_index].pitch_scale
 	speaker.stream = ui_sound_library[sound_index]
 	if muted == false:
 		speaker.play()
 	
 func play_entity_sound(speaker:AudioStreamPlayer2D, sound_index : int):
-	speaker.volume_db = entity_sound_settings[sound_index].volume_db
+	speaker.volume_db = entity_sound_settings[sound_index].volume_db * volume_mult
 	speaker.pitch_scale = entity_sound_settings[sound_index].pitch_scale
 	speaker.attenuation = entity_sound_settings[sound_index].attenuation
 	speaker.stream = entity_sound_library[sound_index]
@@ -119,7 +122,7 @@ func play_entity_sound(speaker:AudioStreamPlayer2D, sound_index : int):
 		speaker.play()
 	
 func play_env_sound(speaker:AudioStreamPlayer2D, sound_index : int):
-	speaker.volume_db = env_sound_settings[sound_index].volume_db
+	speaker.volume_db = env_sound_settings[sound_index].volume_db * volume_mult
 	speaker.pitch_scale = env_sound_settings[sound_index].pitch_scale
 	speaker.attenuation = env_sound_settings[sound_index].attenuation
 	speaker.stream = env_sound_library[sound_index]
