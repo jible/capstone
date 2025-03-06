@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bugqksfg6vdn7"]
+[gd_scene load_steps=11 format=3 uid="uid://bugqksfg6vdn7"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/scene_config_package.gd" id="1_qcfrr"]
 [ext_resource type="PackedScene" uid="uid://b0qchcd21rx5b" path="res://scenes/level_generator.tscn" id="2_1eor7"]
