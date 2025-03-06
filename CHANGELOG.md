@@ -382,6 +382,9 @@
 - Enemy inifinimouth now tints to be more read when it is getting ready to pounce.
 - High score is now displayed in the main menu.
 
-## version 0.7X
+## version 0.76
 
+- Added map hint function and call for it
+- The map hint function marks tiles for the next level randomly within a radius around the exit
+- The renderer is updated to place the next level's floor tiles for tiles that are marked as "next"
 - Removed wall level 2 and celining tile map layers since we are no longer using them
