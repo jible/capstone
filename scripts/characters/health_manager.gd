@@ -10,6 +10,11 @@ extends Node
 @onready var health = starting_health
 @onready var max_health = starting_health
 
+func receive_healing(amount):
+	health = min ( health + amount, max_health )
+	SignalBus.player_health_updated.emit()
+
+
 func _on_hurtbox_received_damage(damage):
 	health -= damage
 	if (health > 0):
