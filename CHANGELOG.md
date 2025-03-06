@@ -378,9 +378,19 @@
 
 - Fixed debugger error, removed defunct variable
 
+## version 0.71
+- Enemy inifinimouth now tints to be more read when it is getting ready to pounce.
+- High score is now displayed in the main menu.
+
+## version 0.72
+
+- Refactor, options menu now creatable by any scene
+- Added options menu to main menu
+
 ## version 0.73
 
 - Health drop implemented.
 - Enemy now has 50% chance to drop health or currency.
 - Item manager now handles instancing items. 
 - All items are collectibles with different types.
+
