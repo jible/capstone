@@ -4,6 +4,9 @@ const MAIN_MENU : AudioStreamWAV = preload("res://assets/audio/main_menu.wav")
 const LUST : AudioStreamWAV = preload("res://assets/audio/lust_music.wav")
 
 @export var muted : bool = false
+# Use this to control the volume of the music.
+var volume_mult : float = 1.0
+
 const VOLUMES = {
 	MAIN_MENU : -15.0,
 	LUST : 0.0
@@ -20,6 +23,6 @@ func unmute_music():
 	
 func change_song(song : AudioStreamWAV):
 	stream = song
-	volume_db = VOLUMES[song]
+	volume_db = VOLUMES[song] * volume_mult
 	if muted == false:
 		play()
