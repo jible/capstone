@@ -101,6 +101,10 @@ func render_tiles(layer):
 	# ChatGPT reference:
 	# https://chatgpt.com/share/67c39e54-ae50-8012-abd0-b3f26d08568a
 	var modified_walls = []
+	
+	# TODO program index to consider level and not just use lust and gluttony. maybe automatically use level index instead of requiring the package
+	var next_index = LevelManager.get_current_package().get("next_tile_index", 0)
+	print(next_index)
 	for y in range (size.y):
 		for x in range(size.x):
 			var pos = Vector2(x,y)
@@ -108,11 +112,10 @@ func render_tiles(layer):
 			if map.get_tile(pos).type == "floor":
 				# get random tile position
 				# [ ] get length and width of tileset, rather than magic number
-				# TODO program index to consider level and not just use lust and gluttony
-				var index = 0
+				var level_index = 0
 				if map.get_tile(pos).level == "next":
-					index = 1
-				layers["environment"].set_cell(pos, index, Vector2i(randi()%9, randi()%9))
+					level_index = next_index
+				layers["environment"].set_cell(pos, level_index, Vector2i(randi()%9, randi()%9))
 			if map.get_tile(pos).type == null:
 				layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
 			

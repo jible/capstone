@@ -118,7 +118,13 @@ func make_noise(value):
 				get_tile(pos).type = value
 
 
-func place_next_floor_hint():
+func place_next_floor_hint(density = 20):
+	'''
+	Randomly changes tiles to "next" level. Tiles closer to the exit are 
+	Density is a multiplier to increase the density at which the next level tiles are placed. 
+	At 0, there are no "next" tiles
+	
+	'''
 	var count = 0
 	for y in range (size.y):
 		for x in range(size.x):
@@ -129,7 +135,6 @@ func place_next_floor_hint():
 			if dist_from_end == 0:
 				tile.level = "next"
 			elif tile.type == "floor":
-				var helper = 20
-				var chance = randi_range(0,floor ( (dist_from_end ** 2)/ helper) )
+				var chance = randi_range(0,floor ( (dist_from_end ** 2)/ density) )
 				if chance == 0:
 					tile.level = "next"
