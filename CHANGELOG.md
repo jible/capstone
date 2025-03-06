@@ -394,3 +394,7 @@
 - Item manager now handles instancing items. 
 - All items are collectibles with different types.
 
+## version 0.74
+
+- Fixed issue where hitbox could rotate around player while they are attacking
+- It is now locked to starting position when the player attacks
