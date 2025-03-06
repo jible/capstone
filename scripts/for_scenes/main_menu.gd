@@ -3,8 +3,9 @@ extends Control
 ## The scene to transition to when the player hits "Start"
 @export var path_to_scene : String = "res://scenes/prefabs/scene_config_package.tscn"
 @onready var play_button: Button = $"PlayButton"
-
+@export var high_score_label : Label 
 func _ready() -> void:
+	high_score_label.text = "HIGH SCORE: %d" % ScoreManager.high_score
 	play_button.grab_focus()
 
 func _on_play_button_button_up() -> void:
