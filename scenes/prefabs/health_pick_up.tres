@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://c0hna5bu1xecm"]
+
+[ext_resource type="Texture2D" uid="uid://dgkw1886s1pk0" path="res://assets/spritesheets/health.png" id="1_uhl8d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n20b1"]
+atlas = ExtResource("1_uhl8d")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r0ym"]
+atlas = ExtResource("1_uhl8d")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1hu8"]
+atlas = ExtResource("1_uhl8d")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwxr6"]
+atlas = ExtResource("1_uhl8d")
+region = Rect2(0, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5tcy"]
+atlas = ExtResource("1_uhl8d")
+region = Rect2(150, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21a51"]
+atlas = ExtResource("1_uhl8d")
+region = Rect2(300, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twoeh"]
+atlas = ExtResource("1_uhl8d")
+region = Rect2(0, 300, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvggn"]
+atlas = ExtResource("1_uhl8d")
+region = Rect2(150, 300, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5arp"]
+atlas = ExtResource("1_uhl8d")
+region = Rect2(300, 300, 150, 150)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n20b1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r0ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1hu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwxr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5tcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21a51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twoeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvggn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5arp")
+}],
+"loop": true,
+"name": &"heart_pulse",
+"speed": 5.0
+}]

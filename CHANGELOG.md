@@ -386,3 +386,11 @@
 
 - Refactor, options menu now creatable by any scene
 - Added options menu to main menu
+
+## version 0.73
+
+- Health drop implemented.
+- Enemy now has 50% chance to drop health or currency.
+- Item manager now handles instancing items. 
+- All items are collectibles with different types.
+
