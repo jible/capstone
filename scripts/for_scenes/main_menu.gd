@@ -7,9 +7,10 @@ extends Control
 @export var options_menu: PackedScene
 
 @onready var play_button: Button = $"PlayButton"
-
+@export var high_score_label : Label 
 func _ready() -> void:
 	SignalBus.options_closed.connect(_on_options_hidden)
+	high_score_label.text = "HIGH SCORE: %d" % ScoreManager.high_score
 	play_button.grab_focus()
 
 func _on_play_button_button_up() -> void:
