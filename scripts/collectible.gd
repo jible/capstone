@@ -7,10 +7,12 @@ var type = Globals.currency_key
 var target = null
 var gravitate = false
 
-var vel = Vector2.ZERO
-var acceleration = 100
-var max_vel = 5000
-var drag = .9
+
+# Gravitation details
+@export var vel = Vector2.ZERO
+@export var acceleration = 100
+@export var max_vel = 5000
+@export var drag = .9
 
 
 @export var sprite : AnimatedSprite2D
