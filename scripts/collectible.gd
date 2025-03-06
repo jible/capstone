@@ -4,10 +4,25 @@ class_name Collectible
 
 var point_value = 1
 var type = Globals.currency_key
+var target = null
+var gravitate = false
+
+var vel = Vector2.ZERO
+var acceleration = 100
+var max_vel = 5000
+var drag = .9
+
 
 @export var sprite : AnimatedSprite2D
 @export var particle_emitter: CPUParticles2D
 
+func _process(delta):
+	if gravitate:
+		var direction = (target.global_position - global_position).normalized()
+		vel += acceleration * direction * delta
+	vel -= (vel * (1 - drag))
+	vel = vel.limit_length(max_vel)
+	position += vel
 
 func prep( package ):
 	var sprite_frames = package.get("sprite_frames", null)
@@ -27,3 +42,20 @@ func prep( package ):
 		particle_emitter.texture = particle_path
 	else:
 		particle_emitter.visible = false
+
+
+func _on_area_entered(area):
+	print("in gravity")
+	var temp = area.get_parent()
+	if temp.is_in_group("Player"):
+		target = temp
+		gravitate = true 
+	
+	pass # Replace with function body.
+
+
+func _on_area_exited(area):
+	if area.get_parent() == target:
+		gravitate = false
+		target = null
+	return
