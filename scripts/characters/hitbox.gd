@@ -33,12 +33,15 @@ func _on_area_entered(area):
 func _on_area_exited(area):
 	overlapping_areas.erase(area)
 
+
 func _on_direction_manager_direction_changed(direction: Vector2):
-	if !on_swivel:
+	if !on_swivel :
 		move_direction(direction)
 
+#TODO node sure if this if statement is a good thing to put in a physics process call. It looked a little messy
+# when I tried adding a signal listener to get the current state on state change and hard set a bool.
 func _physics_process(delta):
-	if on_swivel:
+	if on_swivel && ! character.state_machine.get_current_state_node().lock_direction:
 		move_to (character.get_direction().normalized() * distance_from_parent ) 
 
 func set_damage(value: int):

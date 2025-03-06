@@ -2,6 +2,9 @@ extends Control
 
 var main_menu: PackedScene = preload("res://scenes/testScenes/main_menu.tscn")
 
+func _ready() -> void:
+	MusicManager.stop()
+	MusicManager.change_song(MusicManager.DEATH_SCREEN)
 func _on_reset_pressed() -> void:
 	# Start the Main Menu's music
 	MusicManager.stop()

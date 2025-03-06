@@ -8,7 +8,7 @@ extends SMState
 @export var speaker : AudioStreamPlayer2D
 @export var animation_name = "attack"
 @export var movement_details =  {
-	"moveable" : true
+	"moveable" : false
 }
 @export var particle_swing : CPUParticles2D
 

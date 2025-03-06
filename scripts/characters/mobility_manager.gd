@@ -24,7 +24,7 @@ var true_drag: float
 
 func _physics_process(delta):
 	# This has to wait a frame because the references are not established in the first frame
-	call_deferred("update_velocity")
+	call_deferred("update_velocity",delta)
 
 # Not sure if another script calls this function, but I don't know if its necessary
 func set_velocity(arg):
@@ -36,14 +36,15 @@ func calculate_true_values():
 	true_acceleration = base_acceleration * (current_state.movement_details.get("acceleration_mult", 1) + max_accel_mult)
 	true_drag = base_drag * current_state.movement_details.get("drag_mult", 1)
 
-
-func update_velocity():
+# Drag calculation improved using chatgpt:
+# https://chatgpt.com/share/67c7f001-6d7c-8000-be46-b718f7e294c8
+func update_velocity(delta):
 	# TODO change drag calculation to use delta
 	var movement_details = current_state.movement_details
 	if movement_details.get("moveable", true):
 		character.velocity = character.velocity + (input_direction * true_acceleration)
 	if movement_details.get("use_drag", true):
-		character.velocity *= true_drag
+		character.velocity = character.velocity * true_drag
 	if movement_details.get("limit_velocity", true):
 		character.velocity = character.velocity.limit_length(true_max_speed)
 	if character.velocity.length() < 5:

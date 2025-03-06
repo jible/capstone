@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://y552t2bx22bv"]
+
+[ext_resource type="Script" path="res://scripts/collectible.gd" id="1_7ahly"]
+[ext_resource type="SpriteFrames" uid="uid://c0hna5bu1xecm" path="res://scenes/prefabs/health_pick_up.tres" id="2_3nkko"]
+[ext_resource type="Texture2D" uid="uid://btawghlpn4ah1" path="res://assets/images/particle.jpg" id="3_q4sbc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_be6op"]
+radius = 43.0116
+
+[node name="Collectable" type="Area2D" node_paths=PackedStringArray("sprite", "particle_emitter")]
+collision_layer = 512
+collision_mask = 0
+script = ExtResource("1_7ahly")
+sprite = NodePath("Sprite2D")
+particle_emitter = NodePath("CPUParticles2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_be6op")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_3nkko")
+animation = &"heart_pulse"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+scale = Vector2(0.5, 0.5)
+amount = 27
+speed_scale = 0.3
+texture = ExtResource("3_q4sbc")
+emission_shape = 1
+emission_sphere_radius = 5.98
+spread = 20.12
+gravity = Vector2(0, 0)
+angular_velocity_max = 10.0
+linear_accel_min = 6.83
+linear_accel_max = 43.83
+radial_accel_min = 29.81
+radial_accel_max = 29.81
+tangential_accel_max = 4.7
+scale_amount_min = 0.0

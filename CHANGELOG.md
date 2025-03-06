@@ -382,6 +382,30 @@
 - Enemy inifinimouth now tints to be more read when it is getting ready to pounce.
 - High score is now displayed in the main menu.
 
+## version 0.72
+
+- Refactor, options menu now creatable by any scene
+- Added options menu to main menu
+
+## version 0.73
+
+- Health drop implemented.
+- Enemy now has 50% chance to drop health or currency.
+- Item manager now handles instancing items. 
+- All items are collectibles with different types.
+
+## version 0.74
+
+- Fixed issue where hitbox could rotate around player while they are attacking
+- It is now locked to starting position when the player attacks
+
+## version 0.75
+- Audio mixing to get sounds more balanced
+- Death screen now has its own theme
+- New variables `volume_mult` have been added to `SoundManager.gd` and `MusicManager.gd` to ease the future process of having the options menu allow for mixing the volume of sound effects on a user to user basis
+- Added noise for health pickup
+- Tweaked the pitch randomization of the currency pickup noise to not have as much chance of lower, slower playback as it was sounding a bit too distorted.
+
 ## version 0.76
 
 - Added map hint function and call for it
