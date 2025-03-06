@@ -38,8 +38,6 @@ func prep():
 	layers = {
 		"environment":$Environment,
 		"wall1": $"Wall Level 1",
-		"wall2": $"Wall Level 2",
-		"ceiling": $"Ceiling",
 	}
 	tile_size = layers["environment"].tile_set.tile_size
 
@@ -61,15 +59,18 @@ func generate_level(level_package):
 	# We may want to use noise or wave collapse function or a modified walk
 	match package.gen_method:
 		"walk":
-			map.random_walk("terrain", "floor", package.floor_tiles)
+			map.random_walk("floor", package.floor_tiles)
 		"_":
-			map.random_walk("terrain", "floor", package.floor_tiles)
+			map.random_walk("floor", package.floor_tiles)
 	
 	map.set_spawn_and_exit()
+	map.place_next_floor_hint()
+	
 	
 	var tile_size = Vector2( layers["environment"].tile_set.tile_size )
 	spawn_point = ( map.player_spawn * tile_size ) + (.5 * tile_size)
 	end_point = ( map.end * tile_size ) + (.5 * tile_size)
+	
 	render()
 	
 	# Re randomize world seed after making seeded content.
@@ -107,7 +108,11 @@ func render_tiles(layer):
 			if map.get_tile(pos).type == "floor":
 				# get random tile position
 				# [ ] get length and width of tileset, rather than magic number
-				layers["environment"].set_cell(pos, 0, Vector2i(randi()%9, randi()%9))
+				# TODO program index to consider level and not just use lust and gluttony
+				var index = 0
+				if map.get_tile(pos).level == "next":
+					index = 1
+				layers["environment"].set_cell(pos, index, Vector2i(randi()%9, randi()%9))
 			if map.get_tile(pos).type == null:
 				layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
 			

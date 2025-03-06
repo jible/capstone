@@ -1,11 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bugqksfg6vdn7"]
+[gd_scene load_steps=10 format=3 uid="uid://bugqksfg6vdn7"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/scene_config_package.gd" id="1_qcfrr"]
 [ext_resource type="PackedScene" uid="uid://b0qchcd21rx5b" path="res://scenes/level_generator.tscn" id="2_1eor7"]
 [ext_resource type="Texture2D" uid="uid://sm787wug65qm" path="res://assets/tilesets/combined-9tile-lust-tempV2.png" id="3_1x4pb"]
 [ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="3_5fksv"]
-[ext_resource type="Texture2D" uid="uid://ca6grrk71ix8f" path="res://assets/tilesets/wall_tileset.png" id="3_qveav"]
-[ext_resource type="Texture2D" uid="uid://duufxwo0sqfp" path="res://assets/tilesets/wall_tileset_v2.png" id="4_ojut0"]
 [ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="4_t24gl"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_e7sx3"]
 [ext_resource type="PackedScene" uid="uid://dfvsgbamdsiep" path="res://scenes/prefabs/ui_elements/HUD.tscn" id="6_14c2j"]
@@ -103,53 +101,6 @@ terrain_set_0/terrain_0/name = "Floor"
 terrain_set_0/terrain_0/color = Color(0.256857, 0.290858, 0.844398, 1)
 sources/1 = SubResource("TileSetAtlasSource_fk4cq")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_18dq5"]
-resource_name = "walls"
-texture = ExtResource("3_qveav")
-texture_region_size = Vector2i(120, 120)
-0:0/0 = 0
-0:0/0/z_index = 1
-0:0/0/y_sort_origin = -100
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(60, 60, -60, 60, -60, -60, 60, -60)
-1:0/0 = 0
-1:0/0/z_index = 1
-1:0/0/y_sort_origin = 20
-2:0/0 = 0
-2:0/0/z_index = 2
-1:1/0 = 0
-1:1/0/z_index = 1
-1:1/0/y_sort_origin = 100
-0:1/0 = 0
-0:1/0/z_index = 2
-2:1/0 = 0
-2:1/0/z_index = 1
-2:1/0/y_sort_origin = 100
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5323x"]
-resource_name = "wallV2"
-texture = ExtResource("4_ojut0")
-texture_region_size = Vector2i(120, 120)
-0:0/0 = 0
-0:0/0/z_index = 1
-0:0/0/y_sort_origin = -100
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -60, -60, 60, 60, 60, 60, -60)
-1:0/0 = 0
-1:0/0/z_index = 1
-1:0/0/y_sort_origin = 20
-2:0/0 = 0
-2:0/0/z_index = 2
-0:1/0 = 0
-0:1/0/z_index = 2
-1:1/0 = 0
-2:1/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_dw07b"]
-tile_size = Vector2i(120, 120)
-physics_layer_0/collision_layer = 3
-physics_layer_0/collision_mask = 3
-sources/1 = SubResource("TileSetAtlasSource_5323x")
-sources/0 = SubResource("TileSetAtlasSource_18dq5")
-
 [node name="Scene Config Package" type="Node2D" node_paths=PackedStringArray("level_generator", "camera", "player")]
 z_as_relative = false
 y_sort_enabled = true
@@ -163,9 +114,6 @@ world_seed = 2
 
 [node name="Wall Level 1" parent="Level Generator" index="1"]
 tile_set = SubResource("TileSet_5qlh8")
-
-[node name="Ceiling" parent="Level Generator" index="3"]
-tile_set = SubResource("TileSet_dw07b")
 
 [node name="Player" parent="." instance=ExtResource("3_5fksv")]
 

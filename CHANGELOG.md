@@ -381,3 +381,7 @@
 ## version 0.71
 - Enemy inifinimouth now tints to be more read when it is getting ready to pounce.
 - High score is now displayed in the main menu.
+
+## version 0.7X
+
+- Removed wall level 2 and celining tile map layers since we are no longer using them
