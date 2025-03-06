@@ -79,18 +79,6 @@ y_sort_enabled = true
 tile_set = SubResource("TileSet_0kjvg")
 navigation_enabled = false
 
-[node name="Wall Level 2" type="TileMapLayer" parent="."]
-z_as_relative = false
-y_sort_enabled = true
-tile_set = SubResource("TileSet_0kjvg")
-navigation_enabled = false
-
-[node name="Ceiling" type="TileMapLayer" parent="."]
-z_index = 2
-z_as_relative = false
-tile_set = SubResource("TileSet_0kjvg")
-navigation_enabled = false
-
 [node name="NavMeshMaker" type="NavigationRegion2D" parent="."]
 top_level = true
 navigation_polygon = SubResource("NavigationPolygon_2pohe")
