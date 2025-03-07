@@ -9,14 +9,18 @@ extends Area2D
 @export var knockback = 50
 @export var collisionshape :CollisionShape2D
 @export var on_swivel = false
+@export var raycast: RayCast2D
+
 var overlapping_areas = []
 var successful_hit = []
+
+
 
 func turn_on():
 	collisionshape.debug_color = Color (179, 57, 81, .5)
 	for area in overlapping_areas:
 		if area is HurtBox && area.detectable && ! (area in successful_hit):
-			hit(area)
+			attempt_hit(area)
 	detecting = true
 	pass
 
@@ -28,7 +32,7 @@ func turn_off():
 func _on_area_entered(area):
 	overlapping_areas.append(area)
 	if detecting && area.detectable:
-		hit(area)
+		attempt_hit(area)
 
 func _on_area_exited(area):
 	overlapping_areas.erase(area)
@@ -52,6 +56,21 @@ func increase_damage(value: int):
 	
 func get_damage():
 	return damage
+
+func attempt_hit( hurtbox: HurtBox):
+	
+	if ( raycast == null ):
+		hit(hurtbox)
+	
+	# Check for los before landing hit
+	raycast.target_position = raycast.to_local(hurtbox.global_position)
+	raycast.force_raycast_update()
+	if (  !raycast.is_colliding() ):
+		print("hjit success")
+		hit(hurtbox)
+		return
+	print("hit failed")
+	
 
 func hit( hurtbox: HurtBox):
 	successful_hit.append(hurtbox)

@@ -17,7 +17,7 @@ func turn_on():
 	collisionshape.debug_color = Color(84, 73, 75,.5)
 	for area in get_overlapping_areas():
 		if area is HitBox && area.detecting:
-			area.hit(self)
+			area.attempt_hit(self)
 			break
 	detectable = true
 
@@ -36,7 +36,7 @@ func _on_area_exited(area):
 	pass # Replace with function body.
 
 func hit_by(hitbox :HitBox):
-	latest_hit_direction = (character.position - hitbox.global_position ).normalized()
+	latest_hit_direction = (character.position - hitbox.character.global_position ).normalized()
 	received_damage.emit(hitbox.damage)
 	
 func turn_off_for_sec(time = invincibility_time):

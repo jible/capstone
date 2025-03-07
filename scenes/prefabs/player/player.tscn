@@ -752,12 +752,13 @@ script = ExtResource("27_ilokj")
 character = NodePath("../..")
 speaker = NodePath("../../Voice")
 
-[node name="Hitbox" parent="." node_paths=PackedStringArray("character") instance=ExtResource("6_arj65")]
+[node name="Hitbox" parent="." node_paths=PackedStringArray("character", "raycast") instance=ExtResource("6_arj65")]
 collision_layer = 8
 collision_mask = 16
 character = NodePath("..")
 detecting = false
 on_swivel = true
+raycast = NodePath("../LOS Check")
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(0, 82)
@@ -815,6 +816,10 @@ collision_layer = 1025
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item Gravity"]
 shape = SubResource("CircleShape2D_aysxs")
+
+[node name="LOS Check" type="RayCast2D" parent="."]
+collision_mask = 64
+hit_from_inside = true
 
 [connection signal="animation_changed" from="Animation Manager" to="Silhouette" method="_on_animation_manager_animation_changed"]
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]
