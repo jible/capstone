@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpfn3bj55qhbp"]
+[gd_scene load_steps=2 format=3 uid="uid://choixojit02c8"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/remap_controls.gd" id="1_y2rld"]
 
