@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://c6kyubdgubp47"]
+[gd_scene load_steps=117 format=3 uid="uid://c6kyubdgubp47"]
 
 [ext_resource type="Script" path="res://scripts/characters/player/player.gd" id="1_u3dna"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_igigb"]
@@ -677,6 +677,9 @@ radius = 44.1601
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_qh38c"]
 points = PackedVector2Array(-10, -10, 10, -10, 11, -20, -11, -20)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_aysxs"]
+radius = 343.118
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "direction_manager", "health_manager", "pick_up", "speaker", "silhouette") groups=["Player"]]
 z_index = 1
 z_as_relative = false
@@ -806,6 +809,12 @@ max_polyphony = 10
 position = Vector2(0.647182, 3)
 scale = Vector2(4.98133, -5.97068)
 shape = SubResource("ConvexPolygonShape2D_qh38c")
+
+[node name="Item Gravity" type="Area2D" parent="."]
+collision_layer = 1025
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item Gravity"]
+shape = SubResource("CircleShape2D_aysxs")
 
 [connection signal="animation_changed" from="Animation Manager" to="Silhouette" method="_on_animation_manager_animation_changed"]
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]
