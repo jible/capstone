@@ -103,5 +103,6 @@ popup/item_2/id = 2
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="item_selected" from="VBoxContainer/FilterDropdown" to="." method="_on_filter_dropdown_item_selected"]
+[connection signal="pressed" from="VBoxContainer/ResetStatButton" to="." method="_on_reset_stat_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="item_selected" from="VBoxContainer/LanguageDropdown" to="." method="_on_language_dropdown_item_selected"]

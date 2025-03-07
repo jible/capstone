@@ -41,3 +41,9 @@ func _on_back_button_pressed() -> void:
 	SignalBus.options_closed.emit()
 	self.queue_free()
 	#emit signal
+
+
+func _on_reset_stat_button_pressed() -> void:
+	##TODO decide how to manage resetting stats, new save(?)
+	#ScoreManager.delete_save()
+	pass # Replace with function body.
