@@ -23,9 +23,10 @@ func turn_on():
 		if area is HurtBox && area.detectable && ! (area in successful_hit):
 			attempt_hit(area)
 	
-	#if item_pick_up:
-		#for area in overlapping_items:
-			#if area is Collectible:
+	if item_pick_up:
+		for area in overlapping_items:
+			if area is Collectible:
+				item_pick_up.hit_item(area)
 	
 	detecting = true
 
@@ -42,7 +43,8 @@ func _on_area_entered(area):
 			attempt_hit(area)
 	elif area is Collectible:
 		pass
-		
+
+
 func _on_area_exited(area):
 	if area is HurtBox:
 		overlapping_hurtboxes.erase(area)
@@ -60,10 +62,12 @@ func _physics_process(delta):
 
 func set_damage(value: int):
 	damage = value
-	
+
+
 func increase_damage(value: int):
 	damage += value
-	
+
+
 func get_damage():
 	return damage
 
@@ -71,7 +75,7 @@ func get_damage():
 func attempt_hit( hurtbox: HurtBox):
 	if ( raycasts.size() == 0 ):
 		hit(hurtbox)
-	
+		return
 	# Check for los before landing hit
 	
 	for raycast in raycasts:

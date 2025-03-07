@@ -803,16 +803,12 @@ sprite_frames = SubResource("SpriteFrames_d4jv7")
 animation = &"pursuit_south"
 script = null
 
-[node name="Hitbox" parent="." node_paths=PackedStringArray("character", "raycast") instance=ExtResource("5_pk3ql")]
+[node name="Hitbox" parent="." node_paths=PackedStringArray("character", "raycasts") instance=ExtResource("5_pk3ql")]
 collision_layer = 32
 collision_mask = 4
 character = NodePath("..")
-damage = null
-detecting = null
-distance_from_parent = null
-knockback = null
-on_swivel = null
-raycast = NodePath("../LOS Checker")
+detecting = false
+raycasts = [NodePath("../LOS Checker1"), NodePath("../LOS Checker2"), NodePath("../LOS Checker3")]
 
 [node name="Hurtbox" parent="." instance=ExtResource("6_025q6")]
 collision_layer = 16
@@ -838,7 +834,13 @@ shape = SubResource("CircleShape2D_a50l1")
 [node name="Voice" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 10
 
-[node name="LOS Checker" type="RayCast2D" parent="."]
+[node name="LOS Checker1" type="RayCast2D" parent="."]
+position = Vector2(0, -44.11)
+
+[node name="LOS Checker2" type="RayCast2D" parent="."]
+
+[node name="LOS Checker3" type="RayCast2D" parent="."]
+position = Vector2(0, 46.07)
 
 [connection signal="state_changed" from="State Machine" to="Mobility Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]

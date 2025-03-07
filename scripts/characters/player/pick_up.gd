@@ -6,6 +6,9 @@ class_name PickUp
 var sfx = SoundManager
 
 func _on_area_entered(area : Collectible):
+	hit_item(area)
+	
+func hit_item(area: Collectible):
 	collect(area.type, area.point_value)
 	kill(area)
 
