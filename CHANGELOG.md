@@ -416,3 +416,9 @@
 ## version 0.77
 
 - Item gravitation added
+
+## version 0.78
+
+- Hitboxes can no longer land hits through walls
+-    This goes for both the player and the enemy
+- 

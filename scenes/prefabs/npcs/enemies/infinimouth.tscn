@@ -807,7 +807,11 @@ script = null
 collision_layer = 32
 collision_mask = 4
 character = NodePath("..")
-detecting = false
+damage = null
+detecting = null
+distance_from_parent = null
+knockback = null
+on_swivel = null
 raycast = NodePath("../LOS Checker")
 
 [node name="Hurtbox" parent="." instance=ExtResource("6_025q6")]
