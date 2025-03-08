@@ -26,7 +26,7 @@ func turn_on():
 	if item_pick_up:
 		for area in overlapping_items:
 			if area is Collectible:
-				item_pick_up.hit_item(area)
+				item_pick_up.collect_item(area)
 	
 	detecting = true
 
@@ -42,13 +42,17 @@ func _on_area_entered(area):
 		if detecting && area.detectable:
 			attempt_hit(area)
 	elif area is Collectible:
-		pass
+		overlapping_items.append(area)
+		if detecting:
+			item_pick_up.collect_item(area)
 
 
 func _on_area_exited(area):
 	if area is HurtBox:
 		overlapping_hurtboxes.erase(area)
-
+	if area is Collectible:
+		overlapping_items.erase(area)
+		
 
 func _on_direction_manager_direction_changed(direction: Vector2):
 	if !on_swivel :

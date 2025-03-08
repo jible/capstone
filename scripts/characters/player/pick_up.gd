@@ -6,13 +6,13 @@ class_name PickUp
 var sfx = SoundManager
 
 func _on_area_entered(area : Collectible):
-	hit_item(area)
+	collect_item(area)
 	
-func hit_item(area: Collectible):
-	collect(area.type, area.point_value)
+func collect_item(area: Collectible):
+	add_to_inventory(area.type, area.point_value)
 	kill(area)
 
-func collect(type, amount):
+func add_to_inventory(type, amount):
 	if type == "health":
 		sfx.play_player_sound(speaker,SoundManager.PlayerSounds.HEAL)
 		character.health_manager.receive_healing(amount)

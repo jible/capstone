@@ -421,4 +421,4 @@
 
 - Hitboxes can no longer land hits through walls
 -    This goes for both the player and the enemy
-- 
+- You can now pick up items with attacks

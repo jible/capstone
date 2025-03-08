@@ -4,3 +4,4 @@
 
 [node name="MusicManager" type="AudioStreamPlayer"]
 script = ExtResource("1_0nj1u")
+muted = true
