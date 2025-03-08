@@ -10,3 +10,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fq4bq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ControlLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "CONTROL:"
+
+[node name="BindingButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "BINDING"
+
+[connection signal="pressed" from="HBoxContainer/BindingButton" to="." method="_on_binding_button_pressed"]
