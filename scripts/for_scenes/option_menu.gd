@@ -26,8 +26,9 @@ func _on_language_dropdown_item_selected(index: int) -> void:
 		2:
 			TranslationServer.set_locale("fr")
 			pass
-		3: 
+		3:
 			TranslationServer.set_locale("ja")
+			pass
 		_:
 			#default case for errors, do nothing
 			pass

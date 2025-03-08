@@ -52,8 +52,7 @@ grow_vertical = 2
 
 [node name="RemapButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "CONTROLS
-"
+text = "CONTROLS"
 
 [node name="FilterText" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -65,16 +64,16 @@ layout_mode = 2
 selected = 0
 allow_reselect = true
 item_count = 6
-popup/item_0/text = "None"
+popup/item_0/text = "NONE"
 popup/item_1/text = "B&W"
 popup/item_1/id = 1
-popup/item_2/text = "Protanopia"
+popup/item_2/text = "PROTANOPIA"
 popup/item_2/id = 2
-popup/item_3/text = "Achromatopsia"
+popup/item_3/text = "ACHROMATOPSIA"
 popup/item_3/id = 3
-popup/item_4/text = "Dueteranopia"
+popup/item_4/text = "DUETERANOPIA"
 popup/item_4/id = 4
-popup/item_5/text = "Tritanopia"
+popup/item_5/text = "TRITANOPIA"
 popup/item_5/id = 5
 
 [node name="ResetStatButton" type="Button" parent="VBoxContainer"]
