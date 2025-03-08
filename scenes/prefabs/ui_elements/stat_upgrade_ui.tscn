@@ -60,6 +60,9 @@ layout_mode = 2
 stat_name = "health"
 upgrade_icon = ExtResource("3_klydc")
 
+[node name="StatNameLabel" parent="MarginContainer/StatContainer/StatUpgrade" index="1"]
+text = "UPGRADE_LABEL "
+
 [node name="StatUpgrade2" parent="MarginContainer/StatContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
 stat_name = "dmg"
