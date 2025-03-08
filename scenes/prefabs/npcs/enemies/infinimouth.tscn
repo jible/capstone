@@ -1,8 +1,8 @@
-[gd_scene load_steps=98 format=3 uid="uid://cfy2mlhpkuxdd"]
+[gd_scene load_steps=98 format=3 uid="uid://byqs5l5f172og"]
 
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/basic_enemy.gd" id="1_s78sa"]
 [ext_resource type="PackedScene" uid="uid://csvqbuap6a3bj" path="res://scenes/prefabs/character utils/mobility_manager.tscn" id="2_ffnce"]
-[ext_resource type="PackedScene" uid="uid://y552t2bx22bv" path="res://scenes/prefabs/collectable.tscn" id="2_n2j2n"]
+[ext_resource type="PackedScene" uid="uid://y552t2bx22bv" path="res://scenes/prefabs/collectible.tscn" id="2_n2j2n"]
 [ext_resource type="PackedScene" uid="uid://dra6a0np2j7e6" path="res://scenes/prefabs/character utils/state_machine.tscn" id="3_4kkek"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/idle.gd" id="3_f8pux"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/pursuit.gd" id="4_nlsgk"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/hurt.gd" id="6_1sls6"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="6_025q6"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/death.gd" id="8_vddrh"]
-[ext_resource type="PackedScene" uid="uid://0ry41ukaumi6" path="res://scenes/prefabs/animation_manager.tscn" id="9_37jjd"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/animation_manager.tscn" id="9_37jjd"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/patrol.gd" id="9_b67qh"]
 [ext_resource type="Texture2D" uid="uid://b1kag480gef6o" path="res://assets/spritesheets/infinimouth_death.png" id="10_n4e04"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/attack.gd" id="10_ovdpx"]
@@ -726,7 +726,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a50l1"]
-radius = 1404.04
+radius = 1045.49
 
 [node name="Basic Enemy" type="CharacterBody2D" node_paths=PackedStringArray("mobility_manager", "state_machine", "hitbox", "hurtbox", "sprite_manager", "health_manager", "navigator", "silhouette", "target_tracker")]
 collision_layer = 2
@@ -783,9 +783,10 @@ script = ExtResource("10_ovdpx")
 character = NodePath("../..")
 speaker = NodePath("../../Voice")
 
-[node name="Charge" type="Node" parent="State Machine" node_paths=PackedStringArray("character")]
+[node name="Charge" type="Node" parent="State Machine" node_paths=PackedStringArray("character", "color")]
 script = ExtResource("11_fq3s2")
 character = NodePath("../..")
+color = NodePath("../../Animation Manager")
 
 [node name="Animation Manager" parent="." node_paths=PackedStringArray("character") instance=ExtResource("9_37jjd")]
 sprite_frames = SubResource("SpriteFrames_d4jv7")
@@ -794,6 +795,7 @@ autoplay = "idle_south"
 character = NodePath("..")
 
 [node name="Silhouette" parent="." instance=ExtResource("9_37jjd")]
+visible = false
 modulate = Color(1, 1, 1, 0.501961)
 z_index = 5
 y_sort_enabled = true

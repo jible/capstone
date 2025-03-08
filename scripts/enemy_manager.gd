@@ -1,6 +1,7 @@
 extends Node
 
 @export var level_generator: Node2D
+@export var item_manager: ItemManager
 
 @onready var player: Player = get_tree().get_first_node_in_group("Player")
 var min_dist_from_player = 2000
@@ -16,7 +17,6 @@ var enemy_odds = []
 var enemy_pools: Dictionary = {}
 var name_to_path = {
 	 "infinimouth" : "res://scenes/prefabs/npcs/enemies/infinimouth.tscn",
-		
 }
 
 func _ready():
@@ -36,12 +36,29 @@ func _ready():
 func enemy_killed(enemy):
 	live_enemies -= 1
 	enemies_killed += 1
+	
+	#TODO temp code to make drop a 50/50
+	
+	var chance =randi()
+	var drop_name
+	if chance%2 == 0:
+		drop_name = "health"
+	else:
+		drop_name = "currency"
+	item_manager.spawn_item(drop_name, enemy.position)
+	death_drop()
+	SignalBus.enemy_killed.emit(enemies_killed)
 	ScoreManager.increase_score(1)
 	if enemies_killed >= required_enemies:
 		print("required_enemies_killed")
 		SignalBus.required_enemies_killed.emit()
 		
 	enemy_pools[enemy.type].kill(enemy)
+
+
+func death_drop():
+	
+	pass
 
 
 func spawn_enemy(pos, enemy_type = null):

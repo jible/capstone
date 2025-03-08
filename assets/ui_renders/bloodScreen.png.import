@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw6vrjyjdju75"
-path="res://.godot/imported/temp_floor.jpg-6ab63f389073d3de5e1bd42302966cd8.ctex"
+uid="uid://6gprkcaut077"
+path="res://.godot/imported/bloodScreen.png-b733cd1959b6509dcaaf2e55b7b53e1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spritesheets/temp_floor.jpg"
-dest_files=["res://.godot/imported/temp_floor.jpg-6ab63f389073d3de5e1bd42302966cd8.ctex"]
+source_file="res://assets/ui_renders/bloodScreen.png"
+dest_files=["res://.godot/imported/bloodScreen.png-b733cd1959b6509dcaaf2e55b7b53e1d.ctex"]
 
 [params]
 

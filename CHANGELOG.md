@@ -283,7 +283,6 @@
 
 ## version 0.56
 
-
 - Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing.
 - basic_enemy renamed to infinimouth.
 
@@ -295,8 +294,8 @@
 - Fixed speed upgrades scaling faster than intended
 - Made health an item stored in the Inventory
 
--   Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing.
--   basic_enemy renamed to infinimouth.
+- Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing.
+- basic_enemy renamed to infinimouth.
 
 ## version 0.58
 
@@ -309,11 +308,13 @@
 - Removed spam print statement
 
 ## version 0.60
+
 - Implemented a global script, ShaderManager that changes the material on a new scene, Filter, that is a ColorRect placed over the global SceneTransition scene.
 - Since SceneTransition exists over the top of the entire game, this is a quick way to apply the filter to all scenes without any scene knowing about it.
 - It is important that if the dropdown of the options menu's shaders change order, **this needs to be reflected in the ShaderManager's SHADER_POOL const variable**.
 
 ## version 0.61
+
 -	Added and implemented player attack animations
 -	Implemented currency animation
 -	Added currency (tooth) spritesheet to assets folder
@@ -331,6 +332,7 @@
 - The dash state mobility attributes need balancing
 
 ## version 0.65
+
 - Main menu music implemented with a global MusicManager scene
 - Changed the cursor to a high contrast grayscale version cursorV3, with another option as well, cursorV2.
 - Made character attack noise louder
@@ -341,6 +343,7 @@
 - Fixed weird misalignment of HUD border
 
 ## version 0.66
+
 - Trimmed the edges of the main menu book image so that it scales better and fits the viewport nicely without it getting separated from its origin.
 - Main menu layout has been finalized. The title is now on the book and the book covers nearly the whole screen.
 - Added dummy button for options menu so that the work can be started on implementing the ability for options to be managed at start.
@@ -365,3 +368,51 @@
 - Volume mixing done to balance out sound effects
 - Removed code meant for music that was in `sound_manager.gd` as that functionality is in `music_manager.gd`
 - Set up functionality in `music_manager.gd` and `sound_manager.gd` to allow for muting sound effects and/or music. This can be used later as an option in the options menu for players who want to do away with either optionally. They use function `mute_music()`, `unmute_music()`, `mute_sfx()` and `unmute_sfx()` to flip a flag that will permit or block audio playback.
+
+## version 0.69
+
+- Added enemies killed count to HUD
+- Added new upgrade menu assets
+
+## version 0.70
+
+- Fixed debugger error, removed defunct variable
+
+## version 0.71
+- Enemy inifinimouth now tints to be more read when it is getting ready to pounce.
+- High score is now displayed in the main menu.
+
+## version 0.72
+
+- Refactor, options menu now creatable by any scene
+- Added options menu to main menu
+
+## version 0.73
+
+- Health drop implemented.
+- Enemy now has 50% chance to drop health or currency.
+- Item manager now handles instancing items. 
+- All items are collectibles with different types.
+
+## version 0.74
+
+- Fixed issue where hitbox could rotate around player while they are attacking
+- It is now locked to starting position when the player attacks
+
+## version 0.75
+- Audio mixing to get sounds more balanced
+- Death screen now has its own theme
+- New variables `volume_mult` have been added to `SoundManager.gd` and `MusicManager.gd` to ease the future process of having the options menu allow for mixing the volume of sound effects on a user to user basis
+- Added noise for health pickup
+- Tweaked the pitch randomization of the currency pickup noise to not have as much chance of lower, slower playback as it was sounding a bit too distorted.
+
+## version 0.76
+
+- Added map hint function and call for it
+- The map hint function marks tiles for the next level randomly within a radius around the exit
+- The renderer is updated to place the next level's floor tiles for tiles that are marked as "next"
+- Removed wall level 2 and ceilining tile map layers since we are no longer using them
+
+## version 0.77
+
+- Item gravitation added

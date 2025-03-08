@@ -18,15 +18,8 @@ var enemy_manager:Node = null
 func _ready():
 	enemy_manager = get_tree().get_first_node_in_group("Enemy_Manager")
 
-func death_drop():
-	if drop:
-		var instance = drop.instantiate()
-		instance.position = position
-		get_tree().current_scene.add_child(instance)
-
 
 func die():
-	death_drop()
 	if enemy_manager:
 		enemy_manager.enemy_killed(self)
 

@@ -2,15 +2,21 @@ extends Area2D
 class_name PickUp
 
 @export var speaker : AudioStreamPlayer2D
+@export var character: CharacterBody2D
 var sfx = SoundManager
 
-func _on_area_entered(area : Collectable):
+func _on_area_entered(area : Collectible):
 	collect(area.type, area.point_value)
 	kill(area)
 
 func collect(type, amount):
+	if type == "health":
+		sfx.play_player_sound(speaker,SoundManager.PlayerSounds.HEAL)
+		character.health_manager.receive_healing(amount)
+		return
+	
 	sfx.play_player_sound(speaker,sfx.PlayerSounds.PICKUP)
-	speaker.pitch_scale = randf_range(0.25,2)
+	speaker.pitch_scale = randf_range(0.5,2)
 	SignalBus.item_collected.emit(type, amount)
 
 func kill(collect):

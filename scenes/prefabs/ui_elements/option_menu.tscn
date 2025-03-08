@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://wuikybn3pwsx"]
+[gd_scene load_steps=3 format=3 uid="uid://wuikybn3pwsx"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/option_menu.gd" id="1_27ycq"]
+[ext_resource type="Texture2D" uid="uid://cy1r363pot5mv" path="res://assets/images/title_bg.png" id="2_nal2c"]
 
 [node name="OptionMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +12,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_27ycq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nal2c")
 
 [node name="Header" type="Label" parent="."]
 layout_mode = 1
@@ -83,12 +94,14 @@ horizontal_alignment = 1
 layout_mode = 2
 selected = 0
 allow_reselect = true
-item_count = 3
+item_count = 4
 popup/item_0/text = "English"
 popup/item_1/text = "Español"
 popup/item_1/id = 1
 popup/item_2/text = "Français"
 popup/item_2/id = 2
+popup/item_3/text = "日本語"
+popup/item_3/id = 3
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="item_selected" from="VBoxContainer/FilterDropdown" to="." method="_on_filter_dropdown_item_selected"]

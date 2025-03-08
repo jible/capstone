@@ -1,52 +1,36 @@
-[gd_scene load_steps=16 format=3 uid="uid://y552t2bx22bv"]
-
-[ext_resource type="Script" path="res://scripts/collectable.gd" id="1_7ahly"]
-[ext_resource type="Texture2D" uid="uid://dk54mnm0o8jt1" path="res://assets/spritesheets/currency.png" id="2_dgw6i"]
-[ext_resource type="Texture2D" uid="uid://btawghlpn4ah1" path="res://assets/images/particle.jpg" id="3_q4sbc"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_be6op"]
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://dnoiyrh01rx30"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_py6em"]
-atlas = ExtResource("2_dgw6i")
 region = Rect2(0, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_37w46"]
-atlas = ExtResource("2_dgw6i")
 region = Rect2(150, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5bcq3"]
-atlas = ExtResource("2_dgw6i")
 region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4sy7t"]
-atlas = ExtResource("2_dgw6i")
 region = Rect2(0, 150, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ecdvx"]
-atlas = ExtResource("2_dgw6i")
 region = Rect2(150, 150, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_433iu"]
-atlas = ExtResource("2_dgw6i")
 region = Rect2(300, 150, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3s0a6"]
-atlas = ExtResource("2_dgw6i")
 region = Rect2(0, 300, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r2plr"]
-atlas = ExtResource("2_dgw6i")
 region = Rect2(150, 300, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjias"]
-atlas = ExtResource("2_dgw6i")
 region = Rect2(300, 300, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_22xss"]
-atlas = ExtResource("2_dgw6i")
 region = Rect2(0, 450, 150, 150)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ttv1t"]
+[resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -83,32 +67,3 @@ animations = [{
 "name": &"default",
 "speed": 8.0
 }]
-
-[node name="Collectable" type="Area2D"]
-collision_layer = 512
-collision_mask = 0
-script = ExtResource("1_7ahly")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_be6op")
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ttv1t")
-autoplay = "default"
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-scale = Vector2(0.5, 0.5)
-amount = 27
-speed_scale = 0.3
-texture = ExtResource("3_q4sbc")
-emission_shape = 1
-emission_sphere_radius = 5.98
-spread = 20.12
-gravity = Vector2(0, 0)
-angular_velocity_max = 10.0
-linear_accel_min = 6.83
-linear_accel_max = 43.83
-radial_accel_min = 29.81
-radial_accel_max = 29.81
-tangential_accel_max = 4.7
-scale_amount_min = 0.0
