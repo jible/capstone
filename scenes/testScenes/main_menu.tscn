@@ -82,10 +82,10 @@ text = "HOW_TO_PLAY"
 
 [node name="OptionsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 651.0
-offset_top = 898.0
-offset_right = 1088.0
-offset_bottom = 973.0
+offset_left = 808.0
+offset_top = 912.0
+offset_right = 1027.0
+offset_bottom = 987.0
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 48
 text = "OPTIONS"
@@ -103,7 +103,7 @@ theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 54
 text = "HIGH SCORE:"
-horizontal_alignment = 1"
+horizontal_alignment = 1
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="TutorialButton" to="." method="_on_tutorial_button_button_up"]
