@@ -416,3 +416,8 @@
 ## version 0.77
 
 - Item gravitation added
+
+## version 0.81
+
+- Added support for Japanese
+- Added additional localization support for upgrade menu and miscellaneous buttons
