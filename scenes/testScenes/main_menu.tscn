@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7p3e5u8l5r52"]
+[gd_scene load_steps=7 format=3 uid="uid://b7p3e5u8l5r52"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/main_menu.gd" id="1_q2ruy"]
 [ext_resource type="Texture2D" uid="uid://cy1r363pot5mv" path="res://assets/images/title_bg.png" id="3_flqxe"]
 [ext_resource type="Texture2D" uid="uid://c0nobm6vf3dl4" path="res://assets/ui_renders/main_menu_book.png" id="3_xqhh2"]
+[ext_resource type="Texture2D" uid="uid://hm048sbxcgu6" path="res://assets/ui_renders/play_button.png" id="4_dfrxe"]
 [ext_resource type="Texture2D" uid="uid://dmpogiisg846u" path="res://assets/images/title.png" id="5_j82jr"]
+[ext_resource type="PackedScene" uid="uid://wuikybn3pwsx" path="res://scenes/prefabs/ui_elements/option_menu.tscn" id="6_8qr14"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("high_score_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +15,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q2ruy")
+options_menu = ExtResource("6_8qr14")
+high_score_label = NodePath("High Score Label")
 metadata/_edit_use_anchors_ = true
 
 [node name="MenuBackground" type="TextureRect" parent="."]
@@ -54,16 +58,17 @@ anchor_left = 0.5
 anchor_top = 0.632
 anchor_right = 0.5
 anchor_bottom = 0.632
-offset_left = -236.0
+offset_left = -152.0
 offset_top = -58.5601
-offset_right = 105.0
-offset_bottom = 38.4402
+offset_right = 70.0
+offset_bottom = 38.4401
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 theme_override_colors/icon_hover_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
-text = "PLAY_BUTTON"
+icon = ExtResource("4_dfrxe")
+flat = true
 
 [node name="TutorialButton" type="Button" parent="."]
 layout_mode = 0
@@ -77,13 +82,29 @@ text = "HOW_TO_PLAY"
 
 [node name="OptionsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 651.0
-offset_top = 898.0
-offset_right = 1088.0
-offset_bottom = 973.0
+offset_left = 808.0
+offset_top = 912.0
+offset_right = 1027.0
+offset_bottom = 987.0
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 48
-text = "OPTIONS_BUTTON"
+text = "OPTIONS"
+
+[node name="High Score Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -580.0
+offset_right = 580.0
+offset_bottom = 67.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 54
+text = "HIGH SCORE:"
+horizontal_alignment = 1
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="TutorialButton" to="." method="_on_tutorial_button_button_up"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
