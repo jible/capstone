@@ -23,7 +23,7 @@ const mat4 grayscale = mat4(
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
-const float contrast = 1.5;
+const float contrast = 1.15;
 uniform sampler2D SCREEN_TEXTURE :hint_screen_texture, filter_linear_mipmap;
 void fragment() {
 	// Pull image texture
