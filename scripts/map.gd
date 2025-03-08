@@ -33,16 +33,9 @@ func configure_matrix():
 func get_tile(pos):
 	return matrix[pos.y][pos.x]
 
-func fill(value, layer):
-	'''
-	Set all tiles on provided layer to provided value.
-	'''
-	
-	for y in range (size.y):
-		for x in range(size.x):
-			matrix[y][x][layer] = value
 
-func random_walk(layer, value, steps = size.x * size.y / 5):
+
+func random_walk( value, steps = size.x * size.y / 5):
 	'''
 	Generate map on provided layer using random walk method.
 	'''
@@ -101,10 +94,7 @@ func set_spawn_and_exit( min_distance = 15 ):
 func get_random_floor():
 	while true:
 		var point = Vector2(randi() % (size.x -1), randi() % (size.y- 1))
-		# The second half should be a temp fix - 
-		# it prevents it from placing tiles on tile sthat will be overwritten with collision
-		
-		if ( get_tile(point).type == "floor" && get_tile (point - Vector2(0,-1)).type == "floor" ):
+		if ( get_tile(point).type == "floor"):
 			return point
 
 func calc_distance(a,b):
@@ -112,7 +102,7 @@ func calc_distance(a,b):
 	return abs(distance_v.x) + abs(distance_v.y)
 
 
-func make_noise(layer, value):
+func make_noise(value):
 	'''
 	Generate map on provided layer using noise.
 	'''
@@ -126,3 +116,25 @@ func make_noise(layer, value):
 			# if the output is greater than the threshold create 'value' tile
 			if output > threshold:
 				get_tile(pos).type = value
+
+
+func place_next_floor_hint(density = 20):
+	'''
+	Randomly changes tiles to "next" level. Tiles closer to the exit are 
+	Density is a multiplier to increase the density at which the next level tiles are placed. 
+	At 0, there are no "next" tiles
+	
+	'''
+	var count = 0
+	for y in range (size.y):
+		for x in range(size.x):
+			var pos = Vector2(x,y)
+			var tile = get_tile(pos)
+			var dist_from_end = int(Vector2( end - pos ).length())
+			# Using this algorithm because the distance doesn't need to be exact and this is less expensive
+			if dist_from_end == 0:
+				tile.level = "next"
+			elif tile.type == "floor":
+				var chance = randi_range(0,floor ( (dist_from_end ** 2)/ density) )
+				if chance == 0:
+					tile.level = "next"

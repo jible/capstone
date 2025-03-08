@@ -41,6 +41,7 @@ var default_package = {
 	"items" : [],
 	"end_distance": 100,
 	"tile_set": "path?",
+	"next_tile_index" : 1,
 	"enemy_package": default_enemy_package,
 }
 
