@@ -102,7 +102,7 @@ grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 54
-text = "HIGH SCORE:"
+text = "HIGH_SCORE:"
 horizontal_alignment = 1
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
