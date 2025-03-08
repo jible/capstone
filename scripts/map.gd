@@ -1,7 +1,7 @@
 extends Node2D
 class_name Map
 
-# Changed this to 2i check here for issues bugs f-f-f-
+
 @export var size: Vector2i = Vector2i.ZERO
 var matrix = []
 var seed : int = 0
@@ -138,3 +138,60 @@ func place_next_floor_hint(density = 20):
 				var chance = randi_range(0,floor ( (dist_from_end ** 2)/ density) )
 				if chance == 0:
 					tile.level = "next"
+
+func decide_all_walls():
+	for y in range (size.y):
+		for x in range(size.x):
+			var pos = Vector2(x,y)
+			decide_tile_walls(pos)
+	for y in range (size.y):
+		for x in range(size.x):
+			var pos = Vector2(x,y)
+			decide_diagonals(pos)
+
+
+func decide_tile_walls(pos):
+	'''
+	Decides what walls are placed to a given tile
+	'''
+	var count = 0
+	
+	var directions = [
+		"north",
+		"west",
+		"east",
+		"south",
+	]
+	var dir_to_offsetector = {
+		"north" :Vector2i(0,-1),
+		"west":Vector2i(-1,0),
+		"east":Vector2i(1,0),
+		"south":Vector2i(0,1),
+	}
+	var tile = get_tile(pos)
+	
+	for direction in directions:
+		var peek_pos = Vector2i(pos) + dir_to_offsetector[direction]
+		if peek_pos.x < 0 || peek_pos.y < 0 || peek_pos.x >= size.x -1 || peek_pos.y >= size.y -1:
+			count += 1
+			continue
+		var peek_tile = get_tile(peek_pos)
+		if peek_tile.type == "floor" :
+			tile.walls.append(direction)
+		count += 1
+
+func decide_diagonals(pos):
+	var directions = [
+		"north",
+		"west",
+		"east",
+		"south",
+	]
+	var dir_to_offsetector = {
+		"north" :Vector2i(0,-1),
+		"west":Vector2i(-1,0),
+		"east":Vector2i(1,0),
+		"south":Vector2i(0,1),
+	}
+	var tile = get_tile(pos)
+	
