@@ -1,45 +1,33 @@
-[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://dnoiyrh01rx30"]
-
-[ext_resource type="Texture2D" uid="uid://dk54mnm0o8jt1" path="res://assets/spritesheets/currency.png" id="1_s2el8"]
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://dnoiyrh01rx30"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_py6em"]
-atlas = ExtResource("1_s2el8")
 region = Rect2(0, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_37w46"]
-atlas = ExtResource("1_s2el8")
 region = Rect2(150, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5bcq3"]
-atlas = ExtResource("1_s2el8")
 region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4sy7t"]
-atlas = ExtResource("1_s2el8")
 region = Rect2(0, 150, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ecdvx"]
-atlas = ExtResource("1_s2el8")
 region = Rect2(150, 150, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_433iu"]
-atlas = ExtResource("1_s2el8")
 region = Rect2(300, 150, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3s0a6"]
-atlas = ExtResource("1_s2el8")
 region = Rect2(0, 300, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r2plr"]
-atlas = ExtResource("1_s2el8")
 region = Rect2(150, 300, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjias"]
-atlas = ExtResource("1_s2el8")
 region = Rect2(300, 300, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_22xss"]
-atlas = ExtResource("1_s2el8")
 region = Rect2(0, 450, 150, 150)
 
 [resource]

@@ -1,7 +1,6 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cbcmjaiqxltk3"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://cbcmjaiqxltk3"]
 
 [ext_resource type="Texture2D" uid="uid://b36wpunkaj4sr" path="res://assets/tilesets/ground_tileset.png" id="1_mr8qb"]
-[ext_resource type="Texture2D" uid="uid://dsxs2aqi06sdm" path="res://assets/tilesets/ground_tileset_gluttony.png" id="2_7wvxn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q3s2e"]
 resource_name = "Lust"
@@ -111,7 +110,6 @@ texture_region_size = Vector2i(120, 120)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jdiji"]
 resource_name = "Gluttony"
-texture = ExtResource("2_7wvxn")
 texture_region_size = Vector2i(120, 120)
 0:0/0 = 0
 1:0/0 = 0
