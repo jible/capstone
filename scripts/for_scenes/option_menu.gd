@@ -32,6 +32,7 @@ func _on_language_dropdown_item_selected(index: int) -> void:
 		_:
 			#default case for errors, do nothing
 			pass
+	SignalBus.update_HUD.emit()
 
 # Changing the material order of the dropdown has to be reflected in the ShaderManager
 func _on_filter_dropdown_item_selected(index: int) -> void:
@@ -40,4 +41,3 @@ func _on_filter_dropdown_item_selected(index: int) -> void:
 func _on_back_button_pressed() -> void:
 	SignalBus.options_closed.emit()
 	self.queue_free()
-	#emit signal
