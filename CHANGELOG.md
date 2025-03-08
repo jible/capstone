@@ -398,3 +398,21 @@
 
 - Fixed issue where hitbox could rotate around player while they are attacking
 - It is now locked to starting position when the player attacks
+
+## version 0.75
+- Audio mixing to get sounds more balanced
+- Death screen now has its own theme
+- New variables `volume_mult` have been added to `SoundManager.gd` and `MusicManager.gd` to ease the future process of having the options menu allow for mixing the volume of sound effects on a user to user basis
+- Added noise for health pickup
+- Tweaked the pitch randomization of the currency pickup noise to not have as much chance of lower, slower playback as it was sounding a bit too distorted.
+
+## version 0.76
+
+- Added map hint function and call for it
+- The map hint function marks tiles for the next level randomly within a radius around the exit
+- The renderer is updated to place the next level's floor tiles for tiles that are marked as "next"
+- Removed wall level 2 and ceilining tile map layers since we are no longer using them
+
+## version 0.77
+
+- Item gravitation added
