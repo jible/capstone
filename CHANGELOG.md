@@ -417,7 +417,7 @@
 
 - Item gravitation added
 
-## versiom 0.78
+## version 0.78
 
 - Hurt shader now is applied when the character gets hurt
 - Doesn't work when the character enters death state, there's a specific animation in the works for the death state however
