@@ -422,5 +422,13 @@
 - Player dodge animations added
 
 ## version 0.79
+
 - Replaced floor tilesets.
 - Adjusted contrast.
+
+## version 0.80
+
+- Hitboxes can no longer land hits through walls
+-    This goes for both the player and the enemy
+- You can now pick up items with attacks
+
