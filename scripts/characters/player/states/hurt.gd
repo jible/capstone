@@ -20,6 +20,8 @@ extends SMState
 @onready var speaker = character.speaker
 var is_active = false
 var sfx = SoundManager
+# Used for flashing the hurt overlay in the hud.
+signal is_hurt
 # State Details
 var callbacks = {
 	"start": [
@@ -53,6 +55,7 @@ func update_state(delta):
 	pass
 func enter_state():
 	sfx.play_player_sound(speaker,sfx.PlayerSounds.HURT)
+	is_hurt.emit()
 	pass
 func exit_state():
 	pass
