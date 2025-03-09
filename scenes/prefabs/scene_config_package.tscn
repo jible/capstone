@@ -1,128 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://bugqksfg6vdn7"]
+[gd_scene load_steps=8 format=3 uid="uid://bugqksfg6vdn7"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/scene_config_package.gd" id="1_qcfrr"]
 [ext_resource type="PackedScene" uid="uid://b0qchcd21rx5b" path="res://scenes/level_generator.tscn" id="2_1eor7"]
-[ext_resource type="Texture2D" uid="uid://sm787wug65qm" path="res://assets/tilesets/combined-9tile-lust-tempV2.png" id="3_1x4pb"]
 [ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="3_5fksv"]
 [ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="4_t24gl"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_e7sx3"]
 [ext_resource type="PackedScene" uid="uid://dfvsgbamdsiep" path="res://scenes/prefabs/ui_elements/HUD.tscn" id="6_14c2j"]
 [ext_resource type="Script" path="res://item_manager.gd" id="10_ww6gq"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fk4cq"]
-texture = ExtResource("3_1x4pb")
-texture_region_size = Vector2i(120, 120)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 0
-0:0/0/terrains_peering_bit/right_side = 0
-0:0/0/terrains_peering_bit/bottom_side = 0
-1:0/0 = 0
-1:0/0/terrain_set = 0
-1:0/0/terrain = 0
-1:0/0/terrains_peering_bit/right_side = 0
-1:0/0/terrains_peering_bit/bottom_side = 0
-1:0/0/terrains_peering_bit/left_side = 0
-2:0/0 = 0
-2:0/0/terrain_set = 0
-2:0/0/terrain = 0
-2:0/0/terrains_peering_bit/bottom_side = 0
-2:0/0/terrains_peering_bit/left_side = 0
-0:1/0 = 0
-0:1/0/terrain_set = 0
-0:1/0/terrain = 0
-0:1/0/terrains_peering_bit/right_side = 0
-0:1/0/terrains_peering_bit/bottom_side = 0
-0:1/0/terrains_peering_bit/top_side = 0
-1:1/0 = 0
-1:1/0/terrain_set = 0
-1:1/0/terrain = 0
-1:1/0/terrains_peering_bit/right_side = 0
-1:1/0/terrains_peering_bit/bottom_side = 0
-1:1/0/terrains_peering_bit/left_side = 0
-1:1/0/terrains_peering_bit/top_side = 0
-2:1/0 = 0
-2:1/0/terrain_set = 0
-2:1/0/terrain = 0
-2:1/0/terrains_peering_bit/bottom_side = 0
-2:1/0/terrains_peering_bit/left_side = 0
-2:1/0/terrains_peering_bit/top_side = 0
-8:1/0 = 0
-8:1/0/terrain_set = 0
-8:1/0/terrain = 0
-8:1/0/terrains_peering_bit/bottom_side = 0
-0:2/0 = 0
-0:2/0/terrain_set = 0
-0:2/0/terrain = 0
-0:2/0/terrains_peering_bit/right_side = 0
-0:2/0/terrains_peering_bit/top_side = 0
-1:2/0 = 0
-1:2/0/terrain_set = 0
-1:2/0/terrain = 0
-1:2/0/terrains_peering_bit/right_side = 0
-1:2/0/terrains_peering_bit/left_side = 0
-1:2/0/terrains_peering_bit/top_side = 0
-2:2/0 = 0
-2:2/0/terrain_set = 0
-2:2/0/terrain = 0
-2:2/0/terrains_peering_bit/left_side = 0
-2:2/0/terrains_peering_bit/top_side = 0
-8:2/0 = 0
-8:2/0/terrain_set = 0
-8:2/0/terrain = 0
-8:2/0/terrains_peering_bit/bottom_side = 0
-8:2/0/terrains_peering_bit/top_side = 0
-8:3/0 = 0
-8:3/0/terrain_set = 0
-8:3/0/terrain = 0
-8:3/0/terrains_peering_bit/top_side = 0
-0:4/0 = 0
-0:4/0/terrain_set = 0
-0:4/0/terrain = 0
-0:4/0/terrains_peering_bit/right_side = 0
-1:4/0 = 0
-1:4/0/terrain_set = 0
-1:4/0/terrain = 0
-1:4/0/terrains_peering_bit/right_side = 0
-1:4/0/terrains_peering_bit/left_side = 0
-2:4/0 = 0
-2:4/0/terrain_set = 0
-2:4/0/terrain = 0
-2:4/0/terrains_peering_bit/left_side = 0
-5:4/0 = 0
-5:4/0/terrain_set = 0
-5:4/0/terrain = 0
-
-[sub_resource type="TileSet" id="TileSet_5qlh8"]
-tile_size = Vector2i(120, 120)
-physics_layer_0/collision_layer = 3
-physics_layer_0/collision_mask = 3
-terrain_set_0/mode = 0
-terrain_set_0/terrain_0/name = "Floor"
-terrain_set_0/terrain_0/color = Color(0.256857, 0.290858, 0.844398, 1)
-sources/1 = SubResource("TileSetAtlasSource_fk4cq")
-
-[node name="Scene Config Package" type="Node2D" node_paths=PackedStringArray("level_generator", "camera", "player")]
+[node name="Scene Config Package" type="Node2D" node_paths=PackedStringArray("level_generator", "camera", "player", "hud")]
 z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_qcfrr")
 level_generator = NodePath("Level Generator")
 camera = NodePath("Custom Camera")
 player = NodePath("Player")
+hud = NodePath("CanvasLayer/HUD")
 
 [node name="Level Generator" parent="." instance=ExtResource("2_1eor7")]
 world_seed = 2
-
-[node name="Wall Level 1" parent="Level Generator" index="1"]
-tile_set = SubResource("TileSet_5qlh8")
 
 [node name="Player" parent="." instance=ExtResource("3_5fksv")]
 
 [node name="Animation Manager" parent="Player" index="0"]
 animation = &"death"
-
-[node name="CPUParticles2D" parent="Player/Hitbox" index="1"]
-texture = null
 
 [node name="WallTransparencyCollision" type="CollisionShape2D" parent="Player"]
 
