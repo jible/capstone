@@ -1,21 +1,25 @@
 extends Control
 
 @export var option_menu: PackedScene
+@export var speaker : AudioStreamPlayer
 
 @onready var option_toggle: Button = %OptionsToggle
 
-# Called when the node enters the scene tree for the first time.
+var sfx = SoundManager
+
 func _ready() -> void:
 	SignalBus.options_closed.connect(_on_options_hidden)
 	visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("esc"):
 		visible = !visible
 		get_tree().paused = !get_tree().paused
+		sfx.play_ui_sound(speaker,sfx.UISounds.PAUSE)
 		if !get_tree().paused:
 			SignalBus.game_resumed.emit()
+			sfx.play_ui_sound(speaker,sfx.UISounds.UNPAUSE)
+
 
 func _on_options_toggle_pressed() -> void:
 	self.hide()
@@ -27,6 +31,7 @@ func _on_resume_toggle_pressed() -> void:
 	get_tree().paused = false
 	self.hide()
 	SignalBus.game_resumed.emit()
+	sfx.play_ui_sound(speaker,sfx.UISounds.UNPAUSE)
 
 func _on_quit_toggle_pressed() -> void:
 	Globals.quit_game()
