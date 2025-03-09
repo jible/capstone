@@ -1,17 +1,32 @@
-key,en,las,fr
-PLAY_BUTTON,Play,Jugar,Jouer
-UPGRADE_MENU,Upgrade Menu,Menú de mejorar,Menu de mise à niveau
-OPTIONS_BUTTON,Options,Opciones,Options
-RESUME_BUTTON,Resume,Continuar,Continuer
-QUIT_BUTTON,Quit,Salir,Quitter
-OPTIONS_MENU,Option Menu,Menú de opciones,Menu de options
-RESET_BUTTON,Reset,Reiniciar,Réinitialiser
-NEXT,Next,Próximo,Suivant
-PREVIOUS,Previous,Previo,Précédent
-SKIP,Skip Tutorial,Saltar tutorial,Sauter le tutoriel
-HOW_TO_PLAY,How to Play,Cómo jugar,Comment jouer
-BACK,Back,Regresar,Retour
-LANGUAGE,Language:,Idioma:,Langue:
-RESET_STATS,Reset Stats,Restablecer estadísticas,Réinitialiser les statistiques
-CONTROLS,Controls,Los mandos,Contrôles
-COLORBLIND,Colorblind Filter,Filtro daltónico,Filtre daltonien
+key,en,las,fr,ja
+PLAY_BUTTON,Play,Jugar,Jouer,プレイ
+UPGRADE_MENU,Upgrade Menu,Menú de mejorar,Menu de mise à niveau,アップグレードメニュー
+OPTIONS_BUTTON,Options,Opciones,Options,オプション
+RESUME_BUTTON,Resume,Continuar,Continuer,リセット
+QUIT_BUTTON,Quit,Salir,Quitter,終了
+OPTIONS_MENU,Option Menu,Menú de opciones,Menu de options,オプションメニュー
+RESET_BUTTON,Reset,Reiniciar,Réinitialiser,リセット
+NEXT,Next,Próximo,Suivant,次へ
+PREVIOUS,Previous,Previo,Précédent,前へ
+SKIP,Skip Tutorial,Saltar tutorial,Sauter le tutoriel,スキップ
+HOW_TO_PLAY,How to Play,Cómo jugar,Comment jouer,遊び方
+BACK,Back,Regresar,Retour,戻る
+LANGUAGE,Language: ,Idioma: ,Langue: ,言語: 
+RESET_STATS,Reset Stats,Restablecer estadísticas,Réinitialiser les statistiques,ステータスをリセット
+CONTROLS,Controls,Los mandos,Contrôles,操作方法
+COLORBLIND,Colorblind Filter,Filtro daltónico,Filtre daltonien,色覚フィルター
+HEALTH,Health,Salud,Santé,体力
+DAMAGE,Damage,Daño,Dégâts,ダメージ
+SPEED,Speed,Velocidad,Vitesse,スピード
+BONUS,Bonus: ,Bono: ,Bonus: ,ボーナス: 
+UPGRADE_LABEL,Upgrade: ,Mejora: ,Amélioration: ,アップグレード: 
+ENEMIES_SLAIN,Enemies Slain:,Enemigos abatidos:,Ennemis abattus:,敵撃破:
+GAME_OVER,Game Over,Fin del juego,Fin de jeu,ゲームオーバー
+EXIT_UNLOCKED,Exit Unlocked,Salida desbloqueada,Sortie déverrouillée,出口が解除されました
+HIGH_SCORE,HIGH SCORE: ,Puntuación alta: ,Score élevé: ,ハイスコ​​ア: 
+NONE,None,Nada,Aucun,なし
+B&W,Black and White,Negro y Blanco,Noir et Blanc,黒と白
+PROTANOPIA,Protanopia,Protanopía,Protanopie,色覚異常
+ACHROMATOPSIA,Achromatopsia,Acromatopsia,Achromatopsie,アクロマトプシア
+DUETERANOPIA,Dueteranopia,Deuteranopía,Deutéranopie,ドゥーテラノーピーアー
+TRITANOPIA,Tritanopia,Tritanopía,Tritanopie,トライトノーピーアー
