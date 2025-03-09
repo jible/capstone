@@ -416,3 +416,8 @@
 ## version 0.77
 
 - Item gravitation added
+
+## version 0.84
+
+- Added support for Japanese translations
+- Expanded localization to cover all writing except for tutorial descriptions
