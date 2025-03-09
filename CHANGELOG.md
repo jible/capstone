@@ -419,5 +419,13 @@
 
 ## version 0.78
 
+- Player dodge animations added
+
+## version 0.79
+- Replaced floor tilesets.
+- Adjusted contrast.
+
+## version 0.80
+
 - Hurt shader now is applied when the character gets hurt
 - Doesn't work when the character enters death state, there's a specific animation in the works for the death state however
