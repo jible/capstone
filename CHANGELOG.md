@@ -418,6 +418,16 @@
 - Item gravitation added
 
 ## version 0.78
+
+- Player dodge animations added
+
+## version 0.79
+
+- Replaced floor tilesets.
+- Adjusted contrast.
+
+## version 0.80
+
 - Fixed particle bug with player attack where the particle textures were not showing
 - Implemented a new function in `ShaderManager.gd` called `shake(shake_target,duration)` that will take a node and shake for the given duration, note that this will reset its shader back to null after the duration is complete
 - Upgrade book texture shakes when the player tries to upgrade without enough money
