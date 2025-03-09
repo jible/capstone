@@ -144,54 +144,46 @@ func decide_all_walls():
 		for x in range(size.x):
 			var pos = Vector2(x,y)
 			decide_tile_walls(pos)
-	for y in range (size.y):
-		for x in range(size.x):
-			var pos = Vector2(x,y)
-			decide_diagonals(pos)
 
 
 func decide_tile_walls(pos):
 	'''
 	Decides what walls are placed to a given tile
 	'''
-	var count = 0
 	
-	var directions = [
-		"north",
-		"west",
-		"east",
-		"south",
-	]
-	var dir_to_offsetector = {
+	var directions = {
+		"north" : {"north": true},
+		"west": {"west": true},
+		"east":{"east": true},
+		"south": {"south": true},
+		"nw": {"north": false, "nw": true, "west": false},
+		"sw": {"south": false, "sw": true, "west": false},
+		"ne": {"north": false, "ne": true, "east": false},
+		"se": {"south": false, "se": true, "east": false}
+	}
+	var dir_to_off_vector = {
 		"north" :Vector2i(0,-1),
 		"west":Vector2i(-1,0),
 		"east":Vector2i(1,0),
 		"south":Vector2i(0,1),
+		"nw":Vector2i(-1,-1),
+		"sw":Vector2i(-1,1),
+		"ne":Vector2i(1,-1),
+		"se":Vector2i(1,1)
 	}
 	var tile = get_tile(pos)
-	
-	for direction in directions:
-		var peek_pos = Vector2i(pos) + dir_to_offsetector[direction]
-		if peek_pos.x < 0 || peek_pos.y < 0 || peek_pos.x >= size.x -1 || peek_pos.y >= size.y -1:
-			count += 1
-			continue
-		var peek_tile = get_tile(peek_pos)
-		if peek_tile.type == "floor" :
+	for direction in directions.keys():
+		var place_wall = true
+		for requirement in directions[direction].keys():
+			var peek_pos = dir_to_off_vector[requirement] + Vector2i(pos)
+			var is_floor = check_in_range(peek_pos) && get_tile(peek_pos).type == "floor"
+			if is_floor != directions[direction][requirement]:
+				place_wall = false
+				break
+		
+		if place_wall: 
 			tile.walls.append(direction)
-		count += 1
 
-func decide_diagonals(pos):
-	var directions = [
-		"north",
-		"west",
-		"east",
-		"south",
-	]
-	var dir_to_offsetector = {
-		"north" :Vector2i(0,-1),
-		"west":Vector2i(-1,0),
-		"east":Vector2i(1,0),
-		"south":Vector2i(0,1),
-	}
-	var tile = get_tile(pos)
-	
+
+func check_in_range(pos):
+	return ! (pos.x < 0 || pos.y < 0 || pos.x >= size.x -1 || pos.y >= size.y -1)

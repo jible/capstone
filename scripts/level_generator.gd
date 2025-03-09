@@ -41,6 +41,10 @@ func prep():
 		"south": $"South",
 		"east": $"East",
 		"west": $"West",
+		"nw": $"NW",
+		"sw": $"SW",
+		"ne": $"NE",
+		"se": $"SE",
 	}
 	tile_size = layers["environment"].tile_set.tile_size
 
@@ -122,18 +126,15 @@ func render_tiles(layer):
 func render_as_wall(pos):
 	layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
 	var tile = map.get_tile(pos)
-	var directions = [
-		"north",
-		"west",
-		 "east",
-		"south",
-	]
 	var dir_to_tile_mapvector = {
-		"north" :Vector2i(0,0),
-		"west":Vector2i(0,1),
-		"east":Vector2i(1,0),
-		"south":Vector2i(2,0),
-		
+		"north": Vector2i(0,0),
+		"west": Vector2i(0,1),
+		"east": Vector2i(1,0),
+		"south": Vector2i(2,0),
+		"nw":Vector2i(1,2),
+		"sw":Vector2i(0,2),
+		"ne":Vector2i(1,1),
+		"se":Vector2i(2,1)
 	}
 	
 	for direction in tile.walls:
