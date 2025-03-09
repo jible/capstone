@@ -38,13 +38,14 @@ func calculate_true_values():
 
 # Drag calculation improved using chatgpt:
 # https://chatgpt.com/share/67c7f001-6d7c-8000-be46-b718f7e294c8
+# https://chatgpt.com/share/67cd3f8f-53a4-8012-a72f-04df4b161be2
 func update_velocity(delta):
 	# TODO change drag calculation to use delta
 	var movement_details = current_state.movement_details
 	if movement_details.get("moveable", true):
 		character.velocity = character.velocity + (input_direction * true_acceleration)
 	if movement_details.get("use_drag", true):
-		character.velocity -= character.velocity * (1 -true_drag ) * delta
+		character.velocity -= character.velocity * (1 -true_drag ) * (delta * 60)
 	if movement_details.get("limit_velocity", true):
 		character.velocity = character.velocity.limit_length(true_max_speed)
 	if character.velocity.length() < 5:
