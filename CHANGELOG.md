@@ -416,3 +416,7 @@
 ## version 0.77
 
 - Item gravitation added
+
+## version 0.78
+
+- Player dodge animations added
