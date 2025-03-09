@@ -7,7 +7,8 @@ extends HBoxContainer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$TextureRect.texture = upgrade_icon
-	stat_name_label.text = "UPGRADE: " + stat_name
+	stat_name_label.text = tr("UPGRADE_LABEL") + stat_name
+	
 
 #this function runs when the upgrade button is pressed
 func _on_stat_increased() -> void:

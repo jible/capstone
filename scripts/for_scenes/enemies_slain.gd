@@ -17,4 +17,4 @@ func update_count_label(count: int):
 func update_header_label():
 	#TODO
 	#Swap to use a translation keyed string
-	count_label.text = "EXIT UNLOCKED"
+	count_label.text = tr("EXIT_UNLOCKED")

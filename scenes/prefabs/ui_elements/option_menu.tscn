@@ -52,8 +52,7 @@ grow_vertical = 2
 
 [node name="RemapButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "CONTROLS
-"
+text = "CONTROLS"
 
 [node name="FilterText" type="Label" parent="VBoxContainer"]
 layout_mode = 2

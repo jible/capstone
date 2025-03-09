@@ -2,7 +2,7 @@ extends Node
 
 # upgradable stats
 const HEALTH: String = "health"
-const DMG: String = "dmg"
+const DAMAGE: String = "dmg"
 const SPEED: String = "speed"
 const STAT_SHEET_PATH: String = "res://assets/csvs/Cast Into Flame Stat Sheet - upgrades.csv"
 const MAX_LEVEL: int = 9
