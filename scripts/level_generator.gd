@@ -30,7 +30,6 @@ func get_corners():
 		bot_left
 	])
 
-
 func prep():
 	# TODO may need to improve seed setting. Right now, this prevents lust 1-3 from being the same.
 	if randomize_seed:
@@ -74,7 +73,6 @@ func generate_level(level_package):
 	map.set_spawn_and_exit()
 	map.place_next_floor_hint()
 	
-	
 	var tile_size = Vector2( layers["environment"].tile_set.tile_size )
 	spawn_point = ( map.player_spawn * tile_size ) + (.5 * tile_size)
 	end_point = ( map.end * tile_size ) + (.5 * tile_size)
@@ -83,7 +81,6 @@ func generate_level(level_package):
 	
 	# Re randomize world seed after making seeded content.
 	randomize()
-
 
 func render():
 	render_tiles("environment")
@@ -101,7 +98,6 @@ func render():
 	
 	nav_mesh_maker.make_mesh(get_corners())
 
-
 func render_tiles(layer):
 	'''
 	Render the tile map by placing tiles on the appropriate layers.
@@ -109,7 +105,6 @@ func render_tiles(layer):
 	# ChatGPT reference:
 	# https://chatgpt.com/share/67c39e54-ae50-8012-abd0-b3f26d08568a
 
-	
 	# TODO program index to consider level and not just use lust and gluttony. maybe automatically use level index instead of requiring the package
 	var next_index = LevelManager.get_current_package().get("next_tile_index", 0)
 	for y in range (size.y):
@@ -121,7 +116,6 @@ func render_tiles(layer):
 				render_as_floor(pos,next_index)
 			elif map.get_tile(pos).type == null:
 				render_as_wall(pos)
-
 
 func render_as_wall(pos):
 	layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
@@ -139,7 +133,6 @@ func render_as_wall(pos):
 	
 	for direction in tile.walls:
 		layers[direction].set_cell(pos, 0, dir_to_tile_mapvector[direction] )
-
 
 func render_as_floor(pos, next_index):
 	# get random tile position
