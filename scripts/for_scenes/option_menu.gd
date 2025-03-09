@@ -6,12 +6,15 @@ extends Control
 
 @onready var remap_button: Button = $"VBoxContainer/RemapButton"
 @onready var language_dropdown: OptionButton = $"VBoxContainer/LanguageDropdown"
+@onready var filter_dropdown: OptionButton = $"VBoxContainer/FilterDropdown"
 
 func _enter_tree() -> void:
 	self.show()
 
 func _on_draw() -> void:
 	remap_button.grab_focus()
+	#set_selected_language()
+	filter_dropdown.selected = ShaderManager.current_material_index
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("esc"):
@@ -45,3 +48,18 @@ func _on_back_button_pressed() -> void:
 	SignalBus.options_closed.emit()
 	self.queue_free()
 	#emit signal
+
+func set_selected_language():
+	var select = 0
+	print(TranslationServer.get_locale())
+	match TranslationServer.get_locale():
+		'en':
+			select = 0
+		'las':
+			select = 1
+		'fr':
+			select = 2
+		'ja':
+			select = 3
+		_: select = 0
+	language_dropdown.selected = select
