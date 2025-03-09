@@ -28,10 +28,6 @@ func _physics_process(_delta):
 func get_direction():
 	return InputManager.get_look_vector(position)
 	
-func set_base_stats():
-	#health_manager.increase_max_health(UpgradeManager.get_stat(UpgradeManager.HEALTH))
-	pass
-	
 func grab_upgrades():
 	update_health()
 	update_speed()
