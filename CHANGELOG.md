@@ -3,7 +3,7 @@
 ## version 0.0
 
 - Added default Godot project files.
-- Added basic documentation files (README, CONTRIBUTING, CHANGELOG, CREDITS).
+- Added basic documentation files (README, CONTRIBUTING, CHANGELOG, CREDITS)
 
 ## version 0.1
 
@@ -14,7 +14,7 @@
 - Added hitboxes and hurtboxes
 - Added base NPC
 - Added UI Prototype
-- Merged initial scene transition.
+- Merged initial scene transition
 - Added dev logo splash screen
 
 ## version 0.11
@@ -63,8 +63,8 @@
 
 - Added sound manager
 - Added in sound assets for UI
-- Temporary implementation of hurt sound to showcase sound manager's functionality.
-- Added an AudioStreamPlayer2D node to the Player scene to add in the sound manager's functionality.
+- Temporary implementation of hurt sound to showcase sound manager's functionality
+- Added an AudioStreamPlayer2D node to the Player scene to add in the sound manager's functionality
 
 ## version 0.21
 
@@ -73,9 +73,9 @@
 
 ## version 0.22
 
-- file refactoring
-- new animation and asset integration system
-- new test assets
+- File refactoring
+- New animation and asset integration system
+- New test assets
 
 # version 0.23
 
@@ -83,20 +83,20 @@
 - Hurt sound asset added
 - Pickup sound implemented
 - Hurt sound implemented
-- Pitch randomization for pickup sound.
-- Changed the import defaults for wav files to stop automatic looping.
-- Added polyphony to player's AudioStreamPlayer2D node to allow for 10 sounds to play at the same time.
+- Pitch randomization for pickup sound
+- Changed the import defaults for wav files to stop automatic looping
+- Added polyphony to player's AudioStreamPlayer2D node to allow for 10 sounds to play at the same time
 
 # version 0.24
 
 - Fixed a bug where the scene would transition back to the main menu automatically when the game loads.
 - Bug was due to the lack of a type check in pit.gd, where upon any body being detected the pit would transition the scene. The pit was detecting part of the tilemap and transitioned the scene back to the main menu.
-- I have changed it to check if the body detected is a part of the "Player" group and tested to make sure that the pit still functioned nominally with the player.
+- There is now a check if the body detected is a part of the "Player" group and tested to make sure that the exit still functioned exit with the player
 
 ## version 0.25
 
-- asset size refactor
-- new temporary tilesets and sprites
+- Asset size refactor
+- New temporary tilesets and sprites
 
 ## version 0.26
 
@@ -105,7 +105,7 @@
 ## version 0.27
 
 - Player sounds for attacking and death added.
-- Will need additional code in the future to stop death sound from being cut off.
+- Will need additional code in the future to stop death sound from being cut off
 
 ## version 0.28
 
@@ -114,8 +114,8 @@
 
 ## version 0.29
 
-- Player sounds for attacking and death added.
-- Will need additional code in the future to stop death sound from being cut off.
+- Player sounds for attacking and death added
+- Will need additional code in the future to stop death sound from being cut off
 - Balanced player movement and hitboxes
 - Modified enemy knockback
 - Modified look for exit for playtest
@@ -132,22 +132,22 @@
 ## version 0.32
 
 - Patched attack sounds being cut off by pick up sounds and vice versa
-- Created a new AudioStream2D for the player to handle the inventory, and specified that the existing one should handle the voice.
-- Created color blindness shaders for Deuteranopia, Protanopia, Triatanopia, and Achromatopsia.
-- Each of the shaders has the accreditation written in their code, and the plans for how to implement them in the game.
-- A testing scene was made to showcase these shaders, `shader_test.tscn` and a testing image `test.png` was used from the article referenced for the shader code as a sprite that the shaders can attach to.
-- To test a shader, simply drag the shader to the `Sprite2d`'s shader exported variable under its shader material in the inspector.
+- Created a new AudioStream2D for the player to handle the inventory, and specified that the existing one should handle the voice
+- Created color blindness shaders for Deuteranopia, Protanopia, Triatanopia, and Achromatopsia
+- Each of the shaders has the accreditation written in their code, and the plans for how to implement them in the game
+- A testing scene was made to showcase these shaders, `shader_test.tscn` and a testing image `test.png` was used from the article referenced for the shader code as a sprite that the shaders can attach to
+- To test a shader, simply drag the shader to the `Sprite2d`'s shader exported variable under its shader material in the inspector
 
 ## version 0.33
 
-- Added zoom feature to camera- can be removed in final game.
-- Level generator now bakes a navmesh over tilemap, so enemies properly pathfind.
-- Fixed tile map going out of bounds.
-- Added sword cursor.
-- Enemies go straight to death state.
-- Refined the generation to force entrances and exits to be a specified distance from eachother.
-- Refined generation to make rooms more consistently sized.
-- Made Lust room smaller.
+- Added zoom feature to camera- can be removed in final game
+- Level generator now bakes a navmesh over tilemap, so enemies properly pathfind
+- Fixed tile map going out of bounds
+- Added sword cursor
+- Enemies go straight to death state
+- Refined the generation to force entrances and exits to be a specified distance from each other
+- Refined generation to make rooms more consistently sized
+- Made Lust room smaller
 - Cleaned up mobility manager
 
 ## version 0.34
@@ -173,8 +173,8 @@
 
 - Added in assets from Phoebe's UI work (HUD, Upgrade icons(Health Damage Speed), temp icon for currency (Still needs to have transparent background)) to the file system under `assets/ui_models`
 - HUD Border will need to be refined because it obscures too much of the screen, for now the transparency is lowered to allow for an easy replacement
-- Reordered node hierarchy to support the HUD changes. There are two main nodes now associated with the HUD, one for the border HUD with the health, currency, mini-map, and upgrade button, and another for the upgrade menu itself. This change was meant to prevent scaling the HUD accidentally scaling the upgrade menu, and allow for the transparency of the HUD texture to be lowered while keeping the information like the health and currency still fully visible.
-- Pathing in the `hud.gd` code was adjusted to fit these changes.
+- Reordered node hierarchy to support the HUD changes. There are two main nodes now associated with the HUD, one for the border HUD with the health, currency, mini-map, and upgrade button, and another for the upgrade menu itself. This change was meant to prevent scaling the HUD accidentally scaling the upgrade menu, and allow for the transparency of the HUD texture to be lowered while keeping the information like the health and currency still fully visible
+- Pathing in the `hud.gd` code was adjusted to fit these changes
 
 ## version 0.38
 
@@ -186,22 +186,22 @@
 - Upgrades now have a space for icons
 - Fixed upgrade menu going behind HUD
 - Merged in the foundation of the Options menu from the branch `jackson-jack-options`
-- Changed hotspot for cursor to better match the tip of the sword image.
+- Changed hotspot for cursor to better match the tip of the sword image
 
 ## version 0.40
 
-- Added in new assets from Phoebe for buttons, the main menu, and currency.
+- Added in new assets from Phoebe for buttons, the main menu, and currency
 - Changed the main menu scene to include the main menu book, and the new play button
 - Polished the play button so on mouse hover, it turns red
 - Refactored the upgrade menu to have more readable font size, and centered the text for the upgrade name.
-- Implemented the new button textures into the pause menu.
+- Implemented the new button textures into the pause menu
 - Changed upgrade names, and made them use all uppercase letters
 - Speed icon added to upgrade UI
 
 ## version 0.41
 
 - Enemies now have a patrol state. They walk around searching for player
-- Enemies use navigator to get next direction from nav mesh.
+- Enemies use navigator to get next direction from nav mesh
 - Enemies have a target tracker to handle the reference to the node they are chasing (usually the player)
 - Fixed all map issues: - Map generator walks with a 2 tile cursor preventing 1 tile tall areas that can be blocked by new wall collision - Map cannot place an entrance or exit on a floor tile that does not have a floor tile below it. (This prevents wall collision from blocking it)
 
@@ -213,9 +213,9 @@
 
 ## version 0.43
 
-- Walls now spawn on every tile that isn't a floor tile.
+- Walls now spawn on every tile that isn't a floor tile
 - Y-ordering slightly implemented - in need of bug testing
-- Added player and enemy silhouette to show entites below walls.
+- Added player and enemy silhouette to show entites below walls
 
 ## version 0.44
 
@@ -283,8 +283,8 @@
 
 ## version 0.56
 
-- Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing.
-- basic_enemy renamed to infinimouth.
+- Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing
+- basic_enemy renamed to infinimouth
 
 ## version 0.57
 
@@ -294,8 +294,8 @@
 - Fixed speed upgrades scaling faster than intended
 - Made health an item stored in the Inventory
 
-- Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing.
-- basic_enemy renamed to infinimouth.
+- Levels now require you to defeat an enemy before moving to the next level. The system is configured for easy balancing
+- basic_enemy renamed to infinimouth
 
 ## version 0.58
 
@@ -309,9 +309,9 @@
 
 ## version 0.60
 
-- Implemented a global script, ShaderManager that changes the material on a new scene, Filter, that is a ColorRect placed over the global SceneTransition scene.
-- Since SceneTransition exists over the top of the entire game, this is a quick way to apply the filter to all scenes without any scene knowing about it.
-- It is important that if the dropdown of the options menu's shaders change order, **this needs to be reflected in the ShaderManager's SHADER_POOL const variable**.
+- Implemented a global script, ShaderManager that changes the material on a new scene, Filter, that is a ColorRect placed over the global SceneTransition scene
+- Since SceneTransition exists over the top of the entire game, this is a quick way to apply the filter to all scenes without any scene knowing about it
+- It is important that if the dropdown of the options menu's shaders change order, **this needs to be reflected in the ShaderManager's SHADER_POOL const variable**
 
 ## version 0.61
 
@@ -324,7 +324,7 @@
 ## version 0.63
 
 - Dungeon walls now auto-tile
-- The script functions correctly, but it needs an updated tile map. 
+- The script functions correctly, but it needs an updated tile map
 
 ## version 0.64
 
@@ -334,31 +334,31 @@
 ## version 0.65
 
 - Main menu music implemented with a global MusicManager scene
-- Changed the cursor to a high contrast grayscale version cursorV3, with another option as well, cursorV2.
+- Changed the cursor to a high contrast grayscale version cursorV3, with another option as well, cursorV2
 - Made character attack noise louder
 - Created a spritesheet for the blood spatter hurt overlay
-- Added the new HUD sprite hudV2, but because it was still pretty big, I chopped it up and created the temporary hudV3 and tweaked the HUD scene so it properly fit.
+- Added the new HUD sprite hudV2, but because it was still pretty big, I chopped it up and created the temporary hudV3 and tweaked the HUD scene so it properly fit
 - Lust is set up now to play its music once I create the asset for it.
 - Added Lust's music and it plays when the scene starts
 - Fixed weird misalignment of HUD border
 
 ## version 0.66
 
-- Trimmed the edges of the main menu book image so that it scales better and fits the viewport nicely without it getting separated from its origin.
-- Main menu layout has been finalized. The title is now on the book and the book covers nearly the whole screen.
-- Added dummy button for options menu so that the work can be started on implementing the ability for options to be managed at start.
-- The ShaderManager now uses an enum for the ability for other scenes to more easily set a shader manually, which is used for `rozy_mode`, a debug boolean flag in the scene transition scene that sets the high contrast mode automatically at start.
-- The tutorial's text label now extends to the edges of the screen and wraps based on the word.
-- The tutorial now explains that the button used to show the upgrade menu also hides the upgrade menu.
+- Trimmed the edges of the main menu book image so that it scales better and fits the viewport nicely without it getting separated from its origin
+- Main menu layout has been finalized. The title is now on the book and the book covers nearly the whole screen
+- Added dummy button for options menu so that the work can be started on implementing the ability for options to be managed at start
+- The ShaderManager now uses an enum for the ability for other scenes to more easily set a shader manually, which is used for `rozy_mode`, a debug boolean flag in the scene transition scene that sets the high contrast mode automatically at start
+- The tutorial's text label now extends to the edges of the screen and wraps based on the word
+- The tutorial now explains that the button used to show the upgrade menu also hides the upgrade menu
 
 ## version 0.67
 
 - Game now has point manager
 - Enemy manager tells point manager to increase points every time an enemy dies
-- When the player dies or the quit button is pressed, the game saves.
-- Currently, the high score is the only thing that is saved.
-- You can clear your save data by pressing the "L" button.
-- In the future, we can discuss better save management, like dedicated save UI.
+- When the player dies or the quit button is pressed, the game saves
+- Currently, the high score is the only thing that is saved
+- You can clear your save data by pressing the "L" button
+- In the future, we can discuss better save management, like dedicated save UI
 
 ## version 0.68
 - Enemy attack, hurt, and death sound implemented
@@ -367,7 +367,7 @@
 - Currency pickup sound reworked, and reimplemented
 - Volume mixing done to balance out sound effects
 - Removed code meant for music that was in `sound_manager.gd` as that functionality is in `music_manager.gd`
-- Set up functionality in `music_manager.gd` and `sound_manager.gd` to allow for muting sound effects and/or music. This can be used later as an option in the options menu for players who want to do away with either optionally. They use function `mute_music()`, `unmute_music()`, `mute_sfx()` and `unmute_sfx()` to flip a flag that will permit or block audio playback.
+- Set up functionality in `music_manager.gd` and `sound_manager.gd` to allow for muting sound effects and/or music. This can be used later as an option in the options menu for players who want to do away with either optionally. They use function `mute_music()`, `unmute_music()`, `mute_sfx()` and `unmute_sfx()` to flip a flag that will permit or block audio playback
 
 ## version 0.69
 
@@ -390,9 +390,9 @@
 ## version 0.73
 
 - Health drop implemented.
-- Enemy now has 50% chance to drop health or currency.
-- Item manager now handles instancing items. 
-- All items are collectibles with different types.
+- Enemy now has 50% chance to drop health or currency
+- Item manager now handles instancing items
+- All items are collectibles with different types
 
 ## version 0.74
 
@@ -419,4 +419,31 @@
 
 ## version 0.78
 
-- Refactored wall rendering algorithm. Now consideres corners and uses different tilemap layers for the direction
+- Player dodge animations added
+
+## version 0.79
+
+- Replaced floor tilesets.
+- Adjusted contrast.
+
+## version 0.80
+
+- Hitboxes can no longer land hits through walls
+-    This goes for both the player and the enemy
+- You can now pick up items with attacks
+
+## version 0.81
+
+- Fixed particle bug with player attack where the particle textures were not showing
+- Implemented a new function in `ShaderManager.gd` called `shake(shake_target,duration)` that will take a node and shake for the given duration, note that this will reset its shader back to null after the duration is complete
+- Upgrade book texture shakes when the player tries to upgrade without enough money
+
+## version 0.82
+
+- Hurt shader now is applied when the character gets hurt
+- Doesn't work when the character enters death state, there's a specific animation in the works for the death state however
+
+## version 0.83
+
+- Refactored wall rendering algorithm. Now uses layered rendering to require fewer tile assets
+- Includes corner pieces

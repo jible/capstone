@@ -10,14 +10,14 @@ signal received_damage(damage:int)
 
 @export var collisionshape :CollisionShape2D
 
-var overlapping_areas = []
+var overlapping_hitboxes = []
 var latest_hit_direction = Vector2.ZERO
 
 func turn_on():
 	collisionshape.debug_color = Color(84, 73, 75,.5)
 	for area in get_overlapping_areas():
 		if area is HitBox && area.detecting:
-			area.hit(self)
+			area.attempt_hit(self)
 			break
 	detectable = true
 
@@ -28,15 +28,20 @@ func turn_off():
 
 func _on_area_entered(area):
 	if area is HitBox:
-		overlapping_areas.append(area)
+		overlapping_hitboxes.append(area)
 	pass # Replace with function body.
 
 func _on_area_exited(area):
-	overlapping_areas.erase(area)
+	overlapping_hitboxes.erase(area)
 	pass # Replace with function body.
 
 func hit_by(hitbox :HitBox):
-	latest_hit_direction = (character.position - hitbox.global_position ).normalized()
+	var hurt_pos
+	if hitbox.character:
+		hurt_pos = hitbox.character.global_position
+	else:
+		hurt_pos = hitbox.global_position
+	latest_hit_direction = (character.position -hurt_pos ).normalized()
 	received_damage.emit(hitbox.damage)
 	
 func turn_off_for_sec(time = invincibility_time):
