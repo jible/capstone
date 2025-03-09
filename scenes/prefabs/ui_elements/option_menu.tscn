@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://wuikybn3pwsx"]
+[gd_scene load_steps=4 format=3 uid="uid://wuikybn3pwsx"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/option_menu.gd" id="1_27ycq"]
 [ext_resource type="Texture2D" uid="uid://cy1r363pot5mv" path="res://assets/images/title_bg.png" id="2_nal2c"]
+[ext_resource type="PackedScene" uid="uid://lp4by4d7tn8v" path="res://scenes/prefabs/ui_elements/remap_controls.tscn" id="2_pk61o"]
 
 [node name="OptionMenu" type="Control"]
 process_mode = 3
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_27ycq")
+remap_menu = ExtResource("2_pk61o")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -102,6 +104,7 @@ popup/item_2/text = "Français"
 popup/item_2/id = 2
 
 [connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="pressed" from="VBoxContainer/RemapButton" to="." method="_on_remap_button_pressed"]
 [connection signal="item_selected" from="VBoxContainer/FilterDropdown" to="." method="_on_filter_dropdown_item_selected"]
 [connection signal="pressed" from="VBoxContainer/ResetStatButton" to="." method="_on_reset_stat_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

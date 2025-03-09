@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://choixojit02c8"]
+[gd_scene load_steps=4 format=3 uid="uid://lp4by4d7tn8v"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/remap_controls.gd" id="1_y2rld"]
+[ext_resource type="PackedScene" uid="uid://cxw58o52b72kv" path="res://scenes/prefabs/ui_elements/bind_control.tscn" id="2_b8idm"]
+[ext_resource type="Texture2D" uid="uid://cy1r363pot5mv" path="res://assets/images/title_bg.png" id="3_3vie3"]
 
 [node name="RemapControls" type="Control" node_paths=PackedStringArray("container")]
 layout_mode = 3
@@ -12,30 +14,68 @@ grow_vertical = 2
 script = ExtResource("1_y2rld")
 controls = Array[String](["left", "right", "up", "down"])
 container = NodePath("VBoxContainer")
+bind_control = ExtResource("2_b8idm")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_3vie3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 13
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = -13.0
+offset_top = -6.0
 offset_right = 13.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 50
 
-[node name="left" type="Label" parent="VBoxContainer"]
+[node name="BindControl" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-text = "left"
+control = "left"
 
-[node name="right" type="Label" parent="VBoxContainer"]
+[node name="BindControl2" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-text = "right"
+control = "right"
 
-[node name="up" type="Label" parent="VBoxContainer"]
+[node name="BindControl3" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-text = "up"
+control = "up"
 
-[node name="down" type="Label" parent="VBoxContainer"]
+[node name="BindControl4" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-text = "down"
+control = "down"
+
+[node name="BindControl5" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "esc"
+
+[node name="BindControl6" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "attack"
+
+[node name="BindControl7" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "OpenUpgrades"
+
+[node name="BindControl8" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "run"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "BACK"
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="VBoxContainer/BindControl"]

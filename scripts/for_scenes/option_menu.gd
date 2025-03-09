@@ -4,6 +4,7 @@ extends Control
 # For how to use the TranslationServer functions
 # https://docs.godotengine.org/en/stable/classes/class_translationserver.html#class-translationserver
 
+@export var remap_menu: PackedScene
 @onready var remap_button: Button = $"VBoxContainer/RemapButton"
 @onready var language_dropdown: OptionButton = $"VBoxContainer/LanguageDropdown"
 	
@@ -47,3 +48,8 @@ func _on_reset_stat_button_pressed() -> void:
 	##TODO decide how to manage resetting stats, new save(?)
 	#ScoreManager.delete_save()
 	pass # Replace with function body.
+
+
+func _on_remap_button_pressed() -> void:
+	var remap_instance = remap_menu.instantiate()
+	get_parent().add_child(remap_instance)
