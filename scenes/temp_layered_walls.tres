@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://1imsba4bq02e"]
 
-[ext_resource type="Texture2D" uid="uid://ba83ti0kgb4n2" path="res://assets/tilesets/temp_wall_v2.png" id="1_or8ly"]
+[ext_resource type="Texture2D" uid="uid://dxpx8wguh2xdm" path="res://assets/tilesets/new_tilesV2.png" id="1_ow15g"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymcvw"]
-texture = ExtResource("1_or8ly")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gx2ni"]
+texture = ExtResource("1_ow15g")
 texture_region_size = Vector2i(120, 120)
 0:0/0 = 0
 1:0/0 = 0
@@ -19,4 +19,4 @@ tile_size = Vector2i(120, 120)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Wall"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_ymcvw")
+sources/0 = SubResource("TileSetAtlasSource_gx2ni")
