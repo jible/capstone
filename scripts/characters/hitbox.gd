@@ -30,7 +30,6 @@ func turn_on():
 	
 	detecting = true
 
-
 func turn_off():
 	collisionshape.debug_color = Color (145, 199, 177,0)
 	successful_hit = []
@@ -45,7 +44,6 @@ func _on_area_entered(area):
 		overlapping_items.append(area)
 		if detecting:
 			item_pick_up.collect_item(area)
-
 
 func _on_area_exited(area):
 	if area is HurtBox:
@@ -67,10 +65,8 @@ func _physics_process(delta):
 func set_damage(value: int):
 	damage = value
 
-
 func increase_damage(value: int):
 	damage += value
-
 
 func get_damage():
 	return damage
@@ -89,7 +85,6 @@ func attempt_hit( hurtbox: HurtBox):
 			hit(hurtbox)
 			return
 	
-
 func hit( hurtbox: HurtBox):
 	successful_hit.append(hurtbox)
 	hurtbox.hit_by(self)
