@@ -28,6 +28,7 @@ func place_player():
 	# move the camera to the player
 	camera.global_position = player.global_position
 
+#https://www.youtube.com/watch?v=CAaJxWUUFqQ&ab_channel=16BitDev
 #https://chatgpt.com/share/67cd3f8f-53a4-8012-a72f-04df4b161be2
 func config_mini_map():
 	hud.mini_map_viewport.world_2d = get_viewport().world_2d
