@@ -8,7 +8,7 @@ extends Node
 	"acceleration_mult": .5,
 	"drag_mult": .9
 }
-@export var animation_name = "death"
+@export var animation_name = "dash"
 var dash_velocity = 2000
 @export var speaker : AudioStreamPlayer2D
 # Other variables
@@ -18,7 +18,7 @@ var callbacks = {
 	"start" : Callable(self, "velocity_impulse"),
 	"end" : Callable(self, "end_dash")
 }
-var direction_dependent = false
+var direction_dependent = true
 var is_active = false
 
 func end_dash():
