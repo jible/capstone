@@ -14,9 +14,12 @@ const SHADER_POOL = [NONE,CONT,PROT,ACHR,DUET,TRIT]
 # Holds references to the indicies of the shader materials
 enum SHADERS{NONE,CONT,PROT,ACHR,DUET,TRIT}
 
+var current_material_index = 0
+
 func change_material(material):
 	SceneTransition.get_node("Filter").material = SHADER_POOL[material]
-
+	current_material_index = material
+	SaveHandler.save_game()
 # WARNING: Will set the shader back to null after being shaken.
 var shake_target : CanvasItem
 func shake(target: CanvasItem, duration : float):
@@ -31,3 +34,12 @@ func shake(target: CanvasItem, duration : float):
 
 func _on_timer_timeout():
 	shake_target.material = null
+
+
+func save():
+	return {
+		'selected_filter' : current_material_index
+	}
+	
+func load_save(data):
+	change_material(  int( data.get ( 'selected_filter', 0 ) ) )

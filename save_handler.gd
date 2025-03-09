@@ -3,11 +3,11 @@ extends Node
 # This is the core of our save system. each object should include a reference to a global script 
 # and all variables on that script that need to be saved
 var save_locations = {
-	"score_manager": ScoreManager
+	"score_manager": ScoreManager,
+	"shader_manager" : ShaderManager,
+	"translation" : Globals,
 }
 var save_path = "user://savegame.save"
-
-
 
 func _ready():
 	SignalBus.connect("player_die", save_game)
@@ -60,7 +60,6 @@ func load_game():
 
 		# Get the data from the JSON object.
 		var data = json.data
-		
 		var save_name = data["save_name"]
 		var script = save_locations[save_name]
 		# Now we set the remaining variables.

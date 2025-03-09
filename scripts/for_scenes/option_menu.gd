@@ -6,7 +6,7 @@ extends Control
 
 @onready var remap_button: Button = $"VBoxContainer/RemapButton"
 @onready var language_dropdown: OptionButton = $"VBoxContainer/LanguageDropdown"
-	
+
 func _enter_tree() -> void:
 	self.show()
 
@@ -32,10 +32,14 @@ func _on_language_dropdown_item_selected(index: int) -> void:
 		_:
 			#default case for errors, do nothing
 			pass
+	# TODO save just the options instead of the whole game
+	SaveHandler.save_game()
 
 # Changing the material order of the dropdown has to be reflected in the ShaderManager
 func _on_filter_dropdown_item_selected(index: int) -> void:
 	ShaderManager.change_material(index)
+	SaveHandler.save_game()
+	
 
 func _on_back_button_pressed() -> void:
 	SignalBus.options_closed.emit()

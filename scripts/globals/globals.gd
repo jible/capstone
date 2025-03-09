@@ -33,3 +33,12 @@ func quit_game():
 	SaveHandler.save_game()
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	get_tree().quit()
+
+# TODO make a dedicate script or re-write the save mechanic to allow a different function name
+func save():
+	return {
+		'locale' : TranslationServer.get_locale()
+	}
+	
+func load_save(data):
+	TranslationServer.set_locale(data.get( 'locale' , 'en') )
