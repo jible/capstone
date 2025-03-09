@@ -447,4 +447,4 @@
 
 - Refactored wall rendering algorithm. Now uses layered rendering to require fewer tile assets
 - Includes corner pieces
-- Darkened the tile used for the background of each level.
+- Darkened the tile used for the background of each level
