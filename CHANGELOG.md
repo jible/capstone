@@ -448,3 +448,8 @@
 - Refactored wall rendering algorithm. Now uses layered rendering to require fewer tile assets
 - Includes corner pieces
 - Darkened the tile used for the background of each level
+
+## version 0.84
+
+- Minimap implemented
+- Minor movement drag patch
