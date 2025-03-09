@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/hurt.gd" id="6_1sls6"]
 [ext_resource type="PackedScene" uid="uid://chdu5yk1bjyl" path="res://scenes/prefabs/character utils/hurtbox.tscn" id="6_025q6"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/death.gd" id="8_vddrh"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/animation_manager.tscn" id="9_37jjd"]
+[ext_resource type="PackedScene" uid="uid://0ry41ukaumi6" path="res://scenes/prefabs/animation_manager.tscn" id="9_37jjd"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/patrol.gd" id="9_b67qh"]
 [ext_resource type="Texture2D" uid="uid://b1kag480gef6o" path="res://assets/spritesheets/infinimouth_death.png" id="10_n4e04"]
 [ext_resource type="Script" path="res://scripts/characters/npc/enemy/basic_enemy/states/attack.gd" id="10_ovdpx"]
@@ -803,10 +803,12 @@ sprite_frames = SubResource("SpriteFrames_d4jv7")
 animation = &"pursuit_south"
 script = null
 
-[node name="Hitbox" parent="." instance=ExtResource("5_pk3ql")]
+[node name="Hitbox" parent="." node_paths=PackedStringArray("character", "raycasts") instance=ExtResource("5_pk3ql")]
 collision_layer = 32
 collision_mask = 4
+character = NodePath("..")
 detecting = false
+raycasts = [NodePath("../LOS Checker1"), NodePath("../LOS Checker2"), NodePath("../LOS Checker3")]
 
 [node name="Hurtbox" parent="." instance=ExtResource("6_025q6")]
 collision_layer = 16
@@ -832,6 +834,14 @@ shape = SubResource("CircleShape2D_a50l1")
 [node name="Voice" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 10
 
+[node name="LOS Checker1" type="RayCast2D" parent="."]
+position = Vector2(0, -44.11)
+
+[node name="LOS Checker2" type="RayCast2D" parent="."]
+
+[node name="LOS Checker3" type="RayCast2D" parent="."]
+position = Vector2(0, 46.07)
+
 [connection signal="state_changed" from="State Machine" to="Mobility Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]
 [connection signal="state_changed" from="State Machine" to="Direction Manager" method="_on_state_machine_state_changed"]
@@ -843,4 +853,5 @@ max_polyphony = 10
 [connection signal="new_target" from="Target Tracker" to="Navigator" method="_on_target_tracker_new_target"]
 
 [editable path="State Machine"]
+[editable path="Hitbox"]
 [editable path="Direction Manager"]

@@ -121,9 +121,6 @@ tile_set = SubResource("TileSet_5qlh8")
 [node name="Animation Manager" parent="Player" index="0"]
 animation = &"death"
 
-[node name="CPUParticles2D" parent="Player/Hitbox" index="1"]
-texture = null
-
 [node name="WallTransparencyCollision" type="CollisionShape2D" parent="Player"]
 
 [node name="Custom Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_t24gl")]
