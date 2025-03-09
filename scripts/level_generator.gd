@@ -16,6 +16,14 @@ var enter_instance
 var exit_instance
 var package
 
+func get_center():
+	return Vector2(tile_size.x * size.x/ 2, tile_size.y * size.y/ 2)
+
+
+func get_size():
+	return Vector2(tile_size.x * size.x, tile_size.y * size.y)
+
+
 func get_corners():
 	# Used the extra distance to debug 
 	var extra_distance = Vector2(0,0)
