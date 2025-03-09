@@ -28,13 +28,16 @@ func place_player():
 	# move the camera to the player
 	camera.global_position = player.global_position
 
+func _process(_delta):
+	hud.mini_map_camera.position =  player.position
+
 #https://www.youtube.com/watch?v=CAaJxWUUFqQ&ab_channel=16BitDev
 #https://chatgpt.com/share/67cd3f8f-53a4-8012-a72f-04df4b161be2
 func config_mini_map():
+	# Tune this to adjust the mini-map's zoom
+	var zoom_multiplier = 3.0
 	hud.mini_map_viewport.world_2d = get_viewport().world_2d
-	
 	var mini_map_range = level_generator.get_size()
 	var viewport_size = hud.mini_map_viewport.size
-	var mini_map_zoom = Vector2(viewport_size.x/ mini_map_range.x, viewport_size.y/ mini_map_range.y)
-	hud.mini_map_camera.position =  level_generator.get_center()
+	var mini_map_zoom = Vector2(viewport_size.x/ mini_map_range.x, viewport_size.y/ mini_map_range.y) * zoom_multiplier
 	hud.mini_map_camera.zoom = mini_map_zoom
