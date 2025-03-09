@@ -451,6 +451,11 @@
 
 ## version 0.84
 
+- Minimap implemented
+- Minor movement drag patch
+
+# version 0.85
+
 - Fixed bug where the book texture was not set in the upgrade UI scene, causing the shake shader to fail
 - Pausing and unpausing now have a sound jingle
 - Removed sound options for `PLAY` and `MOVE_SELECTION` because the sounds were fairly irritating and/or didn't fit the vibe

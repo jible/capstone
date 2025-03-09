@@ -8,13 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://dfvsgbamdsiep" path="res://scenes/prefabs/ui_elements/HUD.tscn" id="6_14c2j"]
 [ext_resource type="Script" path="res://item_manager.gd" id="10_ww6gq"]
 
-[node name="Scene Config Package" type="Node2D" node_paths=PackedStringArray("level_generator", "camera", "player")]
+[node name="Scene Config Package" type="Node2D" node_paths=PackedStringArray("level_generator", "camera", "player", "hud")]
 z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_qcfrr")
 level_generator = NodePath("Level Generator")
 camera = NodePath("Custom Camera")
 player = NodePath("Player")
+hud = NodePath("CanvasLayer/HUD")
 
 [node name="Level Generator" parent="." instance=ExtResource("2_1eor7")]
 world_seed = 2

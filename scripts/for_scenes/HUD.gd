@@ -5,6 +5,8 @@ var test = 0
 @onready var upgrade_menu = $StatUpgradeUi
 @onready var upgrade_menu_button = $Border/UpgradeMenuButton
 
+@onready var mini_map_viewport = $"Border/Minimap Container/Minimap Viewport"
+@onready var mini_map_camera = $"Border/Minimap Container/Minimap Viewport/Minimap Camera"
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var currency_count: Label = %CurrencyCount
 @onready var player: Player = get_tree().get_first_node_in_group("Player")
