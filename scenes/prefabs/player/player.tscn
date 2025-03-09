@@ -916,12 +916,14 @@ script = ExtResource("27_ilokj")
 character = NodePath("../..")
 speaker = NodePath("../../Voice")
 
-[node name="Hitbox" parent="." node_paths=PackedStringArray("character") instance=ExtResource("6_arj65")]
+[node name="Hitbox" parent="." node_paths=PackedStringArray("character", "raycasts", "item_pick_up") instance=ExtResource("6_arj65")]
 collision_layer = 8
-collision_mask = 16
+collision_mask = 528
 character = NodePath("..")
 detecting = false
 on_swivel = true
+raycasts = [NodePath("../LOS Check1"), NodePath("../LOS Check2"), NodePath("../LOS Check3")]
+item_pick_up = NodePath("../Pick Up")
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(0, 82)
@@ -979,6 +981,17 @@ collision_layer = 1025
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item Gravity"]
 shape = SubResource("CircleShape2D_aysxs")
+
+[node name="LOS Check1" type="RayCast2D" parent="."]
+position = Vector2(0, -90.755)
+collision_mask = 64
+
+[node name="LOS Check2" type="RayCast2D" parent="."]
+collision_mask = 64
+
+[node name="LOS Check3" type="RayCast2D" parent="."]
+position = Vector2(0, 80.305)
+collision_mask = 64
 
 [connection signal="animation_changed" from="Animation Manager" to="Silhouette" method="_on_animation_manager_animation_changed"]
 [connection signal="state_changed" from="State Machine" to="Animation Manager" method="_on_state_machine_state_changed"]

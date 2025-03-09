@@ -428,6 +428,12 @@
 
 ## version 0.80
 
+- Hitboxes can no longer land hits through walls
+-    This goes for both the player and the enemy
+- You can now pick up items with attacks
+
+## version 0.81
+
 - Fixed particle bug with player attack where the particle textures were not showing
 - Implemented a new function in `ShaderManager.gd` called `shake(shake_target,duration)` that will take a node and shake for the given duration, note that this will reset its shader back to null after the duration is complete
 - Upgrade book texture shakes when the player tries to upgrade without enough money

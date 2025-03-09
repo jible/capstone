@@ -9,16 +9,26 @@ extends Area2D
 @export var knockback = 50
 @export var collisionshape :CollisionShape2D
 @export var on_swivel = false
-var overlapping_areas = []
+@export var raycasts: Array[RayCast2D]
+# Set the reference for this if you want the hitbox to be able to pick up items.
+@export var item_pick_up: PickUp
+var overlapping_hurtboxes = []
 var successful_hit = []
+
+var overlapping_items = []
 
 func turn_on():
 	collisionshape.debug_color = Color (179, 57, 81, .5)
-	for area in overlapping_areas:
+	for area in overlapping_hurtboxes:
 		if area is HurtBox && area.detectable && ! (area in successful_hit):
-			hit(area)
+			attempt_hit(area)
+	
+	if item_pick_up:
+		for area in overlapping_items:
+			if area is Collectible:
+				item_pick_up.collect_item(area)
+	
 	detecting = true
-	pass
 
 func turn_off():
 	collisionshape.debug_color = Color (145, 199, 177,0)
@@ -26,13 +36,21 @@ func turn_off():
 	detecting = false
 
 func _on_area_entered(area):
-	overlapping_areas.append(area)
-	if detecting && area.detectable:
-		hit(area)
+	if area is HurtBox:
+		overlapping_hurtboxes.append(area)
+		if detecting && area.detectable:
+			attempt_hit(area)
+	elif area is Collectible:
+		overlapping_items.append(area)
+		if detecting:
+			item_pick_up.collect_item(area)
 
 func _on_area_exited(area):
-	overlapping_areas.erase(area)
-
+	if area is HurtBox:
+		overlapping_hurtboxes.erase(area)
+	if area is Collectible:
+		overlapping_items.erase(area)
+		
 
 func _on_direction_manager_direction_changed(direction: Vector2):
 	if !on_swivel :
@@ -46,13 +64,27 @@ func _physics_process(delta):
 
 func set_damage(value: int):
 	damage = value
-	
+
 func increase_damage(value: int):
 	damage += value
-	
+
 func get_damage():
 	return damage
 
+# Chatgpt conversation: https://chatgpt.com/share/67cb7c74-5090-8000-8d34-20540e58bb20
+func attempt_hit( hurtbox: HurtBox):
+	if ( raycasts.size() == 0 ):
+		hit(hurtbox)
+		return
+	# Check for los before landing hit
+	
+	for raycast in raycasts:
+		raycast.target_position = raycast.to_local(hurtbox.global_position)
+		raycast.force_raycast_update()
+		if (  !raycast.is_colliding() ):
+			hit(hurtbox)
+			return
+	
 func hit( hurtbox: HurtBox):
 	successful_hit.append(hurtbox)
 	hurtbox.hit_by(self)
