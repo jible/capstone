@@ -416,3 +416,7 @@
 ## version 0.77
 
 - Item gravitation added
+
+## version 0.78
+
+- Refactored wall rendering algorithm. Now consideres corners and uses different tilemap layers for the direction
