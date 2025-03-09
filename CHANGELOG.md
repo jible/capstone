@@ -442,3 +442,9 @@
 
 - Hurt shader now is applied when the character gets hurt
 - Doesn't work when the character enters death state, there's a specific animation in the works for the death state however
+
+## version 0.83
+
+- Refactored wall rendering algorithm. Now uses layered rendering to require fewer tile assets
+- Includes corner pieces
+- Darkened the tile used for the background of each level

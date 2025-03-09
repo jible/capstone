@@ -30,14 +30,20 @@ func get_corners():
 		bot_left
 	])
 
-
 func prep():
 	# TODO may need to improve seed setting. Right now, this prevents lust 1-3 from being the same.
 	if randomize_seed:
 		world_seed = randi() + ( 100 * LevelManager.current_level_index)
 	layers = {
 		"environment":$Environment,
-		"wall1": $"Wall Level 1",
+		"north": $"North",
+		"south": $"South",
+		"east": $"East",
+		"west": $"West",
+		"nw": $"NW",
+		"sw": $"SW",
+		"ne": $"NE",
+		"se": $"SE",
 	}
 	tile_size = layers["environment"].tile_set.tile_size
 
@@ -63,9 +69,9 @@ func generate_level(level_package):
 		_:
 			map.random_walk("floor", package.floor_tiles)
 	
+	map.decide_all_walls()
 	map.set_spawn_and_exit()
 	map.place_next_floor_hint()
-	
 	
 	var tile_size = Vector2( layers["environment"].tile_set.tile_size )
 	spawn_point = ( map.player_spawn * tile_size ) + (.5 * tile_size)
@@ -75,7 +81,6 @@ func generate_level(level_package):
 	
 	# Re randomize world seed after making seeded content.
 	randomize()
-
 
 func render():
 	render_tiles("environment")
@@ -93,33 +98,46 @@ func render():
 	
 	nav_mesh_maker.make_mesh(get_corners())
 
-
 func render_tiles(layer):
 	'''
 	Render the tile map by placing tiles on the appropriate layers.
 	'''
 	# ChatGPT reference:
 	# https://chatgpt.com/share/67c39e54-ae50-8012-abd0-b3f26d08568a
-	var modified_walls = []
-	
+
 	# TODO program index to consider level and not just use lust and gluttony. maybe automatically use level index instead of requiring the package
 	var next_index = LevelManager.get_current_package().get("next_tile_index", 0)
-	print(next_index)
 	for y in range (size.y):
 		for x in range(size.x):
 			var pos = Vector2(x,y)
 			var check_wall = Vector2(x,y + 1 )
-			if map.get_tile(pos).type == "floor":
-				# get random tile position
-				# [ ] get length and width of tileset, rather than magic number
-				var level_index = 0
-				if map.get_tile(pos).level == "next":
-					level_index = next_index
-				layers["environment"].set_cell(pos, level_index, Vector2i(randi()%9, randi()%9))
-			if map.get_tile(pos).type == null:
-				layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
 			
-			if map.get_tile(pos).type == null:
-				modified_walls.append( Vector2i( pos ) ) 
+			if map.get_tile(pos).type == "floor":
+				render_as_floor(pos,next_index)
+			elif map.get_tile(pos).type == null:
+				render_as_wall(pos)
+
+func render_as_wall(pos):
+	layers["environment"].set_cell(pos, 0, Vector2i(9, 9))
+	var tile = map.get_tile(pos)
+	var dir_to_tile_mapvector = {
+		"north": Vector2i(0,0),
+		"west": Vector2i(0,1),
+		"east": Vector2i(1,0),
+		"south": Vector2i(2,0),
+		"nw":Vector2i(1,2),
+		"sw":Vector2i(0,2),
+		"ne":Vector2i(1,1),
+		"se":Vector2i(2,1)
+	}
 	
-	layers["wall1"].set_cells_terrain_connect(modified_walls, 0 ,0 )
+	for direction in tile.walls:
+		layers[direction].set_cell(pos, 0, dir_to_tile_mapvector[direction] )
+
+func render_as_floor(pos, next_index):
+	# get random tile position
+	# [ ] get length and width of tileset, rather than magic number
+	var level_index = 0
+	if map.get_tile(pos).level == "next":
+		level_index = next_index
+	layers["environment"].set_cell(pos, level_index, Vector2i(randi()%9, randi()%9))
