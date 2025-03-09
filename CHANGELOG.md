@@ -420,3 +420,7 @@
 ## version 0.78
 
 - Player dodge animations added
+
+## version 0.79
+- Replaced floor tilesets.
+- Adjusted contrast.

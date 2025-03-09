@@ -48,6 +48,9 @@ Your pull request should include a change to the CHANGELOG.md file like so:
 - Custom camera fixes
 ```
 
+Keep in mind, there is an empty line between the header and the list, there is a single space between the hyphen and the content of the sentence, the first letter of each list item is capitalized, and there is no period at the end of each sentence.
+Contributions should not be in first person, and should be in past tense. For instance, "I added an enemy animation" should be "Added enemy animation".
+
 ## Adding Reviewers
 
 All pull requests should have reviewers. 
