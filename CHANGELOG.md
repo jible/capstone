@@ -460,3 +460,10 @@
 - Pausing and unpausing now have a sound jingle
 - Removed sound options for `PLAY` and `MOVE_SELECTION` because the sounds were fairly irritating and/or didn't fit the vibe
 - Removed all audio that was unused from the project
+
+# version 0.86
+
+- Fixed being able to unpause from options menu
+- Fixed inventory currency count not updating between runs
+- Fixed crash bug with save system
+- Removed unused code from Upgrade manager and player
