@@ -53,7 +53,7 @@ func update_speed():
 	mobility_manager.max_accel_mult = UpgradeManager.get_stat(UpgradeManager.SPEED)
 	
 func update_dmg():
-	hitbox.increase_damage(UpgradeManager.get_stat(UpgradeManager.DMG))
+	hitbox.increase_damage(UpgradeManager.get_stat(UpgradeManager.DAMAGE))
 	
 func store_health():
 	Inventory.health = health_manager.health

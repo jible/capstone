@@ -17,4 +17,4 @@ func update_level_label() -> void:
 	upgrade_level_label.text = "Lvl. %d" % UpgradeManager.get_stat_lvl(stat)
 
 func update_bonus_label() -> void:
-	bonus_label.text = "BONUS: + %.1f" % UpgradeManager.get_stat(stat)
+	bonus_label.text = tr("BONUS") + "%.1f" % UpgradeManager.get_stat(stat)
