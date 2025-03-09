@@ -2,6 +2,7 @@ extends Control
 
 @export var option_menu: PackedScene
 @export var speaker : AudioStreamPlayer
+@export var main_menu: PackedScene
 
 @onready var option_toggle: Button = %OptionsToggle
 
@@ -23,6 +24,7 @@ func _process(delta: float) -> void:
 
 func _on_options_toggle_pressed() -> void:
 	self.hide()
+	self.process_mode = Node.PROCESS_MODE_DISABLED
 	var options_instance = option_menu.instantiate()
 	get_parent().add_child(options_instance)
 
@@ -34,10 +36,13 @@ func _on_resume_toggle_pressed() -> void:
 	sfx.play_ui_sound(speaker,sfx.UISounds.UNPAUSE)
 
 func _on_quit_toggle_pressed() -> void:
-	Globals.quit_game()
+	_on_resume_toggle_pressed()
+	Globals.change_scene(main_menu)
+	SignalBus.player_die.emit()
 
 func _on_draw() -> void:
 	option_toggle.grab_focus()
 	
 func _on_options_hidden():
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	self.show()

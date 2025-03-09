@@ -15,12 +15,6 @@ var stat_lvl: Dictionary = {
 
 var stat_growth: Dictionary = LoadCsv.load_csv_dictionary(STAT_SHEET_PATH)
 
-var base_stats: Dictionary = {
-	"health": 10,
-	"dmg": 1,
-	"speed": 0
-}
-
 var upgrade_bonus: Dictionary = {
 	"health": 0,
 	"dmg": 0,

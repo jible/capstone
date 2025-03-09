@@ -43,8 +43,10 @@ func update_health():
 	health_bar.value = player.health_manager.health
 
 func update_currency():
-	if Inventory.check_item(Globals.currency_key):
+	if Inventory.check_item(Globals.currency_key) != 0:
 		currency_count.text = "%d" % Inventory.items[Globals.currency_key]
+	else: 
+		currency_count.text = "0"
 
 func _on_player_hurt():
 	hurt_filter.visible = true
