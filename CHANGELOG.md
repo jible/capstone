@@ -475,3 +475,4 @@
 - The dash action now has controller support, using Left Trigger as the button mapping
 - Fixed a localization bug where the "ENEMIES SLAIN" text at the top was not being localized
 - Changed the order of the options menu buttons so that the "Back" button is at the bottom of the list of choices
+- PS Circle, XBOX B, and Nintendo A can no longer be used to select options in the menu, as it might cause confusion with players using controllers where those options would be considered "Back" buttons
