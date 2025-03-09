@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dixby21fjwcxc" path="res://assets/ui_renders/currency_tooth.png" id="4_mjk8y"]
 [ext_resource type="PackedScene" uid="uid://bqwbdvntcsrc0" path="res://scenes/prefabs/ui_elements/pause_menu.tscn" id="5_csnww"]
 [ext_resource type="Texture2D" uid="uid://c0nobm6vf3dl4" path="res://assets/ui_renders/main_menu_book.png" id="5_ojgqu"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/ui_elements/enemies_slain.tscn" id="7_ktbfn"]
+[ext_resource type="PackedScene" uid="uid://ciq2y3xn8blhn" path="res://scenes/prefabs/ui_elements/enemies_slain.tscn" id="7_ktbfn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5t0o"]
 atlas = ExtResource("2_a8ydw")
