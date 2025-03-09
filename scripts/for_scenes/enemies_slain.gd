@@ -15,6 +15,4 @@ func update_count_label(count: int):
 	count_label.text = "%d / %d" % [count, required_enemies]
 
 func update_header_label():
-	#TODO
-	#Swap to use a translation keyed string
 	count_label.text = tr("EXIT_UNLOCKED")
