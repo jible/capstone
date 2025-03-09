@@ -44,7 +44,7 @@ func update_velocity(delta):
 	if movement_details.get("moveable", true):
 		character.velocity = character.velocity + (input_direction * true_acceleration)
 	if movement_details.get("use_drag", true):
-		character.velocity = character.velocity * true_drag
+		character.velocity -= character.velocity * (1 -true_drag ) * delta
 	if movement_details.get("limit_velocity", true):
 		character.velocity = character.velocity.limit_length(true_max_speed)
 	if character.velocity.length() < 5:
