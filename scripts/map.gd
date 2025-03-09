@@ -1,7 +1,6 @@
 extends Node2D
 class_name Map
 
-
 @export var size: Vector2i = Vector2i.ZERO
 var matrix = []
 var seed : int = 0
@@ -32,8 +31,6 @@ func configure_matrix():
 
 func get_tile(pos):
 	return matrix[pos.y][pos.x]
-
-
 
 func random_walk( value, steps = size.x * size.y / 5):
 	'''
@@ -90,7 +87,6 @@ func set_spawn_and_exit( min_distance = 15 ):
 			end = b
 			return
 
-
 func get_random_floor():
 	while true:
 		var point = Vector2(randi() % (size.x -1), randi() % (size.y- 1))
@@ -100,7 +96,6 @@ func get_random_floor():
 func calc_distance(a,b):
 	var distance_v = a - b
 	return abs(distance_v.x) + abs(distance_v.y)
-
 
 func make_noise(value):
 	'''
@@ -123,8 +118,8 @@ func place_next_floor_hint(density = 20):
 	Randomly changes tiles to "next" level. Tiles closer to the exit are 
 	Density is a multiplier to increase the density at which the next level tiles are placed. 
 	At 0, there are no "next" tiles
-	
 	'''
+
 	var count = 0
 	for y in range (size.y):
 		for x in range(size.x):
@@ -144,7 +139,6 @@ func decide_all_walls():
 		for x in range(size.x):
 			var pos = Vector2(x,y)
 			decide_tile_walls(pos)
-
 
 func decide_tile_walls(pos):
 	'''
@@ -183,7 +177,6 @@ func decide_tile_walls(pos):
 		
 		if place_wall: 
 			tile.walls.append(direction)
-
 
 func check_in_range(pos):
 	return ! (pos.x < 0 || pos.y < 0 || pos.x >= size.x -1 || pos.y >= size.y -1)
