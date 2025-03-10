@@ -488,3 +488,8 @@
 ## version 0.89
 
 - Added animated entrance and exit tiles as well as a locked exit image
+
+## version 0.90
+
+- Fixed various UI elements not grabbing focus on menu navigation
+- Added quit button to main menu

@@ -53,40 +53,67 @@ texture = ExtResource("5_j82jr")
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.632
-anchor_right = 0.5
-anchor_bottom = 0.632
-offset_left = -237.0
-offset_top = -56.5601
-offset_right = 104.0
-offset_bottom = 40.4402
+anchor_left = 0.509
+anchor_top = 0.586
+anchor_right = 0.509
+anchor_bottom = 0.586
+offset_left = -255.28
+offset_top = -72.88
+offset_right = 85.72
+offset_bottom = 24.1203
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 scale = Vector2(1.5, 1.5)
 theme_override_colors/icon_hover_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
 text = "PLAY_BUTTON"
 
 [node name="TutorialButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 720.0
-offset_top = 776.0
-offset_right = 1069.0
-offset_bottom = 851.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.512
+anchor_top = 0.706
+anchor_right = 0.512
+anchor_bottom = 0.706
+offset_left = -261.04
+offset_top = -56.48
+offset_right = 87.96
+offset_bottom = 18.52
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 48
 text = "HOW_TO_PLAY"
 
 [node name="OptionsButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 650.0
-offset_top = 904.0
-offset_right = 1087.0
-offset_bottom = 979.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.511
+anchor_top = 0.863
+anchor_right = 0.511
+anchor_bottom = 0.863
+offset_left = -327.12
+offset_top = -113.04
+offset_right = 109.88
+offset_bottom = -38.04
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 48
 text = "OPTIONS_BUTTON"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.508
+anchor_top = 1.0
+anchor_right = 0.508
+anchor_bottom = 1.0
+offset_left = -91.36
+offset_top = -148.0
+offset_right = 31.64
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 48
+text = "QUIT_BUTTON"
 
 [node name="High Score Label" type="Label" parent="."]
 layout_mode = 1
@@ -106,3 +133,4 @@ horizontal_alignment = 1
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="TutorialButton" to="." method="_on_tutorial_button_button_up"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
