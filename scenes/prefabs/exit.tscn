@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c60va2pop5yhv"]
+[gd_scene load_steps=17 format=3 uid="uid://c60va2pop5yhv"]
 
 [ext_resource type="Script" path="res://scripts/pit.gd" id="1_lxy2n"]
 [ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="3_bd6ud"]
 [ext_resource type="Texture2D" uid="uid://4ya53gwv8w2m" path="res://assets/spritesheets/exit.png" id="3_wmg3c"]
+[ext_resource type="Texture2D" uid="uid://crxhbay34eug3" path="res://assets/images/exit_locked.png" id="4_6kuvu"]
+[ext_resource type="Shader" path="res://assets/shaders/locked_exit.gdshader" id="4_h1qib"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tipcd"]
 radius = 16.4
@@ -71,10 +73,15 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Exit" type="Area2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_57lls"]
+shader = ExtResource("4_h1qib")
+
+[node name="Exit" type="Area2D" node_paths=PackedStringArray("locked_sprite", "unlocked_sprite")]
 collision_layer = 0
 collision_mask = 257
 script = ExtResource("1_lxy2n")
+locked_sprite = NodePath("Locked")
+unlocked_sprite = NodePath("Unlocked")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tipcd")
@@ -85,9 +92,14 @@ position = Vector2(3, -1.50001)
 scale = Vector2(1.28125, 1.17969)
 texture = ExtResource("3_bd6ud")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Unlocked" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_esgj7")
 autoplay = "default"
+
+[node name="Locked" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_57lls")
+texture = ExtResource("4_6kuvu")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

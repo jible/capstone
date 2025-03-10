@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cncge7c4uemyj"]
+[gd_scene load_steps=13 format=3 uid="uid://cncge7c4uemyj"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/tutorial.gd" id="1_cxgyi"]
 [ext_resource type="VideoStream" path="res://assets/tutorial/movement.ogv" id="2_n5tch"]
@@ -6,12 +6,16 @@
 [ext_resource type="VideoStream" path="res://assets/tutorial/hud.ogv" id="4_1nkdc"]
 [ext_resource type="VideoStream" path="res://assets/tutorial/pickup.ogv" id="5_68iot"]
 [ext_resource type="VideoStream" path="res://assets/tutorial/hide_reveal_upgrade.ogv" id="6_qs3yq"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/upgrades.ogv" id="7_tm346"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/exit.ogv" id="8_4ymmw"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/minimap.ogv" id="9_ce1g4"]
 [ext_resource type="Theme" uid="uid://yx62bcop46jb" path="res://themes/navigation_buttons.tres" id="9_yxu3a"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/pause.ogv" id="10_1inbg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efer2"]
 bg_color = Color(0, 0, 0, 0.870588)
 
-[node name="Tutorial" type="Control" node_paths=PackedStringArray("tutor_text", "movie")]
+[node name="Tutorial" type="Control" node_paths=PackedStringArray("tutor_text", "movie", "top_position", "bottom_position")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,10 +23,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cxgyi")
-tutor_vids = Array[VideoStreamTheora]([ExtResource("2_n5tch"), ExtResource("3_r5mke"), ExtResource("4_1nkdc"), ExtResource("5_68iot"), ExtResource("6_qs3yq")])
+tutor_vids = Array[VideoStreamTheora]([ExtResource("2_n5tch"), ExtResource("3_r5mke"), ExtResource("4_1nkdc"), ExtResource("5_68iot"), ExtResource("6_qs3yq"), ExtResource("7_tm346"), ExtResource("8_4ymmw"), ExtResource("9_ce1g4"), ExtResource("10_1inbg")])
 tutor_text = NodePath("Label")
 movie = NodePath("Visuals/VideoStreamPlayer")
 text_bank = Array[String](["TUTORIAL_1", "TUTORIAL_2", "TUTORIAL_3", "TUTORIAL_4", "TUTORIAL_5", "TUTORIAL_6", "TUTORIAL_7", "TUTORIAL_8", "TUTORIAL_9"])
+top_position = NodePath("Top Position")
+bottom_position = NodePath("Bottom Position")
 
 [node name="Visuals" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -77,6 +83,11 @@ text = "DEFAULT TEXT"
 horizontal_alignment = 1
 autowrap_mode = 2
 uppercase = true
+
+[node name="Bottom Position" type="Marker2D" parent="."]
+position = Vector2(0, 849)
+
+[node name="Top Position" type="Marker2D" parent="."]
 
 [connection signal="button_up" from="Next" to="." method="_on_next_button_up"]
 [connection signal="button_up" from="Skip" to="." method="_on_skip_button_up"]
