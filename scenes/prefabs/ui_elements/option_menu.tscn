@@ -80,10 +80,6 @@ popup/item_5/id = 5
 layout_mode = 2
 text = "RESET_STATS"
 
-[node name="BackButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "BACK"
-
 [node name="LanguageText" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "LANGUAGE"
@@ -102,7 +98,11 @@ popup/item_2/id = 2
 popup/item_3/text = "日本語"
 popup/item_3/id = 3
 
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "BACK"
+
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="item_selected" from="VBoxContainer/FilterDropdown" to="." method="_on_filter_dropdown_item_selected"]
-[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="item_selected" from="VBoxContainer/LanguageDropdown" to="." method="_on_language_dropdown_item_selected"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
