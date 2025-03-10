@@ -468,6 +468,7 @@
 - Upgrade manager stat keys were updated to match the translation CSV keys for easy passing between both
 
 ## version 0.87
+
 - Added border to mini-map
 - Mini-map now follows the player
 - Added a new variable `zoom_multiplier` to the `config_mini_map()` function which handles how closely it zooms on the player
@@ -476,3 +477,10 @@
 - Fixed a localization bug where the "ENEMIES SLAIN" text at the top was not being localized
 - Changed the order of the options menu buttons so that the "Back" button is at the bottom of the list of choices
 - PS Circle, XBOX B, and Nintendo A can no longer be used to select options in the menu, as it might cause confusion with players using controllers where those options would be considered "Back" buttons
+
+## version 0.88
+
+- Fixed being able to unpause from options menu
+- Fixed inventory currency count not updating between runs
+- Fixed crash bug with save system
+- Removed unused code from Upgrade manager and player
