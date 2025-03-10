@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dfvsgbamdsiep"]
+[gd_scene load_steps=18 format=3 uid="uid://dfvsgbamdsiep"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/HUD.gd" id="1_ndg1h"]
 [ext_resource type="Texture2D" uid="uid://coejmd3pgj8bs" path="res://assets/ui_renders/bloodScreenV2-Sheet.png" id="2_a8ydw"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dixby21fjwcxc" path="res://assets/ui_renders/currency_tooth.png" id="4_mjk8y"]
 [ext_resource type="PackedScene" uid="uid://bqwbdvntcsrc0" path="res://scenes/prefabs/ui_elements/pause_menu.tscn" id="5_csnww"]
 [ext_resource type="Texture2D" uid="uid://c0nobm6vf3dl4" path="res://assets/ui_renders/main_menu_book.png" id="5_ojgqu"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/ui_elements/enemies_slain.tscn" id="7_ktbfn"]
+[ext_resource type="Texture2D" uid="uid://dndccy0v4hd7u" path="res://assets/sprites/mini_map_border.png" id="5_tke87"]
+[ext_resource type="PackedScene" uid="uid://ciq2y3xn8blhn" path="res://scenes/prefabs/ui_elements/enemies_slain.tscn" id="7_ktbfn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5t0o"]
 atlas = ExtResource("2_a8ydw")
@@ -107,7 +108,14 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("3_oovd0")
 
+[node name="Minimap Border" type="Sprite2D" parent="Border"]
+position = Vector2(24, 760)
+scale = Vector2(0.580153, 0.580153)
+texture = ExtResource("5_tke87")
+centered = false
+
 [node name="Minimap Container" type="SubViewportContainer" parent="Border"]
+modulate = Color(0.758192, 0.758192, 0.758192, 1)
 layout_mode = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
