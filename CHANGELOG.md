@@ -466,3 +466,7 @@
 - Added support for Japanese translations
 - Expanded localization to cover all writing except for tutorial descriptions
 - Upgrade manager stat keys were updated to match the translation CSV keys for easy passing between both
+
+## version 0.87
+
+- Added animated entrance and exit tiles as well as a locked exit image
