@@ -490,7 +490,8 @@
 - Added animated entrance and exit tiles as well as a locked exit image
 
 ## version 0.90
-- Tutorial rework complete
+
+- Finished tutorial rework
 - Added special shader for the locked version of the exit
 - Removed unused old `.ogv` files that were used for the previous tutorial
 - The tutorial now allows for placing label text on the top or bottom of the slides
