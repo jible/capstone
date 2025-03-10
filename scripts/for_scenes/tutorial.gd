@@ -27,7 +27,6 @@ func _ready():
 	7 : top_position,
 	8 : top_position,
 	}
-	#total_vids = tutor_vids.size()
 	total_vids = text_bank.size()
 	show_slide()
 
