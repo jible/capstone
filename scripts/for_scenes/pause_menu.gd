@@ -38,6 +38,7 @@ func _on_resume_toggle_pressed() -> void:
 func _on_quit_toggle_pressed() -> void:
 	_on_resume_toggle_pressed()
 	Globals.change_scene(main_menu)
+	MusicManager.change_song(MusicManager.MAIN_MENU)
 	SignalBus.player_die.emit()
 
 func _on_draw() -> void:
