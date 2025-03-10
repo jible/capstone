@@ -493,3 +493,16 @@
 
 - Fixed various UI elements not grabbing focus on menu navigation
 - Added quit button to main menu
+
+## version 0.91
+
+- Finished tutorial rework
+- Added special shader for the locked version of the exit
+- Removed unused old `.ogv` files that were used for the previous tutorial
+- The tutorial now allows for placing label text on the top or bottom of the slides
+- Localization now fully complete, as it supports the tutorial
+- Removing old `.gif` files that were going to try to be used if needed
+- Exit now swaps between a static sprite, and an animated sprite depending on whether or not the exit is unlocked yet
+- Health now has a 1/9 chance of dropping instead of a 1/2
+- When quitting from the game, the main menu music will start now
+- 
