@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/for_scenes/tutorial.gd" id="1_cxgyi"]
 [ext_resource type="VideoStream" path="res://assets/tutorial/movement.ogv" id="2_n5tch"]
 [ext_resource type="VideoStream" path="res://assets/tutorial/combat.ogv" id="3_r5mke"]
-[ext_resource type="VideoStream" path="res://assets/tutorial/HUD.ogv" id="4_fd6i3"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/hud.ogv" id="4_1nkdc"]
 [ext_resource type="VideoStream" path="res://assets/tutorial/pickup.ogv" id="5_68iot"]
 [ext_resource type="VideoStream" path="res://assets/tutorial/hide_reveal_upgrade.ogv" id="6_qs3yq"]
 [ext_resource type="Theme" uid="uid://yx62bcop46jb" path="res://themes/navigation_buttons.tres" id="9_yxu3a"]
@@ -19,7 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cxgyi")
-tutor_vids = Array[VideoStreamTheora]([ExtResource("2_n5tch"), ExtResource("3_r5mke"), ExtResource("4_fd6i3"), ExtResource("5_68iot"), ExtResource("6_qs3yq"), null])
+tutor_vids = Array[VideoStreamTheora]([ExtResource("2_n5tch"), ExtResource("3_r5mke"), ExtResource("4_1nkdc"), ExtResource("5_68iot"), ExtResource("6_qs3yq")])
 tutor_text = NodePath("Label")
 movie = NodePath("Visuals/VideoStreamPlayer")
 text_bank = Array[String](["TUTORIAL_1", "TUTORIAL_2", "TUTORIAL_3", "TUTORIAL_4", "TUTORIAL_5", "TUTORIAL_6", "TUTORIAL_7", "TUTORIAL_8", "TUTORIAL_9"])
