@@ -41,7 +41,7 @@ func enemy_killed(enemy):
 	
 	var chance =randi()
 	var drop_name
-	if chance%2 == 0:
+	if chance%9 == 0:
 		drop_name = "health"
 	else:
 		drop_name = "currency"

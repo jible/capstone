@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://cncge7c4uemyj"]
+[gd_scene load_steps=9 format=3 uid="uid://cncge7c4uemyj"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/tutorial.gd" id="1_cxgyi"]
-[ext_resource type="VideoStream" path="res://assets/tutorial/aim.ogv" id="2_c8v4m"]
-[ext_resource type="VideoStream" path="res://assets/tutorial/attack.ogv" id="3_mgfju"]
-[ext_resource type="VideoStream" path="res://assets/tutorial/hud.ogv" id="4_1incj"]
-[ext_resource type="VideoStream" path="res://assets/tutorial/buy-upgrades.ogv" id="4_ip0hq"]
-[ext_resource type="VideoStream" path="res://assets/tutorial/exit.ogv" id="5_udufg"]
-[ext_resource type="VideoStream" path="res://assets/tutorial/kill-pickup.ogv" id="6_5jfy1"]
-[ext_resource type="VideoStream" path="res://assets/tutorial/pause.ogv" id="7_as2u3"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/movement.ogv" id="2_n5tch"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/combat.ogv" id="3_r5mke"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/HUD.ogv" id="4_fd6i3"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/pickup.ogv" id="5_68iot"]
+[ext_resource type="VideoStream" path="res://assets/tutorial/hide_reveal_upgrade.ogv" id="6_qs3yq"]
 [ext_resource type="Theme" uid="uid://yx62bcop46jb" path="res://themes/navigation_buttons.tres" id="9_yxu3a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efer2"]
+bg_color = Color(0, 0, 0, 0.870588)
 
 [node name="Tutorial" type="Control" node_paths=PackedStringArray("tutor_text", "movie")]
 layout_mode = 3
@@ -18,10 +19,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cxgyi")
-tutor_vids = Array[VideoStreamTheora]([ExtResource("2_c8v4m"), ExtResource("3_mgfju"), ExtResource("4_1incj"), ExtResource("6_5jfy1"), ExtResource("4_ip0hq"), ExtResource("7_as2u3"), ExtResource("5_udufg")])
+tutor_vids = Array[VideoStreamTheora]([ExtResource("2_n5tch"), ExtResource("3_r5mke"), ExtResource("4_fd6i3"), ExtResource("5_68iot"), ExtResource("6_qs3yq"), null])
 tutor_text = NodePath("Label")
 movie = NodePath("Visuals/VideoStreamPlayer")
-text_bank = Array[String](["USE MOUSE OR RIGHT STICK TO AIM", "USE LEFT CLICK OR RIGHT TRIGGER TO ATTACK", "THE HUD DISPLAYS HEALTH AND CURRENCY", "KILL ENEMIES AND PICK UP CURRENCY", "PRESS TAB OR SELECT TO REVEAL OR HIDE THE UPGRADE MENU, AND USE CURRENCY TO UPGRADE YOUR CHARACTER", "PRESS ESCAPE OR START TO PAUSE", "FIND THE EXIT TO GO TO THE NEXT LEVEL"])
+text_bank = Array[String](["TUTORIAL_1", "TUTORIAL_2", "TUTORIAL_3", "TUTORIAL_4", "TUTORIAL_5", "TUTORIAL_6", "TUTORIAL_7", "TUTORIAL_8", "TUTORIAL_9"])
 
 [node name="Visuals" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -30,9 +31,7 @@ offset_bottom = 40.0
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Visuals"]
 layout_mode = 2
-stream = ExtResource("2_c8v4m")
 volume_db = -80.0
-autoplay = true
 loop = true
 
 [node name="Next" type="Button" parent="."]
@@ -73,9 +72,11 @@ anchor_right = 1.0
 offset_bottom = 67.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_efer2")
 text = "DEFAULT TEXT"
 horizontal_alignment = 1
 autowrap_mode = 2
+uppercase = true
 
 [connection signal="button_up" from="Next" to="." method="_on_next_button_up"]
 [connection signal="button_up" from="Skip" to="." method="_on_skip_button_up"]

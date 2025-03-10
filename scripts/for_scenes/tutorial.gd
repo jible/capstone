@@ -12,28 +12,23 @@ var current_slide = 0
 var total_vids
 
 func _ready():
-	total_vids = tutor_vids.size()
+	#total_vids = tutor_vids.size()
+	total_vids = text_bank.size()
 	show_slide()
 
 func _on_next_button_up():
 	current_slide += 1
 	if(current_slide >= total_vids):
-		print("MAIN MENU", current_slide)
 		Globals.change_scene(load (game_scene) )
-		
 	else:
-		print("NEXT")
 		show_slide()
-
 
 func _on_previous_button_up():
 	current_slide -= 1
 	# Hitting back on the first slide takes you to the main menu, can block input if needed.
 	if(current_slide < 0):
-		print("MAIN MENU", current_slide)
 		Globals.change_scene(load (main_menu_scene) )
 	else:
-		print("PREV")
 		show_slide()
 
 func _on_skip_button_up():
