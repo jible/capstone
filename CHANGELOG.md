@@ -484,3 +484,7 @@
 - Fixed inventory currency count not updating between runs
 - Fixed crash bug with save system
 - Removed unused code from Upgrade manager and player
+
+## version 0.89
+
+- Added animated entrance and exit tiles as well as a locked exit image
