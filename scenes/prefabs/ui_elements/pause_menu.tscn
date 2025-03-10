@@ -54,6 +54,7 @@ icon_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
+[connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="pressed" from="VBoxContainer/ResumeToggle" to="." method="_on_resume_toggle_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsToggle" to="." method="_on_options_toggle_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitToggle" to="." method="_on_quit_toggle_pressed"]

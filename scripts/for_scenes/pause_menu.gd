@@ -46,4 +46,5 @@ func _on_draw() -> void:
 	
 func _on_options_hidden():
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
+	option_toggle.grab_focus()
 	self.show()
