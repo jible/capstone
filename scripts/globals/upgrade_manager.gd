@@ -1,24 +1,24 @@
 extends Node 
 
 # upgradable stats
-const HEALTH: String = "health"
-const DMG: String = "dmg"
-const SPEED: String = "speed"
+const HEALTH: String = "HEALTH"
+const DAMAGE: String = "DAMAGE"
+const SPEED: String = "SPEED"
 const STAT_SHEET_PATH: String = "res://assets/csvs/Cast Into Flame Stat Sheet - upgrades.csv"
 const MAX_LEVEL: int = 9
 
 var stat_lvl: Dictionary = {
-	"health": 0,
-	"dmg": 0,
-	"speed": 0
+	HEALTH: 0,
+	DAMAGE: 0,
+	SPEED: 0
 }
 
 var stat_growth: Dictionary = LoadCsv.load_csv_dictionary(STAT_SHEET_PATH)
 
 var upgrade_bonus: Dictionary = {
-	"health": 0,
-	"dmg": 0,
-	"speed": 0
+	HEALTH: 0,
+	DAMAGE: 0,
+	SPEED: 0
 }
 var upgrade_cost = 1
 
