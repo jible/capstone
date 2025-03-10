@@ -3,7 +3,9 @@ extends Node
 # This is the core of our save system. each object should include a reference to a global script 
 # and all variables on that script that need to be saved
 var save_locations = {
-	"score_manager": ScoreManager
+	"score_manager": ScoreManager,
+	"shader_manager": ShaderManager,
+	"translation": Globals,
 }
 var save_path = "user://savegame.save"
 

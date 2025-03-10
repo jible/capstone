@@ -77,7 +77,7 @@
 - New animation and asset integration system
 - New test assets
 
-# version 0.23
+## version 0.23
 
 - Pickup sound asset added
 - Hurt sound asset added
@@ -87,7 +87,7 @@
 - Changed the import defaults for wav files to stop automatic looping
 - Added polyphony to player's AudioStreamPlayer2D node to allow for 10 sounds to play at the same time
 
-# version 0.24
+## version 0.24
 
 - Fixed a bug where the scene would transition back to the main menu automatically when the game loads.
 - Bug was due to the lack of a type check in pit.gd, where upon any body being detected the pit would transition the scene. The pit was detecting part of the tilemap and transitioned the scene back to the main menu.
@@ -468,5 +468,23 @@
 - Upgrade manager stat keys were updated to match the translation CSV keys for easy passing between both
 
 ## version 0.87
+
+- Added border to mini-map
+- Mini-map now follows the player
+- Added a new variable `zoom_multiplier` to the `config_mini_map()` function which handles how closely it zooms on the player
+- The Playstation X, XBOX A, Nintendo B buttons can be used to accept menu choices
+- The dash action now has controller support, using Left Trigger as the button mapping
+- Fixed a localization bug where the "ENEMIES SLAIN" text at the top was not being localized
+- Changed the order of the options menu buttons so that the "Back" button is at the bottom of the list of choices
+- PS Circle, XBOX B, and Nintendo A can no longer be used to select options in the menu, as it might cause confusion with players using controllers where those options would be considered "Back" buttons
+
+## version 0.88
+
+- Fixed being able to unpause from options menu
+- Fixed inventory currency count not updating between runs
+- Fixed crash bug with save system
+- Removed unused code from Upgrade manager and player
+
+## version 0.89
 
 - Added animated entrance and exit tiles as well as a locked exit image
