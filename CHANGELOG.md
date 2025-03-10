@@ -504,5 +504,4 @@
 - Removing old `.gif` files that were going to try to be used if needed
 - Exit now swaps between a static sprite, and an animated sprite depending on whether or not the exit is unlocked yet
 - Health now has a 1/9 chance of dropping instead of a 1/2
-- When quitting from the game, the main menu music will start now
-- 
+- When quitting from the game, the main menu music will start now 
