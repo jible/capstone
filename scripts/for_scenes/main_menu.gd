@@ -27,3 +27,7 @@ func _on_options_button_pressed() -> void:
 
 func _on_options_hidden():
 	self.show()
+	play_button.grab_focus()
+
+func _on_quit_button_pressed() -> void:
+	Globals.quit_game()
