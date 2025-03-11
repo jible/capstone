@@ -30,12 +30,10 @@ var player_sound_settings: Array[SoundSetting] = []
 
 # UI Sound Setup
 enum UISounds {
-	MOVE_SELECTION,
 	UPG_SUCCESS,
 	UPG_FAIL,
 	PAUSE,
 	UNPAUSE,
-	PLAY
 }
 var ui_sound_library: Array[AudioStreamWAV] = []
 var ui_sound_settings: Array[SoundSetting] = [] 
@@ -86,12 +84,10 @@ func load_ui_sounds():
 	ui_sound_library.resize(UISounds.keys().size())
 	ui_sound_settings.resize(UISounds.keys().size())
 	
-	create_sound(ui_sound_library, ui_sound_settings, UISounds.PLAY, load("res://assets/audio/prototype/CONFIRM_2.wav"), 0.0,1.0,1.0)
-	create_sound(ui_sound_library, ui_sound_settings, UISounds.PAUSE, load("res://assets/audio/prototype/ESCAPE_1.wav"), 0.0,1.0,1.0)
-	create_sound(ui_sound_library, ui_sound_settings, UISounds.UNPAUSE, load("res://assets/audio/prototype/ESCAPE_2.wav"), 0.0,1.0,1.0)
-	create_sound(ui_sound_library, ui_sound_settings, UISounds.MOVE_SELECTION, load("res://assets/audio/prototype/MOVE_SELECTION_1.wav"), 0.0,1.0,1.0)
-	create_sound(ui_sound_library, ui_sound_settings, UISounds.UPG_FAIL, load("res://assets/audio/prototype/FAILURE_1.wav"), 0.0,1.0,1.0)
-	create_sound(ui_sound_library, ui_sound_settings, UISounds.UPG_SUCCESS, load("res://assets/audio/prototype/SUCCESS_2.wav"), 0.0,1.0,1.0)
+	create_sound(ui_sound_library, ui_sound_settings, UISounds.PAUSE, load("res://assets/audio/prototype/ESCAPE_1.wav"), 6.0,1.0,1.0)
+	create_sound(ui_sound_library, ui_sound_settings, UISounds.UNPAUSE, load("res://assets/audio/prototype/ESCAPE_2.wav"), 6.0,1.0,1.0)
+	create_sound(ui_sound_library, ui_sound_settings, UISounds.UPG_FAIL, load("res://assets/audio/prototype/FAILURE_1.wav"), 6.0,1.0,1.0)
+	create_sound(ui_sound_library, ui_sound_settings, UISounds.UPG_SUCCESS, load("res://assets/audio/prototype/SUCCESS_2.wav"), 6.0,1.0,1.0)
 
 func load_env_sounds():
 	env_sound_library.resize(EnvSounds.keys().size())

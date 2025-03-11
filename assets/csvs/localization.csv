@@ -1,17 +1,41 @@
-key,en,las,fr
-PLAY_BUTTON,Play,Jugar,Jouer
-UPGRADE_MENU,Upgrade Menu,Menú de mejorar,Menu de mise à niveau
-OPTIONS_BUTTON,Options,Opciones,Options
-RESUME_BUTTON,Resume,Continuar,Continuer
-QUIT_BUTTON,Quit,Salir,Quitter
-OPTIONS_MENU,Option Menu,Menú de opciones,Menu de options
-RESET_BUTTON,Reset,Reiniciar,Réinitialiser
-NEXT,Next,Próximo,Suivant
-PREVIOUS,Previous,Previo,Précédent
-SKIP,Skip Tutorial,Saltar tutorial,Sauter le tutoriel
-HOW_TO_PLAY,How to Play,Cómo jugar,Comment jouer
-BACK,Back,Regresar,Retour
-LANGUAGE,Language:,Idioma:,Langue:
-RESET_STATS,Reset Stats,Restablecer estadísticas,Réinitialiser les statistiques
-CONTROLS,Controls,Los mandos,Contrôles
-COLORBLIND,Colorblind Filter,Filtro daltónico,Filtre daltonien
+key,en,las,fr,ja
+PLAY_BUTTON,Play,Jugar,Jouer,プレイ
+UPGRADE_MENU,Upgrade Menu,Menú de mejorar,Menu de mise à niveau,アップグレードメニュー
+OPTIONS_BUTTON,Options,Opciones,Options,オプション
+RESUME_BUTTON,Resume,Continuar,Continuer,リセット
+QUIT_BUTTON,Quit,Salir,Quitter,終了
+OPTIONS_MENU,Option Menu,Menú de opciones,Menu de options,オプションメニュー
+RESET_BUTTON,Reset,Reiniciar,Réinitialiser,リセット
+NEXT,Next,Próximo,Suivant,次へ
+PREVIOUS,Previous,Previo,Précédent,前へ
+SKIP,Skip Tutorial,Saltar tutorial,Sauter le tutoriel,スキップ
+HOW_TO_PLAY,How to Play,Cómo jugar,Comment jouer,遊び方
+BACK,Back,Regresar,Retour,戻る
+LANGUAGE,Language: ,Idioma: ,Langue: ,言語: 
+RESET_STATS,Reset Stats,Restablecer estadísticas,Réinitialiser les statistiques,ステータスをリセット
+CONTROLS,Controls,Los mandos,Contrôles,操作方法
+COLORBLIND,Colorblind Filter,Filtro daltónico,Filtre daltonien,色覚フィルター
+HEALTH,Health,Salud,Santé,体力
+DAMAGE,Damage,Daño,Dégâts,ダメージ
+SPEED,Speed,Velocidad,Vitesse,スピード
+BONUS,Bonus: ,Bono: ,Bonus: ,ボーナス: 
+UPGRADE_LABEL,Upgrade: ,Mejora: ,Amélioration: ,アップグレード: 
+ENEMIES_SLAIN,Enemies Slain:,Enemigos abatidos:,Ennemis abattus:,敵撃破:
+GAME_OVER,Game Over,Fin del juego,Fin de jeu,ゲームオーバー
+EXIT_UNLOCKED,Exit Unlocked,Salida desbloqueada,Sortie déverrouillée,出口が解除されました
+HIGH_SCORE,HIGH SCORE: ,Puntuación alta: ,Score élevé: ,ハイスコ​​ア: 
+NONE,None,Nada,Aucun,なし
+B&W,Black and White,Negro y Blanco,Noir et Blanc,黒と白
+PROTANOPIA,Protanopia,Protanopía,Protanopie,色覚異常
+ACHROMATOPSIA,Achromatopsia,Acromatopsía,Achromatopsie,アクロマトプシア
+DUETERANOPIA,Dueteranopia,Deuteranopía,Deutéranopie,ドゥーテラノーピーアー
+TRITANOPIA,Tritanopia,Tritanopía,Tritanopie,トライトノーピーアー
+TUTORIAL_1,"Use WASD or Arrow keys/left stick to move, use Shift/left trigger to dash","Usa WASD o las teclas de flecha/palanca izquierda para moverte, usa Shift/gatillo izquierdo para esprintar","Utilisez WASD ou les touches fléchées/joystick gauche pour vous déplacer, utilisez Shift/gâchette gauche pour sprinter",WASDまたは矢印キー/左スティックで移動し、Shift/左トリガーでダッシュします
+TUTORIAL_2,Use mouse/right stick to aim and left mouse/right trigger to attack,Usa el ratón/palanca derecha para apuntar y el botón izquierdo del ratón/gatillo derecho para atacar,Utilisez la souris/joystick droit pour viser et le bouton gauche de la souris/gâchette droite pour attaquer,マウス/右スティックで照準を合わせ、左マウスボタン/右トリガーで攻撃します
+TUTORIAL_3,"Your health bar, currency collected, and the amount of enemies left to kill are displayed at the top of the screen","Tu barra de salud, la moneda recolectada y la cantidad de enemigos que quedan por matar se muestran en la parte superior de la pantalla","Votre barre de santé, la monnaie collectée et le nombre d'ennemis restants à tuer sont affichés en haut de l'écran",体力バー、収集した通貨、残りの敵の数が画面上部に表示されます
+TUTORIAL_4,"Killing enemies causes currency and health to drop, which you can gather to benefit you on your journey","Matar enemigos hace que caigan monedas y salud, que puedes recolectar para beneficiarte en tu viaje","Tuer des ennemis fait tomber de la monnaie et de la santé, que vous pouvez récupérer pour vous aider dans votre voyage",敵を倒すと通貨や体力がドロップし、これを集めて旅の助けにすることができます
+TUTORIAL_5,Use TAB/select to open and close the upgrade menu,Usa TAB/select para abrir y cerrar el menú de mejoras,Utilisez TAB/select pour ouvrir et fermer le menu d'amélioration,TAB/select を使用してアップグレードメニューを開閉します
+TUTORIAL_6,Use currency to buy upgrades that make your character stronger,Usa la moneda para comprar mejoras que hagan a tu personaje más fuerte,Utilisez la monnaie pour acheter des améliorations qui rendent votre personnage plus fort,通貨を使ってキャラクターを強化するアップグレードを購入しましょう
+TUTORIAL_7,The kill counter at the top tracks how many enemies are left until the exit unlocks and you can move on to the next level,El contador de bajas en la parte superior muestra cuántos enemigos quedan hasta que se desbloquee la salida y puedas avanzar al siguiente nivel,Le compteur de kills en haut de l'écran indique combien d'ennemis restent avant que la sortie se déverrouille et que vous puissiez passer au niveau suivant,画面上部のキルカウンターは、出口が解除されて次のレベルに進めるまでの残りの敵の数を表示します
+TUTORIAL_8,"Using the mini-map, you can more easily navigate the twisting corridors of Hell","Usando el minimapa, puedes navegar más fácilmente por los retorcidos pasillos del Infierno","En utilisant la mini-carte, vous pouvez naviguer plus facilement dans les couloirs tortueux de l'Enfer",ミニマップを使うと、地獄の入り組んだ通路をより簡単に進むことができます
+TUTORIAL_9,"Use Esc/Start to pause the game, tune the options, or give up and let the demons of Hell consume you","Usa Esc/Start para pausar el juego, ajustar las opciones o rendirte y dejar que los demonios del infierno te consuman.","Utilisez Esc/Start pour mettre le jeu en pause, ajuster les options, ou abandonner et laisser les démons de l'Enfer vous dévorer.",ゲームを一時停止するにはEsc/Startを使用し、オプションを調整するか、諦めて地獄の悪魔に食べられるがよい

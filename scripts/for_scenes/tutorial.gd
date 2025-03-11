@@ -7,40 +7,50 @@ extends Control
 @export var game_scene : String = "res://scenes/prefabs/scene_config_package.tscn"
 @export var main_menu_scene : String = "res://scenes/testScenes/main_menu.tscn"
 @export var text_bank : Array[String]
+@export var top_position : Marker2D
+@export var bottom_position : Marker2D
+
+var label_positions : Dictionary
 
 var current_slide = 0
 var total_vids
 
 func _ready():
-	total_vids = tutor_vids.size()
+	label_positions = {
+	0 : top_position,
+	1 : top_position,
+	2 : top_position,
+	3 : bottom_position,
+	4 : top_position,
+	5 : top_position,
+	6 : bottom_position,
+	7 : top_position,
+	8 : top_position,
+	}
+	total_vids = text_bank.size()
 	show_slide()
 
 func _on_next_button_up():
 	current_slide += 1
 	if(current_slide >= total_vids):
-		print("MAIN MENU", current_slide)
 		Globals.change_scene(load (game_scene) )
-		
 	else:
-		print("NEXT")
 		show_slide()
-
 
 func _on_previous_button_up():
 	current_slide -= 1
 	# Hitting back on the first slide takes you to the main menu, can block input if needed.
 	if(current_slide < 0):
-		print("MAIN MENU", current_slide)
 		Globals.change_scene(load (main_menu_scene) )
 	else:
-		print("PREV")
 		show_slide()
 
 func _on_skip_button_up():
 	Globals.change_scene(load (game_scene) )
 
 func show_slide():
-		movie.stream = tutor_vids[current_slide]
-		tutor_text.text = text_bank[current_slide]
-		movie.play()
+	movie.stream = tutor_vids[current_slide]
+	tutor_text.text = text_bank[current_slide]
+	tutor_text.set_position(label_positions[current_slide].position)
+	movie.play()
 	

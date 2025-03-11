@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://df5dpo8q4en1s" path="res://assets/ui_renders/speedUpgradeIcon.png" id="5_wylq6"]
 [ext_resource type="PackedScene" uid="uid://bywi33bblmvxw" path="res://scenes/prefabs/ui_elements/stat_total.tscn" id="6_ggy7d"]
 
-[node name="StatUpgradeUi" type="Control" node_paths=PackedStringArray("speaker", "focus_button")]
+[node name="StatUpgradeUi" type="Control" node_paths=PackedStringArray("speaker", "focus_button", "book_texture")]
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -20,6 +20,7 @@ grow_vertical = 0
 script = ExtResource("1_eu2fv")
 speaker = NodePath("AudioStreamPlayer")
 focus_button = NodePath("MarginContainer/StatContainer/StatUpgrade/Button")
+book_texture = NodePath("TextureRect")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -57,17 +58,17 @@ layout_mode = 2
 
 [node name="StatUpgrade" parent="MarginContainer/StatContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
-stat_name = "health"
+stat_name = "HEALTH"
 upgrade_icon = ExtResource("3_klydc")
 
 [node name="StatUpgrade2" parent="MarginContainer/StatContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
-stat_name = "dmg"
+stat_name = "DAMAGE"
 upgrade_icon = ExtResource("4_0piuq")
 
 [node name="StatUpgrade3" parent="MarginContainer/StatContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
-stat_name = "speed"
+stat_name = "SPEED"
 upgrade_icon = ExtResource("5_wylq6")
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
@@ -93,15 +94,15 @@ layout_mode = 2
 
 [node name="StatTotal" parent="MarginContainer2/UpgradeContainer" instance=ExtResource("6_ggy7d")]
 layout_mode = 2
-stat = "health"
+stat = "HEALTH"
 
 [node name="StatTotal2" parent="MarginContainer2/UpgradeContainer" instance=ExtResource("6_ggy7d")]
 layout_mode = 2
-stat = "dmg"
+stat = "DAMAGE"
 
 [node name="StatTotal3" parent="MarginContainer2/UpgradeContainer" instance=ExtResource("6_ggy7d")]
 layout_mode = 2
-stat = "speed"
+stat = "SPEED"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
