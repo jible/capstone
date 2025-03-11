@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxw58o52b72kv"]
+[gd_scene load_steps=2 format=3 uid="uid://de2gqxsx5ejj6"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/bind_control.gd" id="1_fq4bq"]
 
-[node name="BindControl" type="Control"]
+[node name="BindControl" type="Control" node_paths=PackedStringArray("control_label", "mk_binding_button", "joypad_binding_button")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -12,6 +12,9 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fq4bq")
+control_label = NodePath("HBoxContainer/ControlLabel")
+mk_binding_button = NodePath("HBoxContainer/MKRebindButton")
+joypad_binding_button = NodePath("HBoxContainer/JoypadRebindButton")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -22,13 +25,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ControlLabel" type="Label" parent="HBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
-text = "CONTROL:"
+text = "CONTROL: "
 
-[node name="BindingButton" type="Button" parent="HBoxContainer"]
-unique_name_in_owner = true
+[node name="MKRebindButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "BINDING"
+text = "KEY BINDING"
 
-[connection signal="pressed" from="HBoxContainer/BindingButton" to="." method="_on_binding_button_pressed"]
+[node name="JoypadRebindButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "CONCH BINDING
+"
+
+[connection signal="pressed" from="HBoxContainer/MKRebindButton" to="." method="_on_mk_rebind_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/JoypadRebindButton" to="." method="_on_joypad_rebind_button_pressed"]
