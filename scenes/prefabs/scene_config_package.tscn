@@ -19,6 +19,7 @@ hud = NodePath("CanvasLayer/HUD")
 
 [node name="Level Generator" parent="." instance=ExtResource("2_1eor7")]
 world_seed = 2
+randomize_seed = null
 
 [node name="Player" parent="." instance=ExtResource("3_5fksv")]
 

@@ -13,11 +13,10 @@ var step_points = [
 	Vector2i.ZERO
 ]
 
-func _init(root_arg, arg_size, arg_seed):
+func _init(arg_size, arg_seed):
 	size = arg_size
 	seed = arg_seed
 	noise_ref.seed = seed
-	root = root_arg
 	configure_matrix()
 
 func configure_matrix():
@@ -30,7 +29,7 @@ func configure_matrix():
 		for x in range(size.x):
 			var tile = Tile.new()
 			matrix[y].append( tile )
-			root.add_child(tile)
+			self.add_child(tile)
 
 func get_tile(pos):
 	return matrix[pos.y][pos.x]
