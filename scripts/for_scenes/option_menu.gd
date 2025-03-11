@@ -44,7 +44,6 @@ func _on_filter_dropdown_item_selected(index: int) -> void:
 func _on_back_button_pressed() -> void:
 	SignalBus.options_closed.emit()
 	self.queue_free()
-	#emit signal
 
 func _on_reset_stat_button_pressed() -> void:
 	ScoreManager.delete_save()
@@ -52,4 +51,4 @@ func _on_reset_stat_button_pressed() -> void:
 
 func _on_remap_button_pressed() -> void:
 	var remap_instance = remap_menu.instantiate()
-	get_parent().add_child(remap_instance)
+	add_child(remap_instance)
