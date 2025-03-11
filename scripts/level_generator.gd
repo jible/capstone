@@ -68,6 +68,7 @@ func generate_level(level_package):
 	size.x = package.width
 	size.y = package.height
 	map = Map.new(size, world_seed)
+	self.add_child(map)
 	
 	# TODO - fill this out as more methods are made.
 	# We may want to use noise or wave collapse function or a modified walk
