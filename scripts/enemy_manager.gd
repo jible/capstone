@@ -26,13 +26,15 @@ func _ready():
 	required_enemies = enemy_package.required_enemies
 	
 	var accumulated_odds = 0
-	
+	var scene = get_tree().root
 	for enemy in enemy_package.enemy_types:
 		accumulated_odds+= enemy.frequency
 		enemy_odds.append( { "name": enemy.name, "odds": accumulated_odds}  )
 	for enemy in enemy_package.enemy_types:
-		enemy_pools[enemy.name] = Pool.new( name_to_path[enemy.name] , enemy.pool_size )
-
+		var pool =Pool.new( name_to_path[enemy.name] , enemy.pool_size )
+		enemy_pools[enemy.name] = pool
+		scene.add_child(pool)
+		
 func enemy_killed(enemy):
 	live_enemies -= 1
 	enemies_killed += 1

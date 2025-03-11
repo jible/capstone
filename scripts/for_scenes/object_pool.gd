@@ -1,3 +1,4 @@
+extends Node
 class_name Pool
 
 var path : String
@@ -9,7 +10,9 @@ func _init(ref: String, amount):
 	entity = load(ref)
 	
 	for items in range(amount):
-		collection.append(entity.instantiate())
+		var instance =entity.instantiate()
+		collection.append(instance)
+		Globals.orphans.append(instance)
 
 func kill(object):
 	object.get_parent().remove_child(object)

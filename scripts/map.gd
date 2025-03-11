@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 class_name Map
 
 @export var size: Vector2i = Vector2i.ZERO
@@ -8,26 +8,29 @@ var noise_ref = FastNoiseLite.new()
 var threshold = .3
 var player_spawn = Vector2i.ZERO
 var end = Vector2i.ZERO
+var root
 var step_points = [
 	Vector2i.ZERO
 ]
 
-func _init(arg_size, arg_seed):
+func _init(root_arg, arg_size, arg_seed):
 	size = arg_size
 	seed = arg_seed
 	noise_ref.seed = seed
+	root = root_arg
 	configure_matrix()
 
 func configure_matrix():
 	'''
 	Fill matrix with tiles.
 	'''
-	
 	for y in range (size.y):
 		matrix.append([])
 		
 		for x in range(size.x):
-			matrix[y].append( Tile.new() )
+			var tile = Tile.new()
+			matrix[y].append( tile )
+			root.add_child(tile)
 
 func get_tile(pos):
 	return matrix[pos.y][pos.x]
