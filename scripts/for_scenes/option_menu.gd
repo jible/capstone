@@ -46,12 +46,9 @@ func _on_back_button_pressed() -> void:
 	self.queue_free()
 	#emit signal
 
-
 func _on_reset_stat_button_pressed() -> void:
-	##TODO decide how to manage resetting stats, new save(?)
-	#ScoreManager.delete_save()
-	pass # Replace with function body.
-
+	ScoreManager.delete_save()
+	SignalBus.update_HUD.emit()
 
 func _on_remap_button_pressed() -> void:
 	var remap_instance = remap_menu.instantiate()
