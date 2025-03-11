@@ -508,7 +508,7 @@
 
 ## version 0.92
 
-- Fixed game crashing bug
+- Fixed game crashing bug:
 -    Previously, game crashed in levels 2+ because of the mini map
 -    Some part of the mini map caused the game to randomly crash when the player dashed or swung their sword
 -    Temporarily fixed this by commenting out call to configure mini map
