@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://tltbj8atratq"]
+[gd_scene load_steps=4 format=3 uid="uid://c5qu8gk5f5nfl"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/remap_controls.gd" id="1_y2rld"]
-[ext_resource type="PackedScene" uid="uid://de2gqxsx5ejj6" path="res://scenes/prefabs/ui_elements/bind_control.tscn" id="2_b8idm"]
+[ext_resource type="PackedScene" uid="uid://cy70sndfpguv0" path="res://scenes/prefabs/ui_elements/bind_control.tscn" id="2_b8idm"]
 [ext_resource type="Texture2D" uid="uid://cy1r363pot5mv" path="res://assets/images/title_bg.png" id="3_3vie3"]
-[ext_resource type="Script" path="res://scripts/for_scenes/bind_control.gd" id="4_3dr7v"]
 
 [node name="RemapControls" type="Control" node_paths=PackedStringArray("container")]
 layout_mode = 3
@@ -40,85 +39,45 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="up" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("control_label", "mk_binding_button", "joypad_binding_button") instance=ExtResource("2_b8idm")]
+[node name="up" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-script = ExtResource("4_3dr7v")
 control = "up"
-control_label = NodePath("HBoxContainer/ControlLabel")
-mk_binding_button = NodePath("HBoxContainer/MKRebindButton")
-joypad_binding_button = NodePath("HBoxContainer/JoypadRebindButton")
 
-[node name="down" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("control_label", "mk_binding_button", "joypad_binding_button") instance=ExtResource("2_b8idm")]
+[node name="down" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-script = ExtResource("4_3dr7v")
 control = "down"
-control_label = NodePath("HBoxContainer/ControlLabel")
-mk_binding_button = NodePath("HBoxContainer/MKRebindButton")
-joypad_binding_button = NodePath("HBoxContainer/JoypadRebindButton")
 
-[node name="left" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("control_label", "mk_binding_button", "joypad_binding_button") instance=ExtResource("2_b8idm")]
+[node name="left" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-script = ExtResource("4_3dr7v")
 control = "left"
-control_label = NodePath("HBoxContainer/ControlLabel")
-mk_binding_button = NodePath("HBoxContainer/MKRebindButton")
-joypad_binding_button = NodePath("HBoxContainer/JoypadRebindButton")
 
-[node name="right" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("control_label", "mk_binding_button", "joypad_binding_button") instance=ExtResource("2_b8idm")]
+[node name="right" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-script = ExtResource("4_3dr7v")
 control = "right"
-control_label = NodePath("HBoxContainer/ControlLabel")
-mk_binding_button = NodePath("HBoxContainer/MKRebindButton")
-joypad_binding_button = NodePath("HBoxContainer/JoypadRebindButton")
 
-[node name="esc" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("control_label", "mk_binding_button", "joypad_binding_button") instance=ExtResource("2_b8idm")]
+[node name="esc" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-script = ExtResource("4_3dr7v")
 control = "esc"
-control_label = NodePath("HBoxContainer/ControlLabel")
-mk_binding_button = NodePath("HBoxContainer/MKRebindButton")
-joypad_binding_button = NodePath("HBoxContainer/JoypadRebindButton")
 
-[node name="run" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("control_label", "mk_binding_button", "joypad_binding_button") instance=ExtResource("2_b8idm")]
+[node name="run" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-script = ExtResource("4_3dr7v")
 control = "run"
-control_label = NodePath("HBoxContainer/ControlLabel")
-mk_binding_button = NodePath("HBoxContainer/MKRebindButton")
-joypad_binding_button = NodePath("HBoxContainer/JoypadRebindButton")
 
-[node name="interact" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("control_label", "mk_binding_button", "joypad_binding_button") instance=ExtResource("2_b8idm")]
+[node name="interact" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-script = ExtResource("4_3dr7v")
 control = "interact"
-control_label = NodePath("HBoxContainer/ControlLabel")
-mk_binding_button = NodePath("HBoxContainer/MKRebindButton")
-joypad_binding_button = NodePath("HBoxContainer/JoypadRebindButton")
 
-[node name="attack" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("control_label", "mk_binding_button", "joypad_binding_button") instance=ExtResource("2_b8idm")]
+[node name="attack" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-script = ExtResource("4_3dr7v")
 control = "attack"
-control_label = NodePath("HBoxContainer/ControlLabel")
-mk_binding_button = NodePath("HBoxContainer/MKRebindButton")
-joypad_binding_button = NodePath("HBoxContainer/JoypadRebindButton")
 
-[node name="OpenUpgrades" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("control_label", "mk_binding_button", "joypad_binding_button") instance=ExtResource("2_b8idm")]
+[node name="OpenUpgrades" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-script = ExtResource("4_3dr7v")
 control = "OpenUpgrades"
-control_label = NodePath("HBoxContainer/ControlLabel")
-mk_binding_button = NodePath("HBoxContainer/MKRebindButton")
-joypad_binding_button = NodePath("HBoxContainer/JoypadRebindButton")
 
-[node name="dash" type="Control" parent="VBoxContainer" node_paths=PackedStringArray("control_label", "mk_binding_button", "joypad_binding_button") instance=ExtResource("2_b8idm")]
+[node name="dash" parent="VBoxContainer" instance=ExtResource("2_b8idm")]
 layout_mode = 2
-script = ExtResource("4_3dr7v")
 control = "dash"
-control_label = NodePath("HBoxContainer/ControlLabel")
-mk_binding_button = NodePath("HBoxContainer/MKRebindButton")
-joypad_binding_button = NodePath("HBoxContainer/JoypadRebindButton")
 
 [node name="BackButton" type="Button" parent="."]
 unique_name_in_owner = true
