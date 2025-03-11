@@ -1,0 +1,126 @@
+[gd_scene load_steps=19 format=3 uid="uid://cgo5u2bybgnl6"]
+
+[ext_resource type="Script" path="res://scripts/characters/mobility_manager.gd" id="1_v7yky"]
+[ext_resource type="Script" path="res://scripts/characters/state_machine.gd" id="2_ku37e"]
+[ext_resource type="Script" path="res://scripts/characters/animation_manager.gd" id="3_0ok2x"]
+[ext_resource type="Script" path="res://patrol.gd" id="3_esmlt"]
+[ext_resource type="Texture2D" uid="uid://bhi1lofcns5fx" path="res://assets/spritesheets/tempEyeSphere.png" id="3_ujrkr"]
+[ext_resource type="Script" path="res://scripts/characters/hurtbox.gd" id="6_1qxwp"]
+[ext_resource type="Script" path="res://scripts/characters/direction_manager.gd" id="7_sy1fh"]
+[ext_resource type="Script" path="res://scripts/characters/health_manager.gd" id="8_h612a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oworl"]
+atlas = ExtResource("3_ujrkr")
+region = Rect2(0, 120, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouaeq"]
+atlas = ExtResource("3_ujrkr")
+region = Rect2(120, 120, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vcrg"]
+atlas = ExtResource("3_ujrkr")
+region = Rect2(0, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk3np"]
+atlas = ExtResource("3_ujrkr")
+region = Rect2(120, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbu75"]
+atlas = ExtResource("3_ujrkr")
+region = Rect2(120, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js1dh"]
+atlas = ExtResource("3_ujrkr")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fes4b"]
+atlas = ExtResource("3_ujrkr")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0kq0u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oworl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouaeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouaeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouaeq")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vcrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk3np")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbu75")
+}],
+"loop": false,
+"name": &"cooldown",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js1dh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fes4b")
+}],
+"loop": true,
+"name": &"patrol",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cnfa7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04tnn"]
+radius = 46.0109
+
+[node name="Eye Sphere" type="CharacterBody2D"]
+
+[node name="MobilityManager" type="Node" parent="."]
+script = ExtResource("1_v7yky")
+base_max_speed = 0
+base_acceleration = 0
+base_drag = 0.0
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_ku37e")
+default_state = "Patrol"
+
+[node name="Patrol" type="Node" parent="StateMachine"]
+script = ExtResource("3_esmlt")
+
+[node name="AnimationManager" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("character")]
+sprite_frames = SubResource("SpriteFrames_0kq0u")
+animation = &"patrol"
+script = ExtResource("3_0ok2x")
+character = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cnfa7")
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("6_1qxwp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_04tnn")
+
+[node name="DirectionManager" type="Node" parent="."]
+script = ExtResource("7_sy1fh")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("8_h612a")
+starting_health = 4
