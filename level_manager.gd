@@ -5,6 +5,9 @@ var level_scene_reference
 var current_package 
 var exit_instance
 
+#TODO Hardpath listed here
+@onready var main_menu = preload("res://scenes/testScenes/main_menu.tscn")
+
 func _ready():
 	update_current_package()
 	level_scene_reference = preload("res://scenes/prefabs/scene_config_package.tscn")
@@ -15,12 +18,11 @@ var level_order = [
 	"limbo_1",
 	"limbo_2",
 	"limbo_3",
-	"lust_1",
 ]
 
 var default_enemy_package = {
 	"max_concurrent_enemies": 5,
-	"required_enemies" : 1,
+	"required_enemies" : 3,
 	"all_time_spawns": 10,
 	"enemy_types":[
 		{
@@ -58,7 +60,19 @@ var level_packages = {
 		"gen_method": "walk",
 		"items" : [],
 		"end_distance": 100,
-		"tile_set": "path?"
+		"tile_set": "path?",
+		"enemy_package":{
+			"max_concurrent_enemies": 5,
+			"required_enemies" : 5,
+			"all_time_spawns": 10,
+			"enemy_types":[
+				{
+					"name" : "infinimouth",
+					"pool_size": 50,
+					"frequency": 1
+				}
+			]
+		}
 	},
 	"limbo_3" : {
 		"name": "limbo_3",
@@ -68,20 +82,21 @@ var level_packages = {
 		"gen_method": "walk",
 		"items" : [],
 		"end_distance": 100,
-		"tile_set": "path?"
+		"tile_set": "path?",
+		"enemy_package":{
+			"max_concurrent_enemies": 8,
+			"required_enemies" : 7,
+			"all_time_spawns": 20,
+			"enemy_types":[
+				{
+					"name" : "infinimouth",
+					"pool_size": 50,
+					"frequency": 1
+				}
+			]
+		}
 	},
 	
-	# LUST SECTION
-	"lust_1" : {
-		"name": "lust_1",
-		"width": 100,
-		"height": 100,
-		"floor_tiles": 1700,
-		"gen_method": "walk",
-		"items" : [],
-		"end_distance": 100,
-		"tile_set": "path?"
-	},
 }
 
 # Public functions
@@ -99,6 +114,11 @@ func enable_exit():
 
 func go_next_level():
 	current_level_index += 1
+	if current_level_index >=level_order.size():
+		Globals.change_scene( main_menu )
+		MusicManager.change_song(MusicManager.MAIN_MENU)
+		return
+	
 	update_current_package()
 	Globals.change_scene( level_scene_reference )
 
@@ -116,5 +136,11 @@ func update_current_package():
 func clean_up_package(package):
 	var new_package = default_package
 	for key in package.keys():
-		new_package[key] = package [key]
+		if key == "enemy_package":
+			new_package[key] = default_enemy_package
+			if package[key]:
+				for enemy_key in package[key]:
+					new_package[key][enemy_key] = package[key][enemy_key]
+		else:
+			new_package[key] = package [key]
 	return new_package

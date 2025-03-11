@@ -41,7 +41,7 @@ func get_corners():
 func prep():
 	# TODO may need to improve seed setting. Right now, this prevents lust 1-3 from being the same.
 	if randomize_seed:
-		world_seed = randi() + ( 100 * LevelManager.current_level_index)
+		world_seed = (randi() << 16 ) ^LevelManager.current_level_index
 	layers = {
 		"environment":$Environment,
 		"north": $"North",
