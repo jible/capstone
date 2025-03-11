@@ -55,7 +55,6 @@ func enemy_killed(enemy):
 		
 	enemy_pools[enemy.type].kill(enemy)
 
-
 func spawn_enemy(pos, enemy_type = null):
 	if enemy_type == null || ! ( enemy_pools[enemy_type].collection.size() >= 0 )  || live_enemies >= max_concurrent_enemies:
 		return null
@@ -63,7 +62,6 @@ func spawn_enemy(pos, enemy_type = null):
 	live_enemies+=1
 	enemies_spawned += 1
 	pass
-
 
 func _process(delta):
 	'''
@@ -91,7 +89,6 @@ func try_spawn():
 		if (player.position - true_pos).length() > min_dist_from_player:
 			
 			spawn_enemy(true_pos, pick_rand_enemy())
-
 
 func pick_rand_enemy():
 	var chance = randf_range(0,1)
