@@ -13,7 +13,7 @@ func _ready():
 	'''
 	
 	level_generator.generate_level(LevelManager.get_current_package())
-	config_mini_map()
+	#config_mini_map()
 	place_player()
 	play_music()
 
