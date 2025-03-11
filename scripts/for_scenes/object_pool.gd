@@ -13,7 +13,6 @@ func _init(root: Node, ref: String, amount):
 		collection.append(instance)
 		root.add_child(instance)
 
-
 func kill(object: Node):
 	turn_off(object)
 
@@ -25,7 +24,6 @@ func add( position = Vector2.ZERO):
 	if object.position:
 		object.position = position
 	turn_on(object)
-
 
 func turn_off(object):
 	object.set_process(false)
