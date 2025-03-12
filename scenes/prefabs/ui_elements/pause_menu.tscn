@@ -53,6 +53,7 @@ text = "QUIT_BUTTON"
 icon_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"UI"
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="pressed" from="VBoxContainer/ResumeToggle" to="." method="_on_resume_toggle_pressed"]
