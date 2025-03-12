@@ -1,7 +1,7 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://cevfwlsxmddb1"]
+[gd_resource type="AudioBusLayout" format=3 uid="uid://dhk4vhxy8k43u"]
 
 [resource]
-bus/0/send = &"Music"
+bus/0/volume_db = 6.02
 bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
@@ -12,7 +12,7 @@ bus/2/name = &"Player"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = 0.0
+bus/2/volume_db = 0.00282288
 bus/2/send = &"Master"
 bus/3/name = &"Entity"
 bus/3/solo = false
@@ -24,7 +24,7 @@ bus/4/name = &"UI"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
-bus/4/volume_db = 0.0
+bus/4/volume_db = 0.00282288
 bus/4/send = &"Master"
 bus/5/name = &"Environment"
 bus/5/solo = false

@@ -4,8 +4,9 @@ extends Control
 # For how to use the TranslationServer functions
 # https://docs.godotengine.org/en/stable/classes/class_translationserver.html#class-translationserver
 
-@onready var remap_button: Button = $"VBoxContainer/RemapButton"
-@onready var language_dropdown: OptionButton = $"VBoxContainer/LanguageDropdown"
+@onready var remap_button: Button = %RemapButton
+@onready var language_dropdown: OptionButton = %LanguageDropdown
+
 	
 func _enter_tree() -> void:
 	self.show()
@@ -43,4 +44,3 @@ func _on_filter_dropdown_item_selected(index: int) -> void:
 func _on_back_button_pressed() -> void:
 	SignalBus.options_closed.emit()
 	self.queue_free()
-	#emit signal

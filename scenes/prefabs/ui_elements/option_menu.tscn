@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://wuikybn3pwsx"]
+[gd_scene load_steps=4 format=3 uid="uid://wuikybn3pwsx"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/option_menu.gd" id="1_27ycq"]
 [ext_resource type="Texture2D" uid="uid://cy1r363pot5mv" path="res://assets/images/title_bg.png" id="2_nal2c"]
+[ext_resource type="PackedScene" uid="uid://d2hq8751355h1" path="res://scenes/prefabs/ui_elements/volume_slider.tscn" id="3_j8vf1"]
 
 [node name="OptionMenu" type="Control"]
 process_mode = 3
@@ -49,17 +50,23 @@ offset_right = 64.5
 offset_bottom = 46.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 25
 
 [node name="RemapButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "CONTROLS"
 
-[node name="FilterText" type="Label" parent="VBoxContainer"]
+[node name="Filter" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-text = "COLORBLIND"
 
-[node name="FilterDropdown" type="OptionButton" parent="VBoxContainer"]
+[node name="FilterText" type="Label" parent="VBoxContainer/Filter"]
+layout_mode = 2
+text = "COLORBLIND"
+horizontal_alignment = 1
+
+[node name="FilterDropdown" type="OptionButton" parent="VBoxContainer/Filter"]
+unique_name_in_owner = true
 layout_mode = 2
 selected = 0
 allow_reselect = true
@@ -80,12 +87,16 @@ popup/item_5/id = 5
 layout_mode = 2
 text = "RESET_STATS"
 
-[node name="LanguageText" type="Label" parent="VBoxContainer"]
+[node name="Language" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LanguageText" type="Label" parent="VBoxContainer/Language"]
 layout_mode = 2
 text = "LANGUAGE"
 horizontal_alignment = 1
 
-[node name="LanguageDropdown" type="OptionButton" parent="VBoxContainer"]
+[node name="LanguageDropdown" type="OptionButton" parent="VBoxContainer/Language"]
+unique_name_in_owner = true
 layout_mode = 2
 selected = 0
 allow_reselect = true
@@ -98,11 +109,71 @@ popup/item_2/id = 2
 popup/item_3/text = "日本語"
 popup/item_3/id = 3
 
+[node name="MusicSound" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer/MusicSound"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" parent="VBoxContainer/MusicSound" instance=ExtResource("3_j8vf1")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="UISound" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="UISoundLabel" type="Label" parent="VBoxContainer/UISound"]
+layout_mode = 2
+text = "UI Volume"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" parent="VBoxContainer/UISound" instance=ExtResource("3_j8vf1")]
+layout_mode = 2
+bus_name = "UI"
+
+[node name="PlayerSound" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerSoundLabel" type="Label" parent="VBoxContainer/PlayerSound"]
+layout_mode = 2
+text = "Player Voice Volume"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" parent="VBoxContainer/PlayerSound" instance=ExtResource("3_j8vf1")]
+layout_mode = 2
+bus_name = "Player"
+
+[node name="EnemySound" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="EnemySoundLabel" type="Label" parent="VBoxContainer/EnemySound"]
+layout_mode = 2
+text = "Enemy Volume"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" parent="VBoxContainer/EnemySound" instance=ExtResource("3_j8vf1")]
+layout_mode = 2
+bus_name = "Entity"
+
+[node name="EnvironmentSound" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="EnvironmentSoundLabel" type="Label" parent="VBoxContainer/EnvironmentSound"]
+layout_mode = 2
+text = "Environment Volume"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" parent="VBoxContainer/EnvironmentSound" instance=ExtResource("3_j8vf1")]
+layout_mode = 2
+bus_name = "Environment"
+
 [node name="BackButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "BACK"
 
 [connection signal="draw" from="." to="." method="_on_draw"]
-[connection signal="item_selected" from="VBoxContainer/FilterDropdown" to="." method="_on_filter_dropdown_item_selected"]
-[connection signal="item_selected" from="VBoxContainer/LanguageDropdown" to="." method="_on_language_dropdown_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/Filter/FilterDropdown" to="." method="_on_filter_dropdown_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/Language/LanguageDropdown" to="." method="_on_language_dropdown_item_selected"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
