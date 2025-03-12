@@ -61,6 +61,9 @@ layout_mode = 2
 stat_name = "HEALTH"
 upgrade_icon = ExtResource("3_klydc")
 
+[node name="TextureRect" parent="MarginContainer/StatContainer/StatUpgrade" index="0"]
+texture = null
+
 [node name="StatUpgrade2" parent="MarginContainer/StatContainer" instance=ExtResource("1_ekqrg")]
 layout_mode = 2
 stat_name = "DAMAGE"
