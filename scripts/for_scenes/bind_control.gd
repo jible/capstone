@@ -15,6 +15,8 @@ class_name BindControl
 @export var mk_binding_button: Button
 @export var joypad_binding_button: Button
 
+const UNBOUND: String =  "UNBOUND"
+const BINDING_TEXT: String = "Press button to bind"
 var mk_is_remapping: bool = false
 var joypad_is_remapping: bool = false
 
@@ -24,20 +26,35 @@ func _ready() -> void:
 
 func _on_mk_rebind_button_pressed() -> void:
 	mk_is_remapping = true
-	mk_binding_button.text = "Press button to bind"
+	mk_binding_button.text = BINDING_TEXT
 	
 func _on_joypad_rebind_button_pressed() -> void:
 	joypad_is_remapping = true
-	joypad_binding_button.text = "Press button to bind"
+	joypad_binding_button.text = BINDING_TEXT
 
 func _input(event: InputEvent) -> void:
-	if mk_is_remapping:
+	if (
+		(event is InputEventKey && event.keycode == KEY_ESCAPE) ||
+		(event is InputEventJoypadButton && event.button_index == JOY_BUTTON_BACK)
+		):
+			print("exit remap")
+			mk_is_remapping = false
+			joypad_is_remapping = false
+			update_binding_text(mk_binding_button)
+			update_binding_text(joypad_binding_button)
+			accept_event()
+			return
+	
+	elif mk_is_remapping:
+		print("mk remapping", mk_is_remapping)
 		if is_valid_mk_input(event):
 			remap_action(mk_binding_button, event)
 			accept_event()
 			mk_is_remapping = false
 			
-	if joypad_is_remapping:
+			
+	elif joypad_is_remapping:
+		print("joypad remapping", joypad_is_remapping)
 		if is_valid_joypad_input(event):
 			remap_action(joypad_binding_button, event)
 			accept_event()
@@ -70,11 +87,19 @@ func update_binding_text(
 		events: Array[InputEvent] = InputMap.action_get_events(control)
 	) -> void:
 		button.text = ""
-		for event in events:
-			button.text += event.as_text().trim_suffix(" (Physical)") + ", "
+		#for event in events:
+		if events.is_empty():
+			return
+		var event = events[0]
+		button.text += event.as_text().trim_suffix(" (Physical)") + ", "
 		button.text = button.text.trim_suffix(", ")
 		##TODO localize control using tr(control)?
 		control_label.text = self.control.capitalize() + ": "
+		
+func update_mk_rebind_text() -> void:
+	#grab Only valid mk inputs
+	var events = InputMap.action_get_events(control)
+	mk_binding_button.text = ""
 
 func get_mk_events():
 	

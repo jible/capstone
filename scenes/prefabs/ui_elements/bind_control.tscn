@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://de2gqxsx5ejj6"]
+[gd_scene load_steps=2 format=3 uid="uid://doijtrae4gl6n"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/bind_control.gd" id="1_fq4bq"]
 
@@ -26,16 +26,13 @@ grow_vertical = 2
 
 [node name="ControlLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-text = "CONTROL: "
+text = ": "
 
 [node name="MKRebindButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "KEY BINDING"
 
 [node name="JoypadRebindButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "CONCH BINDING
-"
 
 [connection signal="pressed" from="HBoxContainer/MKRebindButton" to="." method="_on_mk_rebind_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/JoypadRebindButton" to="." method="_on_joypad_rebind_button_pressed"]

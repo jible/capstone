@@ -9,7 +9,10 @@ var controls: Array[StringName]:
 		controls = new_control
 		if Engine.is_editor_hint():
 			create_controls()
-		
+			
+@export var refresh: bool:
+	set(value):
+		refresh_scene()
 @export var container: VBoxContainer
 @export var bind_control: PackedScene
 
@@ -28,11 +31,11 @@ func create_controls():
 
 func create_control_node(control: String) -> void:
 	var control_node: BindControl = bind_control.instantiate()
+	control_node.add_to_group("controls", true)
 	container.add_child(control_node)
 	control_node.control = control
 	control_node.owner = get_tree().edited_scene_root
 	control_node.name = control
-	control_node.add_to_group("controls")
 
 func control_node_exists(control: String) -> bool:
 	var control_nodes = get_tree().get_nodes_in_group("controls")
@@ -49,6 +52,11 @@ func control_exists(control: String) -> bool:
 	else:
 		printerr("Input name %s not found in InputMap, please bind it" % control)
 	return false
+
+func refresh_scene() -> void:
+	var control_nodes = get_tree().get_nodes_in_group("controls")
+	for node in control_nodes:
+		node._ready()
 
 func _on_back_button_pressed() -> void:
 	self.queue_free()
