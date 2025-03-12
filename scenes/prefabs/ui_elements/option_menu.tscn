@@ -114,7 +114,7 @@ layout_mode = 2
 
 [node name="MusicLabel" type="Label" parent="VBoxContainer/MusicSound"]
 layout_mode = 2
-text = "Music Volume"
+text = "MUSIC_VOLUME"
 horizontal_alignment = 1
 
 [node name="VolumeSlider" parent="VBoxContainer/MusicSound" instance=ExtResource("3_j8vf1")]
@@ -126,7 +126,7 @@ layout_mode = 2
 
 [node name="UISoundLabel" type="Label" parent="VBoxContainer/UISound"]
 layout_mode = 2
-text = "UI Volume"
+text = "UI_VOLUME"
 horizontal_alignment = 1
 
 [node name="VolumeSlider" parent="VBoxContainer/UISound" instance=ExtResource("3_j8vf1")]
@@ -138,7 +138,7 @@ layout_mode = 2
 
 [node name="PlayerSoundLabel" type="Label" parent="VBoxContainer/PlayerSound"]
 layout_mode = 2
-text = "Player Voice Volume"
+text = "VOICE_VOLUME"
 horizontal_alignment = 1
 
 [node name="VolumeSlider" parent="VBoxContainer/PlayerSound" instance=ExtResource("3_j8vf1")]
@@ -150,7 +150,7 @@ layout_mode = 2
 
 [node name="EnemySoundLabel" type="Label" parent="VBoxContainer/EnemySound"]
 layout_mode = 2
-text = "Enemy Volume"
+text = "ENEMY_VOLUME"
 horizontal_alignment = 1
 
 [node name="VolumeSlider" parent="VBoxContainer/EnemySound" instance=ExtResource("3_j8vf1")]
@@ -162,7 +162,7 @@ layout_mode = 2
 
 [node name="EnvironmentSoundLabel" type="Label" parent="VBoxContainer/EnvironmentSound"]
 layout_mode = 2
-text = "Environment Volume"
+text = "ENVIRO_VOLUME"
 horizontal_alignment = 1
 
 [node name="VolumeSlider" parent="VBoxContainer/EnvironmentSound" instance=ExtResource("3_j8vf1")]

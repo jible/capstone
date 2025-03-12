@@ -34,7 +34,7 @@ icon_alignment = 1
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "QUIT_BUTTON"
+text = "MAIN_MENU"
 icon_alignment = 1
 
 [node name="Label" type="Label" parent="."]
