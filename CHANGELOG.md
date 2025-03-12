@@ -522,6 +522,7 @@
 ## version 0.93
 
 - Added new volume sliders scene to options menu
+- New localization keys added for volume sliders
 - Refactored Sound and Music Managers, removed volume_mult
 - Created default audio bus layout, added to project settings
-- New localization keys added for volume sliders
+- AudioStreamPlayers now need a Bus field set to link them to the appropriate settings
