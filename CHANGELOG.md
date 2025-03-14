@@ -517,7 +517,7 @@
     - Changed code to add Map and Tile objects to scene tree when instanced
     - The same change was made for the Pool object
         - Each enemy pool is added as a child to the enemy manager (enemies are the only object currently being pooled)
-	- Refactored object pool to instance all objects and turn them off instead of leaving them outside of the scene tree
+        - Refactored object pool to instance all objects and turn them off instead of leaving them outside of the scene tree
 
 ## version 0.93
 
