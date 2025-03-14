@@ -526,3 +526,10 @@
 - Refactored Sound and Music Managers, removed volume_mult
 - Created default audio bus layout, added to project settings
 - AudioStreamPlayers now need a Bus field set to link them to the appropriate settings
+
+## version 0.94
+
+- Removed unsued asset files
+- Removed affiliated import files
+- Audio files compressed to decrease game size (wav -> MP3)
+- Tutorial videos shortened and changed from 1080p to 720p

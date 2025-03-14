@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bt7w3orvfq2tv"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/stat_upgrade.gd" id="1_ejj0v"]
-[ext_resource type="Texture2D" uid="uid://de7l8kh1k1tt7" path="res://assets/ui_renders/ChestIcon.png" id="2_qvxb7"]
+[ext_resource type="Texture2D" uid="uid://kedtfcwfy0lt" path="res://assets/images/cursorV3.png" id="2_rp61y"]
 
 [node name="StatUpgrade" type="HBoxContainer"]
 anchors_preset = 4
@@ -18,7 +18,7 @@ script = ExtResource("1_ejj0v")
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("2_qvxb7")
+texture = ExtResource("2_rp61y")
 expand_mode = 1
 
 [node name="StatNameLabel" type="Label" parent="."]
@@ -40,6 +40,4 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "+"
 
-[connection signal="draw" from="." to="." method="_on_draw"]
-[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_stat_increased"]

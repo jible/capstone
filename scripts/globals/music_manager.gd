@@ -1,8 +1,8 @@
 extends AudioStreamPlayer
 
-const MAIN_MENU : AudioStreamWAV = preload("res://assets/audio/main_menu.wav")
-const DEATH_SCREEN : AudioStreamWAV = preload("res://assets/audio/death_screen.wav")
-const LUST : AudioStreamWAV = preload("res://assets/audio/lust_music.wav")
+const MAIN_MENU : AudioStreamMP3 = preload("res://assets/audio/main_menu.mp3")
+const DEATH_SCREEN : AudioStreamMP3 = preload("res://assets/audio/death_screen.mp3")
+const LUST : AudioStreamMP3 = preload("res://assets/audio/lust_music.mp3")
 
 @export var muted : bool = false
 
@@ -21,7 +21,7 @@ func mute_music():
 func unmute_music():
 	muted = false
 	
-func change_song(song : AudioStreamWAV):
+func change_song(song : AudioStreamMP3):
 	stream = song
 	volume_db = VOLUMES[song]
 	if muted == false:
