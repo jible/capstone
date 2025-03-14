@@ -5,8 +5,6 @@ const DEATH_SCREEN : AudioStreamMP3 = preload("res://assets/audio/death_screen.m
 const LUST : AudioStreamMP3 = preload("res://assets/audio/lust_music.mp3")
 
 @export var muted : bool = false
-# Use this to control the volume of the music.
-var volume_mult : float = 1.0
 
 const VOLUMES = {
 	MAIN_MENU : -15.0,
@@ -25,6 +23,6 @@ func unmute_music():
 	
 func change_song(song : AudioStreamMP3):
 	stream = song
-	volume_db = VOLUMES[song] * volume_mult
+	volume_db = VOLUMES[song]
 	if muted == false:
 		play()

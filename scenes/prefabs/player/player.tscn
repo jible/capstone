@@ -967,9 +967,11 @@ scale = Vector2(1, 1.5)
 
 [node name="Voice" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 10
+bus = &"Player"
 
 [node name="Inventory Sounds" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 10
+bus = &"UI"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.647182, 3)

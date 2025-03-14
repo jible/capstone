@@ -108,6 +108,7 @@ layout_mode = 2
 stat = "SPEED"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"UI"
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 

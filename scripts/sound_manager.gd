@@ -2,9 +2,6 @@ extends Node2D
 
 @export var muted : bool = false
 
-# Use this float to control volume for the sound effects
-var volume_mult : float = 1.0
-
 func mute_sfx():
 	muted = true
 func unmute_sfx():
@@ -95,7 +92,7 @@ func load_env_sounds():
 	
 # PLAYERS
 func play_player_sound(speaker:AudioStreamPlayer2D, sound_index : int):
-	speaker.volume_db = player_sound_settings[sound_index].volume_db * volume_mult
+	speaker.volume_db = player_sound_settings[sound_index].volume_db
 	speaker.pitch_scale = player_sound_settings[sound_index].pitch_scale
 	speaker.attenuation = player_sound_settings[sound_index].attenuation
 	speaker.stream = player_sound_library[sound_index]
@@ -103,14 +100,14 @@ func play_player_sound(speaker:AudioStreamPlayer2D, sound_index : int):
 		speaker.play()
 	
 func play_ui_sound(speaker:AudioStreamPlayer, sound_index : int):
-	speaker.volume_db = ui_sound_settings[sound_index].volume_db * volume_mult
+	speaker.volume_db = ui_sound_settings[sound_index].volume_db
 	speaker.pitch_scale = ui_sound_settings[sound_index].pitch_scale
 	speaker.stream = ui_sound_library[sound_index]
 	if muted == false:
 		speaker.play()
 	
 func play_entity_sound(speaker:AudioStreamPlayer2D, sound_index : int):
-	speaker.volume_db = entity_sound_settings[sound_index].volume_db * volume_mult
+	speaker.volume_db = entity_sound_settings[sound_index].volume_db
 	speaker.pitch_scale = entity_sound_settings[sound_index].pitch_scale
 	speaker.attenuation = entity_sound_settings[sound_index].attenuation
 	speaker.stream = entity_sound_library[sound_index]
@@ -118,7 +115,7 @@ func play_entity_sound(speaker:AudioStreamPlayer2D, sound_index : int):
 		speaker.play()
 	
 func play_env_sound(speaker:AudioStreamPlayer2D, sound_index : int):
-	speaker.volume_db = env_sound_settings[sound_index].volume_db * volume_mult
+	speaker.volume_db = env_sound_settings[sound_index].volume_db
 	speaker.pitch_scale = env_sound_settings[sound_index].pitch_scale
 	speaker.attenuation = env_sound_settings[sound_index].attenuation
 	speaker.stream = env_sound_library[sound_index]
