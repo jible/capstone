@@ -518,3 +518,11 @@
 	- The same change was made for the Pool object
 		- Each enemy pool is added as a child to the enemy manager (enemies are the only object currently being pooled)
 		- Refactored object pool to instance all objects and turn them off instead of leaving them outside of the scene tree
+
+
+## version 0.93
+
+- Removed unsued asset files
+- Removed affiliated import files
+- Audio files compressed to decrease game size (wav -> MP3)
+- Tutorial videos shortened and changed from 1080p to 720p
