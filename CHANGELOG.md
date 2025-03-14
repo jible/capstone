@@ -518,3 +518,11 @@
     - The same change was made for the Pool object
         - Each enemy pool is added as a child to the enemy manager (enemies are the only object currently being pooled)
         - Refactored object pool to instance all objects and turn them off instead of leaving them outside of the scene tree
+
+## version 0.93
+
+- Added new volume sliders scene to options menu
+- New localization keys added for volume sliders
+- Refactored Sound and Music Managers, removed volume_mult
+- Created default audio bus layout, added to project settings
+- AudioStreamPlayers now need a Bus field set to link them to the appropriate settings
