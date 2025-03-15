@@ -533,3 +533,10 @@
 - Removed affiliated import files
 - Audio files compressed to decrease game size (wav -> MP3)
 - Tutorial videos shortened and changed from 1080p to 720p
+
+## version 0.95
+
+- Added input remapping with per input device mapping
+- Linked remap controls scene to Controls button in options menu
+- Reset stats button now resets high score
+- Added background to death screen
