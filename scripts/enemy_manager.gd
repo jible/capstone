@@ -50,6 +50,7 @@ func enemy_killed(enemy):
 	SignalBus.enemy_killed.emit(enemies_killed)
 	ScoreManager.increase_score(1)
 	if enemies_killed >= required_enemies:
+		print("required_enemies_killed")
 		SignalBus.required_enemies_killed.emit()
 		
 	enemy_pools[enemy.type].kill(enemy)

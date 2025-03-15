@@ -871,6 +871,7 @@ offset = Vector2(0, 2.76)
 character = NodePath("..")
 
 [node name="Silhouette" parent="." instance=ExtResource("9_sc1mn")]
+visible = false
 modulate = Color(1, 1, 1, 0.501961)
 z_index = 5
 z_as_relative = false
