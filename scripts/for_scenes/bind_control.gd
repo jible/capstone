@@ -21,9 +21,18 @@ var mk_is_remapping: bool = false
 var joypad_is_remapping: bool = false
 
 func _ready() -> void:
-	update_binding_text(mk_binding_button)
-	update_binding_text(joypad_binding_button)
-
+	if Input.get_connected_joypads().is_empty():
+		#disable joypad rebinding
+		joypad_binding_button.disabled = true
+	else:
+		#disable mk rebinding
+		mk_binding_button.disabled = true
+	control_label.text = self.control.capitalize() + ": "
+	#update_binding_text(mk_binding_button)
+	#update_binding_text(joypad_binding_button)
+	update_mk_rebind_text()
+	update_joypad_rebind_text()
+	
 func _on_mk_rebind_button_pressed() -> void:
 	mk_is_remapping = true
 	mk_binding_button.text = BINDING_TEXT
@@ -33,28 +42,13 @@ func _on_joypad_rebind_button_pressed() -> void:
 	joypad_binding_button.text = BINDING_TEXT
 
 func _input(event: InputEvent) -> void:
-	if (
-		(event is InputEventKey && event.keycode == KEY_ESCAPE) ||
-		(event is InputEventJoypadButton && event.button_index == JOY_BUTTON_BACK)
-		):
-			print("exit remap")
-			mk_is_remapping = false
-			joypad_is_remapping = false
-			update_binding_text(mk_binding_button)
-			update_binding_text(joypad_binding_button)
-			accept_event()
-			return
-	
-	elif mk_is_remapping:
-		print("mk remapping", mk_is_remapping)
+	if mk_is_remapping:
 		if is_valid_mk_input(event):
 			remap_action(mk_binding_button, event)
 			accept_event()
 			mk_is_remapping = false
 			
-			
 	elif joypad_is_remapping:
-		print("joypad remapping", joypad_is_remapping)
 		if is_valid_joypad_input(event):
 			remap_action(joypad_binding_button, event)
 			accept_event()
@@ -71,8 +65,8 @@ func is_valid_mk_input(event: InputEvent) -> bool:
 func is_valid_joypad_input(event: InputEvent) -> bool:
 	if ( 
 		event is InputEventJoypadButton || 
-		(event is InputEventJoypadMotion && 
-		( event.axis == JOY_AXIS_TRIGGER_LEFT || event.axis == JOY_AXIS_TRIGGER_RIGHT ) ) 
+		(event is InputEventJoypadMotion )
+		#&& ( event.axis == JOY_AXIS_TRIGGER_LEFT || event.axis == JOY_AXIS_TRIGGER_RIGHT ) 
 		): 
 			return true
 	return false
@@ -93,16 +87,25 @@ func update_binding_text(
 		var event = events[0]
 		button.text += event.as_text().trim_suffix(" (Physical)") + ", "
 		button.text = button.text.trim_suffix(", ")
-		##TODO localize control using tr(control)?
-		control_label.text = self.control.capitalize() + ": "
 		
 func update_mk_rebind_text() -> void:
-	#grab Only valid mk inputs
 	var events = InputMap.action_get_events(control)
-	mk_binding_button.text = ""
+	for event in events:
+		if is_valid_mk_input(event):
+			mk_binding_button.text = event.as_text().trim_suffix(" (Physical)")
+			#currently just grab the first valid event, then exit
+			return
 
+func update_joypad_rebind_text() -> void:
+	var events = InputMap.action_get_events(control)
+	for event in events:
+		if is_valid_joypad_input(event):
+			joypad_binding_button.text = event.as_text()
+			#currently just grab the first valid event, then exit
+			return
+
+## TODO: formatting inputs nicely from InputEvent -> String text
 func get_mk_events():
-	
 	pass
 	
 func get_joypad_events():

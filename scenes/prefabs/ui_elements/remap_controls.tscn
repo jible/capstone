@@ -79,6 +79,21 @@ control = "OpenUpgrades"
 layout_mode = 2
 control = "dash"
 
+[node name="ResetButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -248.0
+offset_right = 27.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "RESET"
+
 [node name="BackButton" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -88,11 +103,12 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -24.0
-offset_top = -248.0
+offset_top = -208.0
 offset_right = 26.0
-offset_bottom = -217.0
+offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "BACK"
 
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

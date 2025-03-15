@@ -60,3 +60,7 @@ func refresh_scene() -> void:
 
 func _on_back_button_pressed() -> void:
 	self.queue_free()
+
+func _on_reset_button_pressed() -> void:
+	InputMap.load_from_project_settings()
+	refresh_scene()
