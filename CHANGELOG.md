@@ -540,3 +540,8 @@
 - Linked remap controls scene to Controls button in options menu
 - Reset stats button now resets high score
 - Added background to death screen
+
+## version 0.96
+
+- Removed unused print statements
+- You can now press P to skip to the next level (for debugging purposes)

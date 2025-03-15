@@ -30,9 +30,13 @@ func place_player():
 	# move the camera to the player
 	camera.global_position = player.global_position
 
+
 func _process(_delta):
 	hud.mini_map_camera.position =  player.position
-
+	#TODO remove debug keys or formalize to set a debug mode
+	
+	if Input.is_action_just_pressed("debug_level_skip"):
+		LevelManager.go_next_level()
 #https://www.youtube.com/watch?v=CAaJxWUUFqQ&ab_channel=16BitDev
 #https://chatgpt.com/share/67cd3f8f-53a4-8012-a72f-04df4b161be2
 func config_mini_map():
