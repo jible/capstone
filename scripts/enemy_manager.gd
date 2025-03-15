@@ -26,13 +26,14 @@ func _ready():
 	required_enemies = enemy_package.required_enemies
 	
 	var accumulated_odds = 0
-	
 	for enemy in enemy_package.enemy_types:
 		accumulated_odds+= enemy.frequency
 		enemy_odds.append( { "name": enemy.name, "odds": accumulated_odds}  )
 	for enemy in enemy_package.enemy_types:
-		enemy_pools[enemy.name] = Pool.new( name_to_path[enemy.name] , enemy.pool_size )
-
+		var pool = Pool.new( self, name_to_path[enemy.name] , enemy.pool_size )
+		enemy_pools[enemy.name] = pool
+		self.add_child(pool)
+		
 func enemy_killed(enemy):
 	live_enemies -= 1
 	enemies_killed += 1
@@ -46,7 +47,6 @@ func enemy_killed(enemy):
 	else:
 		drop_name = "currency"
 	item_manager.spawn_item(drop_name, enemy.position)
-	death_drop()
 	SignalBus.enemy_killed.emit(enemies_killed)
 	ScoreManager.increase_score(1)
 	if enemies_killed >= required_enemies:
@@ -55,21 +55,13 @@ func enemy_killed(enemy):
 		
 	enemy_pools[enemy.type].kill(enemy)
 
-
-func death_drop():
-	
-	pass
-
-
 func spawn_enemy(pos, enemy_type = null):
 	if enemy_type == null || ! ( enemy_pools[enemy_type].collection.size() >= 0 )  || live_enemies >= max_concurrent_enemies:
 		return null
-	var new_enemy = enemy_pools[enemy_type].add(get_tree().current_scene)
-	new_enemy.global_position = pos
+	var new_enemy = enemy_pools[enemy_type].add(pos)
 	live_enemies+=1
 	enemies_spawned += 1
 	pass
-
 
 func _process(delta):
 	'''
@@ -97,7 +89,6 @@ func try_spawn():
 		if (player.position - true_pos).length() > min_dist_from_player:
 			
 			spawn_enemy(true_pos, pick_rand_enemy())
-
 
 func pick_rand_enemy():
 	var chance = randf_range(0,1)

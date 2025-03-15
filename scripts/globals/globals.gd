@@ -3,7 +3,7 @@ extends Node
 var player: CharacterBody2D = null
 var currency_key: String = "money"
 var levels = ["Limbo", "Lust"]
-
+var orphans = []
 
 var current_level = {
 	"level":levels[0],

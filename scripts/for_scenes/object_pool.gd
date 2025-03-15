@@ -1,31 +1,42 @@
+extends Node
 class_name Pool
 
 var path : String
 var entity
 var collection = []
 
-func _init(ref: String, amount):
+func _init(root: Node, ref: String, amount):
 	path = ref
 	entity = load(ref)
-	
 	for items in range(amount):
-		collection.append(entity.instantiate())
+		var instance = entity.instantiate()
+		collection.append(instance)
+		root.add_child(instance)
 
-func kill(object):
-	object.get_parent().remove_child(object)
-	collection.append(object)
-	if object.reset:
-		object.reset()
+func kill(object: Node):
+	turn_off(object)
 
-
-func add(parent):
+func add( position = Vector2.ZERO):
 	if (collection.size() <= 0 ):
 		print("pool is empty")
 		return null
 	var object = collection.pop_back()
-	call_deferred("add_to_tree", parent, object)
-	return (object)
+	if object.position:
+		object.position = position
+	turn_on(object)
 
-# seperated this into a function so I could defer the call.
-func add_to_tree(root, object):
-	root.add_child(object)
+func turn_off(object):
+	object.set_process(false)
+	object.set_physics_process(false)
+	if object.has_method("hide"):
+		object.hide()
+	for child in object.get_children():
+		turn_off(child)
+
+func turn_on(object):
+	object.set_process(true)
+	object.set_physics_process(true)
+	if object.has_method("show"):
+		object.show()
+	for child in object.get_children():
+		turn_on(child)

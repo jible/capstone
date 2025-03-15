@@ -39,3 +39,9 @@ TUTORIAL_6,Use currency to buy upgrades that make your character stronger,Usa la
 TUTORIAL_7,The kill counter at the top tracks how many enemies are left until the exit unlocks and you can move on to the next level,El contador de bajas en la parte superior muestra cuántos enemigos quedan hasta que se desbloquee la salida y puedas avanzar al siguiente nivel,Le compteur de kills en haut de l'écran indique combien d'ennemis restent avant que la sortie se déverrouille et que vous puissiez passer au niveau suivant,画面上部のキルカウンターは、出口が解除されて次のレベルに進めるまでの残りの敵の数を表示します
 TUTORIAL_8,"Using the mini-map, you can more easily navigate the twisting corridors of Hell","Usando el minimapa, puedes navegar más fácilmente por los retorcidos pasillos del Infierno","En utilisant la mini-carte, vous pouvez naviguer plus facilement dans les couloirs tortueux de l'Enfer",ミニマップを使うと、地獄の入り組んだ通路をより簡単に進むことができます
 TUTORIAL_9,"Use Esc/Start to pause the game, tune the options, or give up and let the demons of Hell consume you","Usa Esc/Start para pausar el juego, ajustar las opciones o rendirte y dejar que los demonios del infierno te consuman.","Utilisez Esc/Start pour mettre le jeu en pause, ajuster les options, ou abandonner et laisser les démons de l'Enfer vous dévorer.",ゲームを一時停止するにはEsc/Startを使用し、オプションを調整するか、諦めて地獄の悪魔に食べられるがよい
+MAIN_MENU,Main Menu,Menú Principal,Menu Principal,メインメニュー
+MUSIC_VOLUME,Music Volume,Volumen de la Música,Volume de la Musique,音楽の音量
+UI_VOLUME,UI Volume,Volumen de la Interfaz,Volume de l'Interface,UIの音量
+VOICE_VOLUME,Player Volume,Volumen del Jugador,Volume du Joueur,プレイヤーの音量
+ENEMY_VOLUME,Enemy Volume,Volumen de los Enemigos,Volume des Ennemis,敵の音量
+ENVIRO_VOLUME,Environment Volume,Volumen del Entorno,Volume de l'Environnement,環境の音量

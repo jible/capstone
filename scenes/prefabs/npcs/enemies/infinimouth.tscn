@@ -833,6 +833,7 @@ shape = SubResource("CircleShape2D_a50l1")
 
 [node name="Voice" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 10
+bus = &"Entity"
 
 [node name="LOS Checker1" type="RayCast2D" parent="."]
 position = Vector2(0, -44.11)

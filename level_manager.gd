@@ -4,6 +4,8 @@ var current_level_index = 0
 var level_scene_reference
 var current_package 
 var exit_instance
+#TODO hard path listed here
+@onready var main_menu = preload("res://scenes/testScenes/main_menu.tscn")
 
 func _ready():
 	update_current_package()
@@ -99,6 +101,10 @@ func enable_exit():
 
 func go_next_level():
 	current_level_index += 1
+	if current_level_index >= level_order.size():
+		Globals.change_scene( main_menu )
+		MusicManager.change_song(MusicManager.MAIN_MENU)
+		return
 	update_current_package()
 	Globals.change_scene( level_scene_reference )
 

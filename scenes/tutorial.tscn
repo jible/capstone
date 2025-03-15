@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cncge7c4uemyj"]
+[gd_scene load_steps=14 format=3 uid="uid://cncge7c4uemyj"]
 
 [ext_resource type="Script" path="res://scripts/for_scenes/tutorial.gd" id="1_cxgyi"]
 [ext_resource type="VideoStream" path="res://assets/tutorial/movement.ogv" id="2_n5tch"]
@@ -11,6 +11,7 @@
 [ext_resource type="VideoStream" path="res://assets/tutorial/minimap.ogv" id="9_ce1g4"]
 [ext_resource type="Theme" uid="uid://yx62bcop46jb" path="res://themes/navigation_buttons.tres" id="9_yxu3a"]
 [ext_resource type="VideoStream" path="res://assets/tutorial/pause.ogv" id="10_1inbg"]
+[ext_resource type="Texture2D" uid="uid://cy1r363pot5mv" path="res://assets/images/title_bg.png" id="11_h16av"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efer2"]
 bg_color = Color(0, 0, 0, 0.870588)
@@ -30,14 +31,30 @@ text_bank = Array[String](["TUTORIAL_1", "TUTORIAL_2", "TUTORIAL_3", "TUTORIAL_4
 top_position = NodePath("Top Position")
 bottom_position = NodePath("Bottom Position")
 
-[node name="Visuals" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("11_h16av")
+centered = false
+
+[node name="Visuals" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Visuals"]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 volume_db = -80.0
+expand = true
 loop = true
 
 [node name="Next" type="Button" parent="."]

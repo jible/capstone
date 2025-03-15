@@ -6,12 +6,19 @@ class_name Navigator
 @export var character: CharacterBody2D
 var timer: Timer
 var update_path_on_timer: bool = false
+var prepped = false
 
 func _ready():
+	NavigationServer2D.map_changed.connect(connected_to_map)
 	make_timer()
+
+func connected_to_map(_unused):
+	prepped = true
 
 
 func get_next_step():
+	if !prepped:
+		return character.position
 	return get_next_path_position()
 
 

@@ -508,5 +508,28 @@
 
 ## version 0.92
 
-- Added background to death screen
-- Reset stats in options menu now resets high score
+- Fixed game crashing bug:
+    - Previously, game crashed in levels 2+ because of the mini map
+    - Some part of the mini map caused the game to randomly crash when the player dashed or swung their sword
+    - Temporarily fixed this by commenting out call to configure mini map
+- While attempting to patch this bug, fixed massive memory issues:
+    - Tile map Map and Tile nodes were instanced, but not added to the tree, causing them to not be freed when changing scenes
+    - Changed code to add Map and Tile objects to scene tree when instanced
+    - The same change was made for the Pool object
+        - Each enemy pool is added as a child to the enemy manager (enemies are the only object currently being pooled)
+        - Refactored object pool to instance all objects and turn them off instead of leaving them outside of the scene tree
+
+## version 0.93
+
+- Added new volume sliders scene to options menu
+- New localization keys added for volume sliders
+- Refactored Sound and Music Managers, removed volume_mult
+- Created default audio bus layout, added to project settings
+- AudioStreamPlayers now need a Bus field set to link them to the appropriate settings
+
+## version 0.94
+
+- Removed unsued asset files
+- Removed affiliated import files
+- Audio files compressed to decrease game size (wav -> MP3)
+- Tutorial videos shortened and changed from 1080p to 720p

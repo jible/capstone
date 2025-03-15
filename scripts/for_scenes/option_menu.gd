@@ -5,8 +5,9 @@ extends Control
 # https://docs.godotengine.org/en/stable/classes/class_translationserver.html#class-translationserver
 
 @export var remap_menu: PackedScene
-@onready var remap_button: Button = $"VBoxContainer/RemapButton"
-@onready var language_dropdown: OptionButton = $"VBoxContainer/LanguageDropdown"
+@onready var remap_button: Button = %RemapButton
+@onready var language_dropdown: OptionButton = %LanguageDropdown
+
 	
 func _enter_tree() -> void:
 	self.show()
