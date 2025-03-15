@@ -4,6 +4,7 @@ extends Control
 # For how to use the TranslationServer functions
 # https://docs.godotengine.org/en/stable/classes/class_translationserver.html#class-translationserver
 
+@export var remap_menu: PackedScene
 @onready var remap_button: Button = %RemapButton
 @onready var language_dropdown: OptionButton = %LanguageDropdown
 
@@ -44,3 +45,11 @@ func _on_filter_dropdown_item_selected(index: int) -> void:
 func _on_back_button_pressed() -> void:
 	SignalBus.options_closed.emit()
 	self.queue_free()
+
+func _on_reset_stat_button_pressed() -> void:
+	ScoreManager.delete_save()
+	SignalBus.update_HUD.emit()
+
+func _on_remap_button_pressed() -> void:
+	var remap_instance = remap_menu.instantiate()
+	add_child(remap_instance)

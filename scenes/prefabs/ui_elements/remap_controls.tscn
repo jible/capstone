@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://wjub04cwg42m"]
+
+[ext_resource type="Script" path="res://scripts/for_scenes/remap_controls.gd" id="1_y2rld"]
+[ext_resource type="PackedScene" uid="uid://doijtrae4gl6n" path="res://scenes/prefabs/ui_elements/bind_control.tscn" id="2_b8idm"]
+[ext_resource type="Texture2D" uid="uid://cy1r363pot5mv" path="res://assets/images/title_bg.png" id="3_3vie3"]
+
+[node name="RemapControls" type="Control" node_paths=PackedStringArray("container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y2rld")
+container = NodePath("VBoxContainer")
+bind_control = ExtResource("2_b8idm")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_3vie3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -6.0
+offset_right = 13.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="up" parent="VBoxContainer" groups=["controls"] instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "up"
+
+[node name="down" parent="VBoxContainer" groups=["controls"] instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "down"
+
+[node name="left" parent="VBoxContainer" groups=["controls"] instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "left"
+
+[node name="right" parent="VBoxContainer" groups=["controls"] instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "right"
+
+[node name="esc" parent="VBoxContainer" groups=["controls"] instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "esc"
+
+[node name="run" parent="VBoxContainer" groups=["controls"] instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "run"
+
+[node name="interact" parent="VBoxContainer" groups=["controls"] instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "interact"
+
+[node name="attack" parent="VBoxContainer" groups=["controls"] instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "attack"
+
+[node name="OpenUpgrades" parent="VBoxContainer" groups=["controls"] instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "OpenUpgrades"
+
+[node name="dash" parent="VBoxContainer" groups=["controls"] instance=ExtResource("2_b8idm")]
+layout_mode = 2
+control = "dash"
+
+[node name="ResetButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -248.0
+offset_right = 27.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "RESET"
+
+[node name="BackButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -208.0
+offset_right = 26.0
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "BACK"
+
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

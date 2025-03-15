@@ -10,7 +10,8 @@ extends Control
 @export var high_score_label : Label 
 func _ready() -> void:
 	SignalBus.options_closed.connect(_on_options_hidden)
-	high_score_label.text = tr("HIGH_SCORE") + "%d" % ScoreManager.high_score
+	SignalBus.update_HUD.connect(update_high_score_label)
+	update_high_score_label()
 	play_button.grab_focus()
 
 func _on_play_button_button_up() -> void:
@@ -31,3 +32,6 @@ func _on_options_hidden():
 
 func _on_quit_button_pressed() -> void:
 	Globals.quit_game()
+
+func update_high_score_label() -> void:
+	high_score_label.text = tr("HIGH_SCORE") + "%d" % ScoreManager.high_score
