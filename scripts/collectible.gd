@@ -47,7 +47,6 @@ func prep( package ):
 
 
 func _on_area_entered(area):
-	print("in gravity")
 	var temp = area.get_parent()
 	if temp.is_in_group("Player"):
 		target = temp
