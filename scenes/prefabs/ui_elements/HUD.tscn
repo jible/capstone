@@ -108,12 +108,14 @@ offset_bottom = 1080.0
 texture = ExtResource("3_oovd0")
 
 [node name="Minimap Border" type="Sprite2D" parent="Border"]
+visible = false
 position = Vector2(24, 760)
 scale = Vector2(0.580153, 0.580153)
 texture = ExtResource("5_tke87")
 centered = false
 
 [node name="Minimap Container" type="SubViewportContainer" parent="Border"]
+visible = false
 modulate = Color(0.758192, 0.758192, 0.758192, 1)
 layout_mode = 2
 anchor_top = 1.0
@@ -126,9 +128,10 @@ scale = Vector2(0.565, 0.565)
 
 [node name="Minimap Viewport" type="SubViewport" parent="Border/Minimap Container"]
 handle_input_locally = false
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Minimap Camera" type="Camera2D" parent="Border/Minimap Container/Minimap Viewport"]
+visible = false
 
 [node name="UpgradeMenuButton" type="TextureButton" parent="Border"]
 layout_mode = 1

@@ -17,7 +17,6 @@ var level_order = [
 	"limbo_1",
 	"limbo_2",
 	"limbo_3",
-	"lust_1",
 ]
 
 var default_enemy_package = {
@@ -51,8 +50,33 @@ var default_package = {
 var level_packages = {
 	# LIMBO SECTION
 	# Limbo_1 can use the default for now. Modify it as you see fit.
-	"limbo_1" : {}, 
+	"limbo_1" : {
+		"enemy_package" :{
+			"max_concurrent_enemies": 5,
+			"required_enemies" : 3,
+			"all_time_spawns": 10,
+			"enemy_types":[
+				{
+					"name" : "infinimouth",
+					"pool_size": 50,
+					"frequency": 1
+				}
+			]
+		}
+	}, 
 	"limbo_2" : {
+		"enemy_package" :{
+			"max_concurrent_enemies": 5,
+			"required_enemies" : 7,
+			"all_time_spawns": 15,
+			"enemy_types":[
+				{
+					"name" : "infinimouth",
+					"pool_size": 50,
+					"frequency": 1
+				}
+			]
+		},
 		"name": "limbo_2",
 		"width": 100,
 		"height": 100,
@@ -64,18 +88,18 @@ var level_packages = {
 	},
 	"limbo_3" : {
 		"name": "limbo_3",
-		"width": 100,
-		"height": 100,
-		"floor_tiles": 1700,
-		"gen_method": "walk",
-		"items" : [],
-		"end_distance": 100,
-		"tile_set": "path?"
-	},
-	
-	# LUST SECTION
-	"lust_1" : {
-		"name": "lust_1",
+		"enemy_package" :{
+			"max_concurrent_enemies": 7,
+			"required_enemies" : 10,
+			"all_time_spawns": 15,
+			"enemy_types":[
+				{
+					"name" : "infinimouth",
+					"pool_size": 50,
+					"frequency": 1
+				}
+			]
+		},
 		"width": 100,
 		"height": 100,
 		"floor_tiles": 1700,
@@ -102,6 +126,8 @@ func enable_exit():
 func go_next_level():
 	current_level_index += 1
 	if current_level_index >= level_order.size():
+		current_level_index = 0
+		ScoreManager.score = 0
 		Globals.change_scene( main_menu )
 		MusicManager.change_song(MusicManager.MAIN_MENU)
 		return
