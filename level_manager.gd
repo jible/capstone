@@ -130,6 +130,7 @@ func go_next_level():
 		ScoreManager.score = 0
 		Globals.change_scene( main_menu )
 		MusicManager.change_song(MusicManager.MAIN_MENU)
+		update_current_package()
 		return
 	update_current_package()
 	Globals.change_scene( level_scene_reference )
