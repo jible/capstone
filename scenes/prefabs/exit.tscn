@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://c60va2pop5yhv"]
 
-[ext_resource type="Script" path="res://scripts/pit.gd" id="1_lxy2n"]
+[ext_resource type="Script" uid="uid://d2cwggnrm8s23" path="res://scripts/pit.gd" id="1_lxy2n"]
 [ext_resource type="Texture2D" uid="uid://5svwkx2o14oa" path="res://icon.svg" id="3_bd6ud"]
 [ext_resource type="Texture2D" uid="uid://4ya53gwv8w2m" path="res://assets/spritesheets/exit.png" id="3_wmg3c"]
 [ext_resource type="Texture2D" uid="uid://crxhbay34eug3" path="res://assets/images/exit_locked.png" id="4_6kuvu"]
-[ext_resource type="Shader" path="res://assets/shaders/locked_exit.gdshader" id="4_h1qib"]
+[ext_resource type="Shader" uid="uid://cy3dvw0jupwno" path="res://assets/shaders/locked_exit.gdshader" id="4_h1qib"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tipcd"]
 radius = 16.4

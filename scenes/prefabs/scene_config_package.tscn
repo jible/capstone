@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://bugqksfg6vdn7"]
 
-[ext_resource type="Script" path="res://scenes/prefabs/scene_config_package.gd" id="1_qcfrr"]
+[ext_resource type="Script" uid="uid://cs24jl267gxcl" path="res://scenes/prefabs/scene_config_package.gd" id="1_qcfrr"]
 [ext_resource type="PackedScene" uid="uid://b0qchcd21rx5b" path="res://scenes/level_generator.tscn" id="2_1eor7"]
 [ext_resource type="PackedScene" uid="uid://c6kyubdgubp47" path="res://scenes/prefabs/player/player.tscn" id="3_5fksv"]
 [ext_resource type="PackedScene" uid="uid://c611v6n8n75j1" path="res://scenes/prefabs/custom_camera.tscn" id="4_t24gl"]
-[ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="5_e7sx3"]
+[ext_resource type="Script" uid="uid://bvv4l3ajkk0g1" path="res://scripts/enemy_manager.gd" id="5_e7sx3"]
 [ext_resource type="PackedScene" uid="uid://dfvsgbamdsiep" path="res://scenes/prefabs/ui_elements/HUD.tscn" id="6_14c2j"]
-[ext_resource type="Script" path="res://item_manager.gd" id="10_ww6gq"]
+[ext_resource type="Script" uid="uid://hqji3p5flph6" path="res://item_manager.gd" id="10_ww6gq"]
 
 [node name="Scene Config Package" type="Node2D" node_paths=PackedStringArray("level_generator", "camera", "player", "hud")]
 z_as_relative = false

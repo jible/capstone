@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ciq2y3xn8blhn"]
 
-[ext_resource type="Script" path="res://scripts/for_scenes/enemies_slain.gd" id="1_g85l7"]
+[ext_resource type="Script" uid="uid://qf288p7ladwg" path="res://scripts/for_scenes/enemies_slain.gd" id="1_g85l7"]
 
 [node name="EnemiesSlain" type="Control"]
 layout_mode = 3

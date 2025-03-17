@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://b0qchcd21rx5b"]
 
-[ext_resource type="Script" path="res://scripts/level_generator.gd" id="1_imcpr"]
+[ext_resource type="Script" uid="uid://dv44bfaktfqcl" path="res://scripts/level_generator.gd" id="1_imcpr"]
 [ext_resource type="PackedScene" uid="uid://ddelqb5kn8xdx" path="res://scenes/prefabs/enter.tscn" id="2_ci0jl"]
 [ext_resource type="PackedScene" uid="uid://c60va2pop5yhv" path="res://scenes/prefabs/exit.tscn" id="3_8m6eb"]
 [ext_resource type="TileSet" uid="uid://cbcmjaiqxltk3" path="res://tilesets/temp_floor.tres" id="4_wlnp8"]
 [ext_resource type="TileSet" uid="uid://1imsba4bq02e" path="res://scenes/temp_layered_walls.tres" id="5_n57bq"]
-[ext_resource type="Script" path="res://scripts/nav_mesh_maker.gd" id="6_eeug0"]
+[ext_resource type="Script" uid="uid://be4648gjlvtjt" path="res://scripts/nav_mesh_maker.gd" id="6_eeug0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2pohe"]
 vertices = PackedVector2Array(12385.7, 9217.02, -1818.88, 9240.98, -1695.1, -1351.48, 9188.58, -1897.61)

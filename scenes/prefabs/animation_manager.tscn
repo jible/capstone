@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://0ry41ukaumi6"]
 
-[ext_resource type="Script" path="res://scripts/characters/animation_manager.gd" id="1_qb86c"]
+[ext_resource type="Script" uid="uid://cj8urujbwsvmr" path="res://scripts/characters/animation_manager.gd" id="1_qb86c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aptl5"]
 
