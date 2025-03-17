@@ -16,8 +16,8 @@ var inventory: Inventory = Inventory
 
 func _ready():
 	Globals.player = self
-	grab_upgrades()
 	grab_health()
+	grab_upgrades()
 	SignalBus.player_stat_upgraded.connect(update_stat)
 	SignalBus.level_completed.connect(store_health)
 

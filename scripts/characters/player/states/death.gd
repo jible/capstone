@@ -17,7 +17,8 @@ var callbacks = {
 }
 
 func done():
-	print("dead")
+	Inventory.reset_inventory()
+	UpgradeManager.reset_upgrades()
 	SignalBus.player_die.emit()
 	Globals.change_scene(load(death_scene))
 	

@@ -38,13 +38,13 @@ grow_vertical = 2
 [node name="Reset" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "PLAY_BUTTON"
+text = "MAIN_MENU"
 icon_alignment = 1
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "MAIN_MENU"
+text = "QUIT_BUTTON"
 icon_alignment = 1
 
 [node name="Label" type="Label" parent="."]

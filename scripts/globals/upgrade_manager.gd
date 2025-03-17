@@ -77,3 +77,4 @@ func reset_upgrades():
 	for key in stat_lvl:
 		stat_lvl[key] = 0
 		upgrade_bonus[key] = 0
+	SignalBus.update_HUD.emit()
