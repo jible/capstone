@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bt7w3orvfq2tv"]
 
-[ext_resource type="Script" path="res://scripts/for_scenes/stat_upgrade.gd" id="1_ejj0v"]
+[ext_resource type="Script" uid="uid://csm4dyv61fhyu" path="res://scripts/for_scenes/stat_upgrade.gd" id="1_ejj0v"]
 [ext_resource type="Texture2D" uid="uid://kedtfcwfy0lt" path="res://assets/images/cursorV3.png" id="2_rp61y"]
 
 [node name="StatUpgrade" type="HBoxContainer"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bywi33bblmvxw"]
 
-[ext_resource type="Script" path="res://scripts/for_scenes/stat_total.gd" id="1_tjtci"]
+[ext_resource type="Script" uid="uid://krhxtaxwhw5q" path="res://scripts/for_scenes/stat_total.gd" id="1_tjtci"]
 
 [node name="StatTotal" type="Control"]
 layout_mode = 3

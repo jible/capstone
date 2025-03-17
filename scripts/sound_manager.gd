@@ -55,6 +55,7 @@ var env_sound_settings: Array[SoundSetting] = []
 func create_sound(sound_lib: Array[AudioStreamMP3], setting_lib:Array[SoundSetting],index:int,sound_file:AudioStreamMP3,volume:float,pitch:float,attenuation:float):
 	sound_lib[index] = sound_file
 	setting_lib[index] = SoundSetting.new(volume, pitch, attenuation)
+	add_child(setting_lib[index])
 
 # LOADERS	
 func load_player_sounds():
